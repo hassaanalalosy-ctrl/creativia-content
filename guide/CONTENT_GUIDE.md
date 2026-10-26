@@ -9,6 +9,12 @@ Anything creative, chosen for being **strong and trending right now**:
 contemporary art · Arab art · architecture · industrial and product design · advertising campaigns and the people behind them · illustration and painting · photography · typography and type design · brand identities.
 Rotate categories: never the same category three posts in a row (check `log/posted.md`).
 
+## Major creative events
+Important events are part of the schedule. Cover a major event in the days right after it happens (results, winners, best work), or a short preview the week before:
+- Global: Cannes Lions, The One Show, D&AD Awards, Clio Awards, ADC Awards, Portfolio Night (The One Club), Milan Design Week (Salone del Mobile), London Design Festival, Dutch Design Week, Venice Biennale (art and architecture), Art Basel, Frieze, Pritzker Prize, RIBA prizes, Wildlife Photographer of the Year, World Press Photo, Type Directors Club.
+- Arab and regional: Art Dubai, Dubai Design Week, Abu Dhabi Art, Sharjah Biennial, Diriyah Biennale, Islamic Arts Biennale, Saudi Design Week, Beirut Design Week, Dubai Lynx, and creative events in Iraq (Baghdad, Erbil, Basra).
+An event post may take a date outside the normal slot pattern when timing matters, as long as the month stays at 20 posts or fewer.
+
 ## Sources (discovery)
 Design and architecture: Dezeen, Designboom, ArchDaily, Core77, Yanko Design, Archinect, The Architect's Newspaper, Wallpaper*.
 Art: Colossal, Artsy, Artnet News, Hyperallergic, The Art Newspaper.

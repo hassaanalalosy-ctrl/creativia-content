@@ -29,6 +29,9 @@ Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and 
 - `text`: the caption; `publicationDate`: `{"dateTime":"<slot>T21:00:00","timezone":"Asia/Baghdad"}`
 - **Trial period (until the owner says otherwise): `"draft": true, "autoPublish": true`** — the owner reviews each draft in the Metricool app and schedules it; once scheduled it publishes automatically.
 
+### Replacing images of an existing post
+GitHub's raw links on `main` are cached for a few minutes, so after a re-render never reuse the `main` URL. Use the commit that holds the new image: `git log -1 --format=%H -- posts/<id>/slides/NN.png`, then `https://raw.githubusercontent.com/hassaanalalosy-ctrl/creativia-content/<that sha>/posts/<id>/slides/NN.png`. Download it once and compare it with the local file before sending it to Metricool.
+
 ## 5. Record and clean up
 - Add `"<slot>": "<id>"` to `log/schedule.json` and a line to `log/posted.md`: `- <slot> · <category> · <Arabic one-line topic> · <id>`.
 - Delete `posts/*/slides` folders of posts whose slot date is more than 30 days ago (Metricool keeps its own copy).

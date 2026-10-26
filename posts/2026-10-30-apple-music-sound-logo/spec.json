@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-30-apple-music-sound-logo",
+  "topic": "Apple Music's new identity, physically shaped by sound with Fred again.. and NEST Acoustics",
+  "category": "هوية بصرية",
+  "mode": "dark",
+  "sources": [
+    "https://www.creativeboom.com/news/apple-musics-new-logo-was-shaped-by-fred-again-and-a-bath-of-mineral-oil/",
+    "https://www.macrumors.com/2026/10/21/apple-music-new-look-announced/",
+    "https://9to5mac.com/2026/10/21/apple-music-unveils-new-design-rebrand-with-logo-made-by-sound",
+    "https://t2online.in/tech/tech-news/apple-music-adopts-new-logo-mnemonic-made-from-filmed-sound-waves/2008775",
+    "https://www.thatericalper.com/2026/10/22/fred-again-helps-apple-music-turn-sound-into-its-new-visual-identity/"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "هوية جديدة",
+      "title": "شعار Apple Music الجديد… رسمه الصوت!",
+      "note": "شوف هذا!",
+      "pose": "point",
+      "chips": [{ "icon": "type", "label": "هوية بصرية" }, { "icon": "trend", "label": "ترند" }]
+    },
+    {
+      "type": "text",
+      "tag": "القصة",
+      "tagIcon": "spark",
+      "title": "كيف انصنع الشعار؟",
+      "points": [
+        "فريد أغين و NEST Acoustics ألّفوا مقطوعة أصلية",
+        "كل نوتة تشتغل بمحوّل اهتزاز داخل حوض زيت معدني",
+        "الموجات تصوّرت بالكاميرا مباشرة، بدون رسم رقمي"
+      ]
+    },
+    {
+      "type": "inner",
+      "image": "https://media.creativeboom.com/8b5c14b0-8c37-429b-801e-309c8d962804/conversions/681de3bb4b0aea401245f747b133687dc02bbb7d-medium.webp",
+      "title": "الصوت يحرّك الزيت",
+      "body": "كل نوتة تتحول لاهتزاز يرسم موجات على الزيت. شهور من التجارب حتى توازنت الصورة مع الصوت.",
+      "credit": "Apple Music · صوت: فريد أغين و NEST Acoustics",
+      "chip": { "icon": "spark", "label": "تجربة حقيقية" },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://media.creativeboom.com/5d05d09b-fc2f-4f94-ae1f-2172ecc87c00/conversions/23c966b05a9c6dab1187204f1fabe39d737b9873-medium.webp",
+      "title": "أبيض وأسود بدل الأحمر",
+      "body": "كلمة music بنسخة عريضة مخصصة من خط SF Pro، وأول تغيير كبير للهوية من انطلاق الخدمة سنة 2015.",
+      "credit": "تصميم: Apple Music",
+      "chip": { "icon": "type", "label": "خط SF Pro" },
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "الدرس",
+      "tagIcon": "pen",
+      "title": "شنو نتعلم كمصممين؟",
+      "points": [
+        "ابدأ من إحساس العلامة، مو من الشكل",
+        "خلّي عملية حقيقية تصنع الصورة",
+        "نفس اللحن صار شعار وتوقيع صوتي سوا"
+      ],
+      "note": "احفظها!"
+    },
+    { "type": "end" }
+  ],
+  "caption": "شعار Apple Music الجديد ما انرسم… انصنع بالصوت ✦\n\nأعلنت Apple Music يوم 21 أكتوبر هوية جديدة، أول تغيير كبير من انطلاقها سنة 2015. المنتج البريطاني فريد أغين و NEST Acoustics ألّفوا مقطوعة أصلية، وكل نوتة منها انعزفت عبر محوّل اهتزاز داخل حوض زيت معدني.\n\nالموجات والانكسارات اللي صارت على الزيت تصوّرت بالكاميرا مباشرة، ومنها طلع شكل النوتة الجديد. والألوان صارت أبيض وأسود بدل الأحمر، مع كلمة music بنسخة عريضة مخصصة من خط SF Pro. ونفس المقطوعة صارت التوقيع الصوتي للعلامة.\n\nبرأيك، الهويات المصنوعة يدوياً راح ترجع بقوة بزمن الذكاء الاصطناعي؟ اكتبلنا بالتعليقات 👇\n\nتصميم: Apple Music\nصوت: Fred again.. & NEST Acoustics\n\n#كريتيفيا #هوية_بصرية #تصميم #تصميم_جرافيك #براندينج #AppleMusic #branding #logodesign"
+}

@@ -1,0 +1,74 @@
+{
+  "id": "2026-10-26-green-field-factory",
+  "topic": "Green Field Factory by Nakshabid Architects wins RIBA International Prize 2026",
+  "category": "عمارة",
+  "mode": "light",
+  "sources": [
+    "https://www.dezeen.com/2026/10/16/green-field-factory-nakshabid-architects-riba-international-prize/",
+    "https://archinect.com/news/bustler/11138/riba-unveils-shortlist-for-best-international-building-of-2026",
+    "https://www.ribaj.com/buildings/2026-riba-international-prize-winner-green-field-factory-nakshabid-architects/"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "جائزة عالمية",
+      "title": "أفضل مبنى جديد بالعالم لهالسنة طلع… مصنع!",
+      "note": "شوف هذا!",
+      "pose": "point",
+      "chips": [{ "icon": "building", "label": "عمارة" }, { "icon": "star", "label": "جائزة ريبا" }]
+    },
+    {
+      "type": "inner",
+      "image": "https://archinect.gumlet.io/uploads/90/908znpnurwscaw8c.JPG",
+      "title": "مصنع سجاد ببنغلاديش",
+      "body": "سبع طوابق بمدينة رانغبور، يشتغل بيه حوالي 5000 شخص، وفاز بجائزة ريبا الدولية 2026 لأفضل مبنى جديد برة بريطانيا.",
+      "credit": "تصميم: نقشبيد للعمارة · تصوير: City Syntax",
+      "chip": { "icon": "star", "label": "الفائز" },
+      "pose": "think",
+      "note": "ليش مهم؟"
+    },
+    {
+      "type": "inner",
+      "image": "https://archinect.gumlet.io/uploads/yq/yq4bfdt1hngzewom.JPG",
+      "title": "روحه من البيت البنغالي",
+      "body": "ساحات وشرفات وحدائق وواجهة خضراء، تدخّل الضوء والهوا بشكل طبيعي وتقلل الاعتماد على التكييف.",
+      "credit": "تصوير: City Syntax",
+      "kreti": false,
+      "chip": { "icon": "building", "label": "تهوية طبيعية" }
+    },
+    {
+      "type": "text",
+      "tag": "الفكرة الأذكى",
+      "tagIcon": "spark",
+      "title": "درجين متساويين لكل العاملين",
+      "points": [
+        "مدخل واحد للكل، بدل مدخل للعمال ومدخل للإدارة",
+        "مساحات مشتركة للاستراحة واللقاء",
+        "لجنة التحكيم شافت بيه كسر للتراتبية بمكان الشغل"
+      ],
+      "note": "احفظها!"
+    },
+    {
+      "type": "inner",
+      "image": "https://archinect.gumlet.io/uploads/tt/ttzrkrzk1vjxoj48.JPG",
+      "title": "مصنع يفكر بالعائلة",
+      "body": "حضانة على السطح، وعيادة، ومتجر، ومصلى، وأعمال فنية تحتفي بدور المرأة بالشغل والبيت والمجتمع.",
+      "credit": "تصوير: City Syntax",
+      "kreti": false,
+      "chip": { "icon": "star", "label": "مكان إنساني" }
+    },
+    {
+      "type": "text",
+      "tag": "الخلاصة",
+      "tagIcon": "pen",
+      "title": "شنو نتعلم من هالمصنع؟",
+      "points": [
+        "العمارة الحلوة مو بس للمتاحف والأبراج",
+        "الضوء والهوا والراحة جزء من الإنتاج",
+        "التصميم يكدر يغيّر علاقة الناس بمكان شغلهم"
+      ]
+    },
+    { "type": "end" }
+  ],
+  "caption": "أفضل مبنى جديد بالعالم لهالسنة مو متحف ولا برج… هو مصنع سجاد ببنغلاديش ✦\n\nمصنع \"غرين فيلد\" بمدينة رانغبور، من تصميم مكتب نقشبيد للعمارة، فاز بجائزة ريبا الدولية 2026 من المعهد الملكي للمعماريين البريطانيين.\n\nالفكرة اللي خلته يفوز: مصنع مستوحى من البيت البنغالي، بساحات وحدائق وتهوية طبيعية، ومدخل واحد ودرجين متساويين لكل العاملين بدون تفرقة بين عامل ومدير، وحضانة وعيادة للعوائل.\n\nتتوقع هالفكرة ممكن تنطبق على مصانعنا ومكاتبنا؟ اكتبلنا بالتعليقات 👇\n\nتصميم: Nakshabid Architects\nتصوير: City Syntax\n\n#كريتيفيا #عمارة #تصميم #تصميم_معماري #architecture #RIBA #NakshabidArchitects #Bangladesh #designinspiration"
+}

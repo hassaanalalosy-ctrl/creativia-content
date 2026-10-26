@@ -94,6 +94,24 @@ ${glassChip(c, s.chip, 'top:64px;right:18px', -5)}
 <span style="font-size:11.5px;color:${c.muted}">${esc(s.credit)}</span></div>`, '#0B1410');
   },
 
+  // cover built on a full-bleed image (gallery and profile formats); fit "contain" frames a landscape image instead
+  coverImage(c, s, i, n, mode) {
+    const pic = s.fit === 'contain'
+      ? `${grid(c)}${orb(c.orb1, c.orb1Mid, 380, 'top:0;left:-20px')}<div style="position:absolute;top:56px;right:16px;left:16px;height:220px;border-radius:22px;background:${c.glass};border:1px solid ${c.glassBorder};box-shadow:${c.tileShadow};padding:8px;box-sizing:border-box"><div style="height:100%;border-radius:16px;overflow:hidden">${img(s.image, 'cover')}</div></div>`
+      : `<div style="position:absolute;inset:0">${img(s.image, 'cover')}</div><div style="position:absolute;inset:0;background:${c.fade}"></div>`;
+    return frame(c, `${pic}
+<div style="position:absolute;top:16px;right:16px;left:16px;display:flex;justify-content:space-between;align-items:center">
+<span style="display:flex;align-items:center;gap:6px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500"><span style="width:7px;height:7px;border-radius:50%;background:#2EE86B"></span>${esc(s.badge || 'جديد اليوم')}</span>
+<span style="width:36px;height:36px;border-radius:50%;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center">${mark({ size: 20 })}</span></div>
+${glassChip(c, (s.chips || [])[0], `top:${s.fit === 'contain' ? 262 : 70}px;right:18px`, -6)}${glassChip(c, (s.chips || [])[1], `top:${s.fit === 'contain' ? 270 : 112}px;left:18px`, 5)}
+${s.kreti ? `<div style="position:absolute;bottom:182px;left:10px">${kreti({ pose: s.pose || 'jump', size: 70, mode, cut: c.cut, look: 'dream' })}</div>` : ''}
+${star(c, 16, 'top:150px;left:60px')}
+<div style="position:absolute;bottom:14px;right:14px;left:14px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(14px);box-shadow:${c.chipShadow};border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:10px">
+<p style="margin:0;font-size:${s.titleSize || 22}px;font-weight:800;line-height:1.3">${esc(s.title)}</p>
+${s.credit ? `<span style="font-size:11.5px;color:${c.muted}">${esc(s.credit)}</span>` : ''}
+<div style="display:flex;justify-content:space-between;align-items:center"><span dir="ltr" style="unicode-bidi:isolate;font-size:12px;color:${c.muted}">${counter(i, n)}</span><span style="background:${c.pillBg};color:${c.pillText};font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px">اسحب ←</span></div></div>`, s.fit === 'contain' ? null : '#0B1410');
+  },
+
   text(c, s, i, n) {
     const pts = (s.points || []).map((p, k) => `<div style="display:flex;align-items:center;gap:10px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);border-radius:14px;padding:9px 12px"><span style="flex:none;width:24px;height:24px;border-radius:8px;background:#2EE86B;color:#0B1410;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">${k + 1}</span><span style="font-size:13px;line-height:1.5">${esc(p)}</span></div>`).join('');
     return frame(c, `${grid(c)}${orb(c.orb1, c.orb1Mid, 360, 'top:-120px;left:-120px')}${orb(c.orb3, null, 280, 'bottom:-110px;right:-100px')}

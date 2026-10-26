@@ -33,9 +33,20 @@ Avoid: politics, religion debates, war imagery, nudity, gossip, and AI-generated
 - **All numbers are written with English digits** (2026, 5000, 1 / 7).
 - Names of creators, studios and photographers: write them in Arabic in slide text when natural, and in their original Latin spelling in the caption credits.
 
+## Format rotation (keeps the feed varied)
+Pick the format from the number of entries already in `log/schedule.json` (call it N), then N mod 5:
+- **0 · Story carousel** — `cover` (Kreti) → `inner` slides → one `text` slide with the key idea → `end`. For news, projects, prizes.
+- **1 · Gallery carousel** — `coverImage` (full-bleed portrait work, or `"fit":"contain"` for landscape) → 3 to 5 `image`/`inner` slides, one work per slide, each credited → `end`. No `text` slide needed. For artists, photographers, series, exhibitions.
+- **2 · Single post** — one `single` slide of one striking work. Short caption.
+- **3 · Lessons carousel** — `cover` (Kreti `think` or `point`) → 2 `text` slides of practical takeaways (tips, rules, "5 things we learn from…") with 1 or 2 `inner` image slides between them → `end`. For campaigns, branding, typography, design thinking.
+- **4 · Profile carousel** — `coverImage` of the creator's best-known work → `inner` slides walking through their path and key works → one `text` slide ("why they matter") → `end`. For important names in advertising, design, art.
+If the chosen topic truly cannot fit that format, use the next format in the list (never the same format as the previous post).
+Use `"mode": "dark"` when N mod 4 is 3, or when the artwork itself is dark.
+Kreti cover poses rotate too: `point`, `jump`, `think` — not the same pose twice in a row.
+
 ## Carousel structure (default format)
 5 to 8 slides, rendered at 1080 × 1350:
-1. `cover` — a hook headline (max ~45 characters, 2 lines), 2 chips (category + angle), a short handwritten note, Kreti pose `point` (discovery) or `jump` (amazing work).
+1. `cover` or `coverImage` — a hook headline (max ~45 characters, 2 lines), 2 chips (category + angle), a short handwritten note, Kreti pose `point` (discovery) or `jump` (amazing work).
 2. Story slides: `inner` (framed image, best for landscape photos) or `image` (full-bleed, only for portrait images).
 3. At least one `text` slide: the key idea or the lesson, with 3 short numbered points.
 4. Last slide always `end`.
@@ -58,6 +69,7 @@ Handwritten notes (`note`): 2 to 3 words max (شوف هذا! · ليش مهم؟ 
      "credit": "تصميم: ... · تصوير: Name", "chip": {"icon": "star", "label": "..."}, "kreti": false},
     {"type": "image", "image": "https://portrait-image.jpg", "title": "...", "credit": "...", "chip": {...}},
     {"type": "text", "tag": "الفكرة", "tagIcon": "spark", "title": "...", "points": ["...", "...", "..."], "note": "احفظها!"},
+    {"type": "coverImage", "image": "...", "fit": "contain", "title": "...", "credit": "...", "chips": [{...}, {...}], "kreti": false},
     {"type": "single", "image": "...", "title": "...", "credit": "...", "chip": {...}, "kreti": true, "note": "تحفة!"},
     {"type": "end"}
   ],

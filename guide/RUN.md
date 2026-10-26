@@ -27,7 +27,7 @@ Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and 
 - `providers`: `[{"network":"instagram"}]` — Instagram only. On the free plan every network counts as a separate post, so adding Facebook would halve the 20 posts.
 - `instagramData`: `{"type":"POST"}`
 - `text`: the caption; `publicationDate`: `{"dateTime":"<slot>T21:00:00","timezone":"Asia/Baghdad"}`
-- **Trial period (until the owner says otherwise): `"draft": true, "autoPublish": false`** — the owner reviews each draft in the Metricool app and schedules it.
+- **Trial period (until the owner says otherwise): `"draft": true, "autoPublish": true`** — the owner reviews each draft in the Metricool app and schedules it; once scheduled it publishes automatically.
 
 ## 5. Record and clean up
 - Add `"<slot>": "<id>"` to `log/schedule.json` and a line to `log/posted.md`: `- <slot> · <category> · <Arabic one-line topic> · <id>`.

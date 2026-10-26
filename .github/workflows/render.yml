@@ -1,0 +1,42 @@
+name: Render slides
+
+on:
+  push:
+    branches: [main]
+    paths: ['posts/**/spec.json']
+  workflow_dispatch:
+    inputs:
+      post:
+        description: 'Post id to re-render (optional)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Arabic system fonts fallback
+        run: sudo apt-get install -y -qq fonts-noto-core >/dev/null || true
+      - name: Render
+        run: node engine/render.js ${{ github.event.inputs.post }}
+      - name: Commit slides
+        run: |
+          git config user.name "creativia-bot"
+          git config user.email "creativia-bot@users.noreply.github.com"
+          git add posts
+          git diff --cached --quiet && exit 0
+          git commit -m "Render slides"
+          git pull --rebase origin main
+          git push

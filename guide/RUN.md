@@ -24,11 +24,10 @@ Each run creates **at most one** post. Do not create, edit or delete anything el
 ## 4. Put it in Metricool
 Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and info:
 - `media`: the raw URLs `https://raw.githubusercontent.com/hassaanalalosy-ctrl/creativia-content/main/posts/<id>/slides/NN.png` in order
-- `providers`: `[{"network":"instagram"},{"network":"facebook"}]`
-- `instagramData`: `{"type":"POST"}`, `facebookData`: `{"type":"POST"}`
+- `providers`: `[{"network":"instagram"}]` — Instagram only. On the free plan every network counts as a separate post, so adding Facebook would halve the 20 posts.
+- `instagramData`: `{"type":"POST"}`
 - `text`: the caption; `publicationDate`: `{"dateTime":"<slot>T21:00:00","timezone":"Asia/Baghdad"}`
 - **Trial period (until the owner says otherwise): `"draft": true, "autoPublish": false`** — the owner reviews each draft in the Metricool app and schedules it.
-- If Metricool rejects Facebook, retry with Instagram only and mention it in the reply.
 
 ## 5. Record and clean up
 - Add `"<slot>": "<id>"` to `log/schedule.json` and a line to `log/posted.md`: `- <slot> · <category> · <Arabic one-line topic> · <id>`.

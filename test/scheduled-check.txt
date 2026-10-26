@@ -1,0 +1,6 @@
+Scheduled connectivity check
+time_utc: 2026-10-26T02:41:52Z
+metricool: OK
+  brand: creativia.mag (id 7656023), timezone Asia/Baghdad
+  connected networks: instagram (creativia.mag), facebook (1362633430270361)
+websearch: OK

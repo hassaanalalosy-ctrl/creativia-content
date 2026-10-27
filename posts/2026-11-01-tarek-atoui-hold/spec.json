@@ -17,8 +17,17 @@
       "fit": "contain",
       "badge": "بلندن هسه",
       "title": "فنان لبناني حوّل تيت مودرن لآلة موسيقية عملاقة",
-      "credit": "طارق عطوي، «Hold» 2026 · تصوير: Tate (Ben Fisher)",
-      "chips": [{ "icon": "brush", "label": "فن معاصر" }, { "icon": "star", "label": "تيت مودرن" }],
+      "credit": "عمل: طارق عطوي · تصوير: Tate (Ben Fisher)",
+      "chips": [
+        {
+          "icon": "brush",
+          "label": "فن معاصر"
+        },
+        {
+          "icon": "star",
+          "label": "تيت مودرن"
+        }
+      ],
       "kreti": true,
       "pose": "point"
     },
@@ -26,9 +35,12 @@
       "type": "inner",
       "image": "https://dmassets.hyundai.com/is/image/hyundaiautoever/hyundai-commission-tarek-atoui-hold-02?wid=1600&fmt=jpg&qlt=90",
       "title": "قاعة التوربينات صارت أوركسترا",
-      "body": "«Hold» هو تكليف هيونداي الـ11 بقاعة التوربينات. مستمر من 13 أكتوبر 2026 لحد 11 أبريل 2027، والدخول مجاني.",
+      "body": "عمل «هولد» هو تكليف هيونداي الـ11 بقاعة التوربينات. مستمر من 13 أكتوبر 2026 لحد 11 أبريل 2027، والدخول مجاني.",
       "credit": "عمل: طارق عطوي · تصوير: Tate (Yili Liu)",
-      "chip": { "icon": "clock", "label": "لحد أبريل 2027" },
+      "chip": {
+        "icon": "clock",
+        "label": "لحد أبريل 2027"
+      },
       "kreti": false
     },
     {
@@ -37,28 +49,39 @@
       "title": "أبواق وطبول وأحجار… كلها تعزف",
       "body": "بوق «كرناي» أوزبكي، وبوقين مطبوعين 3D من السكر والخيزران، وأقمشة موصلة للكهرباء تطلع أصوات باص.",
       "credit": "عمل: طارق عطوي · تصوير: Tate (Ben Fisher)",
-      "chip": { "icon": "spark", "label": "صوت ونحت" },
+      "chip": {
+        "icon": "spark",
+        "label": "صوت ونحت"
+      },
       "kreti": false
     },
     {
       "type": "inner",
       "image": "https://dmassets.hyundai.com/is/image/hyundaiautoever/hyundai-commission-tarek-atoui-hold-05?wid=1600&fmt=jpg&qlt=90",
       "title": "طارق عطوي، من بيروت لباريس",
-      "body": "مواليد بيروت 1980 ويعيش بباريس. فنان ومؤلف موسيقي، والعمل يتغير طول المدة بمشاركة الزوار وعروض حية كل شهر.",
-      "credit": "طارق عطوي بتيت مودرن · تصوير: Tate (Ben Fisher)",
-      "chip": { "icon": "star", "label": "فنان ومؤلف" },
+      "body": "مواليد بيروت 1980 ويعيش بباريس. العمل يتغير طول المدة بمشاركة الزوار وعروض حية كل شهر.",
+      "credit": "طارق عطوي · تصوير: Tate (Ben Fisher)",
+      "chip": {
+        "icon": "star",
+        "label": "فنان ومؤلف"
+      },
       "kreti": false
     },
     {
       "type": "inner",
       "image": "https://cdn.sanity.io/images/cxgd3urn/production/9eff5fcbb2bdc5f3233f96c69dc77bb69817d79c-5894x3929.jpg?w=1600&q=85&fm=jpg",
-      "title": "قبلها: «The Wind Harvesters»، 2023",
+      "title": "قبلها: «حاصدو الرياح»، 2023",
       "body": "عمل سابق لعطوي ببينالي تايلاند 2023. عنده الآلة الموسيقية تصير منحوتة بحد ذاتها.",
-      "credit": "عمل: طارق عطوي · تصوير: Wanchai Phutthawarin",
-      "chip": { "icon": "camera", "label": "عمل سابق" },
+      "credit": "طارق عطوي · تصوير: Wanchai Phutthawarin",
+      "chip": {
+        "icon": "camera",
+        "label": "عمل سابق"
+      },
       "kreti": false
     },
-    { "type": "end" }
+    {
+      "type": "end"
+    }
   ],
-  "caption": "فنان لبناني حوّل قاعة التوربينات بتيت مودرن لآلة موسيقية عملاقة ✦\n\n«Hold» هو عمل الفنان والمؤلف الموسيقي طارق عطوي، تكليف هيونداي الـ11 بقاعة التوربينات في تيت مودرن بلندن. افتتح يوم 13 أكتوبر 2026 ويستمر لحد 11 أبريل 2027، والدخول مجاني.\n\nالعمل منظر صوتي تمشي داخله: بوق «كرناي» أوزبكي وبوقين مطبوعين 3D من خليط السكر والخيزران، وطبول وأحجار وأقمشة طويلة موصلة للكهرباء تطلع أصوات باص. مايكروفونات تلتقط أصوات القاعة والزوار، وبرنامج صممه عطوي يعيد ترتيبها لتصير جزء من التأليف.\n\nعطوي من مواليد بيروت 1980 ويعيش بباريس. وكل شهر موسيقيين يعزفون داخل العمل، يعني «Hold» ما يبقى نفسه أبداً.\n\nلو تزور، تحب تسمعه بروحك لو تحضر عرض حي؟ اكتبلنا 👇\n\nعمل: Tarek Atoui\nتنسيق: Nabila Abdel Nabi · Dina Akhmadeeva\nالأبواق مع: Arthur Mamou-Mani · الأقمشة: Satoshi Kondo (ISSEY MIYAKE)\nتصوير: Tate (Ben Fisher) · Tate (Yili Liu) · Wanchai Phutthawarin\n\n#كريتيفيا #فن_معاصر #فن #فن_صوتي #طارق_عطوي #TateModern #TarekAtoui #SoundArt #ContemporaryArt"
+  "caption": "فنان لبناني حوّل قاعة التوربينات بتيت مودرن لآلة موسيقية عملاقة ✦\n\n«هولد» (Hold) هو عمل الفنان والمؤلف الموسيقي طارق عطوي، تكليف هيونداي الـ11 بقاعة التوربينات في تيت مودرن بلندن. افتتح يوم 13 أكتوبر 2026 ويستمر لحد 11 أبريل 2027، والدخول مجاني.\n\nالعمل منظر صوتي تمشي داخله: بوق «كرناي» أوزبكي وبوقين مطبوعين 3D من خليط السكر والخيزران، وطبول وأحجار وأقمشة طويلة موصلة للكهرباء تطلع أصوات باص. مايكروفونات تلتقط أصوات القاعة والزوار، وبرنامج صممه عطوي يعيد ترتيبها لتصير جزء من التأليف.\n\nعطوي من مواليد بيروت 1980 ويعيش بباريس. وكل شهر موسيقيين يعزفون داخل العمل، يعني «هولد» ما يبقى نفسه أبداً.\n\nلو تزور، تحب تسمعه بروحك لو تحضر عرض حي؟ اكتبلنا 👇\n\nعمل: Tarek Atoui\nتنسيق: Nabila Abdel Nabi · Dina Akhmadeeva\nالأبواق مع: Arthur Mamou-Mani · الأقمشة: Satoshi Kondo (ISSEY MIYAKE)\nتصوير: Tate (Ben Fisher) · Tate (Yili Liu) · Wanchai Phutthawarin\n\n#كريتيفيا #فن_معاصر #فن #فن_صوتي #طارق_عطوي #TateModern #TarekAtoui #SoundArt #ContemporaryArt"
 }

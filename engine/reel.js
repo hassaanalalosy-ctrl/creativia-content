@@ -32,6 +32,7 @@ const ease = x => { x = clamp(x); return 1 - Math.pow(1 - x, 3); };
 const back = x => { x = clamp(x); const c = 1.70158; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
 const seg = (t, a, b) => clamp((t - a) / (b - a));
 const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const cred = s => esc(s).replace(/@[A-Za-z0-9._]+/g, m => '\u2066' + m + '\u2069');
 const D = window.REEL, C = D.theme;
 
 function words(text, t, start, step) {
@@ -126,6 +127,60 @@ const S = {
           + '</div>')
       + (s.kreti ? kreti(s.kreti, 84, t, 0.6, 'left:12px;top:' + (s.focus === 3 ? 470 : 300) + 'px') : '')
       + (s.note ? hand(s.note, t, 1.0, 'left:98px;top:' + (s.focus === 3 ? 500 : 326) + 'px', -6, 18) : '');
+  },
+  // one tip: big number (or framed image) + title + body
+  point(s, t, T) {
+    let top;
+    if (s.image) {
+      const z = 1 + 0.08 * clamp(t / s.dur);
+      const p = ease(seg(t, 0, 0.5));
+      top = '<div style="position:absolute;left:24px;right:24px;top:78px;height:230px;border-radius:24px;overflow:hidden;opacity:' + p + ';box-shadow:' + C.chipShadow + ';border:5px solid ' + C.glassBorder + '"><img src="' + s.image + '" style="width:100%;height:100%;object-fit:cover;transform:scale(' + z + ')"></div>'
+        + (s.credit ? '<div style="position:absolute;left:30px;top:318px;font-size:12px;color:' + C.muted + ';opacity:' + p + '">' + cred(s.credit) + '</div>' : '');
+    } else {
+      const p = back(seg(t, 0.05, 0.55));
+      top = '<div style="position:absolute;right:24px;top:96px;width:150px;height:150px;border-radius:44px;background:linear-gradient(145deg,#9BFFC2,#2EE86B 50%,#10B9A6);box-shadow:0 18px 40px rgba(46,232,107,0.35);transform:scale(' + p + ') rotate(' + (1 - p) * -12 + 'deg);display:flex;align-items:center;justify-content:center"><span dir="ltr" style="font-size:84px;font-weight:800;color:#0B1410">' + esc(s.num) + '</span></div>'
+        + (s.kreti ? kreti(s.kreti, 130, t, 0.4, 'left:30px;top:120px') : '')
+        + (s.note ? hand(s.note, t, 0.9, 'left:40px;top:96px', -6, 18) : '');
+    }
+    const y = s.image ? 342 : 290;
+    return top
+      + (s.image && s.num ? '<span dir="ltr" style="position:absolute;right:24px;top:' + (y - 2) + 'px;width:40px;height:40px;border-radius:13px;background:#2EE86B;color:#0B1410;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;transform:scale(' + back(seg(t, 0.3, 0.7)) + ')">' + esc(s.num) + '</span>' : '')
+      + '<div style="position:absolute;right:' + (s.image && s.num ? 74 : 24) + 'px;left:24px;top:' + y + 'px;font-size:' + (s.size || 26) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.3, 0.09) + '</div>'
+      + '<div style="position:absolute;right:24px;left:24px;top:' + (y + (s.image ? 52 : 80)) + 'px;font-size:16.5px;line-height:1.65;color:' + C.muted + ';opacity:' + ease(seg(t, 0.9, 1.4)) + ';transform:translateY(' + (1 - ease(seg(t, 0.9, 1.4))) * 10 + 'px)">' + esc(s.body) + '</div>';
+  },
+  // title + up to 4 points
+  list(s, t, T) {
+    const pts = (s.points || []).map((x, i) => {
+      const p = ease(seg(t, 0.7 + i * 0.35, 1.1 + i * 0.35));
+      return '<div style="opacity:' + p + ';transform:translateX(' + (1 - p) * -30 + 'px);display:flex;align-items:center;gap:12px;background:' + C.glass + ';border:1px solid ' + C.glassBorder + ';box-shadow:' + C.chipShadow + ';border-radius:16px;padding:11px 14px"><span dir="ltr" style="flex:none;width:30px;height:30px;border-radius:10px;background:#2EE86B;color:#0B1410;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center">' + (i + 1) + '</span><span style="font-size:16px;line-height:1.45">' + esc(x) + '</span></div>';
+    }).join('');
+    return (s.tag ? chip({ icon: s.tagIcon || 'spark', label: s.tag }, t, 0.05, -4, 'right:24px;top:84px') : '')
+      + '<div style="position:absolute;right:24px;left:24px;top:132px;font-size:' + (s.size || 28) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.2, 0.09) + '</div>'
+      + '<div style="position:absolute;right:24px;left:24px;top:' + (s.top || 230) + 'px;display:flex;flex-direction:column;gap:10px">' + pts + '</div>'
+      + (s.kreti ? kreti(s.kreti, 78, t, 0.3, 'left:16px;top:62px') : '')
+      + (s.note ? hand(s.note, t, 0.8, 'left:98px;top:88px', -6, 17) : '');
+  },
+  // wrong vs right
+  compare(s, t, T) {
+    const box = (o, good, at, top) => {
+      const p = back(seg(t, at, at + 0.5));
+      const col = good ? '#2EE86B' : '#FF6B6B';
+      return '<div style="position:absolute;right:24px;left:24px;top:' + top + 'px;opacity:' + clamp(p) + ';transform:scale(' + (0.85 + 0.15 * p) + ');background:' + C.glass + ';border:2px solid ' + col + ';box-shadow:' + C.chipShadow + ';border-radius:20px;padding:16px">'
+        + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span style="width:30px;height:30px;border-radius:50%;background:' + col + ';color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center">' + (good ? '✓' : '✕') + '</span><span style="font-size:19px;font-weight:800">' + esc(o.label) + '</span></div>'
+        + '<div style="font-size:16px;line-height:1.6;color:' + C.muted + '">' + esc(o.text) + '</div></div>';
+    };
+    return '<div style="position:absolute;right:24px;left:24px;top:86px;font-size:' + (s.size || 26) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.1, 0.09) + '</div>'
+      + box(s.bad, false, 0.6, 180) + box(s.good, true, 1.5, 330)
+      + (s.kreti ? kreti(s.kreti, 80, t, 2.0, 'left:10px;top:446px') : '');
+  },
+  // a credited image with slow zoom
+  image(s, t, T) {
+    const z = 1.02 + 0.08 * clamp(t / s.dur);
+    const p = ease(seg(t, 0, 0.5));
+    return '<div style="position:absolute;left:24px;right:24px;top:74px;height:320px;border-radius:26px;overflow:hidden;opacity:' + p + ';box-shadow:' + C.chipShadow + ';border:5px solid ' + C.glassBorder + '"><img src="' + s.image + '" style="width:100%;height:100%;object-fit:cover;transform:scale(' + z + ')"></div>'
+      + chip(s.chip, t, 0.4, -5, 'right:12px;top:58px')
+      + '<div style="position:absolute;right:24px;left:24px;top:412px;font-size:' + (s.size || 24) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.4, 0.09) + '</div>'
+      + '<div style="position:absolute;right:24px;left:24px;top:' + (s.creditTop || 470) + 'px;font-size:13px;color:' + C.muted + ';opacity:' + ease(seg(t, 1.0, 1.4)) + '">' + cred(s.credit) + '</div>';
   },
   end(s, t, T) {
     const p = ease(seg(t, 0.5, 1.0));

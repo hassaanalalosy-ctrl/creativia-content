@@ -3,7 +3,7 @@ name: Render slides
 on:
   push:
     branches: [main]
-    paths: ['posts/**/spec.json']
+    paths: ['posts/**/spec.json', 'posts/**/reel.json']
   workflow_dispatch:
     inputs:
       post:
@@ -29,8 +29,18 @@ jobs:
       - run: npm ci
       - name: Arabic system fonts fallback
         run: sudo apt-get install -y -qq fonts-noto-core >/dev/null || true
-      - name: Render
+      - name: Install ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
+      - name: Render slides
         run: node engine/render.js ${{ github.event.inputs.post }}
+      - name: Render reels
+        run: |
+          for f in posts/*/reel.json; do
+            [ -e "$f" ] || continue
+            d=$(dirname "$f"); id=$(basename "$d")
+            [ -e "$d/reel-rendered.json" ] && continue
+            node engine/reel.js "$id" || echo "{\"error\": \"reel render failed\"}" > "$d/render-error.json"
+          done
       - name: Commit slides
         run: |
           git config user.name "creativia-bot"

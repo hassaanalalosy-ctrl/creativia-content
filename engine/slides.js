@@ -29,7 +29,8 @@ const ICONS = {
   spark: 'M12 2v6M12 16v6M2 12h6M16 12h6'
 };
 
-const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const escRaw = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const esc = s => escRaw(s).replace(/@[A-Za-z0-9._]+/g, m => '\u2066' + m + '\u2069');
 const ico = (c, name, s = 16) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[name] || ICONS.star}" fill="none" stroke="${c.ink}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const star = (c, s, pos) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" style="position:absolute;${pos};filter:drop-shadow(0 0 4px ${c.starGlow})" aria-hidden="true"><path fill="${c.star}" d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z"/></svg>`;
 const glassChip = (c, chip, pos, rot) => chip ? `<span style="position:absolute;${pos};transform:rotate(${rot}deg);display:flex;align-items:center;gap:6px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);box-shadow:${c.chipShadow};border-radius:14px;padding:7px 11px;font-size:12px;font-weight:700;white-space:nowrap">${ico(c, chip.icon)}${esc(chip.label)}</span>` : '';

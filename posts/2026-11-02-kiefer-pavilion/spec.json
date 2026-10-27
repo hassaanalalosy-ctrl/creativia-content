@@ -13,8 +13,8 @@
     {
       "type": "single",
       "badge": "اختيار اليوم",
-      "image": "https://static.designboom.com/wp-content/uploads/2026/10/david-chipperfield-architects-anselm-kiefer-pavillon-studio-menges-tugushi-germany-designboom-05a.jpg",
-      "fit": "contain",
+      "image": "https://static.designboom.com/wp-content/uploads/2026/10/david-chipperfield-architects-anselm-kiefer-pavillon-studio-menges-tugushi-germany-designboom-03.jpg",
+      "fit": "cover",
       "title": "مبنى كامل للوحة وحدة",
       "credit": "لوحة: أنسيلم كيفر · عمارة: تشيبرفيلد · تصوير: Studio Menges Tugushi",
       "chip": {"icon": "building", "label": "عمارة"},

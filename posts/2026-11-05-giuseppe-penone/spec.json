@@ -1,0 +1,75 @@
+{
+  "id": "2026-11-05-giuseppe-penone",
+  "topic": "Profile of Giuseppe Penone (Arte Povera) on the occasion of his first Middle East exhibition, The Inner Flow of Life, National Museum of Qatar (26 Oct 2026 - 13 Feb 2027)",
+  "category": "فن معاصر",
+  "mode": "light",
+  "sources": [
+    "https://qm.org.qa/en/calendar/giuseppe-penone/",
+    "https://www.gulf-times.com/article/734602/qatar/qatar-museums-presents-giuseppe-penones-first-middle-east-exhibition",
+    "https://www.qatar-tribune.com/article/261106/nation/nmoq-opens-exhibition-dedicated-to-pioneering-artist-giuseppe-penone",
+    "https://hubemag.com/giuseppe-penones-major-exhibition-opens-at-the-national-museum-of-qatar",
+    "https://giuseppepenone.com/en/news",
+    "https://www.wmagazine.com/culture/giuseppe-penone-art-reflection-of-bronze-photos",
+    "https://brooklynrail.org/2026/06/artseen/giuseppe-penone-the-reflection-of-bronze/"
+  ],
+  "slides": [
+    {
+      "type": "coverImage",
+      "badge": "معرض جديد",
+      "image": "https://hubemag.com/wp-content/uploads/2026/10/Giuseppe-Penone_The-Inner-Flow-of-Life.png",
+      "title": "جوزيبي بينوني… الفنان اللي يحاور الشجر",
+      "credit": "«أفكار من حجر»: جوزيبي بينوني · ميناء الدوحة القديم",
+      "chips": [{ "icon": "brush", "label": "فن معاصر" }, { "icon": "star", "label": "أول معرض بالمنطقة" }],
+      "kreti": false
+    },
+    {
+      "type": "image",
+      "image": "https://static.qm.org.qa/media/images/6_PENONE__09A2967Archivio_Penone.max-800x1080.jpg",
+      "title": "مواليد 1947 بقرية غاريسيو بإيطاليا… وأصغر أعضاء «الفن الفقير»",
+      "credit": "صورة: © Archivio Penone",
+      "chip": { "icon": "star", "label": "منو هو؟" }
+    },
+    {
+      "type": "inner",
+      "image": "https://studio.brooklynrail.org/assets/0d1e358f-d19e-447c-b9ce-24aa7e3d3bc2.jpg",
+      "title": "يقشّر الخشب… ويطلّع الشجرة اللي جوّاه",
+      "body": "من أواخر الستينات ينحت جذوع الخشب حلقة حلقة، لحد ما ترجع الشجرة لشكلها وهي صغيرة. وبعدين صار يصبّ الشجر بالبرونز.",
+      "credit": "عمل: جوزيبي بينوني · غاغوسيان نيويورك 2026 · تصوير: Maris Hutchinson",
+      "chip": { "icon": "box", "label": "شجر وبرونز" },
+      "pose": "think",
+      "note": "ليش مهم؟"
+    },
+    {
+      "type": "inner",
+      "image": "https://static.qm.org.qa/media/images/Serp_G.Penone_027_4yjl2dN.2e16d0ba.fill-1200x630.jpg",
+      "title": "«تنفّس الظل» و«أشجار الكتب»",
+      "body": "غرفة جدرانها آلاف أوراق الغار. تشوفها وتشمّ ريحتها، وهي من أهم الأعمال المعروضة هسه بالدوحة.",
+      "credit": "عمل: جوزيبي بينوني · سربنتاين لندن · تصوير: George Darrell",
+      "chip": { "icon": "spark", "label": "ورق غار" },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://brooklynrail.org/_next/image/?url=https%3A%2F%2Fstudio.brooklynrail.org%2Fassets%2Fb16572e7-b03d-4d49-b9b0-317ed55cea69&w=3840&q=75",
+      "title": "«التدفق الداخلي للحياة» بالدوحة",
+      "body": "أول معرض له بالشرق الأوسط، بالمتحف الوطني في قطر لحد 13 فبراير 2027. خمس أجنحة، كل جناح لمادة: ورق، بورسلين، شوك، رخام، وجلد.",
+      "credit": "عمل: جوزيبي بينوني · غاغوسيان نيويورك 2026 · تصوير: Maris Hutchinson",
+      "chip": { "icon": "clock", "label": "لحد فبراير" },
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "ليش مهم؟",
+      "tagIcon": "spark",
+      "title": "شنو نتعلم من بينوني؟",
+      "points": [
+        "الطبيعة مو خلفية للعمل، هي شريكة بيه",
+        "المادة البسيطة تكدر تحكي فكرة كبيرة",
+        "فكرة وحدة تكفي لعمر كامل، إذا تعمقت بيها"
+      ],
+      "note": "احفظها!"
+    },
+    { "type": "end" }
+  ],
+  "caption": "فنان صار له قرابة 60 سنة يحاور الشجر… وهسه أول معرض له بالمنطقة ✦\n\nجوزيبي بينوني فنان إيطالي من مواليد 1947 بقرية غاريسيو، وكان أصغر أعضاء حركة «الفن الفقير» (Arte Povera) بأواخر الستينات. من وقتها يشتغل على العلاقة بين الإنسان والطبيعة: ينحت جذوع الخشب لحد ما تبين الشجرة الصغيرة اللي جوّاها، ويصبّ الأغصان بالبرونز، ويبني غرف من ورق الغار.\n\nمعرضه «التدفق الداخلي للحياة» (The Inner Flow of Life) افتتح يوم 26 أكتوبر 2026 بالمتحف الوطني في قطر، ومستمر لحد 13 فبراير 2027، وهو أول معرض مخصص له بالشرق الأوسط. القيّمان هانز أولريش أوبريست وعيسى الشيراوي. المعرض موزع على خمس أجنحة بساحة المتحف، كل جناح لمادة: ورق الشجر، البورسلين، الشوك، الرخام، والجلد. وبميناء الدوحة القديم صار عنده عمل دائم: «أفكار من حجر»، شجرتين برونز ضخمة شايلة أحجار نهر.\n\nلو تشتغل على فكرة وحدة طول عمرك، شنو راح تكون؟ 👇\n\nفن: Giuseppe Penone\nمعرض: The Inner Flow of Life — National Museum of Qatar\nتصوير: Maris Hutchinson (Gagosian) · George Darrell (Serpentine) · © Archivio Penone\n\n#كريتيفيا #فن_معاصر #فن #نحت #قطر #GiuseppePenone #ArtePovera #ContemporaryArt"
+}

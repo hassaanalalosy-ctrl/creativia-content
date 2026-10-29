@@ -1,4 +1,4 @@
-# Run procedure (scheduled task, every 8 hours)
+# Run procedure (scheduled task, once a day at 09:34 Baghdad)
 
 Goal: keep the next 7 days filled, publishing at **21:00 Asia/Baghdad**, with **at most 20 posts per calendar month** (Metricool free plan).
 Each run creates **at most one** post. Do not create, edit or delete anything else in Metricool.
@@ -11,7 +11,7 @@ Each run creates **at most one** post. Do not create, edit or delete anything el
 ## 2. Pick the slot (or stop)
 - Slot days: every date whose day-of-month is NOT divisible by 3 (1, 2, 4, 5, 7, 8, ...).
 - Starting from tomorrow (Baghdad date), walk forward up to 7 days and take the first slot day that is not already a key in `log/schedule.json` and whose month has fewer than 20 entries in `log/schedule.json`.
-- If there is no such slot, stop: reply "No slot to fill" and end the run without changes.
+- If there is no such slot, stop: reply in one Arabic line "الجدول مكتمل لحد <last filled date>، ما أكو شي جديد اليوم" and end the run without changes.
 - If the slot's day-of-month is 4, 10, 16, 22 or 28 it is a **reel day**: follow section 3R instead of 3, and in section 4 use the reel settings.
 
 ## 3. Make the post

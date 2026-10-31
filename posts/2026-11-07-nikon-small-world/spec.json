@@ -16,22 +16,37 @@
       "title": "طالب تصميم صوّر الحبر وهو يطير… وفاز!",
       "note": "شوف هذا!",
       "pose": "jump",
-      "chips": [{ "icon": "camera", "label": "تصوير" }, { "icon": "star", "label": "نيكون سمول وورلد" }]
+      "chips": [
+        {
+          "icon": "camera",
+          "label": "تصوير"
+        },
+        {
+          "icon": "star",
+          "label": "نيكون سمول وورلد"
+        }
+      ]
     },
     {
       "type": "image",
       "image": "https://www.nikonsmallworld.com/images/photos/2026/_photo1600/1st-2026_Bielfeldt_Ole_e43110_f27846.jpg",
       "title": "المركز الأول: حبر طابعة بالهوا",
       "credit": "تصوير: أولي بيلفيلدت · Nikon Small World 2026",
-      "chip": { "icon": "star", "label": "المركز 1" }
+      "chip": {
+        "icon": "star",
+        "label": "المركز 1"
+      }
     },
     {
       "type": "inner",
       "image": "https://www.nikonsmallworld.com/images/photos/2026/_photo1600/2nd-2026_Dum_John-Oliver_e42389_f26795.jpg",
       "title": "عنكبوت قافز مغطى بحبوب اللقاح",
       "body": "المركز الثاني. أصعب شي، حسب المصور، كان يلكى عنكبوت على النبتة الصح وحبوب اللقاح لازكة بيه.",
-      "credit": "تصوير: جون أوليفر دوم · Nikon Small World 2026",
-      "chip": { "icon": "camera", "label": "المركز 2" },
+      "credit": "تصوير: جون أوليفر دوم",
+      "chip": {
+        "icon": "camera",
+        "label": "المركز 2"
+      },
       "pose": "think",
       "note": "تحفة!"
     },
@@ -41,8 +56,11 @@
       "fit": "contain",
       "title": "خلايا عصبية بدماغ فأر",
       "body": "المركز الثالث، من معهد ألين بسياتل. كبّروا النسيج نفسه قبل التصوير حتى تبين التفاصيل.",
-      "credit": "تصوير: كايلين وولف وريتشل فلانري · Nikon Small World 2026",
-      "chip": { "icon": "star", "label": "المركز 3" },
+      "credit": "تصوير: كايلين وولف وريتشل فلانري",
+      "chip": {
+        "icon": "star",
+        "label": "المركز 3"
+      },
       "kreti": false
     },
     {
@@ -50,8 +68,11 @@
       "image": "https://www.nikonsmallworld.com/images/photos/2026/_photo1600/4th-2026_Benttinen_Justin_e43536_f28581.jpg",
       "title": "رأس قلم جاف",
       "body": "المركز الرابع. شي نستعمله كل يوم، بس بتكبير 20 مرة يصير منظر ما شفناه قبل.",
-      "credit": "تصوير: جستن بنتينن · Nikon Small World 2026",
-      "chip": { "icon": "pen", "label": "المركز 4" },
+      "credit": "تصوير: جستن بنتينن",
+      "chip": {
+        "icon": "pen",
+        "label": "المركز 4"
+      },
       "kreti": false
     },
     {
@@ -66,7 +87,9 @@
       ],
       "note": "احفظها!"
     },
-    { "type": "end" }
+    {
+      "type": "end"
+    }
   ],
   "caption": "طالب تصميم أراد يفهم شلون تشتغل الطابعة… فطلع بالصورة الأولى بالعالم ✦\n\nأولي بيلفيلدت، طالب تصميم من كولونيا بألمانيا، فاز بالمركز الأول بمسابقة نيكون سمول وورلد 2026 للتصوير المجهري، بصورة لرأس طابعة حبرية وهو يرمي قطرات الحبر على الورق، بتكبير 20 مرة.\n\nثبّت رأس الطابعة وخلى الورقة تتحرك تحته، واستعمل فلاش حتى يجمّد القطرات بالهوا. يقول: «كانت مثل السحر وما فهمتها، هسه فهمتها».\n\nهاي الدورة 52 من المسابقة، وانعرفت بيها 86 صورة. المركز الثاني لعنكبوت قافز مغطى بحبوب اللقاح، والثالث لخلايا عصبية بدماغ فأر، والرابع لرأس قلم جاف.\n\nشنو الشي اليومي اللي تتمنى تشوفه تحت المجهر؟ 👇\n\nتصوير: Ole Bielfeldt · John-Oliver Dum · Kaelin Wulf & Rachel Flannery (Allen Institute) · Justin Theodore Benttinen\nNikon Small World 2026\n\n#كريتيفيا #تصوير #تصوير_فوتوغرافي #تصوير_مجهري #فن #NikonSmallWorld #photomicrography #photography"
 }

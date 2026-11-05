@@ -1,0 +1,48 @@
+{
+  "model": "eleven_v4",
+  "voiceId": "7N1xLmvR6jQolMXWRhvT",
+  "clips": [
+    {
+      "scene": 0,
+      "file": "00.mp3",
+      "text": "اكو ثلاث أغلاط تخرّب أي تصميم... تعال نشوفها سوا.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.21
+    },
+    {
+      "scene": 1,
+      "file": "01.mp3",
+      "text": "أول شي: خطوط هواية. خطين بالكثير، وكافي.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 5.07
+    },
+    {
+      "scene": 2,
+      "file": "02.mp3",
+      "text": "ثاني شي: ماكو فراغ. الفراغ يريّح العين ويرتب الشغل.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 5.56
+    },
+    {
+      "scene": 3,
+      "file": "03.mp3",
+      "text": "ثالث شي: كلشي بنفس الحجم. خلّي العنوان أكبر وأثقل.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 5.49
+    },
+    {
+      "scene": 4,
+      "file": "04.mp3",
+      "text": "احفظها، وراجعها قبل ما تسلّم شغلك.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 3.47
+    },
+    {
+      "scene": 5,
+      "file": "05.mp3",
+      "text": "تابعنا على كريتيفيا.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 1.8
+    }
+  ]
+}

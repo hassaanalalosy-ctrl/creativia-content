@@ -2,7 +2,7 @@
 
 10 reels per month; every other day is a carousel or single post (one feed post every day).
 **Reel days: the 1st, 4th, 7th, 10th, 13th, 16th, 19th, 22nd, 25th and 28th of every month.** Every other day is a normal post.
-**Voice reels (3 a month): the 7th, 16th and 25th** use the young voice "Crete" — ACTIVE, see "Voice reels" below. The other 7 are music only.
+**All 10 reels have a voiceover** by the Creativia voice "Arafat Almnshid" (Iraqi) — see "Voice reels" below. Music plays under the voice.
 
 ## Topics
 Main series: **practical tips for designers** (the owner's favourite). Music-only reels also cover **marketing** (one smart idea per reel: a famous stunt, a launch trick, a branding lesson) and fast visual stories of strange ad campaigns. Examples of tips:
@@ -52,10 +52,12 @@ Always set `"engine": 2`. 18 to 40 seconds, 5 to 8 scenes. Titles under ~35 char
 ## Music (own library — ACTIVE)
 Music is mixed INTO the video from `assets/music/library.json`. Pick by mood: upbeat for tips, facts, marketing and events (owner's favourite); lofi for calm how-to; ambient for architecture and art; emotional for serious news. Never the same track as the previous reel (check the last reel.json in `log/schedule.json`). Do NOT send Instagram `audioConfiguration` for engine 2 reels.
 
-## Voice reels (ACTIVE) — the 7th, 16th and 25th
-Set `"voice": true` and give every scene a `"say"` line: what the young voice "Crete" says in that scene (ElevenLabs voice `dIb2W5nEfCAa3PiChX8C`, model `eleven_v4`). Rules:
-- **All Arabic, Modern Standard Arabic only (فصحى مبسطة), no dialect at all** — no Iraqi or other colloquial words (not: ماكو، كلشي، خلّي، شلون، هواية، بس). The on-screen text of a voice reel is also written in simple Modern Standard Arabic so it matches the voice. Short sentences, 1 sentence per scene, 3 to 12 words. Numbers written as words (ثلاثة، ستون بالمئة). No English words in the voice line.
-- The whole script under 450 characters (credit budget; about 40 seconds). Do not repeat the on-screen text word for word; say it naturally.
+## Voice reels (ACTIVE) — every reel
+Set `"voice": true` on every reel and give every scene a `"say"` line. The voice is **Arafat Almnshid** (ElevenLabs voice `7N1xLmvR6jQolMXWRhvT`, model `eleven_v4`; it is the default, no `voiceId` needed). Rules:
+- **Light, clear Iraqi dialect** (owner's choice, Nov 2026), easy for every Arab to follow: e.g. "اكو"، "شلون"، "هواية"، "خلّي"، "تعال نشوف". No heavy slang, no English words in the voice line.
+- The on-screen text of voice reels uses the same light Iraqi tone so text and voice match.
+- Short sentences, 1 sentence per scene, 3 to 14 words. Numbers written as words (ثلاث، ستين بالمية).
+- Whole script under 500 characters (about 30 to 45 seconds). Say it naturally; do not read the on-screen text word for word.
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 

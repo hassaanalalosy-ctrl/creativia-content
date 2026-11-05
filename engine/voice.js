@@ -6,7 +6,7 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
-const DEFAULT_VOICE = 'dIb2W5nEfCAa3PiChX8C'; // "Crete" — young Creativia voice
+const DEFAULT_VOICE = '7N1xLmvR6jQolMXWRhvT'; // Arafat Almnshid (Iraqi) — the Creativia voice chosen by the owner
 const MODEL = 'eleven_v4';
 
 (async () => {

@@ -28,7 +28,7 @@ Some sites refuse automated fetching (CNN, Colossal and others). If a page will 
 
 ## Choosing a topic
 A topic qualifies only if ALL are true:
-1. Recent (last 14 days), OR an older story that is truly remarkable and little known to Arab audiences (a legendary or bizarre campaign, a famous design story, an iconic fashion moment). About 1 post in 3 may be such a classic; say the year clearly in the post.
+1. Recent (last 14 days), OR an older story from our creative fields ONLY (never general history or trivia) that is truly remarkable and little known to Arab audiences (a legendary or bizarre campaign, a famous design story, an iconic fashion moment). About 1 post in 3 may be such a classic; say the year clearly in the post.
 2. Verifiable: facts confirmed in at least 2 independent sources. Never invent numbers, quotes, names or dates.
 3. Visual: there are at least 2 good images of the actual work (direct image file URLs, ideally 1000 px wide or more) with a known creator and, where given, a photographer.
 4. Not already posted: check `log/posted.md`.

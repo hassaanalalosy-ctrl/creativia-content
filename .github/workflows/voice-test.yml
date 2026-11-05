@@ -59,6 +59,7 @@ jobs:
         run: |
           git config user.name "creativia-bot"
           git config user.email "creativia-bot@users.noreply.github.com"
+          git checkout -- test/voice/script.txt 2>/dev/null || true
           git add test/voice/out
           git commit -m "Voice test output"
           git pull --rebase origin main

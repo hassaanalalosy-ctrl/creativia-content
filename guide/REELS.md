@@ -52,3 +52,7 @@ The video is silent; music is attached with `instagramData.audioConfiguration.au
 2. Pick an instrumental track that fits the mood (calm for tips, upbeat for fast stories). Do not reuse the previous reel's track.
 3. Call createScheduledPost again with the numeric `audioId`.
 If no suitable candidates come back after 3 search terms, schedule the reel without music and say so in the reply.
+
+## Own music library (prepared, NOT active yet)
+`assets/music/library.json` lists approved Pixabay tracks by mood (upbeat, lofi, ambient, emotional). Owner prefers upbeat unless the topic calls for another mood.
+When the voiceover system is switched on, the renderer will mix the chosen track under the voice (ducked) and the Instagram `audioId` step above will be dropped. Until this section says ACTIVE, keep using the Instagram music steps above.

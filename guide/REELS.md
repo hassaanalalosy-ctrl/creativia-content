@@ -54,7 +54,7 @@ Music is mixed INTO the video from `assets/music/library.json`. Pick by mood: up
 
 ## Voice reels (ACTIVE) — the 7th, 16th and 25th
 Set `"voice": true` and give every scene a `"say"` line: what the young voice "Crete" says in that scene (ElevenLabs voice `dIb2W5nEfCAa3PiChX8C`, model `eleven_v4`). Rules:
-- Light, clear Arabic (simple Modern Arabic with a light Iraqi touch), short sentences, 1 sentence per scene, 3 to 12 words. Numbers written as words (ثلاثة، ستين بالمية).
+- **All Arabic, Modern Standard Arabic only (فصحى مبسطة), no dialect at all** — no Iraqi or other colloquial words (not: ماكو، كلشي، خلّي، شلون، هواية، بس). The on-screen text of a voice reel is also written in simple Modern Standard Arabic so it matches the voice. Short sentences, 1 sentence per scene, 3 to 12 words. Numbers written as words (ثلاثة، ستون بالمئة). No English words in the voice line.
 - The whole script under 450 characters (credit budget; about 40 seconds). Do not repeat the on-screen text word for word; say it naturally.
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.

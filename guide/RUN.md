@@ -40,6 +40,9 @@ Write `posts/<id>/stories.json` together with the post spec:
 - `mode`: same as the post.
 - The Action renders `story-alert.png` (with the post cover) and `story-fact.png`. Open both with Read and check them.
 
+## Overlap rule (owner: very important)
+Nothing may sit on top of anything else in any slide, reel frame or story: no text over text, no Kreti over text, cards or images, no element over the handle or the badge, nothing cut off. Check every image/frame you open for this. If anything overlaps, shorten the text or fix the spec and re-render BEFORE scheduling. Story alert titles must be under 60 characters; fact titles under 40.
+
 ## 4. Put it in Metricool
 Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and info:
 - `media`: raw URLs pinned to the commit that holds the rendered files (`sha=$(git log -1 --format=%H -- posts/<id>)`): `https://raw.githubusercontent.com/hassaanalalosy-ctrl/creativia-content/<sha>/posts/<id>/slides/NN.png` in order. Never use `main` in these URLs (it is cached and can serve an old version).

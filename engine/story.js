@@ -51,20 +51,20 @@ function frame(C, body, k) {
       + glass(C, (360 - w - 20) / 2, 128, w + 20, h + 20, 26, `<img src="${img}" style="position:absolute;left:10px;top:10px;width:${w}px;height:${h}px;border-radius:18px;object-fit:cover">`, 'transform:rotate(-3deg)')
       + star(C, 300, 140, 22) + star(C, 34, 330, 15)
       + `<div style="position:absolute;right:28px;left:28px;top:${128 + h + 44}px;display:flex;flex-direction:column;align-items:center;gap:14px"><div style="text-align:center;font-size:${spec.alert.size || 20}px;font-weight:800;line-height:1.35;color:${C.text};display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${esc(spec.alert.title)}</div><span style="padding:10px 20px;border-radius:999px;background:${C.glass};border:1.5px solid ${C.rim};font-size:15px;font-weight:700;color:${C.text}">${esc(spec.alert.cta || 'شوفه هسه بالصفحة ←')}</span></div>`
-      + K('point', 84, 14, 128 + h - 60), k);
+      + K('point', 58, 10, 132), k);
   }
   if (spec.fact) {
     const f = spec.fact, img = f.image ? await uri(f.image) : null;
     const ih = img ? 170 : 0;
     pages.fact = frame(C,
       `<div style="position:absolute;right:24px;top:70px;display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:${C.glass};border:1.5px solid ${C.rim};color:${C.ink};font-size:15px;font-weight:800">✦ ${esc(f.tag || 'معلومة سريعة')}</div>`
-      + glass(C, 24, 130, 312, 380, 30,
+      + glass(C, 24, 130, 312, 352, 30,
         (img ? `<img src="${img}" style="position:absolute;left:12px;right:12px;top:12px;width:288px;height:${ih}px;border-radius:20px;object-fit:cover">` : `<div style="position:absolute;right:22px;top:26px;width:64px;height:64px;border-radius:20px;background:linear-gradient(145deg,#9BFFC2,#2EE86B 50%,#10B9A6);box-shadow:0 0 30px rgba(46,232,107,0.5);display:flex;align-items:center;justify-content:center;font-size:34px;color:#0B1410;font-weight:800">${esc(f.icon || '!')}</div>`)
         + `<div style="position:absolute;right:22px;left:22px;top:${img ? ih + 30 : 110}px;font-size:${f.size || 25}px;font-weight:800;line-height:1.35;color:${C.text}">${esc(f.title)}</div>`
         + `<div style="position:absolute;right:22px;left:22px;top:${img ? ih + 30 : 110}px;margin-top:${(f.size || 25) * 1.35 * (f.lines || 2) + 12}px;font-size:16px;line-height:1.65;color:${C.muted}">${esc(f.body)}</div>`
         + (f.credit ? `<div style="position:absolute;right:22px;left:22px;bottom:16px;font-size:11px;color:${C.muted}">${esc(f.credit)}</div>` : ''))
       + star(C, 304, 118, 20) + star(C, 30, 500, 14)
-      + K('think', 84, 10, 470), k);
+      + K('think', 60, 18, 494), k);
   }
   const html = b => `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">${FONT_CSS}<style>body{margin:0}#s{position:relative;width:360px;height:640px;overflow:hidden;font-family:'Rubik',sans-serif;direction:rtl}</style></head><body><div id="s">${b}</div></body></html>`;
   const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || undefined, args: ['--no-sandbox', '--allow-file-access-from-files'] });

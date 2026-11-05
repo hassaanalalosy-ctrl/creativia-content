@@ -54,12 +54,12 @@ jobs:
               prev=$(python3 -c "print($start+$d)")
               ms=$(python3 -c "print(int($start*1000))")
               inputs="$inputs -i $f"
-              filt="$filt[$((k+1)):a]adelay=$ms|$ms[s$k];"
+              filt="$filt[$k:a]adelay=$ms|$ms[s$k];"
               mixin="$mixin[s$k]"
             done
             TOT=$(python3 -c "print(round(max($VDUR, $prev+0.6),2))")
             FO=$(python3 -c "print(round($TOT-1.5,2))")
-            NM=$((N+1))
+            NM=$N
             ffmpeg -y -loglevel error $inputs -i $MUSIC -filter_complex \
               "${filt}${mixin}amix=inputs=$N:normalize=0,apad,atrim=0:$TOT,asplit=2[voice][sc];[$NM:a]atrim=0:$TOT,asetpts=PTS-STARTPTS,volume=0.32,afade=t=in:d=0.4,afade=t=out:st=$FO:d=1.5[mus];[mus][sc]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[duck];[voice][duck]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=11[a]" \
               -map "[a]" -ar 44100 $O/mix$i.wav

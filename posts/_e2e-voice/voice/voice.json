@@ -1,0 +1,48 @@
+{
+  "model": "eleven_v4",
+  "voiceId": "dIb2W5nEfCAa3PiChX8C",
+  "clips": [
+    {
+      "scene": 0,
+      "file": "00.mp3",
+      "text": "ثلاثة أخطاء تخرب أي تصميم... خلّينا نشوفها.",
+      "voiceId": "dIb2W5nEfCAa3PiChX8C",
+      "dur": 4.44
+    },
+    {
+      "scene": 1,
+      "file": "01.mp3",
+      "text": "أولاً: خطوط كثيرة. خطّين بالكثير يكفون.",
+      "voiceId": "dIb2W5nEfCAa3PiChX8C",
+      "dur": 4.75
+    },
+    {
+      "scene": 2,
+      "file": "02.mp3",
+      "text": "ثانياً: ماكو فراغ. الفراغ يريّح العين.",
+      "voiceId": "dIb2W5nEfCAa3PiChX8C",
+      "dur": 4.68
+    },
+    {
+      "scene": 3,
+      "file": "03.mp3",
+      "text": "ثالثاً: كلشي بنفس الحجم. خلّي العنوان أكبر وأثقل.",
+      "voiceId": "dIb2W5nEfCAa3PiChX8C",
+      "dur": 4.99
+    },
+    {
+      "scene": 4,
+      "file": "04.mp3",
+      "text": "احفظها قبل ما تسلّم شغلك.",
+      "voiceId": "dIb2W5nEfCAa3PiChX8C",
+      "dur": 2.51
+    },
+    {
+      "scene": 5,
+      "file": "05.mp3",
+      "text": "تابع كريتيفيا.",
+      "voiceId": "dIb2W5nEfCAa3PiChX8C",
+      "dur": 1.49
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Run procedure (scheduled task, once a day at 09:34 Baghdad)
 
 Goal: keep the next 7 days filled, **one post every day** at **21:00 Asia/Baghdad** (Metricool paid plan, no monthly cap). Instagram + Facebook.
-Each run creates **at most one slot post plus at most one extra post** (see Extra posts). Do not edit or delete anything else in Metricool.
+Each run creates **at most one slot post (with its two stories) plus at most one extra post** (see Extra posts). Do not edit or delete anything else in Metricool.
 
 ## 1. Setup
 - Attach `hassaanalalosy-ctrl/creativia-content` with push access (add_repo) and `git clone --depth 1` it to `/home/claude/creativia-content`.
@@ -23,10 +23,22 @@ Each run creates **at most one slot post plus at most one extra post** (see Extr
 - Open every rendered slide image with the Read tool and check it: text not cut off, no overlapping elements, images loaded, numbers in English digits, credits present. If something is wrong, fix the spec and re-render (delete rendered.json, push).
 
 ## 3R. Make a reel (reel days only)
-- Choose a topic as `guide/REELS.md` says, and write `posts/<id>/reel.json`.
-- Commit "Reel spec: <slug>" and push. The same GitHub Action renders `reel.mp4` and `reel-cover.jpg` (takes about 2 to 4 minutes).
-- Poll every 15 seconds for up to 12 minutes until `posts/<id>/reel-rendered.json` or `posts/<id>/render-error.json` exists on origin/main, then `git reset --hard origin/main`.
-- Check it: extract 6 frames spread across the video with ffmpeg (`ffmpeg -ss <sec> -i reel.mp4 -frames:v 1 -vf scale=270:480 f.png`) and open them with the Read tool. Text must not overlap, be cut off, or sit in the bottom fifth of the frame. Fix the spec and re-render if needed (delete reel-rendered.json, push).
+- Choose a topic as `guide/REELS.md` says, and write `posts/<id>/reel.json` with `"engine": 2`, music from the library, and (on the 7th, 16th and 25th) `"voice": true` with a `say` line per scene.
+- Also write `posts/<id>/stories.json` (section 3S) in the same commit.
+- Commit "Reel spec: <slug>" and push. The GitHub Action renders `reel.mp4` (with music, sound effects and voice) and `reel-cover.jpg`, then the stories (about 4 to 8 minutes).
+- Poll every 20 seconds for up to 15 minutes until `posts/<id>/reel-rendered.json` or `posts/<id>/render-error.json` exists on origin/main, then `git reset --hard origin/main`.
+- Check it: extract 8 frames spread across the video with ffmpeg (`ffmpeg -ss <sec> -i reel.mp4 -frames:v 1 -vf scale=270:480 f.png`) and open them with the Read tool. Text must not overlap, be cut off, or sit in the bottom fifth. Check the audio exists (`ffprobe` shows an audio stream). Fix the spec and re-render if needed (delete reel-rendered.json, push).
+
+## 3S. Stories (every slot day)
+Write `posts/<id>/stories.json` together with the post spec:
+```json
+{"mode": "dark",
+ "alert": {"title": "the post's hook in under 60 characters"},
+ "fact": {"tag": "معلومة سريعة", "icon": "؟", "title": "a surprising creative fact, under 40 characters", "lines": 2, "body": "1 to 2 short sentences explaining it", "image": "optional credited image URL", "credit": "optional"}}
+```
+- The fact is a DIFFERENT short fact from our creative fields (not the day's post), verified in 2 sources, not already in `log/posted.md` (log it there too). `lines` = number of lines the title takes (1 or 2).
+- `mode`: same as the post.
+- The Action renders `story-alert.png` (with the post cover) and `story-fact.png`. Open both with Read and check them.
 
 ## 4. Put it in Metricool
 Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and info:
@@ -34,7 +46,11 @@ Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and 
 - `providers`: `[{"network":"instagram"},{"network":"facebook"}]` — the same post goes to both.
 - `instagramData`: `{"type":"POST"}`; `facebookData`: `{"type":"POST"}`
 - `text`: the caption; `publicationDate`: `{"dateTime":"<slot>T21:00:00","timezone":"Asia/Baghdad"}`
-- **Reels:** `media` = the pinned URL of `posts/<id>/reel.mp4`, `videoThumbnailUrl` = the pinned URL of `posts/<id>/reel-cover.jpg`, `instagramData` = `{"type":"REEL","showReelOnFeed":true,"audioConfiguration":{"audioId":"<numeric id>"}}` (music steps in `guide/REELS.md`), `facebookData` = `{"type":"REEL","title":"<reel title>"}`.
+- **Reels:** `media` = the pinned URL of `posts/<id>/reel.mp4`, `videoThumbnailUrl` = the pinned URL of `posts/<id>/reel-cover.jpg`, `instagramData` = `{"type":"REEL","showReelOnFeed":true}` (music is already inside the video; never send audioConfiguration), `facebookData` = `{"type":"REEL","title":"<reel title>"}`.
+- **Stories (two more createScheduledPost calls, same slot date):**
+  - Quick fact at `<slot>T13:00:00+03:00`: `media` = pinned URL of `story-fact.png`, `providers` = instagram + facebook, `instagramData` = `{"type":"STORY"}`, `facebookData` = `{"type":"STORY"}`, no `text`, `"draft": false, "autoPublish": true`.
+  - New-post alert at `<slot>T21:15:00+03:00`: same, with `story-alert.png`.
+  - If the slot date is today and 13:00 has passed, skip the fact story for that day.
 - **Publish directly (owner approved, no review): `"draft": false, "autoPublish": true`.** The post goes live on its own at the scheduled time.
 
 ### Replacing images of an existing post
@@ -46,7 +62,7 @@ GitHub's raw links on `main` are cached for a few minutes, so after a re-render 
 - Commit "Schedule <id>" and push.
 
 ## 6. Reply (this is what the owner sees in the notification)
-Two or three lines in Arabic: the slot date, the topic, number of slides (or "ريل" and its length and music), and the Metricool planner link from the createScheduledPost response.
+Two or three lines in Arabic: the slot date, the topic, number of slides (or "ريل" and its length, music and whether it has voice), that the two stories are scheduled, and the Metricool planner link of the main post.
 
 ## Extra posts (breaking news, at most 3 per week)
 After the slot is handled, if a truly major creative story broke in the last 48 hours (major award results, a huge launch, a landmark opening) and fewer than 3 extra posts exist in the last 7 days of `log/schedule.json` (keys ending in `-extra`), make ONE extra post: usually a `single` or short story carousel, scheduled today at 15:00 (or tomorrow 15:00 if that time has passed). Log it with key `<date>-extra`. Skip if nothing is clearly big.

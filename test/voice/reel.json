@@ -1,0 +1,9 @@
+{
+  "mode": "light",
+  "badge": "تجربة صوت",
+  "coverAt": 1.5,
+  "scenes": [
+    { "type": "hook", "dur": 3.2, "pose": "wave", "title": "هلا بيكم بكريتيفيا!", "sub": "كل يوم شي مبدع جديد", "note": "اسمعوا!", "chips": [{ "icon": "megaphone", "label": "فويس أوفر" }, { "icon": "spark", "label": "تجربة" }] },
+    { "type": "end", "dur": 2.3, "note": "نشوفكم!" }
+  ]
+}

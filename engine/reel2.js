@@ -13,6 +13,17 @@ const FPS = 30;
 const FONT_CSS = ['rubik/400', 'rubik/500', 'rubik/700', 'rubik/800', 'playpen-sans-arabic/400', 'playpen-sans-arabic/600']
   .map(f => `<link rel="stylesheet" href="file://${path.join(ROOT, 'node_modules/@fontsource', f)}.css">`).join('');
 
+async function toDataUri(src) {
+  const local = path.join(ROOT, src);
+  if (!/^https?:/.test(src) && fs.existsSync(local)) {
+    const ext = path.extname(local).slice(1).toLowerCase();
+    return `data:image/${ext === 'jpg' ? 'jpeg' : ext};base64,${fs.readFileSync(local).toString('base64')}`;
+  }
+  const res = await fetch(src, { headers: { 'User-Agent': 'Mozilla/5.0 Chrome/126', 'Referer': new URL(src).origin + '/' } });
+  if (!res.ok) throw new Error(`Image download failed (${res.status}): ${src}`);
+  return `data:${(res.headers.get('content-type') || 'image/jpeg').split(';')[0]};base64,${Buffer.from(await res.arrayBuffer()).toString('base64')}`;
+}
+
 const THEME = {
   dark: { text: '#EFF7F1', muted: '#A3B8AB', bg1: '#0B2219', bg2: '#040A07', b1: 'rgba(46,232,107,0.42)', b2: 'rgba(16,185,166,0.30)', b3: 'rgba(155,255,194,0.16)',
     glass: 'rgba(255,255,255,0.07)', rim: 'rgba(255,255,255,0.16)', glow: 'rgba(46,232,107,0.28)', accent: '#2EE86B', soft: '#9BFFC2', cut: '#0C2219', ink: '#9BFFC2' },
@@ -25,7 +36,12 @@ const CUES = {
   hook: [[0.05, 'whoosh', 0.55], [1.45, 'pop', 0.6], [2.0, 'sparkle', 0.35]],
   room: [[0.0, 'whoosh', 0.4], [0.45, 'ding', 0.35]],
   stack: [[0.0, 'whoosh', 0.45], [0.5, 'pop', 0.45], [0.8, 'pop', 0.4], [1.1, 'pop', 0.35], [2.0, 'soft-impact', 0.6]],
-  end: [[0.0, 'whoosh', 0.45], [0.55, 'notification', 0.45], [1.0, 'sparkle', 0.3]]
+  end: [[0.0, 'whoosh', 0.45], [0.55, 'notification', 0.45], [1.0, 'sparkle', 0.3]],
+  point: [[0.0, 'whoosh', 0.4], [0.35, 'pop', 0.45]],
+  list: [[0.0, 'whoosh', 0.4], [0.7, 'click', 0.35], [1.1, 'click', 0.3], [1.5, 'click', 0.3], [1.9, 'click', 0.3]],
+  compare: [[0.0, 'whoosh', 0.4], [0.7, 'ui', 0.35], [1.5, 'ding', 0.4]],
+  image: [[0.0, 'whoosh', 0.4], [0.3, 'camera', 0.35]],
+  statement: [[0.0, 'riser', 0.3], [1.0, 'soft-impact', 0.5]]
 };
 
 const PAGE = String.raw`
@@ -36,6 +52,7 @@ const spring = x => { x = clamp(x); return 1 - Math.exp(-6 * x) * Math.cos(9 * x
 const seg = (t, a, b) => clamp((t - a) / (b - a));
 const lerp = (a, b, p) => a + (b - a) * p;
 const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const cred = x => esc(x).replace(/@[A-Za-z0-9._]+/g, m => '\u2066' + m + '\u2069');
 const D = window.REEL, C = D.theme;
 
 // word by word, blur -> sharp, sliding right -> left
@@ -81,7 +98,7 @@ const S = {
     const sh = { x: 50, y: 318, w: 260, h: 60, r: 30 };
     const grow = spring(seg(t, 1.35, 2.0));
     return {
-      shape: { x: sh.x + (sh.w - sh.w * grow) / 2, y: sh.y, w: Math.max(sh.h * grow, sh.w * grow), h: sh.h * clamp(grow * 1.2), r: 30 }, shapeOp: clamp(grow * 2),
+      shape: { x: sh.x + (sh.w - sh.w * grow) / 2, y: sh.y, w: Math.max(sh.h * grow, sh.w * grow), h: sh.h * clamp(grow * 1.2), r: 30 }, shapeOp: s.pill ? clamp(grow * 2) : 0,
       inner: '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;' + fadeIn(t, 1.8, 0.5) + '"><span style="width:10px;height:10px;border-radius:50%;background:' + C.accent + ';box-shadow:0 0 10px ' + C.accent + '"></span><span dir="ltr" style="font-size:24px;font-weight:800;letter-spacing:1px">' + esc(s.pill) + '</span></div>',
       over: kretiAt(s.pose || 'point', 120, t, 0.5, 26, 74)
         + star(t, 290, 96, 18, 0.9) + star(t, 40, 420, 13, 2.1) + dot(t, 300, 440, 7, 2.2) + dot(t, 60, 250, 5, 1.2)
@@ -132,6 +149,78 @@ const S = {
         + pal.map(bar).join('')
         + '<div style="position:absolute;left:0;right:0;top:420px;text-align:center;font-size:' + (40 * (0.6 + 0.4 * big)) + 'px;font-weight:800;color:' + C.accent + ';opacity:' + clamp(big * 1.5) + ';filter:blur(' + (1 - clamp(big)) * 10 + 'px);text-shadow:0 0 24px ' + C.glow + '">' + esc(s.result) + '</div>'
         + star(t, 300, 410, 18, 2.2) + star(t, 46, 452, 14, 2.4)
+    };
+  },
+  // one tip: glowing number tile (or a credited image) inside the glass card, title + body below
+  point(s, t) {
+    const p = spring(seg(t, 0.3, 1.0));
+    const inner = s.image
+      ? '<img src="' + s.image + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(' + (1.04 + 0.06 * seg(t, 0, s.dur)) + ') translateX(' + (-6 * seg(t, 0, s.dur)) + 'px)">'
+        + (s.num ? '<span dir="ltr" style="position:absolute;right:12px;top:12px;width:42px;height:42px;border-radius:14px;background:' + C.accent + ';color:#0B1410;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px ' + C.accent + ';transform:scale(' + p + ')">' + esc(s.num) + '</span>' : '')
+      : '<div style="position:absolute;right:28px;top:34px;width:130px;height:130px;border-radius:38px;background:linear-gradient(145deg,#9BFFC2,#2EE86B 50%,#10B9A6);box-shadow:0 0 40px rgba(46,232,107,0.55);transform:scale(' + p + ') rotate(' + (1 - p) * -14 + 'deg);display:flex;align-items:center;justify-content:center"><span dir="ltr" style="font-size:72px;font-weight:800;color:#0B1410">' + esc(s.num) + '</span></div>'
+        + (s.icon ? '' : star(t, 60, 50, 20, 0.8) + star(t, 120, 140, 13, 1.0));
+    return {
+      shape: s.image ? { x: 24, y: 84, w: 312, h: 250, r: 28 } : { x: 24, y: 92, w: 312, h: 200, r: 30 }, shapeOp: 1,
+      inner: inner + (s.kreti && !s.image ? kretiAt(s.kreti, 96, t, 0.6, 36, 70) : ''),
+      over: (s.credit ? '<div style="position:absolute;right:30px;left:30px;top:' + (s.image ? 342 : 300) + 'px;font-size:11.5px;color:' + C.muted + ';' + fadeIn(t, 0.8) + '">' + cred(s.credit) + '</div>' : '')
+        + '<div style="position:absolute;right:26px;left:26px;top:' + (s.image ? 366 : 318) + 'px;font-size:' + (s.size || 26) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.35, 0.13) + '</div>'
+        + '<div style="position:absolute;right:26px;left:26px;top:' + (s.image ? 412 : 364) + 'px;font-size:16.5px;line-height:1.65;color:' + C.muted + '">' + words(s.body, t, 0.85, 0.06) + '</div>'
+    };
+  },
+  // title + up to 4 glass rows; the morph shape becomes the first row
+  list(s, t) {
+    const pts = s.points || [];
+    const row = (x, i) => {
+      const p = spring(seg(t, 0.6 + i * 0.4, 1.4 + i * 0.4));
+      return glass(24 + (1 - p) * 110, 170 + i * 70, 312, 58, 19, t + i, '<div style="position:absolute;inset:0;display:flex;align-items:center;gap:12px;padding:0 14px"><span dir="ltr" style="flex:none;width:32px;height:32px;border-radius:11px;background:' + C.accent + ';color:#0B1410;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px ' + C.accent + '">' + (i + 1) + '</span><span style="font-size:15.5px;line-height:1.4">' + esc(x) + '</span></div>', 'opacity:' + clamp(p * 1.4) + ';filter:blur(' + (1 - clamp(p)) * 6 + 'px);');
+    };
+    return {
+      shape: { x: 24, y: 170, w: 312, h: 58, r: 19 }, shapeOp: clamp(1 - seg(t, 0.35, 0.65)), inner: '',
+      over: (s.tag ? '<div style="position:absolute;right:26px;top:80px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:' + C.glass + ';border:1px solid ' + C.rim + ';font-size:13px;font-weight:700;color:' + C.ink + ';' + fadeIn(t, 0.1) + '">✦ ' + esc(s.tag) + '</div>' : '')
+        + '<div style="position:absolute;right:26px;left:26px;top:116px;font-size:' + (s.size || 26) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.2, 0.12) + '</div>'
+        + pts.slice(0, 4).map(row).join('')
+        + (s.kreti ? kretiAt(s.kreti, 70, t, 1.2, 22, 446) : '')
+    };
+  },
+  // wrong vs right, two glass cards
+  compare(s, t) {
+    const box = (o, good, at, y) => {
+      const p = spring(seg(t, at, at + 0.8));
+      const col = good ? '#2EE86B' : '#FF6B6B';
+      return glass(24 + (1 - p) * 110, y, 312, 130, 24, t + at, '<div style="position:absolute;inset:0;padding:16px">'
+        + '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span style="width:30px;height:30px;border-radius:50%;background:' + col + ';color:#0B1410;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 14px ' + col + '">' + (good ? '✓' : '✕') + '</span><span style="font-size:19px;font-weight:800">' + esc(o.label) + '</span></div>'
+        + '<div style="font-size:15.5px;line-height:1.6;color:' + C.muted + '">' + esc(o.text) + '</div></div>', 'opacity:' + clamp(p * 1.4) + ';filter:blur(' + (1 - clamp(p)) * 6 + 'px);border:1px solid ' + col + '55;');
+    };
+    return {
+      shape: { x: 24, y: 168, w: 312, h: 130, r: 24 }, shapeOp: clamp(1 - seg(t, 0.4, 0.7)), inner: '',
+      over: '<div style="position:absolute;right:26px;left:26px;top:86px;font-size:' + (s.size || 25) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.1, 0.12) + '</div>'
+        + box(s.bad, false, 0.55, 168) + box(s.good, true, 1.35, 316)
+        + (s.kreti ? kretiAt(s.kreti, 62, t, 2.0, 22, 452) : '')
+    };
+  },
+  // a credited work inside the glass frame with a slow camera drift (Ken Burns)
+  image(s, t) {
+    const z = 1.05 + 0.1 * seg(t, 0, s.dur);
+    return {
+      shape: { x: 24, y: 80, w: 312, h: s.tall ? 360 : 300, r: 28 }, shapeOp: 1,
+      inner: '<img src="' + s.image + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:' + (s.fit || 'cover') + ';transform:scale(' + z + ') translateX(' + (-10 * seg(t, 0, s.dur)) + 'px)">',
+      over: (s.chip ? '<div style="position:absolute;right:34px;top:94px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,0.35);backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:700;' + fadeIn(t, 0.6) + '">' + esc(s.chip) + '</div>' : '')
+        + '<div style="position:absolute;right:26px;left:26px;top:' + (s.tall ? 456 : 398) + 'px;font-size:' + (s.size || 24) + 'px;font-weight:800;line-height:1.3">' + words(s.title, t, 0.45, 0.12) + '</div>'
+        + (s.credit ? '<div style="position:absolute;right:26px;left:26px;top:' + (s.tall ? 492 : 450) + 'px;font-size:12px;color:' + C.muted + ';' + fadeIn(t, 1.0) + '">' + cred(s.credit) + '</div>' : '')
+    };
+  },
+  // one big statement, words land one by one with a scale-down from blur
+  statement(s, t) {
+    const ws = esc(s.text).split(' ');
+    const big = ws.map((w, i) => {
+      const p = spring(seg(t, 0.2 + i * 0.25, 0.9 + i * 0.25));
+      return '<span style="display:inline-block;opacity:' + clamp(p * 1.4) + ';filter:blur(' + (1 - clamp(p)) * 10 + 'px);transform:translateX(' + (1 - clamp(p)) * 30 + 'px) scale(' + (1.6 - 0.6 * clamp(p)) + ')">' + w + '</span>';
+    }).join(' ');
+    return {
+      shape: { x: 60, y: 420, w: 240, h: 6, r: 3 }, shapeOp: 1, inner: '',
+      over: '<div style="position:absolute;right:26px;left:26px;top:' + (s.top || 180) + 'px;text-align:center;font-size:' + (s.size || 40) + 'px;font-weight:800;line-height:1.3;text-shadow:0 0 30px ' + C.glow + '">' + big + '</div>'
+        + (s.sub ? '<div style="position:absolute;right:26px;left:26px;top:440px;text-align:center;font-size:16px;color:' + C.muted + ';' + fadeIn(t, 1.4) + '">' + esc(s.sub) + '</div>' : '')
+        + star(t, 290, 150, 18, 1.0) + star(t, 52, 360, 13, 1.3) + dot(t, 300, 380, 6, 1.1)
     };
   },
   end(s, t) {
@@ -202,6 +291,12 @@ function sfxPlan(spec) {
   const spec = JSON.parse(fs.readFileSync(path.join(dir, 'reel.json'), 'utf8'));
   const mode = spec.mode || 'dark';
   const theme = THEME[mode];
+  for (const sc of spec.scenes) if (sc.image) sc.image = await toDataUri(sc.image);
+  // voiceover: each scene lasts at least as long as its clip (+ lead-in and breath)
+  const VLEAD = 0.35;
+  const vjson = path.join(dir, 'voice', 'voice.json');
+  const voice = spec.voice && fs.existsSync(vjson) ? JSON.parse(fs.readFileSync(vjson, 'utf8')).clips : [];
+  for (const c of voice) { const sc = spec.scenes[c.scene]; sc.dur = Math.max(sc.dur || 0, Math.round((c.dur + VLEAD + 0.55) * 100) / 100); }
   const poses = {};
   for (const p of ['wave', 'point', 'jump', 'think']) poses[p] = kreti({ pose: p, size: 240, mode, cut: theme.cut, look: 'dream' });
   const grain = 'data:image/svg+xml;base64,' + Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0"/></filter><rect width="180" height="180" filter="url(#n)"/></svg>').toString('base64');
@@ -240,29 +335,44 @@ function sfxPlan(spec) {
   await el.screenshot({ path: path.join(dir, 'reel-cover.jpg'), type: 'jpeg', quality: 92 });
   await browser.close();
 
-  // audio: music bed + sound effects
+  // audio: music bed (ducked under the voice) + voice + sound effects
   const cues = sfxPlan(spec);
   const music = spec.music ? path.join(ROOT, spec.music) : null;
+  const starts = []; { let a = 0; for (const sc of spec.scenes) { starts.push(a); a += sc.dur; } }
   const args = ['-y', '-loglevel', 'error', '-i', silent];
-  const parts = []; const labels = [];
+  const parts = [], fx = [], vo = [];
   let idx = 1;
+  let mus = null;
   if (music) {
     args.push('-ss', String(spec.musicStart || 0), '-i', music);
-    parts.push(`[${idx}:a]atrim=0:${total},asetpts=PTS-STARTPTS,volume=${spec.musicVolume || 0.55},afade=t=in:d=0.5,afade=t=out:st=${(total - 1.6).toFixed(2)}:d=1.6[m]`);
-    labels.push('[m]'); idx++;
+    parts.push(`[${idx}:a]atrim=0:${total},asetpts=PTS-STARTPTS,volume=${spec.musicVolume || (voice.length ? 0.4 : 0.55)},afade=t=in:d=0.5,afade=t=out:st=${(total - 1.6).toFixed(2)}:d=1.6[m]`);
+    mus = '[m]'; idx++;
+  }
+  for (const c of voice) {
+    args.push('-i', path.join(dir, 'voice', c.file));
+    const ms = Math.round((starts[c.scene] + VLEAD) * 1000);
+    parts.push(`[${idx}:a]volume=1.0,adelay=${ms}|${ms}[v${idx}]`);
+    vo.push(`[v${idx}]`); idx++;
   }
   for (const c of cues) {
     args.push('-i', c.file);
     const ms = Math.round(c.t * 1000);
-    parts.push(`[${idx}:a]atrim=0:${c.max},afade=t=out:st=${Math.max(0, c.max - 0.3)}:d=0.3,volume=${c.vol},adelay=${ms}|${ms}[s${idx}]`);
-    labels.push(`[s${idx}]`); idx++;
+    parts.push(`[${idx}:a]atrim=0:${c.max},afade=t=out:st=${Math.max(0, c.max - 0.3)}:d=0.3,volume=${voice.length ? c.vol * 0.7 : c.vol},adelay=${ms}|${ms}[s${idx}]`);
+    fx.push(`[s${idx}]`); idx++;
   }
   const out = path.join(dir, 'reel.mp4');
-  if (labels.length) {
-    parts.push(`${labels.join('')}amix=inputs=${labels.length}:normalize=0,apad,atrim=0:${total},loudnorm=I=-14:TP=-1.5:LRA=11[a]`);
+  const layers = [];
+  if (vo.length) {
+    parts.push(`${vo.join('')}amix=inputs=${vo.length}:normalize=0,apad,atrim=0:${total}${mus ? ',asplit=2[vo][sc]' : '[vo]'}`);
+    if (mus) { parts.push(`${mus}[sc]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=400[md]`); layers.push('[md]'); }
+    layers.push('[vo]');
+  } else if (mus) layers.push(mus);
+  layers.push(...fx);
+  if (layers.length) {
+    parts.push(`${layers.join('')}amix=inputs=${layers.length}:normalize=0,apad,atrim=0:${total},loudnorm=I=-14:TP=-1.5:LRA=11[a]`);
     args.push('-filter_complex', parts.join(';'), '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-movflags', '+faststart', out);
   } else args.push('-c', 'copy', out);
   execFileSync('ffmpeg', args, { stdio: 'inherit' });
-  fs.writeFileSync(path.join(dir, 'reel-rendered.json'), JSON.stringify({ file: `posts/${id}/reel.mp4`, engine: 2, seconds: total, audio: music ? 'embedded' : 'none', sfx: cues.length, renderedAt: new Date().toISOString() }, null, 2));
+  fs.writeFileSync(path.join(dir, 'reel-rendered.json'), JSON.stringify({ file: `posts/${id}/reel.mp4`, engine: 2, seconds: total, audio: music ? 'embedded' : 'none', voice: voice.length, sfx: cues.length, renderedAt: new Date().toISOString() }, null, 2));
   console.log('reel v2 done', id, total + 's', cues.length, 'sfx');
 })().catch(e => { console.error(e); process.exit(1); });

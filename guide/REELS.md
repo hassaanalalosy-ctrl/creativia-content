@@ -1,10 +1,11 @@
 # Reels
 
-5 reels per month; every other day is a carousel or single post (one post every day).
-**Reel days: the 4th, 10th, 16th, 22nd and 28th of every month.** Every other slot day is a normal post.
+10 reels per month; every other day is a carousel or single post (one feed post every day).
+**Reel days: the 1st, 4th, 7th, 10th, 13th, 16th, 19th, 22nd, 25th and 28th of every month.** Every other day is a normal post.
+**Voice reels (3 a month): the 7th, 16th and 25th** use the young voice "Crete" (ElevenLabs voice id `dIb2W5nEfCAa3PiChX8C`, model `eleven_v4`) — VOICE PIPELINE NOT ACTIVE YET: until this line says ACTIVE, make them music-only. The other 7 are music only.
 
 ## Topics
-Main series: **practical tips for designers** (the owner's favourite). Examples:
+Main series: **practical tips for designers** (the owner's favourite). Music-only reels also cover **marketing** (one smart idea per reel: a famous stunt, a launch trick, a branding lesson) and fast visual stories of strange ad campaigns. Examples of tips:
 - Colour: 60-30-10 rule, how to build a palette, colour contrast, colours and emotion.
 - Typography: pairing two fonts, hierarchy in 3 sizes, line length and spacing, Arabic + Latin pairing.
 - Layout: white space, grids, alignment, one hero element, the rule of thirds.

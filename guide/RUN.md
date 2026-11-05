@@ -12,7 +12,7 @@ Each run creates **at most one** post. Do not create, edit or delete anything el
 - Slot days: every day.
 - Starting from tomorrow (Baghdad date), walk forward up to 7 days and take the first date that is not already a key in `log/schedule.json`.
 - If there is no such slot, stop: reply in one Arabic line "الجدول مكتمل لحد <last filled date>، ما أكو شي جديد اليوم" and end the run without changes.
-- If the slot's day-of-month is 4, 10, 16, 22 or 28 it is a **reel day**: follow section 3R instead of 3, and in section 4 use the reel settings.
+- If the slot's day-of-month is 1, 4, 7, 10, 13, 16, 19, 22, 25 or 28 it is a **reel day**: follow section 3R instead of 3, and in section 4 use the reel settings.
 
 ## 3. Make the post
 - Research and choose a topic exactly as the content guide says (web search + page fetches; verify facts in 2 sources).
@@ -47,3 +47,9 @@ GitHub's raw links on `main` are cached for a few minutes, so after a re-render 
 
 ## 6. Reply (this is what the owner sees in the notification)
 Two or three lines in Arabic: the slot date, the topic, number of slides (or "ريل" and its length and music), and the Metricool planner link from the createScheduledPost response.
+
+## Extra posts (breaking news, at most 3 per week)
+After the slot is handled, if a truly major creative story broke in the last 48 hours (major award results, a huge launch, a landmark opening) and fewer than 3 extra posts exist in the last 7 days of `log/schedule.json` (keys ending in `-extra`), make ONE extra post: usually a `single` or short story carousel, scheduled today at 15:00 (or tomorrow 15:00 if that time has passed). Log it with key `<date>-extra`. Skip if nothing is clearly big.
+
+## Weekly review
+The weekly analytics task writes `log/insights.md`. Read it before choosing topics and formats, and follow its "Do more / Do less" lines.

@@ -35,7 +35,7 @@ Call createScheduledPost with blogId 7656023, date `<slot>T21:00:00+03:00`, and 
 - `instagramData`: `{"type":"POST"}`; `facebookData`: `{"type":"POST"}`
 - `text`: the caption; `publicationDate`: `{"dateTime":"<slot>T21:00:00","timezone":"Asia/Baghdad"}`
 - **Reels:** `media` = the pinned URL of `posts/<id>/reel.mp4`, `videoThumbnailUrl` = the pinned URL of `posts/<id>/reel-cover.jpg`, `instagramData` = `{"type":"REEL","showReelOnFeed":true,"audioConfiguration":{"audioId":"<numeric id>"}}` (music steps in `guide/REELS.md`), `facebookData` = `{"type":"REEL","title":"<reel title>"}`.
-- **Trial period (until the owner says otherwise): `"draft": true, "autoPublish": true`** — the owner reviews each draft in the Metricool app and schedules it; once scheduled it publishes automatically.
+- **Publish directly (owner approved, no review): `"draft": false, "autoPublish": true`.** The post goes live on its own at the scheduled time.
 
 ### Replacing images of an existing post
 GitHub's raw links on `main` are cached for a few minutes, so after a re-render never reuse the `main` URL. Use the commit that holds the new image: `git log -1 --format=%H -- posts/<id>/slides/NN.png`, then `https://raw.githubusercontent.com/hassaanalalosy-ctrl/creativia-content/<that sha>/posts/<id>/slides/NN.png`. Download it once and compare it with the local file before sending it to Metricool.

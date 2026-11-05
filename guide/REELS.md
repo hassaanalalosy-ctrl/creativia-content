@@ -1,6 +1,6 @@
 # Reels
 
-5 reels per month, inside the 20-post limit (so 15 carousels/singles + 5 reels).
+5 reels per month; every other day is a carousel or single post (one post every day).
 **Reel days: the 4th, 10th, 16th, 22nd and 28th of every month.** Every other slot day is a normal post.
 
 ## Topics

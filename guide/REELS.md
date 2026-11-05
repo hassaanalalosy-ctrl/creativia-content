@@ -57,3 +57,10 @@ If no suitable candidates come back after 3 search terms, schedule the reel with
 ## Own music library (prepared, NOT active yet)
 `assets/music/library.json` lists approved Pixabay tracks by mood (upbeat, lofi, ambient, emotional). Owner prefers upbeat unless the topic calls for another mood.
 When the voiceover system is switched on, the renderer will mix the chosen track under the voice (ducked) and the Instagram `audioId` step above will be dropped. Until this section says ACTIVE, keep using the Instagram music steps above.
+
+## Motion rules (owner, Nov 2026)
+- Arabic text appears **word by word**, never letter by letter (letters are joined; splitting breaks their shapes).
+- **Every reveal moves right to left**: words, cards, transitions, camera pans.
+- Vertical 9:16 only; keep everything in the safe area (y 70 to 500 on the 360×640 stage). Only use motion that reads well on a tall phone screen.
+- Style direction: liquid glass cards with a glowing rim, morphing between shapes (pill → card → card), soft blur-in reveals, slow camera push and slight 3D tilt, a softly drifting gradient background, small sparkles. Creativia colours, Playpen Sans Arabic, Kreti.
+- Sound effects live in `assets/sfx/library.json` (by role: whoosh, pop, click, typing, sparkle, riser, soft-impact, ding, notification, ui, camera, tick, tension, applause). Keep them subtle under the music; never more than one effect at the same moment.

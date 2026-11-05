@@ -1,0 +1,22 @@
+{
+  "id": "_v2-test",
+  "engine": 2,
+  "mode": "dark",
+  "badge": "نصيحة تصميم",
+  "coverAt": 2.6,
+  "music": "assets/music/sub_clair-upbeat-instrumental-588419.mp3",
+  "musicStart": 0,
+  "palette": [
+    {"pct": 60, "color": "#EFE8DC", "label": "لون أساسي هادئ"},
+    {"pct": 30, "color": "#1F4A3D", "label": "لون ثانوي يعطي عمق"},
+    {"pct": 10, "color": "#2EE86B", "label": "لون مميز يشد العين"}
+  ],
+  "scenes": [
+    {"type": "hook", "dur": 3.6, "pose": "point", "title": "سرّ الألوان المتناسقة", "pill": "60 · 30 · 10", "sub": "قاعدة يستعملها المصممين بكل مكان"},
+    {"type": "room", "dur": 3.2, "focus": 0, "title": "اللون الأساسي", "body": "يغطي أغلب المساحة: الجدران والخلفيات."},
+    {"type": "room", "dur": 3.2, "focus": 1, "title": "اللون الثانوي", "body": "يعطي عمق وتباين: الأثاث الكبير والعناوين."},
+    {"type": "room", "dur": 3.2, "focus": 2, "title": "اللون المميز", "body": "لمسات صغيرة تشد العين: التفاصيل والأزرار.", "kreti": "jump"},
+    {"type": "stack", "dur": 3.6, "title": "اجمعها سوا", "result": "والنتيجة؟ توازن"},
+    {"type": "end", "dur": 3.0}
+  ]
+}

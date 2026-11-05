@@ -23,7 +23,7 @@ Each run creates **at most one slot post (with its two stories) plus at most one
 - Open every rendered slide image with the Read tool and check it: text not cut off, no overlapping elements, images loaded, numbers in English digits, credits present. If something is wrong, fix the spec and re-render (delete rendered.json, push).
 
 ## 3R. Make a reel (reel days only)
-- Choose a topic as `guide/REELS.md` says, and write `posts/<id>/reel.json` with `"engine": 2`, music from the library, and (on the 7th, 16th and 25th) `"voice": true` with a `say` line per scene.
+- Choose a topic as `guide/REELS.md` says, and write `posts/<id>/reel.json` with `"engine": 2`, music from the library, and `"voice": true` with a `say` line per scene (every reel).
 - Also write `posts/<id>/stories.json` (section 3S) in the same commit.
 - Commit "Reel spec: <slug>" and push. The GitHub Action renders `reel.mp4` (with music, sound effects and voice) and `reel-cover.jpg`, then the stories (about 4 to 8 minutes).
 - Poll every 20 seconds for up to 15 minutes until `posts/<id>/reel-rendered.json` or `posts/<id>/render-error.json` exists on origin/main, then `git reset --hard origin/main`.

@@ -11,6 +11,10 @@ on:
         description: 'ElevenLabs model'
         required: false
         default: 'eleven_multilingual_v2'
+      text:
+        description: 'Optional short text (overrides script.txt)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -33,6 +37,7 @@ jobs:
         run: |
           test -n "$XI_KEY" || { echo "Secret ELEVENLABS_API_KEY is missing"; exit 1; }
           mkdir -p test/voice/out
+          if [ -n "${{ github.event.inputs.text }}" ]; then printf '%s' "${{ github.event.inputs.text }}" > test/voice/script.txt; fi
           body=$(jq -n --rawfile t test/voice/script.txt --arg m "${{ github.event.inputs.model_id }}" '{text: ($t|rtrimstr("\n")), model_id: $m, voice_settings: {stability: 0.45, similarity_boost: 0.8, style: 0.2}}')
           code=$(curl -sS -o test/voice/out/voice.mp3 -w "%{http_code}" -X POST \
             "https://api.elevenlabs.io/v1/text-to-speech/${{ github.event.inputs.voice_id }}?output_format=mp3_44100_128" \

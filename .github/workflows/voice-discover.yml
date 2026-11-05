@@ -1,0 +1,35 @@
+name: Voice discover
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: List models and Arabic voices
+        env:
+          XI_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          mkdir -p test/voice/out
+          curl -sS https://api.elevenlabs.io/v1/models -H "xi-api-key: $XI_KEY" \
+            | jq '[.[] | {model_id, name, can_do_text_to_speech, languages: ([.languages[]?.language_id] | index("ar") != null)}]' > test/voice/out/models.json
+          curl -sS "https://api.elevenlabs.io/v1/shared-voices?language=ar&page_size=40&sort=trending" -H "xi-api-key: $XI_KEY" \
+            | jq '[.voices[]? | {voice_id, public_owner_id, name, gender, age, accent, locale, use_case, descriptive, description: (.description // "" | .[0:140]), free_users_allowed, cloned_by_count, preview_url}]' > test/voice/out/arabic-voices.json
+          curl -sS "https://api.elevenlabs.io/v1/voices" -H "xi-api-key: $XI_KEY" \
+            | jq '[.voices[]? | {voice_id, name, category, labels}]' > test/voice/out/my-voices.json
+          curl -sS "https://api.elevenlabs.io/v1/user/subscription" -H "xi-api-key: $XI_KEY" \
+            | jq '{tier, character_count, character_limit, voice_limit, voice_slots_used, can_extend_character_limit}' > test/voice/out/subscription.json || true
+          wc -c test/voice/out/*.json
+      - name: Commit
+        run: |
+          git config user.name "creativia-bot"
+          git config user.email "creativia-bot@users.noreply.github.com"
+          git add test/voice/out
+          git commit -m "Voice discovery" || exit 0
+          git pull --rebase origin main
+          git push

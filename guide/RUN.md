@@ -1,7 +1,7 @@
 # Run procedure (scheduled task, once a day at 09:34 Baghdad)
 
 Goal: keep the next 7 days filled, **one post every day** at **21:00 Asia/Baghdad** (Metricool paid plan, no monthly cap). Instagram + Facebook.
-Each run creates **at most one** post. Do not create, edit or delete anything else in Metricool.
+Each run creates **at most one slot post plus at most one extra post** (see Extra posts). Do not edit or delete anything else in Metricool.
 
 ## 1. Setup
 - Attach `hassaanalalosy-ctrl/creativia-content` with push access (add_repo) and `git clone --depth 1` it to `/home/claude/creativia-content`.

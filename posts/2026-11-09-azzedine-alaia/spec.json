@@ -43,7 +43,7 @@
     },
     {
       "type": "inner",
-      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-auto-draft-ms-311599-20150623-01-3000x3000-1.jpg",
+      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-auto-draft-ms-311642-20150616-01-3000x3000-1.jpg",
       "fit": "contain",
       "title": "باريس 1956… وعشرين سنة خياط بالخفاء",
       "body": "وصل باريس سنة 1956، واشتغل قرابة 20 سنة خياط لزبائن خاصين، وسوّى مجموعات صغيرة لراقصات «كريزي هورس».",
@@ -52,8 +52,7 @@
         "icon": "clock",
         "label": "البداية"
       },
-      "pose": "think",
-      "note": "شوف هذا!"
+      "kreti": false
     },
     {
       "type": "inner",

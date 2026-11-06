@@ -1,0 +1,86 @@
+{
+  "id": "2026-11-06-sharjah-design-centre",
+  "topic": "Sharjah Design Centre announced: seven specialist labs, rammed-earth building by Taller de Arquitectura (Mauricio Rocha) with Daniel Rosselló, opening 2029 in Sharjah Creative Quarter",
+  "category": "عمارة وتصميم",
+  "mode": "dark",
+  "sources": [
+    "https://www.designboom.com/architecture/sharjah-design-centre-uae-united-arab-emirates-seven-specialist-labs-2029-mauricio-rocha-daniel-rossello/",
+    "https://www.thenationalnews.com/arts-culture/2026/11/02/sharjah-design-centre-to-open-in-2029-with-seven-labs-to-test-and-develop-products/"
+  ],
+  "slides": [
+    {
+      "type": "coverImage",
+      "badge": "خبر جديد",
+      "image": "https://www.designboom.com/wp-content/uploads/2026/11/sharjah-design-centre-uae-united-arab-emirates-seven-specialist-labs-2029-mauricio-rocha-daniel-rossello-designboom-1800.jpg",
+      "fit": "contain",
+      "title": "الشارقة تبني بيت للمصممين… من التراب",
+      "credit": "تصميم: Taller de Arquitectura · الصور: Sharjah Creative Quarter · عبر designboom",
+      "chips": [
+        {
+          "icon": "building",
+          "label": "عمارة"
+        },
+        {
+          "icon": "trend",
+          "label": "افتتاح 2029"
+        }
+      ],
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://www.designboom.com/wp-content/uploads/2026/11/sharjah-design-centre-uae-united-arab-emirates-seven-specialist-labs-2029-mauricio-rocha-daniel-rossello-designboom-01.jpg",
+      "fit": "contain",
+      "title": "مركز الشارقة للتصميم",
+      "body": "مكان يجمع المصممين والباحثين والمصنّعين، حتى الفكرة تطلع من الورق وتصير منتج حقيقي.",
+      "credit": "الصور: Sharjah Creative Quarter · عبر designboom",
+      "chip": {
+        "icon": "spark",
+        "label": "الفكرة"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://www.designboom.com/wp-content/uploads/2026/11/sharjah-design-centre-uae-united-arab-emirates-seven-specialist-labs-2029-mauricio-rocha-daniel-rossello-designboom-05.jpg",
+      "fit": "contain",
+      "title": "7 مختبرات تحت سقف واحد",
+      "body": "نسيج، ونماذج سريعة، وزجاج، وسيراميك، ومجوهرات، ومعادن، وخشب. وبيه مكتبة مواد وأرشيف رقمي.",
+      "credit": "الصور: Sharjah Creative Quarter · عبر designboom",
+      "chip": {
+        "icon": "box",
+        "label": "المختبرات"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://www.designboom.com/wp-content/uploads/2026/11/sharjah-design-centre-uae-united-arab-emirates-seven-specialist-labs-2029-mauricio-rocha-daniel-rossello-designboom-07.jpg",
+      "fit": "contain",
+      "title": "مبنى من التراب المدكوك",
+      "body": "صممه مكتب المكسيكي ماوريسيو روتشا ويا المعماري الإسباني دانيال روسيّو، بمواد محلية وتقنيات البناء التقليدي.",
+      "credit": "الصور: Sharjah Creative Quarter · عبر designboom",
+      "chip": {
+        "icon": "building",
+        "label": "العمارة"
+      },
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "ليش مهم؟",
+      "tagIcon": "spark",
+      "title": "شنو نتعلم من الفكرة؟",
+      "points": [
+        "المصمم يحتاج مكان يجرب بي، مو بس يرسم",
+        "مواد بيئتنا، مثل الطين والملح والسعف، كنز",
+        "العمارة المحلية ممكن تكون حديثة"
+      ],
+      "note": "احفظها!"
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "caption": "الشارقة تبني مركز للتصميم… مبناه من التراب ✦\n\nأعلنت الشارقة عن «مركز الشارقة للتصميم»، ويفتح سنة 2029 ضمن منطقة الشارقة الإبداعية، قرب بيت الحكمة والمدينة الجامعية. الفكرة إن المصمم ما يبقى بس بمرحلة البحث: المركز يجمع المصممين والباحثين والمصنّعين حتى الفكرة تصير منتج حقيقي.\n\nبيه 7 مختبرات: النسيج، والنماذج السريعة، والزجاج، والسيراميك، والمجوهرات، والمعادن، والخشب، ويا مكتبة مواد وأرشيف رقمي ومساحات عرض. والمبنى من تصميم مكتب Taller de Arquitectura بقيادة المكسيكي ماوريسيو روتشا ويا الإسباني دانيال روسيّو، بالتراب المدكوك ومواد محلية. وتديره الشيخة هند بنت ماجد القاسمي.\n\nلو عندك مختبر من السبعة، أي واحد تختار؟ 👇\n\nالعمارة: Taller de Arquitectura (Mauricio Rocha) · Daniel Rosselló\nالصور: Sharjah Creative Quarter\n\n#كريتيفيا #عمارة #تصميم #الشارقة #الإمارات #تصميم_منتجات #SharjahDesignCentre #architecture #productdesign"
+}

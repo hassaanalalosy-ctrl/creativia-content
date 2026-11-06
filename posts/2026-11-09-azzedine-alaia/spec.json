@@ -1,0 +1,114 @@
+{
+  "id": "2026-11-09-azzedine-alaia",
+  "topic": "Profile of Tunisian couturier Azzedine Alaïa ahead of his first major US retrospective, Azzedine Alaïa: Sculpting Fashion, Legion of Honor San Francisco (21 Nov 2026 - 11 Apr 2027)",
+  "category": "أزياء (بروفايل)",
+  "mode": "light",
+  "sources": [
+    "https://www.famsf.org/press-room/azzedine-alaia-sculpting-fashion",
+    "https://www.couturenotebook.com/best-haute-couture-blog/azzedina-alaia-san-francisco-exhibition",
+    "https://ashadedviewonfashion.com/2026/08/18/the-body-remembers-azzedine-alaia-comes-to-the-legion-of-honor/",
+    "https://www.musa.guide/en/discover/san-francisco/exhibitions/november-2026"
+  ],
+  "slides": [
+    {
+      "type": "coverImage",
+      "badge": "معرض قادم",
+      "image": "https://stjzqvtsmrdsnxjcolnn.supabase.co/storage/v1/object/public/martin-and-lewis/registry/exhibitions/7edd604f9db64ebea932d40a1b23e11b-w768.webp",
+      "fit": "contain",
+      "title": "عز الدين علية… نحّات تونسي غيّر الموضة بباريس",
+      "credit": "فستان ربيع/صيف 1990 · مؤسسة عز الدين علية · تصوير: Andrea & Valentina",
+      "chips": [
+        {
+          "icon": "star",
+          "label": "أزياء"
+        },
+        {
+          "icon": "trend",
+          "label": "أول معرض بأمريكا"
+        }
+      ],
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-auto-draft-photo-par-gilles-bensimon.jpg",
+      "title": "مواليد تونس 1935… ودرس النحت مو الخياطة",
+      "body": "درس النحت بمدرسة الفنون الجميلة بتونس، وهالشي بقى وياه طول عمره: يشوف الجسد مثل تمثال، والقماش مثل مادة يشكّلها.",
+      "credit": "عز الدين علية · تصوير: Gilles Bensimon",
+      "chip": {
+        "icon": "star",
+        "label": "منو هو؟"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-auto-draft-ms-311599-20150623-01-3000x3000-1.jpg",
+      "fit": "contain",
+      "title": "باريس 1956… وعشرين سنة خياط بالخفاء",
+      "body": "وصل باريس سنة 1956، واشتغل قرابة 20 سنة خياط لزبائن خاصين، وسوّى مجموعات صغيرة لراقصات «كريزي هورس».",
+      "credit": "تصميم: عز الدين علية · مؤسسة عز الدين علية · تصوير: Andrea & Valentina",
+      "chip": {
+        "icon": "clock",
+        "label": "البداية"
+      },
+      "pose": "think",
+      "note": "شوف هذا!"
+    },
+    {
+      "type": "inner",
+      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-auto-draft-ms-311600-20150702-01-3000x3000-1.jpg",
+      "fit": "contain",
+      "title": "1980: أول مجموعة… والجسد هو البطل",
+      "body": "جيرسي وشيفون وجلد بحلقات معدنية صغيرة، يلبس الجسد مثل الجلد الثاني. لبسته تينا تيرنر وغريس جونز وبعدين ريهانا.",
+      "credit": "تصميم: عز الدين علية · مؤسسة عز الدين علية · تصوير: Andrea & Valentina",
+      "chip": {
+        "icon": "brush",
+        "label": "ستايله"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-the-body-remembers-azzedine-alaia-comes-to-the-legion-of-honor-ex1154-jeanbaptistemondino-20260722.jpg",
+      "fit": "contain",
+      "title": "1987: طلع من روزنامة الموضة",
+      "body": "ترك مواعيد أسابيع الموضة الرسمية، وصار يعرض مجموعته بس لما تخلص. ما يستعجل على حساب الإتقان.",
+      "credit": "تصميم: عز الدين علية · © Jean-Baptiste Mondino",
+      "chip": {
+        "icon": "spark",
+        "label": "قرار جريء"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://ashadedviewonfashion.com/wp-content/uploads/2026/08/ashadedviewonfashion.com-auto-draft-ms-311617-20260310-01-3000x3000-1.jpg",
+      "fit": "contain",
+      "title": "«نحت الأزياء» بسان فرانسيسكو",
+      "body": "أول معرض استعادي كبير له بأمريكا: 80 قطعة بمتحف ليجن أوف أونر، من 21 نوفمبر 2026 لحد 11 أبريل 2027.",
+      "credit": "تصميم: عز الدين علية · مؤسسة عز الدين علية · تصوير: Andrea & Valentina",
+      "chip": {
+        "icon": "clock",
+        "label": "من 21 نوفمبر"
+      },
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "ليش مهم؟",
+      "tagIcon": "spark",
+      "title": "شنو نتعلم من علية؟",
+      "points": [
+        "دراستك القديمة مو ضايعة، تصير أسلوبك",
+        "الإتقان أهم من مواعيد السوق",
+        "الشكل يبدأ من فهم الجسد، مو من الترند"
+      ],
+      "note": "احفظها!"
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "caption": "درس النحت بتونس… وصار واحد من أهم مصممي الأزياء بالعالم ✦\n\nعز الدين علية مصمم أزياء تونسي، من مواليد 1935، درس النحت بمدرسة الفنون الجميلة بتونس، ووصل باريس سنة 1956. اشتغل قرابة 20 سنة خياط لزبائن خاصين، وأطلق أول مجموعة جاهزة باسمه سنة 1980: قطع من الجيرسي والشيفون والجلد تلتصق بالجسد وكأنها منحوتة. لبست تصاميمه تينا تيرنر وغريس جونز وريهانا.\n\nسنة 1987 طلع من روزنامة الموضة الرسمية، وصار يعرض بس لما تكون المجموعة جاهزة. توفي سنة 2017، وهسه يجيه أول معرض استعادي كبير بأمريكا: «عز الدين علية: نحت الأزياء» بمتحف ليجن أوف أونر بسان فرانسيسكو، 80 قطعة، من 21 نوفمبر 2026 لحد 11 أبريل 2027، بالتعاون ويا مؤسسة عز الدين علية.\n\nتعرف مصمم عربي ثاني وصل للعالمية؟ اكتبه بالتعليقات 👇\n\nتصميم: Azzedine Alaïa\nمعرض: Azzedine Alaïa: Sculpting Fashion — Legion of Honor, Fine Arts Museums of San Francisco\nالقيّمان: Laura L. Camerlengo · Olivier Saillard\nتصوير: Andrea & Valentina (Fondation Azzedine Alaïa) · Gilles Bensimon · Jean-Baptiste Mondino\n\n#كريتيفيا #أزياء #موضة #تصميم_أزياء #تونس #AzzedineAlaia #Alaia #fashiondesign #hautecouture"
+}

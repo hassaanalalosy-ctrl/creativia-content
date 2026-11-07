@@ -14,7 +14,7 @@
       "badge": "أسبوع دبي للتصميم",
       "image": "https://www.thenationalnews.com/resizer/v2/5VO6S7M7XVADFDY7GUSXFGYLEY.jpg?auth=4a9a3b8bc5d52bd42a41ca4d61f1258584a17d0a7fd15314d1bc421040f9b082&width=1600",
       "title": "أجمل 4 أعمال من أسبوع دبي للتصميم 2026",
-      "credit": "«ثلاث حدائق وغرفة»: NAO Architects · تصوير: Antonie Robertson / The National",
+      "credit": "تصميم: NAO Architects · تصوير: The National",
       "chips": [
         {
           "icon": "building",
@@ -32,7 +32,7 @@
       "image": "https://www.thenationalnews.com/resizer/v2/J35Y2QK65JDDNB2KUYPC4R5UF4.jpg?auth=8d1627b23484bc7d6b584ef098fc336f3233707cd0c985b8e24140b204cca47f&width=1600",
       "title": "«ثلاث حدائق وغرفة»",
       "body": "العمل الفائز بتكليفات المدينة. جدران منحنية وردية وصفراء وأشجار صحراوية مثل السدر والسمر.",
-      "credit": "تصميم: NAO Architects (ريم نصور) · تصوير: Antonie Robertson / The National",
+      "credit": "تصميم: NAO Architects · تصوير: The National",
       "chip": {
         "icon": "star",
         "label": "الفائز"
@@ -44,20 +44,19 @@
       "image": "https://www.thenationalnews.com/resizer/v2/EORZY6XWLJBU5MDWMGLWACKCU4.jpg?auth=d257d0bdbfe9d8303f00bff79e3fd178a8099eeef5a8cf7f71bccef601f1df3a&width=1600",
       "title": "«تعليم»: سجادة تدخل جواها",
       "body": "مكعب كبير تمشي بداخله، مستوحى من رموز الألوان والنقوش اللي يستعملها نسّاجو السجاد والشالات بكشمير.",
-      "credit": "تصميم: VARUSSI · تصوير: Antonie Robertson / The National",
+      "credit": "تصميم: VARUSSI · تصوير: The National",
       "chip": {
         "icon": "box",
         "label": "معرض «أبواب»"
       },
-      "pose": "think",
-      "note": "تحفة!"
+      "kreti": false
     },
     {
       "type": "inner",
       "image": "https://www.thenationalnews.com/resizer/v2/PSDCU2HWVFDXNEDYR2JUFCBETM.jpg?auth=57d0889452203ffbcb72b6a89d94e381a8fbacb574e40bba7a3ef248deefa6e3&width=1600",
       "title": "لغة الرعاة بالصوف",
       "body": "لوحات صوف ملبّد ومحطات تسمع بيها نداءات الرعاة لأغنامهم، عن رعاة الكوروبا بجنوب الهند.",
-      "credit": "تصميم: Dakhnii Diaries × Avid Learning ME · تصوير: Antonie Robertson / The National",
+      "credit": "تصميم: Dakhnii Diaries · تصوير: The National",
       "chip": {
         "icon": "brush",
         "label": "حِرفة"
@@ -69,7 +68,7 @@
       "image": "https://www.thenationalnews.com/resizer/v2/D2DTKCJINVD2HCNYANQWBBPAIQ.jpg?auth=f3f8f805f874774ad5a5ceedc665be03ad5b4ceabd545ea1eb7b169292739618&width=1600",
       "title": "«لا/معنى»: نص على الأرض",
       "body": "كلام مطبوع على الأرضية كلها، مخلوط من مقاطع للكاتب فيليب ك. ديك ونص «لوريم إبسوم» اللي يعرفه كل مصمم.",
-      "credit": "تصميم: UBIK (Vivek Premachandran) · تصوير: Antonie Robertson / The National",
+      "credit": "تصميم: UBIK · تصوير: The National",
       "chip": {
         "icon": "type",
         "label": "طباعة"

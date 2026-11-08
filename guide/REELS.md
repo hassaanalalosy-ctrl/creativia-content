@@ -47,7 +47,7 @@ Always set `"engine": 2`. 30 to 75 seconds (stories can be long), 6 to 14 scenes
 - `room` + `stack` (with a top-level `palette` of 3 colours) exist only for colour-proportion demos.
 - Kreti poses: point, jump, think, wave. Use Kreti in 2 to 3 scenes.
 - Sound effects are added automatically per scene type; set `"sfx": [[sec, "role", volume], ...]` on a scene only to override.
-- Caption: same rules as posts (hook line ✦, the tips written out, a question, 5 to 9 hashtags including #كريتيفيا).
+- Caption: same rules as posts (hook line ✦, the story in 2 to 3 short paragraphs with the key numbers, the lesson, a question, credits, 5 to 9 hashtags including #كريتيفيا #ماركتنغ when relevant).
 
 ## Video clips (`video` scene)
 - Only **direct video file links** (.mp4) from the brand's or agency's press page, the award site (Cannes Lions, D&AD, The One Show), news sites that host the file, or Wikimedia Commons. Never download from YouTube, TikTok or Instagram.

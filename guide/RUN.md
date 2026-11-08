@@ -26,7 +26,7 @@ Each run creates **at most one slot post (with its two stories) plus at most one
 - Choose a topic as `guide/REELS.md` says, and write `posts/<id>/reel.json` with `"engine": 2`, music from the library, and `"voice": true` with a `say` line per scene (every reel).
 - Also write `posts/<id>/stories.json` (section 3S) in the same commit.
 - Commit "Reel spec: <slug>" and push. The GitHub Action renders `reel.mp4` (with music, sound effects and voice) and `reel-cover.jpg`, then the stories (about 4 to 8 minutes).
-- Poll every 20 seconds for up to 15 minutes until `posts/<id>/reel-rendered.json` or `posts/<id>/render-error.json` exists on origin/main, then `git reset --hard origin/main`.
+- Poll every 30 seconds for up to 25 minutes until `posts/<id>/reel-rendered.json` or `posts/<id>/render-error.json` exists on origin/main, then `git reset --hard origin/main`.
 - Check it: extract 8 frames spread across the video with ffmpeg (`ffmpeg -ss <sec> -i reel.mp4 -frames:v 1 -vf scale=270:480 f.png`) and open them with the Read tool. Text must not overlap, be cut off, or sit in the bottom fifth. Check the audio exists (`ffprobe` shows an audio stream). Fix the spec and re-render if needed (delete reel-rendered.json, push).
 
 ## 3S. Stories (every slot day)

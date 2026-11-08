@@ -118,9 +118,9 @@ ${s.credit ? `<span style="font-size:11.5px;color:${c.muted}">${esc(s.credit)}</
   screenshot(c, s, i, n) {
     return frame(c, `${orb(c.orb1, c.orb1Mid, 340, 'top:-100px;left:-100px')}
 <div style="position:absolute;top:14px;right:14px;left:14px;display:flex;justify-content:space-between;align-items:center">${s.chip ? `<span style="display:flex;align-items:center;gap:6px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700">${ico(c, s.chip.icon || 'spark', 13)}${esc(s.chip.label)}</span>` : logo()}${pill(c, counter(i, n))}</div>
-<div style="position:absolute;top:48px;right:12px;left:12px;bottom:${s.title ? 60 : 30}px;border-radius:18px;background:#0B0F0D;border:1px solid ${c.glassBorder};box-shadow:${c.tileShadow};overflow:hidden">${img(s.image, 'contain')}</div>
-${s.title ? `<p style="position:absolute;bottom:22px;right:16px;left:16px;margin:0;font-size:${s.titleSize || 16}px;font-weight:800;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.title)}</p>` : ''}
-${s.credit ? `<span style="position:absolute;bottom:7px;right:16px;left:16px;font-size:9.5px;color:${c.muted};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.credit)}</span>` : ''}`);
+<div style="position:absolute;top:48px;right:12px;left:12px;bottom:${s.title ? 80 : 44}px;border-radius:18px;background:#0B0F0D;border:1px solid ${c.glassBorder};box-shadow:${c.tileShadow};overflow:hidden">${img(s.image, 'contain')}</div>
+${s.title ? `<p style="position:absolute;bottom:42px;right:16px;left:16px;margin:0;font-size:${s.titleSize || 16}px;font-weight:800;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.title)}</p>` : ''}
+${s.credit ? `<span style="position:absolute;bottom:24px;right:16px;left:16px;font-size:9.5px;color:${c.muted};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.credit)}</span>` : ''}`);
   },
 
   text(c, s, i, n) {

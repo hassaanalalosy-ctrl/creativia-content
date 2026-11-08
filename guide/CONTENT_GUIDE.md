@@ -26,6 +26,20 @@ Arab and Gulf art and design: Barjeel Art Foundation, Sharjah Art Foundation, Ar
 Pinterest and social media: discovery only. Never use an image whose original creator you cannot identify.
 Some sites refuse automated fetching (CNN, Colossal and others). If a page will not fetch, use another outlet covering the same story.
 
+## News posts (أخبار)
+News is its own category with three labels, shown as the cover badge/chip and the first hashtag after #كريتيفيا:
+- **أخبار الكريتف** (design, advertising, marketing, branding), **أخبار تقنية** (tech and AI that touches creative work), **أخبار الفن** (art, exhibitions, artists).
+Two kinds:
+1. **Confirmed news**: verified in 2 sources, as usual.
+2. **«خبر منتشر · غير مؤكد» (viral, unverified)**: allowed ONLY when it is clearly labelled everywhere:
+   - Cover badge exactly «خبر منتشر · غير مؤكد»; caption starts with «خبر منتشر (غير مؤكد)».
+   - Write it as a report, not a fact: «تنتشر صور…»، «يُقال إن…»، «حسب الصور…». Never state it as true.
+   - One slide "شنو نعرف؟" listing what is known and unknown (origin, date, any official comment), and a caption line «تنبيه: ما گدرنا نتأكد من القصة…».
+   - Credit viral screenshots as «لقطة شاشة منتشرة على السوشيال · المصدر الأصلي غير معروف». Crop them to the content (no other account's name, logo or app interface around it).
+   - Never for: health or medical claims, politics, crimes or accusations against real people or companies, death rumours, or anything that could harm someone if false.
+   - Look for a debunk first; if the story is shown to be false, do not post it (or post it as «طلع غير صحيح» with the source).
+Cover image: a strong, related image we may use (press images, free licences) or our own `cover` design with Kreti. Never take another account's designed post or a film still.
+
 ## Choosing a topic
 A topic qualifies only if ALL are true:
 1. Recent (last 14 days), OR an older story from our creative fields ONLY (never general history or trivia) that is truly remarkable and little known to Arab audiences (a legendary or bizarre campaign, a famous design story, an iconic fashion moment). About 1 post in 3 may be such a classic; say the year clearly in the post.

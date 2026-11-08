@@ -1,0 +1,5 @@
+{"id":"_test-viral-claude","mode":"dark","category":"أخبار تقنية · خبر منتشر","slides":[
+ {"type":"coverImage","badge":"خبر منتشر","image":"https://images.pexels.com/photos/7092447/pexels-photo-7092447.jpeg?auto=compress&cs=tinysrgb&w=1600","logo":"assets/logos/claude.svg","title":"طالب طلب من Claude يحل امتحانه… والرد صدم الناس","credit":"صورة: RDNE Stock project · Pexels","chips":[{"icon":"spark","label":"أخبار تقنية"},{"icon":"trend","label":"منتشر"}],"kreti":false},
+ {"type":"screenshot","image":"posts/2026-11-08-claude-exam-viral/img/chat-1.png","chip":{"icon":"clock","label":"الطلب"},"title":"دزّ أسئلة الامتحان وطلب الحل","credit":"لقطة شاشة منتشرة على السوشيال"},
+ {"type":"screenshot","image":"posts/2026-11-08-claude-exam-viral/img/chat-2.png","chip":{"icon":"spark","label":"الرد"},"title":"والرد: ما راح أكتب حل لاختبار جاري","credit":"لقطة شاشة منتشرة على السوشيال"},
+ {"type":"end"}]}

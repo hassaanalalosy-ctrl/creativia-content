@@ -4,19 +4,18 @@
 **Reel days: the 1st, 4th, 7th, 10th, 13th, 16th, 19th, 22nd, 25th and 28th of every month.** Every other day is a normal post.
 **All 10 reels have a voiceover** by the Creativia voice "Arafat Almnshid" (Iraqi) — see "Voice reels" below. Music plays under the voice.
 
-## Topics
-Main series: **practical tips for designers** (the owner's favourite). Music-only reels also cover **marketing** (one smart idea per reel: a famous stunt, a launch trick, a branding lesson) and fast visual stories of strange ad campaigns. Examples of tips:
-- Colour: 60-30-10 rule, how to build a palette, colour contrast, colours and emotion.
-- Typography: pairing two fonts, hierarchy in 3 sizes, line length and spacing, Arabic + Latin pairing.
-- Layout: white space, grids, alignment, one hero element, the rule of thirds.
-- Branding and logos: what makes a logo scale, a brand in 3 elements, common logo mistakes.
-- Workflow: briefs, giving and taking feedback, preparing files for print, presenting work to clients.
-- Social media design: safe zones, readable text on mobile, carousel hooks.
-Every 3rd reel may be a fast visual story instead (a famous work or campaign in 3 facts), using credited images exactly like posts.
-Tips must be accurate, widely accepted design practice. No invented statistics. Do not repeat a topic already in `log/posted.md`.
+## Topics (owner, Nov 2026) — NO design tips
+Reels are **stories**, not tips. Every reel tells one gripping story, told by the voice, with real images (and short video clips when available):
+- **Legendary marketing campaigns** and why they worked (a famous stunt, a launch that broke the internet, a guerrilla idea, a brand comeback).
+- **Strange and bold creative ideas** from anywhere in the world: weird ads, crazy brand stunts, ideas that made people stop and talk.
+- **Logo and brand stories**: the story and history of a famous logo (e.g. Nike's Swoosh: who designed it, for how much, how it changed), rebrands that succeeded or failed, hidden ideas inside logos.
+- Old stories are welcome if they are remarkable; say the year clearly. Recent campaigns (last weeks) are great when they are strong.
+Structure: a hook that creates curiosity in the first 2 seconds (a question or a surprising fact) → the story in order (who, what, how, the result with real numbers from sources) → the lesson in one line → end.
+Facts, numbers, dates and names verified in 2 sources; no invented results. Use the real campaign/logo images with credits (brand, agency, photographer). Do not repeat a topic already in `log/posted.md`.
+Good scene types for stories: `hook`, `image` (most scenes), `video`, `point` with `image`, `statement` for the key moment or the lesson, `list` for "3 reasons it worked", `end`.
 
 ## Spec (posts/<id>/reel.json) — engine 2 (liquid glass), the ONLY engine for new reels
-Always set `"engine": 2`. 18 to 40 seconds, 5 to 8 scenes. Titles under ~35 characters, bodies under ~90.
+Always set `"engine": 2`. 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
 ```json
 {
   "id": "YYYY-MM-DD-short-slug",
@@ -35,6 +34,7 @@ Always set `"engine": 2`. 18 to 40 seconds, 5 to 8 scenes. Titles under ~35 char
     {"type": "point", "dur": 3.0, "num": "1", "title": "...", "body": "...", "kreti": "point"},
     {"type": "point", "dur": 3.0, "num": "2", "image": "https://...", "credit": "العمل: ... · @handle", "title": "...", "body": "..."},
     {"type": "image", "dur": 3.0, "image": "https://...", "title": "...", "credit": "...", "chip": "optional label", "tall": false, "fit": "cover"},
+    {"type": "video", "dur": 4.0, "video": "https://direct-link-to-file.mp4", "start": 12.5, "title": "...", "credit": "الحملة: Brand · الوكالة: Agency", "fit": "cover"},
     {"type": "compare", "dur": 3.2, "title": "...", "bad": {"label": "غلط", "text": "..."}, "good": {"label": "صح", "text": "..."}, "kreti": "jump"},
     {"type": "list", "dur": 3.4, "tag": "الخلاصة", "title": "...", "points": ["...", "...", "..."], "kreti": "wave"},
     {"type": "statement", "dur": 2.8, "text": "one strong sentence", "sub": "..."},
@@ -49,6 +49,11 @@ Always set `"engine": 2`. 18 to 40 seconds, 5 to 8 scenes. Titles under ~35 char
 - Sound effects are added automatically per scene type; set `"sfx": [[sec, "role", volume], ...]` on a scene only to override.
 - Caption: same rules as posts (hook line ✦, the tips written out, a question, 5 to 9 hashtags including #كريتيفيا).
 
+## Video clips (`video` scene)
+- Only **direct video file links** (.mp4) from the brand's or agency's press page, the award site (Cannes Lions, D&AD, The One Show), news sites that host the file, or Wikimedia Commons. Never download from YouTube, TikTok or Instagram.
+- Keep each clip short: 2 to 5 seconds (`start` = second to begin from), at most 3 clips per reel, always credited. The clip plays silently under our voice and music.
+- If the render fails to download a clip, replace that scene with an `image` scene of the same campaign and re-render.
+
 ## Music (own library — ACTIVE)
 Music is mixed INTO the video from `assets/music/library.json`. Pick by mood: upbeat for tips, facts, marketing and events (owner's favourite); lofi for calm how-to; ambient for architecture and art; emotional for serious news. Never the same track as the previous reel (check the last reel.json in `log/schedule.json`). Do NOT send Instagram `audioConfiguration` for engine 2 reels.
 
@@ -57,7 +62,7 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - **Light, clear Iraqi dialect** (owner's choice, Nov 2026), easy for every Arab to follow: e.g. "اكو"، "شلون"، "هواية"، "خلّي"، "تعال نشوف". No heavy slang, no English words in the voice line.
 - The on-screen text of voice reels uses the same light Iraqi tone so text and voice match.
 - Short sentences, 1 sentence per scene, 3 to 14 words. Numbers written as words (ثلاث، ستين بالمية).
-- Whole script under 500 characters (about 30 to 45 seconds). Say it naturally; do not read the on-screen text word for word.
+- Whole script under 900 characters (about 45 to 75 seconds). Say it naturally; do not read the on-screen text word for word.
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 

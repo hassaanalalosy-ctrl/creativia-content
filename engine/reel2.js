@@ -41,7 +41,8 @@ const CUES = {
   list: [[0.0, 'whoosh', 0.4], [0.7, 'click', 0.35], [1.1, 'click', 0.3], [1.5, 'click', 0.3], [1.9, 'click', 0.3]],
   compare: [[0.0, 'whoosh', 0.4], [0.7, 'ui', 0.35], [1.5, 'ding', 0.4]],
   image: [[0.0, 'whoosh', 0.4], [0.3, 'camera', 0.35]],
-  statement: [[0.0, 'riser', 0.3], [1.0, 'soft-impact', 0.5]]
+  statement: [[0.0, 'riser', 0.3], [1.0, 'soft-impact', 0.5]],
+  video: [[0.0, 'whoosh', 0.4]]
 };
 
 const PAGE = String.raw`
@@ -209,6 +210,18 @@ const S = {
         + (s.credit ? '<div style="position:absolute;right:26px;left:26px;top:' + (s.tall ? 492 : 450) + 'px;font-size:12px;color:' + C.muted + ';' + fadeIn(t, 1.0) + '">' + cred(s.credit) + '</div>' : '')
     };
   },
+  // a short credited video clip inside the glass frame (frames pre-extracted by node, one jpg per frame)
+  video(s, t) {
+    const n = Math.min(s.frames - 1, Math.max(0, Math.floor(t * 30)));
+    const src = s.frameDir + '/f' + String(n + 1).padStart(4, '0') + '.jpg';
+    return {
+      shape: { x: 24, y: 80, w: 312, h: s.tall ? 360 : 300, r: 28 }, shapeOp: 1,
+      inner: '<img src="' + src + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:' + (s.fit || 'cover') + '">'
+        + '<div style="position:absolute;left:12px;top:12px;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,0.45);color:#fff;font-size:11px;font-weight:700">▶ فيديو</div>',
+      over: '<div style="position:absolute;right:26px;left:26px;top:' + (s.tall ? 456 : 398) + 'px;font-size:' + (s.size || 24) + 'px;font-weight:800;line-height:1.3">' + words(s.title || '', t, 0.45, 0.12) + '</div>'
+        + (s.credit ? '<div style="position:absolute;right:26px;left:26px;top:' + (s.tall ? 492 : 450) + 'px;font-size:12px;color:' + C.muted + ';' + fadeIn(t, 1.0) + '">' + cred(s.credit) + '</div>' : '')
+    };
+  },
   // one big statement, words land one by one with a scale-down from blur
   statement(s, t) {
     const ws = esc(s.text).split(' ');
@@ -297,6 +310,25 @@ function sfxPlan(spec) {
   const vjson = path.join(dir, 'voice', 'voice.json');
   const voice = spec.voice && fs.existsSync(vjson) ? JSON.parse(fs.readFileSync(vjson, 'utf8')).clips : [];
   for (const c of voice) { const sc = spec.scenes[c.scene]; sc.dur = Math.max(sc.dur || 0, Math.round((c.dur + VLEAD + 0.55) * 100) / 100); }
+  // video scenes: download the clip once and extract 30 fps frames for the scene length
+  const tmpv = path.join(__dirname, '_tmp', 'video-' + id); fs.mkdirSync(tmpv, { recursive: true });
+  for (let k = 0; k < spec.scenes.length; k++) {
+    const sc = spec.scenes[k];
+    if (sc.type !== 'video') continue;
+    const src = path.join(tmpv, 'src' + k + '.mp4');
+    if (!fs.existsSync(src)) {
+      if (/^https?:/.test(sc.video)) {
+        const res = await fetch(sc.video, { headers: { 'User-Agent': 'Mozilla/5.0 Chrome/126', 'Referer': new URL(sc.video).origin + '/' } });
+        if (!res.ok) throw new Error(`Video download failed (${res.status}): ${sc.video}`);
+        fs.writeFileSync(src, Buffer.from(await res.arrayBuffer()));
+      } else fs.copyFileSync(path.join(ROOT, sc.video), src);
+    }
+    const fdir = path.join(tmpv, 'v' + k); fs.rmSync(fdir, { recursive: true, force: true }); fs.mkdirSync(fdir);
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(sc.start || 0), '-i', src, '-t', String(sc.dur + 0.5), '-an', '-vf', 'fps=30,scale=960:-2', '-q:v', '3', path.join(fdir, 'f%04d.jpg')]);
+    sc.frames = fs.readdirSync(fdir).filter(f => f.endsWith('.jpg')).length;
+    if (!sc.frames) throw new Error('No frames extracted from ' + sc.video);
+    sc.frameDir = 'file://' + fdir;
+  }
   const poses = {};
   for (const p of ['wave', 'point', 'jump', 'think']) poses[p] = kreti({ pose: p, size: 240, mode, cut: theme.cut, look: 'dream' });
   const grain = 'data:image/svg+xml;base64,' + Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0"/></filter><rect width="180" height="180" filter="url(#n)"/></svg>').toString('base64');
@@ -316,7 +348,7 @@ function sfxPlan(spec) {
   const only = process.env.FRAMES ? process.env.FRAMES.split(',').map(Number) : null;
   const el = await page.$('#stage');
   if (only) { // preview stills
-    for (const s of only) { await page.evaluate(x => window.drawFrame(x), s); await el.screenshot({ path: path.join(tmp, `still-${s}.jpg`), type: 'jpeg', quality: 85 }); }
+    for (const s of only) { await page.evaluate(x => window.drawFrame(x), s); await page.evaluate(() => Promise.all([...document.images].map(im => im.complete ? 0 : im.decode().catch(() => 0)))); await el.screenshot({ path: path.join(tmp, `still-${s}.jpg`), type: 'jpeg', quality: 85 }); }
     await browser.close(); return;
   }
   const silent = path.join(tmp, 'silent.mp4');
@@ -325,6 +357,7 @@ function sfxPlan(spec) {
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', silent], { stdio: ['pipe', 'inherit', 'inherit'] });
   for (let i = 0; i < frames; i++) {
     await page.evaluate(x => window.drawFrame(x), i / FPS);
+    await page.evaluate(() => Promise.all([...document.images].map(im => im.complete ? 0 : im.decode().catch(() => 0))));
     const buf = await el.screenshot({ type: 'jpeg', quality: 95 });
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
     if (i % 90 === 0) console.log('frame', i, '/', frames);

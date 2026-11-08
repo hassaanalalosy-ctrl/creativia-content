@@ -104,13 +104,23 @@ ${glassChip(c, s.chip, 'top:64px;right:18px', -5)}
 <div style="position:absolute;top:16px;right:16px;left:16px;display:flex;justify-content:space-between;align-items:center">
 <span style="display:flex;align-items:center;gap:6px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500"><span style="width:7px;height:7px;border-radius:50%;background:#2EE86B"></span>${esc(s.badge || 'جديد اليوم')}</span>
 <span style="width:36px;height:36px;border-radius:50%;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center">${mark({ size: 20 })}</span></div>
-${glassChip(c, (s.chips || [])[0], `top:${s.fit === 'contain' ? 262 : 70}px;right:18px`, -6)}${glassChip(c, (s.chips || [])[1], `top:${s.fit === 'contain' ? 270 : 112}px;left:18px`, 5)}
+${s.logo ? `<div style="position:absolute;top:58px;left:16px;width:62px;height:62px;border-radius:18px;background:rgba(255,255,255,0.92);box-shadow:0 10px 28px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;overflow:hidden"><img src="${s.logo}" style="width:${s.logoFill ? '100%' : '70%'};height:${s.logoFill ? '100%' : '70%'};object-fit:contain" alt=""></div>` : ''}
+${glassChip(c, (s.chips || [])[0], `top:${s.fit === 'contain' ? 262 : 70}px;right:18px`, -6)}${glassChip(c, (s.chips || [])[1], `top:${s.fit === 'contain' ? 270 : (s.logo ? 134 : 112)}px;left:18px`, 5)}
 ${s.kreti ? `<div style="position:absolute;bottom:182px;left:10px">${kreti({ pose: s.pose || 'jump', size: 70, mode, cut: c.cut, look: 'dream' })}</div>` : ''}
 ${star(c, 16, 'top:150px;left:60px')}
 <div style="position:absolute;bottom:14px;right:14px;left:14px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(14px);box-shadow:${c.chipShadow};border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:10px">
 <p style="margin:0;font-size:${s.titleSize || 22}px;font-weight:800;line-height:1.3">${esc(s.title)}</p>
 ${s.credit ? `<span style="font-size:11.5px;color:${c.muted}">${esc(s.credit)}</span>` : ''}
 <div style="display:flex;justify-content:space-between;align-items:center"><span dir="ltr" style="unicode-bidi:isolate;font-size:12px;color:${c.muted}">${counter(i, n)}</span><span style="background:${c.pillBg};color:${c.pillText};font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px">اسحب ←</span></div></div>`, s.fit === 'contain' ? null : '#0B1410');
+  },
+
+  // a big screenshot that fills the slide, with one short line only (for viral news / chats / tweets)
+  screenshot(c, s, i, n) {
+    return frame(c, `${orb(c.orb1, c.orb1Mid, 340, 'top:-100px;left:-100px')}
+<div style="position:absolute;top:14px;right:14px;left:14px;display:flex;justify-content:space-between;align-items:center">${s.chip ? `<span style="display:flex;align-items:center;gap:6px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700">${ico(c, s.chip.icon || 'spark', 13)}${esc(s.chip.label)}</span>` : logo()}${pill(c, counter(i, n))}</div>
+<div style="position:absolute;top:48px;right:12px;left:12px;bottom:${s.title ? 60 : 30}px;border-radius:18px;background:#0B0F0D;border:1px solid ${c.glassBorder};box-shadow:${c.tileShadow};overflow:hidden">${img(s.image, 'contain')}</div>
+${s.title ? `<p style="position:absolute;bottom:22px;right:16px;left:16px;margin:0;font-size:${s.titleSize || 16}px;font-weight:800;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.title)}</p>` : ''}
+${s.credit ? `<span style="position:absolute;bottom:7px;right:16px;left:16px;font-size:9.5px;color:${c.muted};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.credit)}</span>` : ''}`);
   },
 
   text(c, s, i, n) {

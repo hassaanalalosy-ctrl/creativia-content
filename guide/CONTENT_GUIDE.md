@@ -31,13 +31,13 @@ News is its own category with three labels, shown as the cover badge/chip and th
 - **أخبار الكريتف** (design, advertising, marketing, branding), **أخبار تقنية** (tech and AI that touches creative work), **أخبار الفن** (art, exhibitions, artists).
 Two kinds:
 1. **Confirmed news**: verified in 2 sources, as usual.
-2. **«خبر منتشر · غير مؤكد» (viral, unverified)**: allowed ONLY when it is clearly labelled everywhere:
-   - Cover badge exactly «خبر منتشر · غير مؤكد»; caption starts with «خبر منتشر (غير مؤكد)».
-   - Write it as a report, not a fact: «تنتشر صور…»، «يُقال إن…»، «حسب الصور…». Never state it as true.
-   - One slide "شنو نعرف؟" listing what is known and unknown (origin, date, any official comment), and a caption line «تنبيه: ما گدرنا نتأكد من القصة…».
-   - Credit viral screenshots as «لقطة شاشة منتشرة على السوشيال · المصدر الأصلي غير معروف». Crop them to the content (no other account's name, logo or app interface around it).
-   - Never for: health or medical claims, politics, crimes or accusations against real people or companies, death rumours, or anything that could harm someone if false.
-   - Look for a debunk first; if the story is shown to be false, do not post it (or post it as «طلع غير صحيح» with the source).
+2. **«خبر منتشر» (viral story)** — the owner's format for stories spreading on social media:
+   - Label: cover badge exactly «خبر منتشر» (do NOT write «غير مؤكد»). Hashtag #خبر_منتشر.
+   - Wording: report what is spreading, without stating unknown details as fact: «تنتشر صور…»، «حسب الصور…»، «يتداول الناس…».
+   - **Less text**: when there are screenshots, let them speak. Format: `coverImage` → 1 to 3 `screenshot` slides (one short line each, under ~40 characters) → `end`. No long text slides. Caption short: 2 short paragraphs + a question.
+   - Screenshots: crop to the content only (no other account's name, logo or app interface around it); credit «لقطة شاشة منتشرة على السوشيال».
+   - Never for: health or medical claims, politics, crimes or accusations against real people or companies, death rumours, or anything that could harm someone if false. Look for a debunk first; if it is shown to be false, do not post it.
+**News cover (all news posts):** `coverImage` with a big, clear full-bleed photo that expresses the topic (4:5, no `fit: contain`) PLUS the logo of the brand/product the story is about in `logo` (e.g. `assets/logos/claude.svg`; add new logos to `assets/logos/` from the brand's press kit or an open icon set). Photo sources: the company's newsroom/press images, news photos with credit, or free-licence images. Never a film still, a stock photo that requires a paid licence, or another account's designed post.
 Cover image: a strong, related image we may use (press images, free licences) or our own `cover` design with Kreti. Never take another account's designed post or a film still.
 
 ## Choosing a topic

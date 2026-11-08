@@ -16,7 +16,7 @@ async function toDataUri(url) {
   const local = path.join(ROOT, url);
   if (!/^https?:/.test(url) && fs.existsSync(local)) {
     const ext = path.extname(local).slice(1).toLowerCase();
-    return `data:image/${ext === 'jpg' ? 'jpeg' : ext};base64,${fs.readFileSync(local).toString('base64')}`;
+    return `data:image/${ext === 'jpg' ? 'jpeg' : ext === 'svg' ? 'svg+xml' : ext};base64,${fs.readFileSync(local).toString('base64')}`;
   }
   const origin = new URL(url).origin;
   const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126 Safari/537.36', 'Referer': origin + '/', 'Accept': 'image/avif,image/webp,image/*,*/*' } });
@@ -40,6 +40,7 @@ async function renderPost(browser, id) {
   for (let k = 0; k < total; k++) {
     const s = Object.assign({}, spec.slides[k]);
     if (s.image) s.image = await toDataUri(s.image);
+    if (s.logo) s.logo = await toDataUri(s.logo);
     const html = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">${FONT_CSS}<style>body{margin:0}</style></head><body>${slideHtml(s, k + 1, total, mode)}</body></html>`;
     const tmp = path.join(__dirname, '_tmp');
     fs.mkdirSync(tmp, { recursive: true });

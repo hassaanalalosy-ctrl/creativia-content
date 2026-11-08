@@ -1,0 +1,62 @@
+{
+  "model": "eleven_v4",
+  "voiceId": "7N1xLmvR6jQolMXWRhvT",
+  "clips": [
+    {
+      "scene": 0,
+      "file": "00.mp3",
+      "text": "إذا تحط عربي وإنجليزي بنفس الحجم، العربي راح يبين أصغر!",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.68
+    },
+    {
+      "scene": 1,
+      "file": "01.mp3",
+      "text": "أول شي: طابق الحجم بعينك، مو بالرقم.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 3.71
+    },
+    {
+      "scene": 2,
+      "file": "02.mp3",
+      "text": "ثاني شي: خلّي سُمك الخط نفسه باللغتين.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 3.71
+    },
+    {
+      "scene": 3,
+      "file": "03.mp3",
+      "text": "ثالث شي: الخط الهندسي ويا هندسي، والكلاسيكي ويا كلاسيكي.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 5.96
+    },
+    {
+      "scene": 4,
+      "file": "04.mp3",
+      "text": "شوف الفرق: لما يتطابقون، يبينون عائلة وحدة.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.28
+    },
+    {
+      "scene": 5,
+      "file": "05.mp3",
+      "text": "وأسهل حل: اختار عائلة خط مصممة للغتين من الأساس.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.83
+    },
+    {
+      "scene": 6,
+      "file": "06.mp3",
+      "text": "احفظها، وجرّبها بتصميمك الجاي.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 2.93
+    },
+    {
+      "scene": 7,
+      "file": "07.mp3",
+      "text": "تابع كريتيفيا.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 1.41
+    }
+  ]
+}

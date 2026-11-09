@@ -1,0 +1,82 @@
+{
+  "id": "2026-11-14-dia-al-azzawi",
+  "topic": "Profile of Iraqi artist Dia al-Azzawi on his first New York solo show, Let me tell you a story to break the waking night, Richard Saltoun New York (5 Nov - 18 Dec 2026)",
+  "category": "فن عربي (بروفايل)",
+  "mode": "dark",
+  "sources": [
+    "https://www.richardsaltoun.com/exhibitions/165-dia-al-azzawi-let-me-tell-you-a-story-to-break/",
+    "https://www.artrabbit.com/events/dia-al-azzawi-let-me-tell-you-a-story-to-break-the-waking-night",
+    "https://www.richardsaltoun.com/artists/1033-dia-al-azzawi/biography/",
+    "https://www.newarab.com/features/dia-al-azzawi-his-excursion-across-time-london-exhibition",
+    "https://en.wikipedia.org/wiki/Dia_Azzawi"
+  ],
+  "slides": [
+    {
+      "type": "coverImage",
+      "badge": "معرض جديد",
+      "image": "https://static-assets.artlogic.net/w_1600,h_1600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/richardsaltoun/images/view/b5273dacfb6e2714bdc6294fc3fbda94j/richardsaltoun-dia-al-azzawi-oriental-window-2013.jpg",
+      "fit": "contain",
+      "title": "ضياء العزاوي… رسّام عراقي يحكي قصصنا",
+      "credit": "ضياء العزاوي، «نافذة شرقية» 2013 · بإذن غاليري ريتشارد سالتون",
+      "chips": [
+        {"icon": "brush", "label": "فن عربي"},
+        {"icon": "trend", "label": "أول معرض بنيويورك"}
+      ],
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://www.newarab.com/sites/default/files/2026-04/DAA001-image%20%281%29.jpg",
+      "fit": "contain",
+      "title": "بغداد 1939… ودرس الآثار قبل الرسم",
+      "body": "انولد ببغداد سنة 1939، ودرس الآثار قبل الرسم. لهذا تشوف بلوحاته رموز وادي الرافدين ويا الحرف العربي.",
+      "credit": "ضياء العزاوي، «حروف عربية» 1970 · بإذن غاليري ريتشارد سالتون",
+      "chip": {"icon": "star", "label": "منو هو؟"},
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static-assets.artlogic.net/w_1600,h_1600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/richardsaltoun/images/view/f2db554721bc5818704d43463ad5588cj/richardsaltoun-dia-al-azzawi-drawing-consecrated-to-love-waddah-al-yaman-1972.jpg",
+      "fit": "contain",
+      "title": "1968 لـ 1976: أمين متحف ورسّام",
+      "body": "اشتغل أمين بمتاحف عراقية منها المتحف العراقي، وكتب بيان جماعة «الرؤية الجديدة» اللي غيّرت الفن العراقي.",
+      "credit": "ضياء العزاوي، «رسم مكرّس للحب: وضّاح اليمن» 1972 · بإذن غاليري ريتشارد سالتون",
+      "chip": {"icon": "clock", "label": "البداية"},
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static-assets.artlogic.net/w_1600,h_1600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/richardsaltoun/images/view/26b015a2f26f94ef30797c267836d626j/richardsaltoun-dia-al-azzawi-majnoun-layla-qassim-haddad-1995.jpg",
+      "fit": "contain",
+      "title": "1976: لندن… والشعر يدخل اللوحة",
+      "body": "انتقل للندن سنة 1976، وصار يرسم قصائد الشعراء العرب، مثل «مجنون ليلى» للشاعر البحريني قاسم حداد.",
+      "credit": "ضياء العزاوي، «مجنون ليلى: قاسم حداد» 1995 · بإذن غاليري ريتشارد سالتون",
+      "chip": {"icon": "pen", "label": "الشعر"},
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static-assets.artlogic.net/w_1600,h_1600,c_limit,f_auto,fl_lossy,q_auto/artlogicstorage/richardsaltoun/images/view/502d03b52bfc2d9c39623f54c83703d9j/richardsaltoun-dia-al-azzawi-man-in-yellow-field-2020-2021.jpg",
+      "fit": "contain",
+      "title": "2026: أول معرض فردي إله بنيويورك",
+      "body": "بغاليري ريتشارد سالتون لحد 18 ديسمبر، وبيه نسخة أصلية كاملة من مطبوعاته عن «ألف ليلة وليلة» (1986).",
+      "credit": "ضياء العزاوي، «رجل في حقل أصفر» 2020-2021 · بإذن غاليري ريتشارد سالتون",
+      "chip": {"icon": "clock", "label": "لحد 18 ديسمبر"},
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "ليش مهم؟",
+      "tagIcon": "spark",
+      "title": "ليش العزاوي مهم؟",
+      "points": [
+        "لوحته «صبرا وشاتيلا» بمجموعة تيت مودرن",
+        "خلّى الشعر والحرف العربي لغة للفن الحديث",
+        "من بغداد للدوحة وباريس ولندن… وهسه نيويورك"
+      ],
+      "note": "احفظها!"
+    },
+    {"type": "end"}
+  ],
+  "caption": "من بغداد لنيويورك… ضياء العزاوي يحكي قصصنا بالألوان ✦\n\nضياء العزاوي فنان عراقي من مواليد بغداد 1939. درس الآثار قبل الرسم، واشتغل أمين بمتاحف عراقية منها المتحف العراقي من 1968 لـ 1976، وكان من أهم أسماء الحداثة العراقية وصاحب بيان «نحو رؤية جديدة».\n\nسنة 1976 انتقل للندن، وصار الحرف العربي وشعر الشعراء العرب جزء من لوحاته. لوحته الكبيرة «مجزرة صبرا وشاتيلا» (1982-1983) اليوم بمجموعة تيت مودرن.\n\nوهسه عنده أول معرض فردي بنيويورك: «دعني أحكي لك حكاية تكسر ليل السهر» بغاليري ريتشارد سالتون، من 5 نوفمبر لحد 18 ديسمبر 2026. العنوان جملة تقولها شهرزاد بـ «ألف ليلة وليلة»، وبالمعرض نسخة أصلية كاملة من مطبوعاته عنها سنة 1986، انطبعت منها 25 نسخة بس.\n\nأي لوحة عجبتك أكثر؟ اكتب رقم الصورة بالتعليقات 👇\n\nالفنان: Dia al-Azzawi\nالمعرض: Let me tell you a story to break the waking night — Richard Saltoun, New York\nالصور: © The Artist · Courtesy of Richard Saltoun Gallery\n\n#كريتيفيا #فن_عربي #فن_عراقي #العراق #فن_تشكيلي #DiaAlAzzawi #IraqiArt #ArabArt #contemporaryart"
+}

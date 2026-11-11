@@ -17,16 +17,98 @@
     "https://www.mediapost.com/publications/article/352721/burger-kings-moldy-whopper-wins-big-at-one-show.html"
   ],
   "scenes": [
-    {"type": "hook", "dur": 3.2, "pose": "point", "title": "برغر متعفّن… صار إعلان!", "pill": "35 يوم", "sub": "أجرأ إعلان سوّته برغر كنغ", "say": "شلون برغر متعفّن صار من أنجح إعلانات سنة ألفين وعشرين؟"},
-    {"type": "image", "dur": 3.4, "image": "https://res.cloudinary.com/wpp-cloudinary/image/upload/v1778159738/wpp/project/wpp/images/wpp-awards/2020/winning-work/mouldy-whopper.jpg", "title": "«الووبر المتعفّن» · 2020", "chip": "شباط 2020", "credit": "الحملة: Burger King · INGO Stockholm · DAVID Miami · Publicis", "say": "بشباط ألفين وعشرين، برغر كنغ نشرت صورة الووبر مالها… وهو متعفّن!"},
-    {"type": "point", "dur": 3.4, "num": "1", "image": "https://ascentialcdn.filespin.io/api/v1/conversion/aa3839dc55fd40fb8de49732d1bfc37c", "credit": "Burger King · تصوير: Pål Allan", "title": "35 يوم قدام الكاميرا", "body": "صوّروا البرغر يوم بعد يوم، لحد ما العفن غطّاه.", "say": "صوّروه خمسة وثلاثين يوم، لحد ما العفن غطّاه بالكامل."},
-    {"type": "statement", "dur": 3.0, "text": "العفن هو الدليل", "sub": "ماكو مواد حافظة صناعية", "say": "والفكرة؟ العفن هو الدليل إن ماكو مواد حافظة صناعية."},
-    {"type": "image", "dur": 3.2, "image": "https://ascentialcdn.filespin.io/api/v1/conversion/08e15cc0a45b42fdad78a61db3db51a6", "title": "جمال بلا مواد حافظة", "chip": "اليوم 33", "credit": "Burger King · تصوير: Pål Allan", "say": "وكتبوا عليه: جمال بلا مواد حافظة صناعية."},
-    {"type": "point", "dur": 3.0, "num": "2", "title": "بست دول وأكثر", "body": "السويد، الدنمارك، النرويج، أمريكا، المكسيك والبرازيل.", "kreti": "think", "say": "الحملة انتشرت بالسويد وأمريكا والبرازيل ودول ثانية."},
-    {"type": "list", "dur": 3.6, "tag": "النتيجة", "title": "بالأرقام", "points": ["8.4 مليار ظهور", "المبيعات +14%", "40 مليون دولار إعلام مجاني"], "kreti": "jump", "say": "النتيجة: أكثر من ثمانية مليار ظهور، والمبيعات زادت أربعة عشر بالمية."},
-    {"type": "image", "dur": 3.2, "image": "https://static-www.adweek.com/wp-content/uploads/2020/12/moldy-whopper-epica-awards-2020.jpg?w=1140", "title": "جوائز بالجملة", "chip": "Epica · Eurobest · D&AD", "credit": "الصورة: Burger King", "say": "وأخذت جوائز كبيرة، منها ثلاث جوائز كبرى بمهرجان إيبيكا."},
-    {"type": "statement", "dur": 3.0, "text": "اللي تخاف منه، ممكن يصير أقوى دليل عندك", "sub": "الصدق يبيع", "say": "الدرس: الشي اللي تخاف تبيّنه، ممكن يكون أقوى دليل عندك."},
-    {"type": "end", "dur": 2.6, "note": "شاركها ويا صديقك الماركتر", "say": "تابع كريتيفيا، وشارك القصة ويا صديقك."}
+    {
+      "type": "hook",
+      "dur": 3.2,
+      "pose": "point",
+      "title": "برغر متعفّن… صار إعلان!",
+      "pill": "35 يوم",
+      "sub": "أجرأ إعلان سوّته برغر كنغ",
+      "say": "شلون برغر متعفّن صار من أنجح إعلانات سنة ألفين وعشرين؟"
+    },
+    {
+      "type": "image",
+      "dur": 3.4,
+      "image": "https://res.cloudinary.com/wpp-cloudinary/image/upload/v1778159738/wpp/project/wpp/images/wpp-awards/2020/winning-work/mouldy-whopper.jpg",
+      "title": "«الووبر المتعفّن» · 2020",
+      "chip": "شباط 2020",
+      "credit": "الحملة: Burger King · INGO Stockholm · DAVID Miami · Publicis",
+      "say": "بشباط ألفين وعشرين، برغر كنغ نشرت صورة الووبر مالها… وهو متعفّن!"
+    },
+    {
+      "type": "image",
+      "dur": 3.4,
+      "image": "https://ascentialcdn.filespin.io/api/v1/conversion/aa3839dc55fd40fb8de49732d1bfc37c",
+      "chip": "35 يوم",
+      "credit": "Burger King · تصوير: Pål Allan",
+      "title": "35 يوم قدام الكاميرا",
+      "say": "صوّروه خمسة وثلاثين يوم، لحد ما العفن غطّاه بالكامل."
+    },
+    {
+      "type": "statement",
+      "dur": 3.0,
+      "text": "العفن هو الدليل",
+      "sub": "ماكو مواد حافظة صناعية",
+      "say": "والفكرة؟ العفن هو الدليل إن ماكو مواد حافظة صناعية."
+    },
+    {
+      "type": "compare",
+      "dur": 3.4,
+      "title": "جمال بلا مواد حافظة",
+      "bad": {
+        "label": "المعتاد",
+        "text": "برغر يبقى نفس الشكل أسابيع"
+      },
+      "good": {
+        "label": "برغر كنغ",
+        "text": "برغر يتعفّن لأنه طبيعي"
+      },
+      "say": "وكتبوا عليه: جمال بلا مواد حافظة صناعية."
+    },
+    {
+      "type": "point",
+      "dur": 3.0,
+      "num": "2",
+      "title": "بست دول وأكثر",
+      "body": "السويد، الدنمارك، النرويج، أمريكا، المكسيك والبرازيل.",
+      "kreti": "think",
+      "say": "الحملة انتشرت بالسويد وأمريكا والبرازيل ودول ثانية."
+    },
+    {
+      "type": "list",
+      "dur": 3.6,
+      "tag": "النتيجة",
+      "title": "بالأرقام",
+      "points": [
+        "8.4 مليار ظهور",
+        "المبيعات +14%",
+        "40 مليون دولار إعلام مجاني"
+      ],
+      "kreti": "jump",
+      "say": "النتيجة: أكثر من ثمانية مليار ظهور، والمبيعات زادت أربعة عشر بالمية."
+    },
+    {
+      "type": "image",
+      "dur": 3.2,
+      "image": "https://static-www.adweek.com/wp-content/uploads/2020/12/moldy-whopper-epica-awards-2020.jpg?w=1140",
+      "title": "جوائز بالجملة",
+      "chip": "Epica · Eurobest · D&AD",
+      "credit": "الصورة: Burger King",
+      "say": "وأخذت جوائز كبيرة، منها ثلاث جوائز كبرى بمهرجان إيبيكا."
+    },
+    {
+      "type": "statement",
+      "dur": 3.0,
+      "text": "اللي تخاف منه، ممكن يصير أقوى دليل عندك",
+      "sub": "الصدق يبيع",
+      "say": "الدرس: الشي اللي تخاف تبيّنه، ممكن يكون أقوى دليل عندك."
+    },
+    {
+      "type": "end",
+      "dur": 2.6,
+      "note": "شاركها ويا صديقك الماركتر",
+      "say": "تابع كريتيفيا، وشارك القصة ويا صديقك."
+    }
   ],
   "caption": "برغر متعفّن… صار من أنجح إعلانات 2020! ✦\n\nبشباط 2020 نشرت @burgerking صورة الووبر مالها وهو يتعفّن قدام الكاميرا لمدة 35 يوم. الفكرة بسيطة وجريئة: العفن هو الدليل إن البرغر ما بيه مواد حافظة صناعية. والشعار: «جمال بلا مواد حافظة صناعية».\n\nالحملة انتشرت بالسويد والدنمارك والنرويج وأمريكا والمكسيك والبرازيل، والنتيجة: 8.4 مليار ظهور، 40 مليون دولار قيمة إعلام مجاني، والمبيعات زادت 14%. وأخذت 18 قلم ذهبي بجوائز One Show، و3 جوائز كبرى بـ Epica، والجائزة الكبرى بـ Eurobest.\n\nالدرس: الشي اللي تخاف تبيّنه، ممكن يكون أقوى دليل عندك.\n\nلو انت مدير التسويق: كنت توافق على هالإعلان؟ اكتب «أي» لو «لا» 👇\n\nالحملة: Burger King · الوكالات: INGO Stockholm, DAVID Miami, Publicis Bucharest · الإنتاج: Colony Stockholm · المخرج: Markus Ahlm · تصوير: Pål Allan\n\n#كريتيفيا #ماركتنغ #إعلان #إعلانات_مبدعة #قصص_تسويق #advertising #marketing #moldywhopper"
 }

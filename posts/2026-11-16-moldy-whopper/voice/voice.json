@@ -1,0 +1,76 @@
+{
+  "model": "eleven_v4",
+  "voiceId": "7N1xLmvR6jQolMXWRhvT",
+  "clips": [
+    {
+      "scene": 0,
+      "file": "00.mp3",
+      "text": "شلون برغر متعفّن صار من أنجح إعلانات سنة ألفين وعشرين؟",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.36
+    },
+    {
+      "scene": 1,
+      "file": "01.mp3",
+      "text": "بشباط ألفين وعشرين، برغر كنغ نشرت صورة الووبر مالها… وهو متعفّن!",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 6.61
+    },
+    {
+      "scene": 2,
+      "file": "02.mp3",
+      "text": "صوّروه خمسة وثلاثين يوم، لحد ما العفن غطّاه بالكامل.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.75
+    },
+    {
+      "scene": 3,
+      "file": "03.mp3",
+      "text": "والفكرة؟ العفن هو الدليل إن ماكو مواد حافظة صناعية.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.99
+    },
+    {
+      "scene": 4,
+      "file": "04.mp3",
+      "text": "وكتبوا عليه: جمال بلا مواد حافظة صناعية.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.6
+    },
+    {
+      "scene": 5,
+      "file": "05.mp3",
+      "text": "الحملة انتشرت بالسويد وأمريكا والبرازيل ودول ثانية.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 4.75
+    },
+    {
+      "scene": 6,
+      "file": "06.mp3",
+      "text": "النتيجة: أكثر من ثمانية مليار ظهور، والمبيعات زادت أربعة عشر بالمية.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 6.61
+    },
+    {
+      "scene": 7,
+      "file": "07.mp3",
+      "text": "وأخذت جوائز كبيرة، منها ثلاث جوائز كبرى بمهرجان إيبيكا.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 5.56
+    },
+    {
+      "scene": 8,
+      "file": "08.mp3",
+      "text": "الدرس: الشي اللي تخاف تبيّنه، ممكن يكون أقوى دليل عندك.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 5.56
+    },
+    {
+      "scene": 9,
+      "file": "09.mp3",
+      "text": "تابع كريتيفيا، وشارك القصة ويا صديقك.",
+      "voiceId": "7N1xLmvR6jQolMXWRhvT",
+      "dur": 3.55
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "2026-11-18-spotify-egypt-commute",
+  "topic": "Spotify Egypt's 'Sektak Khadra' campaign by VML Egypt: two films turning the daily commute chaos into dancing, built on peak commute listening data",
+  "category": "إعلان",
+  "mode": "dark",
+  "sources": [
+    "https://campaignme.com/spotify-turns-egypts-everyday-commute-into-a-moment-worth-listening-to/",
+    "https://thebrandberries.com/spotify-turns-egypts-everyday-commute-into-a-moment-worth-listening-to/"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "badge": "حملة من مصر",
+      "title": "الزحمة ما تنحل… بس المزاج يتغيّر!",
+      "note": "شوف هذا!",
+      "pose": "think",
+      "chips": [
+        {"icon": "megaphone", "label": "إعلان"},
+        {"icon": "spark", "label": "تسويق"}
+      ]
+    },
+    {
+      "type": "text",
+      "tag": "القصة",
+      "tagIcon": "spark",
+      "title": "شنو هي «سكتك خضرا»؟",
+      "points": [
+        "Spotify مصر خلّت المشوار اليومي هو فكرة الحملة",
+        "فيلمين: عائلة بالسيارة، وراكب بمواصلات زحمة",
+        "الفوضى تصير رقص أول ما تشتغل الموسيقى"
+      ]
+    },
+    {
+      "type": "inner",
+      "image": "https://campaignme.com/wp-content/uploads/2026/11/Spotify-Night-life-Traffic-1920pxls-1080pxls-AR-copy.jpg",
+      "title": "اسم من كلام الشارع",
+      "body": "«سكتك خضرا» دعوة مصرية معروفة للمسافر: يعني طريقك سالك. الحملة أخذت الجملة كما هي.",
+      "credit": "إعلان: Spotify Egypt · وكالة: VML Egypt",
+      "chip": {"icon": "star", "label": "مصر"},
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://i.ytimg.com/vi/fs9fGgyjhaY/maxresdefault.jpg",
+      "title": "الساعة 6 المسا هي الذروة",
+      "body": "حسب Spotify: من 5 لـ 7 المسا بأيام الشغل، الاستماع أعلى بحوالي 40% من المعدل. وقت الرجعة من الدوام.",
+      "credit": "إعلان: Spotify Egypt · VML Egypt · إنتاج: Kino Films",
+      "chip": {"icon": "clock", "label": "بيانات حقيقية"},
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "الدرس",
+      "tagIcon": "pen",
+      "title": "شنو نتعلم من الحملة؟",
+      "points": [
+        "ابدأ من بيانات منتجك، مو من التخمين",
+        "لا توعد بحل مشكلة ما تكدر تحلها",
+        "خذ اسم الحملة من كلام الناس نفسه"
+      ],
+      "note": "احفظها!"
+    },
+    {"type": "end"}
+  ],
+  "caption": "الزحمة ما تنحل… بس Spotify قررت تغيّر مزاجها ✦\n\nبمصر، المشوار اليومي جزء من حياة الكل. ومن هنا انطلقت حملة «سكتك خضرا مع Spotify» من وكالة VML Egypt: فيلمين قصار، واحد لعائلة بالسيارة والثاني لراكب بمواصلات زحمة، والفوضى تتحول لرقص أول ما تشتغل الموسيقى.\n\nالفكرة مبنية على بيانات حقيقية: حسب Spotify، الاستماع من 5 لـ 7 المسا بأيام الشغل أعلى بحوالي 40% من المعدل، والساعة 6 هي الأكثر استماعاً. يعني بالضبط وقت الرجعة من الدوام.\n\nوالدرس؟ الحملة ما وعدت تحل الزحمة. وعدت بشي تكدر تعطيه فعلاً: مشوار أحلى.\n\nمشوارك اليومي: أ) سيارة ولا ب) مواصلات؟ اكتب الحرف بالتعليقات 👇\n\nإعلان: Spotify Egypt\nوكالة إبداعية: VML Egypt · ميديا: Zenith · إنتاج: Kino Films · سوشيال: Kijamii\n\n#كريتيفيا #إعلان #تسويق #حملات_إعلانية #مصر #Spotify #advertising #marketing"
+}

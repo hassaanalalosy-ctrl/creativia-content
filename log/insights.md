@@ -23,7 +23,7 @@ Account is tiny (17 followers): 1 like moves a feed post's rate by 10–20 point
 3. GymNation worry bench (11 Nov, lessons) — reach 6, 0 interactions.
 Feed posts differ by only a few people, so no category can be called better or worse yet.
 
-## Observations (not rules yet — page is new, owner decides later)
+## Observations (no rules taken this time — owner asked to wait, page is new)
 - Reels reached far more people than feed posts (32, 107, 300 vs feed 5–25).
 - The one voice reel was watched 3× longer than the 10 Nov music-only reel (1 example).
 - Feed posts without @tags stayed under ~25 reach (15 of 15); the one tagged post reached 315.
@@ -31,7 +31,7 @@ Feed posts differ by only a few people, so no category can be called better or w
 - Profile carousels were the weakest feed posts (Penone 8, Alaïa 5).
 
 ## Owner decisions in force
-- Review every 15 days (1st and 16th); observations only, no guide changes without the owner's OK.
+- Review every 15 days (1st and 16th). From the next review on, decisions (Do more / Do less, small guide edits) are taken from the data and reported to the owner.
 - Iraqi creatives: feature their work regularly and always tag them — @username in the caption or an official tag on the post (see CONTENT_GUIDE.md › Iraqi creatives).
 
 ## Suggestions waiting for the owner

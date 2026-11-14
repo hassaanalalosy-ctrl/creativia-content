@@ -105,7 +105,7 @@ Optional: `"fit": "contain"` on `inner`/`single` to show a whole image without c
 ## Caption
 1. Hook line (can repeat the cover idea) + ✦
 2. 2 to 3 short paragraphs: what it is, who made it, why it matters.
-3. A question inviting comments.
+3. One easy closing call: a share or save prompt (ابعثها لصاحبك المصمم · احفظها لشغلك الجاي) or a 2-choice question (أ ولا ب؟). Avoid open "شنو رأيك" questions: they got 0 comments in the first 3 weeks.
 4. Credits in original spelling: "تصميم: Studio Name" / "تصوير: Photographer".
 5. 5 to 9 hashtags: always #كريتيفيا, plus Arabic category tags (#عمارة #تصميم #فن ...) and 2 to 4 English ones.
 

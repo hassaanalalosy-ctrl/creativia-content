@@ -1,4 +1,4 @@
-# Weekly insights — 2026-11-14
+# Insights — 2026-11-14
 
 Week reviewed: 7 Nov 21:00 → 13 Nov (8 published: 6 feed carousels incl. 1 extra, 2 reels). Raw data: `log/analytics/2026-11-14.json`.
 Account is tiny (17 followers): 1 like moves a feed post's rate by 10–20 points, so judge mostly by reach and watch time.
@@ -23,28 +23,18 @@ Account is tiny (17 followers): 1 like moves a feed post's rate by 10–20 point
 3. GymNation worry bench (11 Nov, lessons) — reach 6, 0 interactions.
 Feed posts differ by only a few people, so no category can be called better or worse yet.
 
-## Patterns (≥2 examples / ≥2 weeks)
-- Reels reach 4–40× more people than feed posts (3 reels over 2 weeks: 32, 107, 300; reach rising each time).
-- Feed carousels without @tags stay under ~25 reach (15 of 15 cases); the one tagged post reached 315.
-- Open/“write it in comments” questions bring 0 comments (19/19 posts, 3 weeks, incl. a 1-2-3 choice on 13 Nov).
-- Profile carousels are the weakest feed format so far (Penone 8, Alaïa 5).
+## Observations (not rules yet — page is new, owner decides later)
+- Reels reached far more people than feed posts (32, 107, 300 vs feed 5–25).
+- The one voice reel was watched 3× longer than the 10 Nov music-only reel (1 example).
+- Feed posts without @tags stayed under ~25 reach (15 of 15); the one tagged post reached 315.
+- 0 comments on all 19 posts so far, whatever the closing question.
+- Profile carousels were the weakest feed posts (Penone 8, Alaïa 5).
 
-## Do more
-- Reels: voice on every reel (already the rule) + a 3-to-5-word surprising claim on screen AND spoken in the first second — the voice reel was watched 3× longer than the 10 Nov music reel.
-- Tag real verified @accounts of creators, studios, organisers, venues in the caption and as image tags on EVERY post where they exist (not done once this week).
-- Closing line: a share/save prompt (ابعثها لصاحبك المصمم / احفظها) instead of a comment question — see guide edit below.
-- Iraqi / Arab scene with people who can share it (Baghdad, Erbil, Basra events, studios): still only Portfolio Night as proof; try 1 this week and tag everyone.
-- Put the strongest single image on the carousel cover; feed posts must win the first swipe on their own.
+## Owner decisions in force
+- Review every 15 days (1st and 16th); observations only, no guide changes without the owner's OK.
+- Iraqi creatives: feature their work regularly and always tag them — @username in the caption or an official tag on the post (see CONTENT_GUIDE.md › Iraqi creatives).
 
-## Do less
-- Profile carousels on names with no tags/Arab link (2 examples: Penone, Alaïa) — prefer gallery or story format, or a reel for big names.
-- Music-only reels with text to read (24–30% → 16% view rate; watch 2–5 s).
-- Long open “شنو رأيك / منو مفضلك” questions.
-
-## Guide change this week
-- CONTENT_GUIDE.md › Caption step 3: replaced “a question inviting comments” with an easy closing call (share/save prompt or 2-choice question). Reason: 0 comments in 3 weeks.
-
-## For the owner (not changed automatically)
+## Suggestions waiting for the owner
 - Reels carry the account (90% of reach). Consider raising reels from 10 to ~15/month (e.g. every other day) — frequency is your call.
 - Stories: they now publish, but Metricool shows reach 0; check story insights in the Instagram app to see if they are worth the effort.
 - Facebook feed albums reach 0–2 while the FB reel got 187 views: maybe post only reels to Facebook.

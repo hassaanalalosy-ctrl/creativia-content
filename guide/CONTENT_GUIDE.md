@@ -49,6 +49,8 @@ A topic qualifies only if ALL are true:
 5. Interesting to an Arab audience: a surprising angle, a lesson, or a big name. Prefer Arab and regional work when a strong one exists.
 Avoid: politics, religion debates, war imagery, nudity, gossip, and AI-generated art presented as human-made.
 
+**Iraqi creatives (owner decision, Nov 2026):** regularly feature the work of Iraqi designers, artists, photographers and studios, and always tag them: write their real Instagram @username in the caption, or add them as an official tag on the post (image tag / collaborator). Only use a handle you have confirmed is their real account.
+
 ## Voice
 - Simple Modern Arabic that every Arab reader understands. A light colloquial touch is fine (شنو، هالـ، يكدر), never heavy dialect.
 - Short sentences. One idea per slide. No filler, no exaggeration, no clickbait lies.
@@ -105,7 +107,7 @@ Optional: `"fit": "contain"` on `inner`/`single` to show a whole image without c
 ## Caption
 1. Hook line (can repeat the cover idea) + ✦
 2. 2 to 3 short paragraphs: what it is, who made it, why it matters.
-3. One easy closing call: a share or save prompt (ابعثها لصاحبك المصمم · احفظها لشغلك الجاي) or a 2-choice question (أ ولا ب؟). Avoid open "شنو رأيك" questions: they got 0 comments in the first 3 weeks.
+3. A question inviting comments.
 4. Credits in original spelling: "تصميم: Studio Name" / "تصوير: Photographer".
 5. 5 to 9 hashtags: always #كريتيفيا, plus Arabic category tags (#عمارة #تصميم #فن ...) and 2 to 4 English ones.
 

@@ -1,0 +1,40 @@
+{
+  "id": "2026-11-19-kfc-fck",
+  "topic": "KFC's 2018 'FCK' apology ad: how a chicken shortage became an award-winning print ad",
+  "category": "إعلان",
+  "format": "reel",
+  "engine": 2,
+  "mode": "dark",
+  "badge": "قصة حملة",
+  "coverAt": 2.4,
+  "music": "assets/music/hitslab-upbeat-upbeat-music-300654.mp3",
+  "musicStart": 0,
+  "voice": true,
+  "sources": [
+    "https://www.itsnicethat.com/news/mother-london-kfc-advert-apology-230218",
+    "https://www.campaignasia.com/agencyportfolio/CaseStudyCampaign/Default.aspx?id=448479",
+    "https://www.oneclub.org/awards/theoneshow/-award/34056/fck/",
+    "https://huffingtonpost.co.uk/entry/kfc-apologises_uk_5a8fefece4b01e9e56ba7335",
+    "https://www.thestar.com.my/news/world/2018/02/24/britains-kfc-apologises-for-chicken-shortage-with-cheeky-advertisement/",
+    "https://www.mediapost.com/publications/article/321048/kfcs-apology-for-food-shortages-wins-print-gold-a.html"
+  ],
+  "scenes": [
+    {"type": "hook", "dur": 3.2, "pose": "point", "title": "مطعم دجاج… بلا دجاج!", "pill": "شباط 2018", "sub": "شلون KFC حوّلت فضيحة لإعلان؟",
+     "say": "تخيّل أشهر مطعم دجاج بالعالم… ويخلص عنده الدجاج!"},
+    {"type": "point", "dur": 3.2, "num": "1", "title": "بدّلوا شركة التوصيل", "body": "KFC ببريطانيا نقلت توصيل الدجاج لشركة DHL… والدجاج ما وصل.", "kreti": "think",
+     "say": "بشباط ألفين وثمنطعش، كي إف سي بريطانيا بدّلت شركة التوصيل مالتها."},
+    {"type": "statement", "dur": 3.0, "text": "أغلب مطاعمها الـ900 سدّت", "sub": "والزباين عصبوا",
+     "say": "الدجاج ما وصل، وأغلب مطاعمها سدّت، والناس عصبت."},
+    {"type": "image", "dur": 3.6, "image": "https://m.itsnicethat.com/original_images/5a8fefb07fa44c36a5000b53.jpg", "title": "الرد: FCK", "chip": "23 شباط 2018", "credit": "الإعلان: KFC · الوكالة: Mother London",
+     "say": "وبدل بيان رسمي ممل، نشرت إعلان بصفحة كاملة… وبدّلت حروف اسمها!"},
+    {"type": "image", "dur": 3.6, "image": "https://m.itsnicethat.com/original_images/5a8fefa97fa44c36a5000b52.jpg", "title": "«مطعم دجاج بلا دجاج… مو مثالي»", "chip": "The Sun · Metro", "credit": "الإعلان: KFC · الوكالة: Mother London",
+     "say": "واعتذرت بصراحة وخفة دم: مطعم دجاج بلا دجاج، مو شي مثالي."},
+    {"type": "list", "dur": 3.6, "tag": "النتيجة", "title": "بالأرقام", "points": ["أكثر من 700 مقال وتقرير", "وصل لأكثر من مليار شخص", "ذهب بمهرجان كان ليونز"], "kreti": "jump",
+     "say": "النتيجة؟ وصل لأكثر من مليار شخص، وأخذ ذهب بمهرجان كان."},
+    {"type": "statement", "dur": 3.0, "text": "اعترف بغلطتك… وخلّي جمهورك يضحك وياك", "sub": "الدرس",
+     "say": "الدرس: لما تغلط، اعترف بسرعة، وخلّي جمهورك يضحك وياك."},
+    {"type": "end", "dur": 2.6, "note": "شاركها ويا صديقك الماركتر",
+     "say": "تابع كريتيفيا، وشارك القصة ويا صديقك."}
+  ],
+  "caption": "مطعم دجاج… خلص عنده الدجاج! ✦\n\nبشباط 2018 بدّلت KFC ببريطانيا شركة توصيل الدجاج لـ DHL، والتوصيل تعطّل، وأغلب مطاعمها الـ900 سدّت أبوابها. الزباين عصبوا والقصة صارت بكل الأخبار.\n\nبدل بيان رسمي ممل، نشرت KFC يوم 23 شباط إعلان بصفحة كاملة بجريدتي The Sun و Metro: سطل دجاج فارغ وحروف الاسم متبدّلة لـ «FCK»، مع اعتذار بخفة دم: «مطعم دجاج بلا دجاج… مو شي مثالي».\n\nالنتيجة: أكثر من 700 مقال وتقرير، ووصول لأكثر من مليار شخص خلال 3 شهور، وذهب بمهرجان كان ليونز.\n\nالدرس: لما تغلط، اعترف بسرعة وخلّي جمهورك يضحك وياك.\n\nلو انت مدير التسويق: كنت توافق على هالإعلان؟ اكتب «أي» لو «لا» 👇\n\nالحملة: KFC UK & Ireland · الوكالة: Mother London · ECD: Ana Balarin, Hermeti Balarin · CD: Richard Tahmasebi, Pilar Peace · Design: Jon Gregory · PR: Freuds · Media: Blue 449\n\n#كريتيفيا #ماركتنغ #إعلان #إعلانات_مبدعة #قصص_تسويق #advertising #marketing #kfc"
+}

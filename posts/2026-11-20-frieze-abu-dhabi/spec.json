@@ -9,27 +9,74 @@
     "https://whatson.ae/2026/09/frieze-abu-dhabi-2026-programme-revealed/"
   ],
   "slides": [
-    {"type": "cover", "badge": "مفتوح الحين", "title": "فريز وصل أبوظبي لأول مرة!", "note": "شوف هذا!", "pose": "point",
-     "chips": [{"icon": "brush", "label": "فن معاصر"}, {"icon": "star", "label": "حدث فني"}]},
-    {"type": "inner", "image": "https://mymodernmet.com/wp/wp-content/uploads/2026/11/frieze-abu-dhabi-2026-7.jpg", "title": "دالا ناصر: أول جائزة للمعرض",
-     "body": "الفنانة دالا ناصر فازت بأول «جائزة فنان فريز أبوظبي»، وعملها الجديد «قبة دورس» يملأ ردهة منارة السعديات.",
-     "credit": "دالا ناصر، «Blue of noon I» · Commonwealth and Council · تصوير: Paul Salveson",
-     "chip": {"icon": "star", "label": "جائزة الفنان"}, "kreti": false},
-    {"type": "inner", "image": "https://mymodernmet.com/wp/wp-content/uploads/2026/11/frieze-abu-dhabi-2026-12.jpg", "title": "الفن الإماراتي بالواجهة",
-     "body": "معرض يجمع الإماراتيين محمد كاظم وعالية زعل، ضمن 89 عارض من حول العالم.",
-     "credit": "محمد كاظم، «Studio» 2023 · Gallery Isabelle",
-     "chip": {"icon": "brush", "label": "محمد كاظم"}, "kreti": false},
-    {"type": "inner", "image": "https://mymodernmet.com/wp/wp-content/uploads/2026/11/frieze-abu-dhabi-2026-4-1.jpg", "title": "منحوتات على شاطئ ممشى",
-     "body": "«فريز سكلبتشر» يعرض أعمال ضخمة على شاطئ ممشى بالسعديات من 16 نوفمبر لـ 16 ديسمبر، منها لمحمد أحمد إبراهيم.",
-     "credit": "محمد أحمد إبراهيم، «The Form» 2024 · Lawrie Shabibi",
-     "chip": {"icon": "box", "label": "نحت"}, "kreti": false},
-    {"type": "text", "tag": "ليش مهم؟", "tagIcon": "spark", "title": "فريز يستلم أبوظبي",
-     "points": [
-       "يحل محل معرض «أبوظبي آرت» اللي استمر 17 سنة",
-       "يربط فن غرب آسيا وشمال أفريقيا وجنوب آسيا بالعالم",
-       "مفتوح للجمهور 20 – 22 نوفمبر بمنارة السعديات"
-     ], "note": "احفظها!"},
-    {"type": "end"}
+    {
+      "type": "cover",
+      "badge": "مفتوح الحين",
+      "title": "فريز وصل أبوظبي لأول مرة!",
+      "note": "شوف هذا!",
+      "pose": "point",
+      "chips": [
+        {
+          "icon": "brush",
+          "label": "فن معاصر"
+        },
+        {
+          "icon": "star",
+          "label": "حدث فني"
+        }
+      ]
+    },
+    {
+      "type": "inner",
+      "image": "https://mymodernmet.com/wp/wp-content/uploads/2026/11/frieze-abu-dhabi-2026-7.jpg",
+      "title": "دالا ناصر: أول جائزة للمعرض",
+      "body": "الفنانة دالا ناصر فازت بأول «جائزة فنان فريز أبوظبي»، وعملها الجديد «قبة دورس» يملأ ردهة منارة السعديات.",
+      "credit": "عمل: دالا ناصر · تصوير: Paul Salveson",
+      "chip": {
+        "icon": "star",
+        "label": "جائزة الفنان"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://mymodernmet.com/wp/wp-content/uploads/2026/11/frieze-abu-dhabi-2026-12.jpg",
+      "title": "الفن الإماراتي بالواجهة",
+      "body": "معرض يجمع الإماراتيين محمد كاظم وعالية زعل، ضمن 89 عارض من حول العالم.",
+      "credit": "عمل: محمد كاظم · Gallery Isabelle",
+      "chip": {
+        "icon": "brush",
+        "label": "محمد كاظم"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://mymodernmet.com/wp/wp-content/uploads/2026/11/frieze-abu-dhabi-2026-4-1.jpg",
+      "title": "منحوتات على شاطئ ممشى",
+      "body": "منحوتات ضخمة على شاطئ ممشى بالسعديات لحد 16 ديسمبر، منها عمل لمحمد أحمد إبراهيم.",
+      "credit": "عمل: محمد أحمد إبراهيم · Lawrie Shabibi",
+      "chip": {
+        "icon": "box",
+        "label": "نحت"
+      },
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "ليش مهم؟",
+      "tagIcon": "spark",
+      "title": "فريز يستلم أبوظبي",
+      "points": [
+        "يحل محل معرض «أبوظبي آرت» اللي استمر 17 سنة",
+        "يربط فن غرب آسيا وشمال أفريقيا وجنوب آسيا بالعالم",
+        "مفتوح للجمهور 20 – 22 نوفمبر بمنارة السعديات"
+      ],
+      "note": "احفظها!"
+    },
+    {
+      "type": "end"
+    }
   ],
-  "caption": "فريز، من أكبر أسماء معارض الفن بالعالم، وصل أبوظبي لأول مرة ✦\n\nالدورة الأولى من «فريز أبوظبي» بمنارة السعديات من 19 لـ 22 نوفمبر 2026، والجمهور يدخل من اليوم 20 نوفمبر. 89 عارض يربطون فن غرب آسيا وشمال أفريقيا وجنوب آسيا بالمشهد العالمي.\n\nالمعرض ياخذ مكان «أبوظبي آرت» بعد 17 سنة، وبنفس المديرة ديالا نسيبة. وأول «جائزة فنان فريز أبوظبي» راحت للفنانة دالا ناصر، وعملها «قبة دورس» مستوحى من أثر بسهل البقاع بلبنان ومعمول بفروك الرماد والطين على القماش.\n\nوبره المعرض، «فريز سكلبتشر» يعرض منحوتات ضخمة على شاطئ ممشى لحد 16 ديسمبر.\n\nلو تكدر تزور، شنو أول شي تروحله: المنحوتات على الشاطئ لو قبة دالا ناصر؟ 👇\n\nالأعمال: Dala Nasser (Commonwealth and Council، تصوير: Paul Salveson) · Mohammed Kazem (Gallery Isabelle) · Mohamed Ahmed Ibrahim (Lawrie Shabibi)\n\n#كريتيفيا #فن_معاصر #فن_عربي #أبوظبي #فريز #FriezeAbuDhabi #ContemporaryArt #AbuDhabi"
+  "caption": "فريز، من أكبر أسماء معارض الفن بالعالم، وصل أبوظبي لأول مرة ✦\n\nالدورة الأولى من «فريز أبوظبي» بمنارة السعديات من 19 لـ 22 نوفمبر 2026، والجمهور يدخل من اليوم 20 نوفمبر. 89 عارض يربطون فن غرب آسيا وشمال أفريقيا وجنوب آسيا بالمشهد العالمي.\n\nالمعرض ياخذ مكان «أبوظبي آرت» اللي استمر 17 سنة. وأول «جائزة فنان فريز أبوظبي» راحت للفنانة دالا ناصر، وعملها «قبة دورس» مستوحى من أثر بسهل البقاع بلبنان ومعمول بفروك الرماد والطين على القماش.\n\nوبره المعرض، «فريز سكلبتشر» يعرض منحوتات ضخمة على شاطئ ممشى لحد 16 ديسمبر.\n\nلو تكدر تزور، شنو أول شي تروحله: المنحوتات على الشاطئ لو قبة دالا ناصر؟ 👇\n\nالأعمال: Dala Nasser (Commonwealth and Council، تصوير: Paul Salveson) · Mohammed Kazem (Gallery Isabelle) · Mohamed Ahmed Ibrahim (Lawrie Shabibi)\n\n#كريتيفيا #فن_معاصر #فن_عربي #أبوظبي #فريز #FriezeAbuDhabi #ContemporaryArt #AbuDhabi"
 }

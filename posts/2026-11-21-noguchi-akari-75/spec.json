@@ -13,7 +13,6 @@
       "type": "coverImage",
       "badge": "معرض جديد",
       "image": "https://cdn.mos.cms.futurecdn.net/Bp8i5T3VzyKBo5gszdmQC.jpg",
-      "fit": "contain",
       "title": "مصباح من ورق… عمره 75 سنة!",
       "credit": "إيسامو نوغوتشي مع موديلات أكاري · © INFGM / ARS",
       "chips": [
@@ -34,7 +33,7 @@
       "fit": "contain",
       "title": "البداية: غيفو، اليابان 1951",
       "body": "عمدة غيفو طلب من نوغوتشي يحيي صناعة الفوانيس بالمدينة، فبدّل الشمعة بمصباح كهربائي.",
-      "credit": "تصميم: Isamu Noguchi · تصوير: Stephen Michael · © INFGM / ARS",
+      "credit": "Isamu Noguchi · تصوير: Stephen Michael",
       "chip": {
         "icon": "clock",
         "label": "1951"
@@ -60,7 +59,7 @@
       "fit": "contain",
       "title": "أكثر من 200 موديل",
       "body": "طوّر نوغوتشي أكثر من 200 موديل أكاري بحياته. هنا معرض بطوكيو سنة 1954.",
-      "credit": "Isamu Noguchi · Chuo Koron Gallery 1954 · © INFGM / ARS",
+      "credit": "Isamu Noguchi · طوكيو 1954 · © INFGM / ARS",
       "chip": {
         "icon": "star",
         "label": "200+"

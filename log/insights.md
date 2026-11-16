@@ -1,49 +1,59 @@
-# Insights — 2026-11-14
+# Insights — 2026-11-16
 
-Week reviewed: 7 Nov 21:00 → 13 Nov (8 published: 6 feed carousels incl. 1 extra, 2 reels). Raw data: `log/analytics/2026-11-14.json`.
-Account is tiny (17 followers): 1 like moves a feed post's rate by 10–20 points, so judge mostly by reach and watch time.
+Period reviewed: 1 → 15 Nov (15 published: 12 feed carousels/singles incl. 2 extras, 3 reels; stories 2/day). Raw data: `log/analytics/2026-11-16.json`.
+Account is tiny (20 followers): 1 like moves a feed post's rate 10–25 points, so judge mainly by reach and watch time.
 
 ## Key numbers (Instagram)
-- Followers: 18 (7 Nov) → 17 (12 Nov), −1. Series stops 12 Nov; gained/lost not available.
-- Reels: reach 107 and 300 (avg 204) — vs feed carousels avg 7.2 (range 5–10). Reels gave 90% of the week's reach.
-- Feed reach keeps falling: ~20 (wk 1 w/o Portfolio Night) → ~10 → 7.2.
-- Interactions: 12 in total (10 likes, 2 saves, 0 comments, 0 shares). Comments still 0 on all 19 posts since launch.
-- Stories now publish 2 per day (17 seen), but Metricool returns reach 0 for all → story metrics unavailable.
-- Facebook: reel 13 Nov = 187 views (first real FB traction); FB feed albums reach 0–2; page followers 1 → 2.
-- Best time to post: still no data (all zeros). All main posts went out at 21:00, so no time comparison is possible.
+- Followers: 14 (1 Nov) → 20 (14 Nov), **+6**; +2 on 13 Nov (voice reel day). Gained/lost not available.
+- Reach: reels 1150 of 1263 total (**91%**). Reels avg 383 (33 · 109 · 1008); feed avg 9.4 (range 4–14), still falling (last two: 7, 4).
+- Interactions: 22 (20 likes, 2 saves, 0 comments, 0 shares). Comments 0 on all 21 posts since launch.
+- Voice reel 13 Nov: view rate 51.9%, avg watch 8.4 s vs music-only reels 17–29%, 2.4–5.0 s.
+- Stories: published 2/day, but reach unavailable in Metricool. Best time to post: no data (all 0); all posts at 21:00 → no time comparison.
+- Facebook: albums reach 0–3 (9 posts); reel 13 Nov 231 views (reach unavailable); page followers 1 → 2.
 
-## Top 3 (week)
-1. Reel «العربي راح يبين أصغر» (13 Nov, voice + music, dark, engine 2) — reach 300, 419 views, 6 likes, avg watch 7.1 s, view rate 58% (vs 16–30% for the 2 music-only reels). First reel with the Iraqi voice; hook is a surprising claim in 3 words + said aloud.
-2. Reel type hierarchy (10 Nov, music only, light) — reach 107 but avg watch 2.2 s, view rate 16.5%: the algorithm tried it, people swiped. 2 saves (only saves of the week).
-3. Claude viral story (8 Nov, extra 16:46) — reach 10, views 31: best feed post, but 0 interactions.
+## Top 3
+1. Reel «العربي راح يبين أصغر» (13 Nov, voice Iraqi + music, dark) — reach 1008, 1162 views, 10 likes, +2 followers that day. Surprising 3-word claim spoken in the first 2 s; reach kept growing for 3 days (300 → 1008).
+2. Reel type hierarchy (10 Nov, music only) — reach 109, 2 saves, but view rate 17%: pushed by the algorithm, people swiped.
+3. Tarek Atoui «Hold» (1 Nov, gallery) — reach 14: best feed post, still tiny.
 
-## Bottom 3 (week)
-1. Azzedine Alaïa (9 Nov, profile carousel) — reach 5, 0 interactions.
-2. Dubai Design Week (12 Nov, gallery) — reach 5 (2 likes). Gulf event, but no @tags of the studios.
-3. GymNation worry bench (11 Nov, lessons) — reach 6, 0 interactions.
-Feed posts differ by only a few people, so no category can be called better or worse yet.
+## Bottom 3
+1. Kengo Kuma KAI (15 Nov, story carousel) — reach 4, 0 interactions.
+2. Dia Al-Azzawi (14 Nov, profile, dark, no @tag) — reach 7 (1 like).
+3. Alaïa (9 Nov, profile) / GymNation (11 Nov, lessons) — reach 8, 0 interactions.
+Feed posts differ by a few people only: no category or format is clearly better among feed posts.
 
-## Observations (no rules taken this time — owner asked to wait, page is new)
-- Reels reached far more people than feed posts (32, 107, 300 vs feed 5–25).
-- The one voice reel was watched 3× longer than the 10 Nov music-only reel (1 example).
-- Feed posts without @tags stayed under ~25 reach (15 of 15); the one tagged post reached 315.
-- 0 comments on all 19 posts so far, whatever the closing question.
-- Profile carousels were the weakest feed posts (Penone 8, Alaïa 5).
+## Patterns (≥2 examples)
+- Reels beat every feed post: 3 of 3 reels since launch (2 periods).
+- Untagged feed posts never passed 25 reach (17 of 17); the one post with @tags reached 315.
+- Open closing questions: 0 comments on 21 of 21 posts (2 periods).
+- Profile carousels are the weakest feed format 3 of 3 times (9, 8, 7) — small margin, watch only.
+
+## Do more
+- Tag creators/studios/brands with their confirmed @username in every caption (guide updated).
+- End captions with a one-word choice question (1 لو 2؟ / 👍👎) instead of an open question (guide updated).
+- Reels: keep the 13 Nov recipe — spoken surprising claim in the first 2 s, dark mode for dramatic stories, 45–60 s.
+- Iraqi creatives: feature them, and always find and confirm their handle first.
+
+## Do less
+- Feed posts about far-away architecture/news with no tag-able creator (KAI 4, Kiefer 10).
+- Long profile carousels: keep them, but max 1 per week until one beats the feed average.
 
 ## Owner decisions in force
-- Review every 15 days (1st and 16th). From the next review on, decisions (Do more / Do less, small guide edits) are taken from the data and reported to the owner.
-- Iraqi creatives: feature their work regularly and always tag them — @username in the caption or an official tag on the post (see CONTENT_GUIDE.md › Iraqi creatives).
+- Review every 15 days (1st and 16th); decisions (Do more / Do less, small guide edits) taken from the data and reported to the owner.
+- Iraqi creatives: feature their work regularly and always tag them — @username in the caption or an official tag on the post (CONTENT_GUIDE.md › Iraqi creatives).
+- Reels are stories (campaigns, strange ideas, logo stories), no design tips; every reel with the Iraqi voice (REELS.md).
+- «خبر منتشر» format and news-image rules as in CONTENT_GUIDE.md.
 
 ## Suggestions waiting for the owner
-- Reels carry the account (90% of reach). Consider raising reels from 10 to ~15/month (e.g. every other day) — frequency is your call.
-- Stories: they now publish, but Metricool shows reach 0; check story insights in the Instagram app to see if they are worth the effort.
-- Facebook feed albums reach 0–2 while the FB reel got 187 views: maybe post only reels to Facebook.
-- Growth: try an Instagram Collab post with a featured Iraqi/Arab creator, or share reels to your own network/stories.
+- Reels give 91% of reach: consider raising reels from 10 to ~15/month (frequency is your call).
+- Facebook albums reach 0–3 vs reel 231 views: consider posting only reels to Facebook.
+- Stories: check their reach in the Instagram app (Metricool shows none) to decide if 2/day is worth it.
+- Growth: a Collab post with an Iraqi/Arab creator, and sharing the reels to your own stories/network.
 
 ## History
-| Week | Posts | Avg reach | Total interactions | Followers (end) | Best post |
+| Period | Posts | Avg reach | Interactions | Followers (end) | Best post |
 |---|---|---|---|---|---|
 | 26–31 Oct | 6 | 67.5 | 52 | 14 | Portfolio Night Baghdad (314) |
-| 1–7 Nov | 5 | 11.8 | 4 | 16* | Reel 60-30-10 (29) |
-| 7–13 Nov | 8 | 56.3 (feed 7.2 · reels 204) | 12 | 17 | Reel Arabic+Latin pairing (300) |
-*Later Metricool data shows 18 on 7 Nov.
+| 1–7 Nov (wk) | 5 | 11.8 | 4 | 18 | Reel 60-30-10 (29) |
+| 7–13 Nov (wk) | 8 | 56.3 (feed 7.2 · reels 204) | 12 | 19 | Reel Arabic+Latin (300 then) |
+| 1–15 Nov | 15 | 84.2 (feed 9.4 · reels 383) | 22 | 20 | Reel Arabic+Latin (1008) |

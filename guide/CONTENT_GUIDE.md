@@ -107,8 +107,8 @@ Optional: `"fit": "contain"` on `inner`/`single` to show a whole image without c
 ## Caption
 1. Hook line (can repeat the cover idea) + ✦
 2. 2 to 3 short paragraphs: what it is, who made it, why it matters.
-3. A question inviting comments.
-4. Credits in original spelling: "تصميم: Studio Name" / "تصوير: Photographer".
+3. A question inviting comments — make it a quick choice answerable in one word or one emoji (e.g. «أي وحدة تختار: 1 لو 2؟», «تحبها لو لا؟ 👍/👎»), not an open question. (Review 16 Nov 2026: open questions got 0 comments on all 21 posts.)
+4. Credits in original spelling: "تصميم: Studio Name" / "تصوير: Photographer". When the creator, studio or brand has a confirmed real Instagram account, write it as @username in the credits (all posts, not only Iraqi creatives). (Review 16 Nov 2026: the one tagged post reached 315; untagged feed posts 4–25.)
 5. 5 to 9 hashtags: always #كريتيفيا, plus Arabic category tags (#عمارة #تصميم #فن ...) and 2 to 4 English ones.
 
 ## Images and credit

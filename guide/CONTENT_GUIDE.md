@@ -51,7 +51,7 @@ Avoid: politics, religion debates, war imagery, nudity, gossip, and AI-generated
 
 **Iraqi creatives (owner decision, Nov 2026):** regularly feature the work of Iraqi designers, artists, photographers and studios, and always tag them: write their real Instagram @username in the caption, or add them as an official tag on the post (image tag / collaborator). Only use a handle you have confirmed is their real account.
 
-**Instagram Collab posts (owner decision, 16 Nov 2026):** at most **1 Collab post per month** (inviting a featured creator as collaborator), so we are not annoying. Prefer an Iraqi or Arab creator with a confirmed account; log it in `log/posted.md` with «(Collab)» so the monthly limit can be checked.
+**Instagram Collab posts (owner decision, 16 Nov 2026):** at most **2 Collab posts per month** (raised from 1 on 16 Nov 2026) (inviting a featured creator as collaborator), so we are not annoying. Prefer an Iraqi or Arab creator with a confirmed account; log it in `log/posted.md` with «(Collab)» so the monthly limit can be checked.
 
 ## Voice
 - Simple Modern Arabic that every Arab reader understands. A light colloquial touch is fine (شنو، هالـ، يكدر), never heavy dialect.

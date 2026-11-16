@@ -43,10 +43,10 @@ Feed posts differ by a few people only: no category or format is clearly better 
 - Iraqi creatives: feature their work regularly and always tag them — @username in the caption or an official tag on the post (CONTENT_GUIDE.md › Iraqi creatives).
 - Reels are stories (campaigns, strange ideas, logo stories), no design tips; every reel with the Iraqi voice (REELS.md).
 - «خبر منتشر» format and news-image rules as in CONTENT_GUIDE.md.
-- 16 Nov: reels raised to 15/month on odd days (REELS.md). Keep posting feed albums to Facebook too (we keep testing). Stories stay on (2/day). Collab posts: max 1 per month.
+- 16 Nov: reels raised to 15/month on odd days (REELS.md). Keep posting feed albums to Facebook too (we keep testing). Stories stay on (2/day). Collab posts: max 2 per month (owner raised from 1).
 
 ## Suggestions waiting for the owner
-- None open. (Answered 16 Nov: reels 15/month, keep Facebook albums, keep stories, Collab max 1/month.)
+- None open. (Answered 16 Nov: reels 15/month, keep Facebook albums, keep stories, Collab max 2/month.)
 
 ## History
 | Period | Posts | Avg reach | Interactions | Followers (end) | Best post |

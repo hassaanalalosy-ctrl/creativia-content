@@ -1,8 +1,9 @@
 # Reels
 
-10 reels per month; every other day is a carousel or single post (one feed post every day).
-**Reel days: the 1st, 4th, 7th, 10th, 13th, 16th, 19th, 22nd, 25th and 28th of every month.** Every other day is a normal post.
-**All 10 reels have a voiceover** by the Creativia voice "Arafat Almnshid" (Iraqi) — see "Voice reels" below. Music plays under the voice.
+15 reels per month (owner decision, 16 Nov 2026); every other day is a carousel or single post (one feed post every day).
+**Reel days: every odd day of the month — the 1st, 3rd, 5th, … 29th (15 reels).** The 31st and every even day are normal posts.
+Transition, rest of November 2026: reels on the 19th, 22nd, 25th, 27th and 29th (17th, 18th, 20th and 21st are already scheduled as posts). Odd days apply fully from 1 December.
+**Every reel has a voiceover** by the Creativia voice "Arafat Almnshid" (Iraqi) — see "Voice reels" below. Music plays under the voice.
 
 ## Topics (owner, Nov 2026) — NO design tips
 Reels are **stories**, not tips. Every reel tells one gripping story, told by the voice, with real images (and short video clips when available):

@@ -48,18 +48,18 @@
    "type": "image",
    "dur": 3.6,
    "image": "https://resource-cns.cnsmedia.com/admin/editor/55f80014-3f7c-4857-a0a9-a26fc9e34ec9heinz1.JPG",
-   "title": "أغلبهم رسموا Heinz!",
+   "title": "أغلبهم رسموا قنينة Heinz",
    "chip": "Draw Ketchup",
    "credit": "الحملة: Heinz · الوكالة: Rethink",
-   "say": "والنتيجة؟ أغلبهم رسموا قنينة هاينز الحمرة من الذاكرة!"
+   "say": "والنتيجة؟ أغلبهم رسموا قنينة هاينز الحمرة، بملصقها ورقم سبعة وخمسين!"
   },
   {
    "type": "image",
    "dur": 3.6,
    "image": "https://resource-cns.cnsmedia.com/admin/editor/555a42c4-8452-4025-8bae-a96b8e10e0a7heinz2.JPG",
-   "title": "الملصق ورقم 57",
+   "title": "رسومهم صارت لوحات",
    "credit": "الحملة: Heinz · الوكالة: Rethink",
-   "say": "رسموا الملصق، والطماطة، وحتى رقم سبعة وخمسين."
+   "say": "وهاينز حطت رسومهم على لوحات إعلانية بالشوارع."
   },
   {
    "type": "point",
@@ -67,9 +67,9 @@
    "num": "2",
    "image": "https://www.printpower.eu/media/2283/print-power-heinz-ketchup.jpeg?width=1440",
    "credit": "الحملة: Heinz · الوكالة: Rethink",
-   "title": "الرسوم صارت إعلانات",
-   "body": "إعلانات مجلات ولوحات، و250 قنينة عليها رسوم الناس.",
-   "say": "هاينز حوّلت الرسوم لإعلانات، وطبعت ميتين وخمسين قنينة عليها رسوم الناس."
+   "title": "250 قنينة برسوم الناس",
+   "body": "أفضل 250 رسمة انطبعت على قناني خاصة لأصحابها.",
+   "say": "وطبعت ميتين وخمسين رسمة على قناني خاصة لأصحابها."
   },
   {
    "type": "list",

@@ -1,0 +1,102 @@
+{
+ "id": "2026-11-22-heinz-draw-ketchup",
+ "topic": "Heinz 'Draw Ketchup' (Rethink, 2021): people asked to draw ketchup anonymously and almost all drew a Heinz bottle",
+ "category": "إعلان",
+ "format": "reel",
+ "engine": 2,
+ "mode": "light",
+ "badge": "قصة حملة",
+ "coverAt": 2.4,
+ "music": "assets/music/atlasaudio-upbeat-swing-625742.mp3",
+ "musicStart": 0,
+ "voice": true,
+ "sources": [
+  "https://lbbonline.com/news/heinz-anonymously-asked-people-to-draw-ketchupthey-all-drew-heinz",
+  "https://musebyclios.com/advertising/asked-to-draw-ketchup-people-around-the-world-drew-heinz/",
+  "https://www.packaginginsights.com/news/heinz-finds-ketchup-synonymous-with-its-brand-packaging-in-canadian-consumer-experiment.html",
+  "https://www.famouscampaigns.com/2021/01/heinz-anonymously-asked-people-all-over-the-world-to-draw-ketchup",
+  "https://www.printpower.eu/case-studies/heinz-ketchup-print-campaign-wins-gold-lion-in-cannes",
+  "https://www.warc.com/en/article/heinz%3A-draw-ketchup-4302eff4cad246f89c21a9c15d5bdbe3"
+ ],
+ "scenes": [
+  {
+   "type": "hook",
+   "dur": 3.2,
+   "pose": "think",
+   "title": "ارسم كاتشب… شنو رسمت؟",
+   "pill": "2021",
+   "sub": "تجربة بسيطة فضحت الكل",
+   "say": "لو أكلك ارسم كاتشب… شنو راح ترسم؟"
+  },
+  {
+   "type": "point",
+   "dur": 3.2,
+   "num": "1",
+   "title": "طلب بسيط جداً",
+   "body": "Heinz طلبت من ناس بخمس قارات يرسمون «كاتشب» وبس.",
+   "kreti": "point",
+   "say": "سنة ألفين وواحد وعشرين، هاينز طلبت من ناس بخمس قارات يرسمون كاتشب."
+  },
+  {
+   "type": "statement",
+   "dur": 3.0,
+   "text": "محد كان يدري إنها لـ Heinz",
+   "sub": "تجربة سرية",
+   "say": "والمهم، محد منهم كان يدري إن التجربة لهاينز."
+  },
+  {
+   "type": "image",
+   "dur": 3.6,
+   "image": "https://resource-cns.cnsmedia.com/admin/editor/55f80014-3f7c-4857-a0a9-a26fc9e34ec9heinz1.JPG",
+   "title": "أغلبهم رسموا Heinz!",
+   "chip": "Draw Ketchup",
+   "credit": "الحملة: Heinz · الوكالة: Rethink",
+   "say": "والنتيجة؟ أغلبهم رسموا قنينة هاينز الحمرة من الذاكرة!"
+  },
+  {
+   "type": "image",
+   "dur": 3.6,
+   "image": "https://resource-cns.cnsmedia.com/admin/editor/555a42c4-8452-4025-8bae-a96b8e10e0a7heinz2.JPG",
+   "title": "الملصق ورقم 57",
+   "credit": "الحملة: Heinz · الوكالة: Rethink",
+   "say": "رسموا الملصق، والطماطة، وحتى رقم سبعة وخمسين."
+  },
+  {
+   "type": "point",
+   "dur": 3.2,
+   "num": "2",
+   "image": "https://www.printpower.eu/media/2283/print-power-heinz-ketchup.jpeg?width=1440",
+   "credit": "الحملة: Heinz · الوكالة: Rethink",
+   "title": "الرسوم صارت إعلانات",
+   "body": "إعلانات مجلات ولوحات، و250 قنينة عليها رسوم الناس.",
+   "say": "هاينز حوّلت الرسوم لإعلانات، وطبعت ميتين وخمسين قنينة عليها رسوم الناس."
+  },
+  {
+   "type": "list",
+   "dur": 3.6,
+   "tag": "النتيجة",
+   "title": "ليش نجحت؟",
+   "points": [
+    "ما احتاجت تمدح نفسها",
+    "الناس هم الدليل",
+    "أسد ذهبي بكان ليونز"
+   ],
+   "kreti": "jump",
+   "say": "ما مدحت نفسها، الناس هم اللي أثبتوا، وأخذت أسد ذهبي بمهرجان كان."
+  },
+  {
+   "type": "statement",
+   "dur": 3.0,
+   "text": "أقوى علامة تجارية… هي اللي يرسمها الناس من الذاكرة",
+   "sub": "الدرس",
+   "say": "الدرس: العلامة القوية، الناس يرسموها من ذاكرتهم."
+  },
+  {
+   "type": "end",
+   "dur": 2.6,
+   "note": "جرّب ارسم كاتشب 😄",
+   "say": "تابع كريتيفيا، وجرّب ارسم كاتشب ويا أصدقائك."
+  }
+ ],
+ "caption": "ارسم كاتشب… شنو رسمت؟ ✦\n\nسنة 2021 طلبت Heinz من ناس بخمس قارات طلب بسيط: «ارسم كاتشب». بمجموعات تركيز ومكالمات فيديو ولقاءات بالشارع، ومحد منهم كان يدري إن التجربة لـ Heinz.\n\nالنتيجة: أغلبهم رسموا قنينة Heinz الحمرة من الذاكرة، بملصقها والطماطة ورقم 57. Heinz حوّلت الرسوم لإعلانات مجلات ولوحات رقمية، وطبعت أفضل 250 رسمة من كندا على قناني خاصة لأصحابها. والحملة أخذت أسد ذهبي بمهرجان كان ليونز.\n\nالدرس: أقوى علامة تجارية هي اللي يرسمها الناس من ذاكرتهم.\n\nجرّب هسه: لو تكلك «ارسم كاتشب»، ترسم Heinz لو لا؟ اكتب «أي» لو «لا» 👇\n\nالحملة: Kraft Heinz Canada @heinz · الوكالة: Rethink · CCO: Aaron Starkman · ECD: Mike Dubrick · CD: Joel Holtby · AD/ACD: Zachary Bautista · Writer: Geoff Baillie · Design: Jaclyn McConnell\n\n#كريتيفيا #ماركتنغ #إعلان #إعلانات_مبدعة #قصص_تسويق #هوية_بصرية #advertising #branding #heinz"
+}

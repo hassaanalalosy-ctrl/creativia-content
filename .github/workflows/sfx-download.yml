@@ -1,0 +1,25 @@
+name: SFX download (Mixkit)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sfx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
+      - name: Download
+        run: python3 scripts/mixkit_sfx.py
+      - name: Commit
+        run: |
+          git config user.name "creativia-bot"
+          git config user.email "creativia-bot@users.noreply.github.com"
+          git add assets/sfx2
+          git commit -m "SFX library from Mixkit" || exit 0
+          git pull --rebase origin main
+          git push

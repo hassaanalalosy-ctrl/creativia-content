@@ -42,7 +42,7 @@ const W = 360, H = 640;
 const CUES = [];               // [time, role, volume]
 const cue = (t, role, vol) => CUES.push([Math.round(t * 1000) / 1000, role, vol]);
 const stage = document.getElementById('stage');
-const el = (tag, cls, html, style) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; if (style) e.style.cssText = style; return e; };
+const el = (tag, cls, html, style) => { const e = document.createElement(tag); if (cls) e.className = cls; e.setAttribute('dir', 'rtl'); if (html != null) e.innerHTML = html; if (style) e.style.cssText = style; return e; };
 const words = (text, cls) => {
   const toks = esc(text).split(' ').filter(Boolean), out = [];
   const latin = w => /^[A-Za-z0-9.%$+#&:/'-]+$/.test(w);
@@ -121,8 +121,9 @@ const B = {
     const c = cardBox(r, rect, media(s.image, s.fit));
     if (s.chip) chip(r, s.chip, 36, 108, true);
     const ty = rect.y + rect.h + 16;
-    r.appendChild(el('div', 'title', words(s.title || ''), 'top:' + ty + 'px;font-size:' + (s.size || 24) + 'px'));
-    if (s.credit) r.appendChild(el('div', 'credit', cred(s.credit), 'top:' + (ty + 70) + 'px'));
+    const col = el('div', 'col', '', 'top:' + ty + 'px'); r.appendChild(col);
+    col.appendChild(el('div', 'title-c title', words(s.title || ''), 'position:static;font-size:' + (s.size || 24) + 'px'));
+    if (s.credit) col.appendChild(el('div', 'credit-c credit', cred(s.credit), 'position:static'));
     return { root: r, card: rect, build(tl, t0, dur) {
       tl.fromTo(c.querySelector('.kb'), { scale: 1.12 }, { scale: 1.02, duration: dur, ease: 'none' }, t0);
       wordsIn(tl, r.querySelector('.title'), t0 + 0.35, 0.09);
@@ -134,8 +135,9 @@ const B = {
     const r = sceneRoot(); const rect = { x: 24, y: 96, w: 312, h: s.tall ? 270 : 232, r: 28 };
     const c = cardBox(r, rect, '<div class="kb"><img class="vf" data-dir="' + s.frameDir + '" data-n="' + s.frames + '" style="object-fit:' + (s.fit || 'cover') + '"></div><div class="vtag">▶</div>');
     const ty = rect.y + rect.h + 16;
-    r.appendChild(el('div', 'title', words(s.title || ''), 'top:' + ty + 'px;font-size:' + (s.size || 24) + 'px'));
-    if (s.credit) r.appendChild(el('div', 'credit', cred(s.credit), 'top:' + (ty + 70) + 'px'));
+    const col = el('div', 'col', '', 'top:' + ty + 'px'); r.appendChild(col);
+    col.appendChild(el('div', 'title-c title', words(s.title || ''), 'position:static;font-size:' + (s.size || 24) + 'px'));
+    if (s.credit) col.appendChild(el('div', 'credit-c credit', cred(s.credit), 'position:static'));
     return { root: r, card: rect, video: { img: c.querySelector('.vf'), t0: 0 }, build(tl, t0, dur) {
       this.video.t0 = t0;
       wordsIn(tl, r.querySelector('.title'), t0 + 0.35, 0.09);
@@ -149,16 +151,17 @@ const B = {
     if (s.image && s.num) c.appendChild(el('div', 'num-s', '<span dir="ltr">' + esc(s.num) + '</span>'));
     const k = s.kreti && !s.image ? kretiEl(r, s.kreti, 88, 40, 146) : null;
     const ty = rect.y + rect.h + 18;
-    r.appendChild(el('div', 'title', words(s.title), 'top:' + ty + 'px;font-size:' + (s.size || 26) + 'px'));
-    if (s.body) r.appendChild(el('div', 'body', words(s.body), 'top:' + (ty + 44) + 'px'));
+    const col = el('div', 'col', '', 'top:' + ty + 'px'); r.appendChild(col);
+    col.appendChild(el('div', 'title-c', words(s.title), 'font-size:' + (s.size || 26) + 'px'));
+    if (s.body) col.appendChild(el('div', 'body-c', words(s.body)));
     if (s.credit) r.appendChild(el('div', 'credit', cred(s.credit), 'top:' + (rect.y + rect.h - 2) + 'px;color:#fff;opacity:0.85;padding:0 14px;transform:translateY(-18px);text-shadow:0 1px 6px #000'));
     return { root: r, card: rect, build(tl, t0, dur) {
       const n = c.querySelector('.num') || c.querySelector('.num-s');
       if (n) { tl.fromTo(n, { scale: 0.4, rotate: -12, opacity: 0 }, { scale: 1, rotate: 0, opacity: 1, duration: 0.7, ease: 'back.out(1.6)' }, t0 + 0.25); cue(t0 + 0.29, 'pop', 0.55); }
       if (s.image) tl.fromTo(c.querySelector('.kb'), { scale: 1.1 }, { scale: 1.02, duration: dur, ease: 'none' }, t0);
       if (k) kretiIn(tl, k, t0 + 0.6, dur);
-      const e = wordsIn(tl, r.querySelector('.title'), t0 + 0.4, 0.09);
-      if (s.body) wordsIn(tl, r.querySelector('.body'), e - 0.2, 0.05);
+      const e = wordsIn(tl, r.querySelector('.title-c'), t0 + 0.4, 0.09);
+      if (s.body) wordsIn(tl, r.querySelector('.body-c'), e - 0.2, 0.05);
     } };
   },
   list(s) {
@@ -245,7 +248,7 @@ built.forEach(({ s, b, t0 }, k) => {
       master.to(hero, { left: b.card.x, top: b.card.y, width: b.card.w, height: b.card.h, borderRadius: b.card.r, opacity: 1, duration: 0.6, ease: 'power3.inOut' }, t0 - 0.15);
       master.fromTo(hero, { filter: 'blur(0px)' }, { filter: 'blur(4px)', duration: 0.3, ease: 'power2.in', yoyo: true, repeat: 1 }, t0 - 0.15);
     } else if (k > 0) master.to(hero, { opacity: 1, duration: 0.3 }, t0 + 0.1);
-  } else master.to(hero, { opacity: 0, duration: 0.25, ease: 'power2.in' }, t0 - 0.1);
+  } else master.to(hero, { opacity: 0, duration: 0.2, ease: 'power2.in' }, t0 - 0.32);
   // entrance of the scene root
   const R = b.root;
   if (kind === 'none') { R.style.opacity = 1; if (b.card && s.type !== 'hook') hero.style.opacity = 1; }
@@ -302,6 +305,9 @@ body{margin:0;background:#000}
 .sub,.body{position:absolute;right:26px;left:26px;font-size:16px;line-height:1.6;color:${C.muted}}
 .credit{position:absolute;right:26px;left:26px;font-size:11.5px;color:${C.muted}}
 .w{display:inline-block}
+.col{position:absolute;right:26px;left:26px;display:flex;flex-direction:column;gap:8px}
+.title-c{font-weight:800;line-height:1.28}
+.body-c{font-size:16px;line-height:1.6;color:${C.muted}}
 .chip{position:absolute;padding:6px 12px;border-radius:999px;background:${C.glass};border:1px solid ${C.rim};backdrop-filter:blur(10px);font-size:12.5px;font-weight:700;color:${C.ink};z-index:3}
 .kreti{position:absolute;filter:drop-shadow(0 16px 26px rgba(0,0,0,0.35));z-index:4}
 .spark{position:absolute;filter:drop-shadow(0 0 6px ${C.accent});z-index:4}

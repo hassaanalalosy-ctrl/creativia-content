@@ -1,0 +1,41 @@
+name: SFX generate
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Generate only this name (test)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  sfx:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate
+        env:
+          XI_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          set -e
+          cd assets/sfx2
+          jq -c '.[]' prompts.json | while read -r p; do
+            n=$(echo "$p" | jq -r .name)
+            [ -n "${{ github.event.inputs.only }}" ] && [ "$n" != "${{ github.event.inputs.only }}" ] && continue
+            [ -e "$n.mp3" ] && continue
+            body=$(echo "$p" | jq -c '{text: .text, duration_seconds: .dur, prompt_influence: 0.6}')
+            code=$(curl -sS -o "$n.mp3" -w "%{http_code}" -X POST "https://api.elevenlabs.io/v1/sound-generation?output_format=mp3_44100_128" -H "xi-api-key: $XI_KEY" -H "Content-Type: application/json" -d "$body")
+            echo "$n -> $code"
+            if [ "$code" != "200" ]; then cat "$n.mp3"; echo; rm -f "$n.mp3"; echo "$n $code" >> errors.txt; fi
+          done
+      - name: Commit
+        run: |
+          git config user.name "creativia-bot"
+          git config user.email "creativia-bot@users.noreply.github.com"
+          git add assets/sfx2
+          git commit -m "SFX generated" || exit 0
+          git pull --rebase origin main
+          git push

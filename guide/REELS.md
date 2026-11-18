@@ -16,15 +16,15 @@ Structure: a hook that creates curiosity in the first 2 seconds (a question or a
 Facts, numbers, dates and names verified in 2 sources; no invented results. Use the real campaign/logo images with credits (brand, agency, photographer). Do not repeat a topic already in `log/posted.md`.
 Good scene types for stories: `hook`, `image` (most scenes), `video`, `point` with `image`, `statement` for the key moment or the lesson, `list` for "3 reasons it worked", `end`.
 
-## Spec (posts/<id>/reel.json) — engine 3 (GSAP motion, liquid glass), the ONLY engine for new reels
-Always set `"engine": 3` (same scene format as engine 2; reference: posts/2026-11-20-gta6-hype-reel/reel.json). 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
+## Spec (posts/<id>/reel.json) — engine 4 (CAMERA WORLD: glass panels in one world, the camera flies between them), the ONLY engine for new reels
+Always set `"engine": 4` (same scene format as engine 2; reference: posts/2026-11-20-gta6-hype-reel/reel.json). 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
 ```json
 {
   "id": "YYYY-MM-DD-short-slug",
   "topic": "English one-line topic",
   "category": "تصميم",
   "format": "reel",
-  "engine": 3,
+  "engine": 4,
   "mode": "dark",
   "badge": "نصيحة تصميم",
   "coverAt": 2.4,
@@ -39,6 +39,7 @@ Always set `"engine": 3` (same scene format as engine 2; reference: posts/2026-1
     {"type": "video", "dur": 4.0, "video": "https://direct-link-to-file.mp4", "start": 12.5, "title": "...", "credit": "الحملة: Brand · الوكالة: Agency", "fit": "cover"},
     {"type": "compare", "dur": 3.2, "title": "...", "bad": {"label": "غلط", "text": "..."}, "good": {"label": "صح", "text": "..."}, "kreti": "jump"},
     {"type": "list", "dur": 3.4, "tag": "الخلاصة", "title": "...", "points": ["...", "...", "..."], "kreti": "wave"},
+    {"type": "stat", "dur": 3.0, "icon": "chart", "value": "475M", "title": "...", "bars": [{"label": "...", "label2": "90M", "value": 90}, {"label": "...", "label2": "475M", "value": 475}], "body": "..."},
     {"type": "statement", "dur": 2.8, "text": "one strong sentence", "sub": "..."},
     {"type": "end", "dur": 2.8, "note": "optional line under the handle"}
   ],
@@ -76,7 +77,13 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Sound effects live in `assets/sfx/library.json` (by role: whoosh, pop, click, typing, sparkle, riser, soft-impact, ding, notification, ui, camera, tick, tension, applause). Keep them subtle under the music; never more than one effect at the same moment.
 - Light / dark: dark for tips, tech, night and dramatic topics; light for art, fashion, calm and cheerful topics. Never two reels in a row in the same mode.
 
-## Motion craft (engine 3, from the HyperFrames motion guide)
+## Engine 4 rules (owner, Nov 2026)
+- The CAMERA carries the film: every scene is a panel in one world; the camera pulls back, travels, rolls slightly and lands on the next panel (modes rotate: arc, dive, swing, push; force with `"camera"`). Inside a scene the camera keeps pushing in slowly. Never make it feel like boxes appearing and disappearing.
+- ALL content of a scene lives inside its panel (title, text, rows, charts). Space is balanced inside the panel: no crowding at the top with empty space below.
+- Numbers are visual: use `stat` (animated counter, optional growing bar chart with `bars`) or `num` on image scenes (counting badge). Icons (eye, play, chart, megaphone, clock, spark, star, trophy, quiet, tv) draw themselves line by line; use `icon` on hook/stat, `chipIcon` on image chips, `tagIcon` on lists.
+- Kreti sits inside the hook and end panels only, never next to the logo.
+
+## Motion craft (from the HyperFrames motion guide)
 - Instagram safe band on the 360x640 stage: text and key visuals only between y 62 and 440; nothing important under the right action rail low on the screen. The engine's layouts already respect this; keep titles short so they do not wrap to a third line.
 - Frame 0 is the thumbnail: the hook title is already on screen at frame 0 (the engine does this for `hook`). Ask a question or state a surprising number.
 - Titles land and stay still; motion moves to the next element, the camera or the background. No floating titles.

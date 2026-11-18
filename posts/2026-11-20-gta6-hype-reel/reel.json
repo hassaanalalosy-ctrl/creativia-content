@@ -3,7 +3,7 @@
   "topic": "How Rockstar built the GTA 6 hype: early trailer after a leak (90M+ YouTube views/24h), long silence, Trailer 2 475M views/24h, 27-minute extended look on Netflix",
   "category": "ماركتنغ وألعاب",
   "format": "reel",
-  "engine": 3,
+  "engine": 4,
   "mode": "dark",
   "badge": "ماركتنغ · ألعاب",
   "music": "assets/music/sub_clair-upbeat-587078.mp3",
@@ -23,7 +23,8 @@
       "title": "شلون صار GTA 6 أكبر حدث بالعالم؟",
       "sub": "قبل ما أحد يلعبها",
       "pill": "475M",
-      "say": "شلون لعبة وحدة صارت أكبر حدث بالعالم… قبل ما أحد يلعبها؟"
+      "say": "شلون لعبة وحدة صارت أكبر حدث بالعالم… قبل ما أحد يلعبها؟",
+      "icon": "eye"
     },
     {
       "type": "image",
@@ -32,16 +33,16 @@
       "chip": "التريلر الأول",
       "title": "2023: تسريب… والتريلر نزل قبل وقته",
       "credit": "صورة رسمية: Rockstar Games",
-      "say": "سنة ألفين وثلاثة وعشرين، التريلر الأول تسرّب، فروكستار نزّلته قبل موعده."
+      "say": "سنة ألفين وثلاثة وعشرين، التريلر الأول تسرّب، فروكستار نزّلته قبل موعده.",
+      "chipIcon": "play"
     },
     {
-      "type": "point",
+      "type": "stat",
       "dur": 3.0,
-      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_001.jpg",
-      "num": "90M",
-      "title": "أكثر من 90 مليون مشاهدة بيوم",
-      "body": "أكبر انطلاقة لفيديو مو أغنية على يوتيوب",
-      "credit": "صورة رسمية: Rockstar Games",
+      "icon": "chart",
+      "value": "90M",
+      "title": "مشاهدة بيوم واحد على يوتيوب",
+      "body": "أكبر انطلاقة لفيديو مو أغنية",
       "say": "وبأربعة وعشرين ساعة، جاب أكثر من تسعين مليون مشاهدة على يوتيوب."
     },
     {
@@ -50,24 +51,40 @@
       "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_009.jpg",
       "title": "بعدها… سكوت سنة ونص",
       "credit": "صورة رسمية: Rockstar Games",
-      "say": "بعدها سكتت روكستار سنة ونص تقريباً. ولا كلمة."
+      "say": "بعدها سكتت روكستار سنة ونص تقريباً. ولا كلمة.",
+      "chip": "ولا كلمة",
+      "chipIcon": "quiet"
     },
     {
-      "type": "point",
+      "type": "stat",
       "dur": 3.0,
-      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_082.jpg",
-      "num": "475M",
-      "title": "التريلر الثاني: 475 مليون",
-      "body": "مشاهدة بيوم واحد، ودخل موسوعة غينيس",
-      "credit": "صورة رسمية: Rockstar Games",
+      "icon": "trophy",
+      "value": "475M",
+      "title": "التريلر الثاني بيوم واحد",
+      "bars": [
+        {
+          "label": "التريلر الأول",
+          "label2": "90M",
+          "value": 90
+        },
+        {
+          "label": "التريلر الثاني",
+          "label2": "475M",
+          "value": 475
+        }
+      ],
+      "body": "ودخل موسوعة غينيس",
       "say": "وبأيار ألفين وخمسة وعشرين، التريلر الثاني جاب أربعمية وخمسة وسبعين مليون مشاهدة بيوم واحد."
     },
     {
       "type": "image",
       "dur": 3.0,
       "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_084.jpg",
-      "chip": "مكان غير متوقع",
-      "title": "27 دقيقة لعب… على نتفليكس",
+      "num": "27",
+      "chip": "نتفليكس",
+      "chipIcon": "tv",
+      "title": "دقيقة لعب… على نتفليكس",
+      "body": "مو على يوتيوب",
       "credit": "صورة رسمية: Rockstar Games",
       "say": "وقبل الإصدار بأقل من ثلاث أشهر، عرضت سبعة وعشرين دقيقة لعب على نتفليكس، مو على يوتيوب."
     },
@@ -81,7 +98,8 @@
         "سكوت طويل يكبّر الشوق",
         "مكان عرض يفاجئ الناس"
       ],
-      "say": "يعني الدرس بسيط: قلّل، واسكت، وفاجئ."
+      "say": "يعني الدرس بسيط: قلّل، واسكت، وفاجئ.",
+      "tagIcon": "megaphone"
     },
     {
       "type": "statement",

@@ -16,15 +16,15 @@ Structure: a hook that creates curiosity in the first 2 seconds (a question or a
 Facts, numbers, dates and names verified in 2 sources; no invented results. Use the real campaign/logo images with credits (brand, agency, photographer). Do not repeat a topic already in `log/posted.md`.
 Good scene types for stories: `hook`, `image` (most scenes), `video`, `point` with `image`, `statement` for the key moment or the lesson, `list` for "3 reasons it worked", `end`.
 
-## Spec (posts/<id>/reel.json) — engine 2 (liquid glass), the ONLY engine for new reels
-Always set `"engine": 2`. 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
+## Spec (posts/<id>/reel.json) — engine 3 (GSAP motion, liquid glass), the ONLY engine for new reels
+Always set `"engine": 3` (same scene format as engine 2; reference: posts/2026-11-20-gta6-hype-reel/reel.json). 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
 ```json
 {
   "id": "YYYY-MM-DD-short-slug",
   "topic": "English one-line topic",
   "category": "تصميم",
   "format": "reel",
-  "engine": 2,
+  "engine": 3,
   "mode": "dark",
   "badge": "نصيحة تصميم",
   "coverAt": 2.4,
@@ -75,3 +75,12 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Style direction: liquid glass cards with a glowing rim, morphing between shapes (pill → card → card), soft blur-in reveals, slow camera push and slight 3D tilt, a softly drifting gradient background, small sparkles. Creativia colours, Playpen Sans Arabic, Kreti.
 - Sound effects live in `assets/sfx/library.json` (by role: whoosh, pop, click, typing, sparkle, riser, soft-impact, ding, notification, ui, camera, tick, tension, applause). Keep them subtle under the music; never more than one effect at the same moment.
 - Light / dark: dark for tips, tech, night and dramatic topics; light for art, fashion, calm and cheerful topics. Never two reels in a row in the same mode.
+
+## Motion craft (engine 3, from the HyperFrames motion guide)
+- Instagram safe band on the 360x640 stage: text and key visuals only between y 62 and 440; nothing important under the right action rail low on the screen. The engine's layouts already respect this; keep titles short so they do not wrap to a third line.
+- Frame 0 is the thumbnail: the hook title is already on screen at frame 0 (the engine does this for `hook`). Ask a question or state a surprising number.
+- Titles land and stay still; motion moves to the next element, the camera or the background. No floating titles.
+- Transitions have a cause: the glass card morphs into the next card, whips, zooms through, colour floods or blur-swaps; the engine rotates them. Use `"transition"` on a scene only to force one.
+- One payoff per film: the `statement` scene gets the riser into impact and a small camera punch-in. Use it once, near the end.
+- Sound: few and exact. The engine places a whoosh on cuts, a pop when a number/badge/chip lands, ticks on list rows, a riser+impact on the payoff, a shimmer on the end card, and rotates takes. Music sits low under the voice.
+- Video clips: `video` scenes (2 to 6 s each). Reels may run up to 90 s when they walk through several clips.

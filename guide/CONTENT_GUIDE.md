@@ -82,6 +82,9 @@ Single posts use one `single` slide (a framed image of one work).
 Kreti appears on the cover, the end slide, and at most once inside (on an `inner` slide with `pose: think`). Every other `inner` slide uses `"kreti": false`.
 Handwritten notes (`note`): 2 to 3 words max (شوف هذا! · ليش مهم؟ · احفظها! · تحفة!).
 
+## Video slides in carousels
+A carousel may mix images and short clips: `{"type": "video", "video": "https://direct-file.mp4", "start": 3, "dur": 8, "title": "one short line", "credit": "…", "chip": {"icon": "camera", "label": "…"}, "sound": false}` renders as `slides/NN.mp4` (1080x1350, the clip inside the Creativia frame). Use the files listed in `rendered.json` in that order as `media`. Clips need a direct video file (not YouTube/TikTok/Instagram). Max 20 s per clip.
+
 ## Slide spec (posts/<id>/spec.json)
 ```json
 {

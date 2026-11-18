@@ -39,8 +39,8 @@ const hud = el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge || 'ÙƒØ
 const PATH = [[0, 0, 0], [440, -60, -3], [880, 40, 2], [880, 560, -2], [440, 640, 3], [0, 560, -2], [-60, 1100, 2], [400, 1180, -3], [860, 1100, 2], [900, 1640, -2], [440, 1720, 0], [0, 1640, 2], [40, 2180, -2], [500, 2260, 0]];
 const panels = [];
 function panel(k, cls) {
-  const [x, y, rot] = PATH[k % PATH.length];
-  const p = el('div', 'panel ' + (cls || ''), '<div class="rim"></div><div class="sheen"></div><div class="inner"></div>', 'left:' + (x - CW / 2) + 'px;top:' + (y - CH / 2) + 'px;transform:rotate(' + rot + 'deg)');
+  const [px, py, rot] = PATH[k % PATH.length]; const x = px * 2.1, y = py * 2.1;
+  const p = el('div', 'panel ' + (cls || ''), '<div class="rim"></div><div class="sheen"></div><div class="inner"></div>', 'left:' + x + 'px;top:' + y + 'px;transform:translate(-50%,-50%) rotate(' + rot + 'deg)');
   world.appendChild(p);
   panels.push({ x, y, rot, el: p });
   return p.querySelector('.inner');
@@ -187,7 +187,7 @@ built.forEach(({ s, b, t0, p }, k) => {
       master.to(cam, { z: 1, r: -p.rot, blur: 0, duration: h + 0.15, ease: 'expo.out' }, f0 + h);
       cue(f0 + h * 0.7, 'whoosh', 0.55);
     } else {
-      const zMid = { travel: 0.82, dive: 0.42, swing: 0.6, whip: 0.9 }[mode];
+      const zMid = { travel: 0.78, dive: 0.5, swing: 0.62, whip: 0.86 }[mode];
       const ease = mode === 'whip' ? 'expo.inOut' : 'power3.inOut';
       master.to(cam, { x: p.x, y: p.y, duration: F, ease }, f0);
       master.to(cam, { r: -p.rot, duration: F, ease: 'power2.inOut' }, f0);
@@ -205,8 +205,8 @@ built.forEach(({ s, b, t0, p }, k) => {
   if (len > 0.6) {
     const g = b.payoff ? 'payoff' : (s.drift || DRIFT[k % DRIFT.length]);
     const base = { x: p.x, y: p.y, r: -p.rot };
-    const T = { push: { z: 1.06 }, pull: { z: 0.97, from: { z: 1.07 } }, driftL: { x: base.x - 14, z: 1.03 }, driftR: { x: base.x + 14, z: 1.03 }, rise: { y: base.y - 12, z: 1.04 },
-      tiltL: { r: base.r - 1.6, z: 1.04 }, tiltR: { r: base.r + 1.6, z: 1.04 }, payoff: { z: 1.12 } }[g];
+    const T = { push: { z: 1.04 }, pull: { z: 0.98, from: { z: 1.05 } }, driftL: { x: base.x - 14, z: 1.03 }, driftR: { x: base.x + 14, z: 1.03 }, rise: { y: base.y - 12, z: 1.04 },
+      tiltL: { r: base.r - 1.6, z: 1.04 }, tiltR: { r: base.r + 1.6, z: 1.04 }, payoff: { z: 1.09 } }[g];
     if (T.from) master.fromTo(cam, T.from, Object.assign({ duration: len, ease: 'sine.inOut' }, { z: T.z }), start);
     else master.to(cam, Object.assign({ duration: len, ease: g === 'payoff' ? 'power3.out' : 'sine.inOut' }, T), start);
   }
@@ -240,36 +240,36 @@ body{margin:0;background:#000}
 .blob{position:absolute}
 .grain{opacity:0.07;background-size:180px;pointer-events:none}
 .world{position:absolute;left:0;top:0;width:1px;height:1px;transform-origin:0 0}
-.gridw{position:absolute;left:-1500px;top:-1500px;width:4200px;height:5600px;background-size:44px 44px;opacity:0.5}
+.gridw{position:absolute;left:-2000px;top:-2000px;width:6000px;height:9000px;background-size:44px 44px;opacity:0.5}
 .hud{position:absolute;top:62px;right:22px;left:22px;display:flex;justify-content:space-between;align-items:center;z-index:10}
 .badge{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:${C.muted}}
 .badge i{width:7px;height:7px;border-radius:50%;background:${C.accent};box-shadow:0 0 8px ${C.accent}}
-.panel{--a:0deg;position:absolute;width:316px;height:340px;border-radius:30px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,0.17),${C.glass} 45%,rgba(255,255,255,0.04));backdrop-filter:blur(18px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),inset 0 -24px 44px ${C.glow},0 0 50px ${C.glow},0 28px 60px ${C.shadow}}
+.panel{--a:0deg;position:absolute;width:304px;border-radius:30px;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,0.17),${C.glass} 45%,rgba(255,255,255,0.04));backdrop-filter:blur(18px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),inset 0 -24px 44px ${C.glow},0 0 50px ${C.glow},0 28px 60px ${C.shadow}}
 .panel.clear{background:transparent;box-shadow:none;backdrop-filter:none}.panel.clear .rim,.panel.clear .sheen{display:none}
 .rim{position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--a),${C.rim},rgba(255,255,255,0.05) 25%,${C.soft} 50%,rgba(255,255,255,0.05) 75%,${C.rim});-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:2;pointer-events:none}
 .sheen{position:absolute;top:0;bottom:0;width:45%;background:linear-gradient(100deg,rgba(255,255,255,0) 30%,rgba(255,255,255,0.11) 50%,rgba(255,255,255,0) 70%);z-index:2;pointer-events:none}
-.inner{position:absolute;inset:0;padding:12px;box-sizing:border-box;display:flex;flex-direction:column}
+.inner{position:relative;padding:12px;box-sizing:border-box;display:flex;flex-direction:column;gap:4px}
 .w{display:inline-block}
 .t{font-weight:800;font-size:23px;line-height:1.3}
 .t.xl{font-size:33px;line-height:1.25}
 .t.xxl{font-size:38px;line-height:1.3;text-align:center;text-shadow:0 0 30px ${C.glow}}
 .b{font-size:15px;line-height:1.6;color:${C.muted}}
 .cr{font-size:11px;color:${C.muted}}
-.stack{flex:1;display:flex;flex-direction:column;gap:12px;padding:10px 10px;justify-content:center}
+.stack{display:flex;flex-direction:column;gap:12px;padding:12px 10px}
 .stack.center{align-items:stretch;text-align:right}
-.hook .stack{justify-content:center;padding-bottom:70px}
+.hook .stack{min-height:300px;justify-content:center;padding-bottom:84px;box-sizing:border-box}
 .icowrap{width:52px;height:52px;border-radius:16px;background:${C.glass};border:1px solid ${C.rim};display:flex;align-items:center;justify-content:center}
 .icowrap.sm{width:42px;height:42px;border-radius:13px}
 .pill{align-self:flex-start;display:flex;align-items:center;gap:9px;padding:10px 20px;border-radius:999px;background:${C.glass};border:1.5px solid ${C.rim};font-size:21px;font-weight:800;box-shadow:0 0 24px ${C.glow}}
 .pill i{width:9px;height:9px;border-radius:50%;background:${C.accent};box-shadow:0 0 10px ${C.accent}}
 .pill.big{align-self:center;font-size:21px;padding:11px 26px}
-.ph{position:relative;flex:none;height:190px;border-radius:20px;overflow:hidden;border:1px solid ${C.rim}}
+.ph{position:relative;flex:none;height:236px;border-radius:20px;overflow:hidden;border:1px solid ${C.rim}}
 .kb{position:absolute;inset:0}.kb img{width:100%;height:100%;display:block}
 .vtag{position:absolute;left:10px;top:10px;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,0.5);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
 .chip{position:absolute;top:22px;right:22px;display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,0.42);backdrop-filter:blur(10px);color:#fff;font-size:12px;font-weight:700;z-index:3}
-.txt{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:8px 10px 4px}
-.stat{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:8px 12px}
-.stat.solo{align-items:center;text-align:center;gap:14px}.stat.solo .icowrap{width:64px;height:64px;border-radius:20px}.stat.solo .num{font-size:88px;text-align:center}.stat.solo .t{text-align:center;font-size:24px}.stat.solo .b{text-align:center}
+.txt{display:flex;flex-direction:column;gap:8px;padding:12px 10px 10px}
+.stat{display:flex;flex-direction:column;gap:10px;padding:14px 12px}
+.stat.solo{align-items:center;text-align:center;gap:14px;min-height:280px;justify-content:center;box-sizing:border-box}.stat.solo .icowrap{width:64px;height:64px;border-radius:20px}.stat.solo .num{font-size:88px;text-align:center}.stat.solo .t{text-align:center;font-size:24px}.stat.solo .b{text-align:center}
 .num{font-size:62px;font-weight:800;line-height:1;color:${C.accent};text-shadow:0 0 30px ${C.glow};text-align:right}
 .bars{display:flex;align-items:flex-end;gap:18px;height:120px;padding:0 4px;direction:ltr}
 .bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}

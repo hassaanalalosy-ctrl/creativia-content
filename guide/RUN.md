@@ -71,11 +71,16 @@ Two or three lines in Arabic: the slot date, the topic, number of slides (or "ر
 After the slot is handled, if a truly major creative story broke in the last 48 hours (major award results, a huge launch, a landmark opening) and fewer than 3 extra posts exist in the last 7 days of `log/schedule.json` (keys ending in `-extra`), make ONE extra post: usually a `single` or short story carousel, scheduled today at 15:00 (or tomorrow 15:00 if that time has passed). Log it with key `<date>-extra`. Skip if nothing is clearly big.
 
 ## Trend focus (temporary): GTA 6, Nov 19 to 22, 2026
-GTA 6 launched on Nov 19, 2026 (the Nov 19 15:00 launch carousel is already scheduled). On the runs of Nov 19, 20 and 21, also make ONE extra GTA 6 post for the next day at 15:00, on top of the normal slot, even beyond the 3-extras-per-week limit:
-- Nov 20: a voiced story REEL (engine 2): how Rockstar built the hype (trailer records, long silence, delays, the first look on Netflix) or the art direction of Leonida/Vice City.
-- Nov 21: launch-week reactions: review scores (named outlets), what reviewers and players loved or criticised, first official sales/player numbers if published.
-- Nov 22: trends and memes from players (as «خبر منتشر» when unconfirmed), or the biggest discoveries players are sharing.
-Images and video (owner's decision): this is public news coverage, so beyond official Rockstar screenshots you may use reviewers' and players' screenshots and gameplay clips, credited to the reviewer/creator. Video clips need a direct .mp4 file; YouTube, TikTok and Instagram cannot be downloaded by the renderer, so when only those exist, use screenshots/thumbnails of the review in `image` scenes. Never repeat an angle already in `log/posted.md`. After Nov 22, delete this section.
+GTA 6 launched on Nov 19, 2026 (the Nov 19 15:00 launch carousel is already scheduled). On the runs of Nov 19, 20 and 21, the next day's NORMAL slot AND one extra post at 15:00 are both about GTA 6 (two GTA posts a day), even beyond the 3-extras-per-week limit. Mix reels and carousels. Angles (never repeat one already in `log/posted.md`):
+- Funny and crazy moments players and content creators are sharing (physics, NPC reactions, glitches, easter eggs) — as «خبر منتشر» when unconfirmed.
+- The biggest trends and memes about the game on social media, and the most-watched creator videos.
+- Review scores and what reviewers loved or criticised (name the outlet or creator).
+- First official sales and player records (only official/confirmed numbers).
+- The art direction and world design of Leonida/Vice City; the logo and identity; how Rockstar built the hype.
+Media (owner's decision): this is public news coverage, so use official Rockstar screenshots AND reviewers'/players'/creators' screenshots and clips, credited to the creator. Prefer short video clips (2 to 6 s each) in reels and as video slides in carousels; the reel may be longer (up to 90 s) when it walks through several clips. Clips need a direct video file (news sites, Reddit `v.redd.it`/`i.redd.it` media, X/Twitter `video.twimg.com`); YouTube, TikTok and Instagram cannot be downloaded by the renderer — for those use a screenshot of the video with the creator's name. After Nov 22, delete this section.
+
+## Trend hunting (every run, before choosing the topic)
+Spend a few searches on what is trending RIGHT NOW on social media in our fields (creative, marketing, design, art, tech, games): trending posts and hashtags, viral campaigns, big launches, Reddit popular, X trends, news sites' "most read". If something is clearly big and fresh (last 48 h), it beats the planned topic: make it the slot post (reel or carousel) or the extra post. Strong news and trends > evergreen topics.
 
 ## Weekly review
 The weekly analytics task writes `log/insights.md`. Read it before choosing topics and formats, and follow its "Do more / Do less" lines.

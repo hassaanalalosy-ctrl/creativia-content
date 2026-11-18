@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
+const { execFileSync } = require('child_process');
 const { slideHtml } = require('./slides');
 
 const ROOT = path.join(__dirname, '..');
@@ -51,7 +52,26 @@ async function renderPost(browser, id) {
     const name = String(k + 1).padStart(2, '0') + '.png';
     const el = await page.$('.slide');
     await el.screenshot({ path: path.join(outDir, name) });
-    files.push(`posts/${id}/slides/${name}`);
+    if (s.type === 'video') {
+      // composite the clip into the slide's window (same geometry as the screenshot slide), rounded corners
+      const sc = 1080 / 352, wx = Math.round(12 * sc), wy = Math.round(48 * sc), ww = Math.round(328 * sc), wh = Math.round((440 - 48 - (s.title ? 80 : 44)) * sc), rad = Math.round(18 * sc);
+      const tmpv = path.join(__dirname, '_tmp', 'cv-' + id + '-' + k); fs.mkdirSync(tmpv, { recursive: true });
+      const src = path.join(tmpv, 'src.mp4');
+      if (/^https?:/.test(s.video)) {
+        const res = await fetch(s.video, { headers: { 'User-Agent': 'Mozilla/5.0 Chrome/126', 'Referer': new URL(s.video).origin + '/' } });
+        if (!res.ok) throw new Error(`Video download failed (${res.status}): ${s.video}`);
+        fs.writeFileSync(src, Buffer.from(await res.arrayBuffer()));
+      } else fs.copyFileSync(path.join(ROOT, s.video), src);
+      const dur = Math.min(s.dur || 10, 20);
+      const mask = path.join(tmpv, 'mask.png');
+      execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'lavfi', '-i', `color=black:s=${ww}x${wh}`, '-vf', `format=gray,geq=lum='if(gt(abs(X-${ww}/2),${ww}/2-${rad})*gt(abs(Y-${wh}/2),${wh}/2-${rad}),if(lte(hypot(abs(X-${ww}/2)-(${ww}/2-${rad}),abs(Y-${wh}/2)-(${wh}/2-${rad})),${rad}),255,0),255)'`, '-frames:v', '1', mask]);
+      const vname = String(k + 1).padStart(2, '0') + '.mp4';
+      execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-loop', '1', '-i', path.join(outDir, name), '-ss', String(s.start || 0), '-t', String(dur), '-i', src, '-loop', '1', '-i', mask,
+        '-filter_complex', `[1:v]scale=${ww}:${wh}:force_original_aspect_ratio=${s.fit === 'contain' ? 'decrease' : 'increase'},crop=${ww}:${wh},setsar=1,fps=30,format=yuva420p[v];[2:v]format=gray[m];[v][m]alphamerge[vm];[0:v][vm]overlay=${wx}:${wy}:shortest=1,format=yuv420p[o]`,
+        '-map', '[o]', ...(s.sound ? ['-map', '1:a?', '-c:a', 'aac', '-b:a', '160k'] : ['-an']), '-t', String(dur), '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-r', '30', '-movflags', '+faststart', path.join(outDir, vname)]);
+      fs.unlinkSync(path.join(outDir, name));
+      files.push(`posts/${id}/slides/${vname}`);
+    } else files.push(`posts/${id}/slides/${name}`);
   }
   await page.close();
   fs.writeFileSync(path.join(dir, 'rendered.json'), JSON.stringify({ files, renderedAt: new Date().toISOString() }, null, 2));

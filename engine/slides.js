@@ -123,6 +123,10 @@ ${s.title ? `<p style="position:absolute;bottom:42px;right:16px;left:16px;margin
 ${s.credit ? `<span style="position:absolute;bottom:24px;right:16px;left:16px;font-size:9.5px;color:${c.muted};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.credit)}</span>` : ''}`);
   },
 
+  video(c, s, i, n) {
+    return this.screenshot(c, Object.assign({}, s, { image: null }), i, n).replace('</div>', '</div>') + '';
+  },
+
   text(c, s, i, n) {
     const pts = (s.points || []).map((p, k) => `<div style="display:flex;align-items:center;gap:10px;background:${c.glass};border:1px solid ${c.glassBorder};backdrop-filter:blur(12px);border-radius:14px;padding:9px 12px"><span style="flex:none;width:24px;height:24px;border-radius:8px;background:#2EE86B;color:#0B1410;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center">${k + 1}</span><span style="font-size:13px;line-height:1.5">${esc(p)}</span></div>`).join('');
     return frame(c, `${grid(c)}${orb(c.orb1, c.orb1Mid, 360, 'top:-120px;left:-120px')}${orb(c.orb3, null, 280, 'bottom:-110px;right:-100px')}

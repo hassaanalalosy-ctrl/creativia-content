@@ -78,7 +78,7 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Light / dark: dark for tips, tech, night and dramatic topics; light for art, fashion, calm and cheerful topics. Never two reels in a row in the same mode.
 
 ## Engine 4 rules (owner, Nov 2026)
-- The CAMERA carries the film: every scene is a panel in one world; the camera pulls back, travels, rolls slightly and lands on the next panel (modes rotate: arc, dive, swing, push; force with `"camera"`). Inside a scene the camera keeps pushing in slowly. Never make it feel like boxes appearing and disappearing.
+- The CAMERA carries the film: every scene is a panel in one world; the camera pulls back, travels, rolls slightly and lands on the next panel (moves rotate on a steady beat of 0.25 s steps: travel right/left/down, dive (pull far back), through (zoom into the panel and land from wide on the next), swing (roll), whip (fast); force one with `"camera"`; inside a scene the camera does a different gesture each time: push, pull, drift left/right, rise, tilt; force with `"drift"`). Inside a scene the camera keeps pushing in slowly. Never make it feel like boxes appearing and disappearing.
 - ALL content of a scene lives inside its panel (title, text, rows, charts). Space is balanced inside the panel: no crowding at the top with empty space below.
 - Numbers are visual: use `stat` (animated counter, optional growing bar chart with `bars`) or `num` on image scenes (counting badge). Icons (eye, play, chart, megaphone, clock, spark, star, trophy, quiet, tv) draw themselves line by line; use `icon` on hook/stat, `chipIcon` on image chips, `tagIcon` on lists.
 - Kreti sits inside the hook and end panels only, never next to the logo.

@@ -36,7 +36,7 @@ stage.appendChild(el('div', 'layer grain', '', 'background-image:url(' + D.grain
 const hud = el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge || 'كريتيفيا') + '</span><span class="mk">' + D.mark + '</span>'); stage.appendChild(hud);
 
 // ---------- panel placement along a winding path ----------
-const PATH = [[0, 0, 0], [430, -120, -3], [820, 160, 2], [1260, 0, -2], [1640, 260, 3], [2080, 80, -2], [2480, -160, 2], [2900, 120, -3], [3320, 0, 2], [3740, 220, -2], [4160, 0, 0], [4560, -200, 2], [4980, 60, -2], [5400, 0, 0]];
+const PATH = [[0, 0, 0], [440, -60, -3], [880, 40, 2], [880, 560, -2], [440, 640, 3], [0, 560, -2], [-60, 1100, 2], [400, 1180, -3], [860, 1100, 2], [900, 1640, -2], [440, 1720, 0], [0, 1640, 2], [40, 2180, -2], [500, 2260, 0]];
 const panels = [];
 function panel(k, cls) {
   const [x, y, rot] = PATH[k % PATH.length];
@@ -169,26 +169,47 @@ const cam = { x: 0, y: 0, z: 1, r: 0, blur: 0 };
 let t = 0; const built = [];
 D.scenes.forEach((s, k) => { const b = (B[s.type] || B.image)(s, k); built.push({ s, b, t0: t, p: panels[k] }); t += s.dur; });
 const TOTAL = t;
-const FLY = 0.9;                       // camera flight between panels (seconds)
-// start on panel 0
+// camera language: varied moves on a steady beat (flights are 2, 3 or 4 half-beats of 0.25 s)
+const MOVES = ['travel', 'dive', 'through', 'travel', 'swing', 'whip', 'dive', 'through', 'travel', 'swing', 'whip', 'dive'];
+const FLIGHT = { travel: 0.75, dive: 1.0, through: 0.75, swing: 1.0, whip: 0.5 };
+const DRIFT = ['push', 'driftL', 'pull', 'driftR', 'rise', 'push', 'tiltL', 'pull', 'driftR', 'tiltR'];
 Object.assign(cam, { x: built[0].p.x, y: built[0].p.y, z: 1, r: -built[0].p.rot });
+let landedAt = [0];
 built.forEach(({ s, b, t0, p }, k) => {
   if (k > 0) {
-    const q = built[k - 1].p, mode = s.camera || ['arc', 'dive', 'swing', 'arc', 'push'][k % 5];
-    const f0 = t0 - FLY / 2;
-    // fly: pull back while travelling, then land (overshoot a touch on 'dive')
-    master.to(cam, { x: p.x, y: p.y, duration: FLY, ease: 'power3.inOut' }, f0);
-    master.to(cam, { r: -p.rot + (mode === 'swing' ? 0 : 0), duration: FLY, ease: 'power2.inOut' }, f0);
-    if (mode === 'swing') master.to(cam, { r: -p.rot + (k % 2 ? 6 : -6), duration: FLY * 0.5, ease: 'power2.in', yoyo: true, repeat: 1 }, f0);
-    master.to(cam, { z: mode === 'dive' ? 0.42 : mode === 'push' ? 0.8 : 0.58, duration: FLY * 0.5, ease: 'power2.in' }, f0);
-    master.to(cam, { z: 1, duration: FLY * 0.5, ease: mode === 'dive' ? 'back.out(1.4)' : 'power3.out' }, f0 + FLY * 0.5);
-    master.fromTo(cam, { blur: 0 }, { blur: 3.5, duration: FLY * 0.5, ease: 'power2.in', yoyo: true, repeat: 1, immediateRender: false }, f0);
-    cue(f0 + FLY * 0.25, k % 3 === 0 ? 'whip' : 'whoosh', 0.5);
+    const q = built[k - 1].p, mode = s.camera || MOVES[(k - 1) % MOVES.length], F = FLIGHT[mode] || 0.75, f0 = t0 - F / 2, h = F / 2;
+    const dir = Math.sign(p.x - q.x) || 1;
+    if (mode === 'through') {
+      // zoom INTO the current panel, cut on the fastest frame, land from wide on the next
+      master.to(cam, { z: 2.6, duration: h, ease: 'power3.in' }, f0);
+      master.to(cam, { blur: 5, duration: h, ease: 'power3.in' }, f0);
+      master.set(cam, { x: p.x, y: p.y, z: 0.62, r: -p.rot + dir * 4 }, f0 + h);
+      master.to(cam, { z: 1, r: -p.rot, blur: 0, duration: h + 0.15, ease: 'expo.out' }, f0 + h);
+      cue(f0 + h * 0.7, 'whoosh', 0.55);
+    } else {
+      const zMid = { travel: 0.82, dive: 0.42, swing: 0.6, whip: 0.9 }[mode];
+      const ease = mode === 'whip' ? 'expo.inOut' : 'power3.inOut';
+      master.to(cam, { x: p.x, y: p.y, duration: F, ease }, f0);
+      master.to(cam, { r: -p.rot, duration: F, ease: 'power2.inOut' }, f0);
+      if (mode === 'swing') master.to(cam, { r: -p.rot - dir * 8, duration: h, ease: 'sine.in', yoyo: true, repeat: 1 }, f0);
+      master.to(cam, { z: zMid, duration: h, ease: 'power2.in' }, f0);
+      master.to(cam, { z: 1, duration: h, ease: mode === 'dive' ? 'back.out(1.5)' : 'power3.out' }, f0 + h);
+      master.to(cam, { blur: mode === 'whip' ? 6 : 3, duration: h, ease: 'power2.in', yoyo: true, repeat: 1 }, f0);
+      cue(f0 + h * 0.6, mode === 'whip' ? 'whip' : 'whoosh', mode === 'travel' ? 0.42 : 0.52);
+    }
+    landedAt[k] = t0 + F / 2 + (mode === 'through' ? 0.15 : 0);
   }
-  // inside the scene: slow push in (the camera keeps moving while the panel plays)
-  const landed = k === 0 ? 0 : t0 + FLY / 2;
-  const holdEnd = t0 + s.dur - (k < built.length - 1 ? FLY / 2 : 0);
-  if (holdEnd - landed > 0.6) master.to(cam, { z: b.payoff ? 1.08 : 1.045, duration: holdEnd - landed, ease: b.payoff ? 'power2.out' : 'sine.inOut' }, landed);
+  // inside the scene the camera keeps moving, a different gesture each time
+  const nextF = k < built.length - 1 ? (FLIGHT[built[k + 1].s.camera || MOVES[k % MOVES.length]] || 0.75) / 2 : 0;
+  const start = landedAt[k], end = t0 + s.dur - nextF, len = end - start;
+  if (len > 0.6) {
+    const g = b.payoff ? 'payoff' : (s.drift || DRIFT[k % DRIFT.length]);
+    const base = { x: p.x, y: p.y, r: -p.rot };
+    const T = { push: { z: 1.06 }, pull: { z: 0.97, from: { z: 1.07 } }, driftL: { x: base.x - 14, z: 1.03 }, driftR: { x: base.x + 14, z: 1.03 }, rise: { y: base.y - 12, z: 1.04 },
+      tiltL: { r: base.r - 1.6, z: 1.04 }, tiltR: { r: base.r + 1.6, z: 1.04 }, payoff: { z: 1.12 } }[g];
+    if (T.from) master.fromTo(cam, T.from, Object.assign({ duration: len, ease: 'sine.inOut' }, { z: T.z }), start);
+    else master.to(cam, Object.assign({ duration: len, ease: g === 'payoff' ? 'power3.out' : 'sine.inOut' }, T), start);
+  }
   b.build(master, t0, s.dur);
 });
 master.set({}, {}, TOTAL);
@@ -219,7 +240,7 @@ body{margin:0;background:#000}
 .blob{position:absolute}
 .grain{opacity:0.07;background-size:180px;pointer-events:none}
 .world{position:absolute;left:0;top:0;width:1px;height:1px;transform-origin:0 0}
-.gridw{position:absolute;left:-1200px;top:-1500px;width:8000px;height:3200px;background-size:44px 44px;opacity:0.5}
+.gridw{position:absolute;left:-1500px;top:-1500px;width:4200px;height:5600px;background-size:44px 44px;opacity:0.5}
 .hud{position:absolute;top:62px;right:22px;left:22px;display:flex;justify-content:space-between;align-items:center;z-index:10}
 .badge{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:${C.muted}}
 .badge i{width:7px;height:7px;border-radius:50%;background:${C.accent};box-shadow:0 0 8px ${C.accent}}

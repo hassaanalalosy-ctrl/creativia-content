@@ -1,0 +1,99 @@
+{
+  "id": "2026-11-20-gta6-hype-reel",
+  "topic": "How Rockstar built the GTA 6 hype: early trailer after a leak (90M+ YouTube views/24h), long silence, Trailer 2 475M views/24h, 27-minute extended look on Netflix",
+  "category": "ماركتنغ وألعاب",
+  "format": "reel",
+  "engine": 3,
+  "mode": "dark",
+  "badge": "ماركتنغ · ألعاب",
+  "music": "assets/music/sub_clair-upbeat-587078.mp3",
+  "voice": true,
+  "sources": [
+    "https://www.gamespot.com/articles/gta-6s-trailer-had-the-biggest-youtube-debut-ever/1100-6519788/",
+    "https://kotaku.com/gta-6-rockstar-games-trailer-90-million-views-record-1851075122",
+    "https://www.videogameschronicle.com/news/at-nearly-half-a-billion-views-rockstar-says-gta-6s-new-trailer-is-the-biggest-video-launch-of-all-time",
+    "https://www.techradar.com/gaming/gaming-industry/grand-theft-auto-6-is-already-an-official-guinness-world-record-holder-and-its-expected-to-break-even-more-records-at-launch-gta-6s-release-is-a-really-global-phenomenon-in-a-way-that-few-things-are",
+    "https://www.techspot.com/news/113726-gta-6-extended-look-draws-over-50-million.html"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "dur": 3.2,
+      "pose": "think",
+      "title": "شلون صار GTA 6 أكبر حدث بالعالم؟",
+      "sub": "قبل ما أحد يلعبها",
+      "pill": "475M",
+      "say": "شلون لعبة وحدة صارت أكبر حدث بالعالم… قبل ما أحد يلعبها؟"
+    },
+    {
+      "type": "image",
+      "dur": 3.0,
+      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_080.jpg",
+      "chip": "التريلر الأول",
+      "title": "2023: تسريب… والتريلر نزل قبل وقته",
+      "credit": "صورة رسمية: Rockstar Games",
+      "say": "سنة ألفين وثلاثة وعشرين، التريلر الأول تسرّب، فروكستار نزّلته قبل موعده."
+    },
+    {
+      "type": "point",
+      "dur": 3.0,
+      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_001.jpg",
+      "num": "90M",
+      "title": "أكثر من 90 مليون مشاهدة بيوم",
+      "body": "أكبر انطلاقة لفيديو مو أغنية على يوتيوب",
+      "credit": "صورة رسمية: Rockstar Games",
+      "say": "وبأربعة وعشرين ساعة، جاب أكثر من تسعين مليون مشاهدة على يوتيوب."
+    },
+    {
+      "type": "image",
+      "dur": 3.0,
+      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_009.jpg",
+      "title": "بعدها… سكوت سنة ونص",
+      "credit": "صورة رسمية: Rockstar Games",
+      "say": "بعدها سكتت روكستار سنة ونص تقريباً. ولا كلمة."
+    },
+    {
+      "type": "point",
+      "dur": 3.0,
+      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_082.jpg",
+      "num": "475M",
+      "title": "التريلر الثاني: 475 مليون",
+      "body": "مشاهدة بيوم واحد، ودخل موسوعة غينيس",
+      "credit": "صورة رسمية: Rockstar Games",
+      "say": "وبأيار ألفين وخمسة وعشرين، التريلر الثاني جاب أربعمية وخمسة وسبعين مليون مشاهدة بيوم واحد."
+    },
+    {
+      "type": "image",
+      "dur": 3.0,
+      "image": "https://www.gematsu.com/wp-content/uploads/2025/05/Grand-Theft-Auto-VI_2025_05-06-25_084.jpg",
+      "chip": "مكان غير متوقع",
+      "title": "27 دقيقة لعب… على نتفليكس",
+      "credit": "صورة رسمية: Rockstar Games",
+      "say": "وقبل الإصدار بأقل من ثلاث أشهر، عرضت سبعة وعشرين دقيقة لعب على نتفليكس، مو على يوتيوب."
+    },
+    {
+      "type": "list",
+      "dur": 3.4,
+      "tag": "الدرس",
+      "title": "ليش نجح الماركتنغ؟",
+      "points": [
+        "تريلرات قليلة، كل واحد حدث",
+        "سكوت طويل يكبّر الشوق",
+        "مكان عرض يفاجئ الناس"
+      ],
+      "say": "يعني الدرس بسيط: قلّل، واسكت، وفاجئ."
+    },
+    {
+      "type": "statement",
+      "dur": 2.8,
+      "text": "أحياناً السكوت أقوى إعلان",
+      "say": "أحياناً، السكوت أقوى إعلان."
+    },
+    {
+      "type": "end",
+      "dur": 2.8,
+      "say": "تابعنا على كريتيفيا."
+    }
+  ],
+  "caption": "شلون صار GTA 6 أكبر حدث بالعالم… قبل ما ينلعب يوم واحد؟ ✦\n\nسنة 2023 تسرّب التريلر الأول، فنزّلته روكستار قبل موعده، وجاب أكثر من 90 مليون مشاهدة على يوتيوب بـ24 ساعة. بعدها سكتت قرابة سنة ونص. التريلر الثاني بأيار 2025 جاب 475 مليون مشاهدة بيوم واحد ودخل موسوعة غينيس، وقبل الإصدار عرضت 27 دقيقة لعب على نتفليكس بدال يوتيوب.\n\nالدرس: قلّل، واسكت، وفاجئ.\n\nتتفق إن السكوت أحياناً أقوى إعلان؟ 👇\n\nالصور: Rockstar Games\n\n#كريتيفيا #ماركتنغ #ألعاب #GTA6 #GTAVI #RockstarGames #marketing #gaming"
+}

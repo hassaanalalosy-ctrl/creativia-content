@@ -1,0 +1,445 @@
+{
+  "license": "Mixkit Sound Effects Free License (commercial use, no attribution)",
+  "tracks": [
+    {
+      "file": "mixkit-whoosh-1489.mp3",
+      "role": "whoosh",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1489",
+      "duration": 2.32,
+      "onset": 0.097,
+      "peak": 0.71
+    },
+    {
+      "file": "mixkit-whoosh-1492.mp3",
+      "role": "whoosh",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1492",
+      "duration": 1.33,
+      "onset": 0.0,
+      "peak": 1.08
+    },
+    {
+      "file": "mixkit-whoosh-1491.mp3",
+      "role": "whoosh",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1491",
+      "duration": 1.1,
+      "onset": 0.126,
+      "peak": 0.29
+    },
+    {
+      "file": "mixkit-whoosh-1490.mp3",
+      "role": "whoosh",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1490",
+      "duration": 1.76,
+      "onset": 0.093,
+      "peak": 0.71
+    },
+    {
+      "file": "mixkit-whoosh-3005.mp3",
+      "role": "whoosh",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "3005",
+      "duration": 0.18,
+      "onset": 0.0,
+      "peak": 0.03
+    },
+    {
+      "file": "mixkit-whoosh-soft-166.mp3",
+      "role": "whoosh-soft",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "166",
+      "duration": 0.78,
+      "onset": 0.072,
+      "peak": 0.29
+    },
+    {
+      "file": "mixkit-whoosh-soft-1465.mp3",
+      "role": "whoosh-soft",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1465",
+      "duration": 2.26,
+      "onset": 0.069,
+      "peak": 1.55
+    },
+    {
+      "file": "mixkit-whoosh-soft-1471.mp3",
+      "role": "whoosh-soft",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1471",
+      "duration": 1.45,
+      "onset": 0.172,
+      "peak": 0.29
+    },
+    {
+      "file": "mixkit-whoosh-soft-1461.mp3",
+      "role": "whoosh-soft",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1461",
+      "duration": 1.39,
+      "onset": 0.0,
+      "peak": 0.16
+    },
+    {
+      "file": "mixkit-whip-1492.mp3",
+      "role": "whip",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1492",
+      "duration": 1.33,
+      "onset": 0.0,
+      "peak": 1.08
+    },
+    {
+      "file": "mixkit-whip-166.mp3",
+      "role": "whip",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "166",
+      "duration": 0.78,
+      "onset": 0.072,
+      "peak": 0.29
+    },
+    {
+      "file": "mixkit-whip-1490.mp3",
+      "role": "whip",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1490",
+      "duration": 1.76,
+      "onset": 0.093,
+      "peak": 0.71
+    },
+    {
+      "file": "mixkit-whip-2608.mp3",
+      "role": "whip",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2608",
+      "duration": 1.27,
+      "onset": 0.143,
+      "peak": 0.43
+    },
+    {
+      "file": "mixkit-pop-2358.mp3",
+      "role": "pop",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2358",
+      "duration": 0.48,
+      "onset": 0.0,
+      "peak": 0.03
+    },
+    {
+      "file": "mixkit-pop-2354.mp3",
+      "role": "pop",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2354",
+      "duration": 1.06,
+      "onset": 0.053,
+      "peak": 0.03
+    },
+    {
+      "file": "mixkit-pop-2364.mp3",
+      "role": "pop",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2364",
+      "duration": 1.17,
+      "onset": 0.0,
+      "peak": 0.0
+    },
+    {
+      "file": "mixkit-pop-3005.mp3",
+      "role": "pop",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "3005",
+      "duration": 0.18,
+      "onset": 0.0,
+      "peak": 0.03
+    },
+    {
+      "file": "mixkit-pop-2357.mp3",
+      "role": "pop",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2357",
+      "duration": 0.38,
+      "onset": 0.0,
+      "peak": 0.12
+    },
+    {
+      "file": "mixkit-click-1133.mp3",
+      "role": "click",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1133",
+      "duration": 0.35,
+      "onset": 0.138,
+      "peak": 0.19
+    },
+    {
+      "file": "mixkit-click-275.mp3",
+      "role": "click",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "275",
+      "duration": 0.46,
+      "onset": 0.112,
+      "peak": 0.05
+    },
+    {
+      "file": "mixkit-click-1109.mp3",
+      "role": "click",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1109",
+      "duration": 1.1,
+      "onset": 0.0,
+      "peak": 0.06
+    },
+    {
+      "file": "mixkit-click-900.mp3",
+      "role": "click",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "900",
+      "duration": 0.7,
+      "onset": 0.1,
+      "peak": 0.05
+    },
+    {
+      "file": "mixkit-tick-2533.mp3",
+      "role": "tick",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2533",
+      "duration": 1.21,
+      "onset": 0.0,
+      "peak": 0.0
+    },
+    {
+      "file": "mixkit-tick-2841.mp3",
+      "role": "tick",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2841",
+      "duration": 1.03,
+      "onset": 0.0,
+      "peak": 0.0
+    },
+    {
+      "file": "mixkit-tick-2542.mp3",
+      "role": "tick",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2542",
+      "duration": 0.31,
+      "onset": 0.109,
+      "peak": 0.03
+    },
+    {
+      "file": "mixkit-impact-2198.mp3",
+      "role": "impact",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2198",
+      "duration": 3.03,
+      "onset": 0.109,
+      "peak": 1.67
+    },
+    {
+      "file": "mixkit-impact-2182.mp3",
+      "role": "impact",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2182",
+      "duration": 0.42,
+      "onset": 0.027,
+      "peak": 0.05
+    },
+    {
+      "file": "mixkit-impact-833.mp3",
+      "role": "impact",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "833",
+      "duration": 0.77,
+      "onset": 0.097,
+      "peak": 0.02
+    },
+    {
+      "file": "mixkit-impact-2150.mp3",
+      "role": "impact",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2150",
+      "duration": 0.59,
+      "onset": 0.106,
+      "peak": 0.12
+    },
+    {
+      "file": "mixkit-riser-790.mp3",
+      "role": "riser",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "790",
+      "duration": 2.57,
+      "onset": 0.823,
+      "peak": 2.44
+    },
+    {
+      "file": "mixkit-shimmer-871.mp3",
+      "role": "shimmer",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "871",
+      "duration": 1.3,
+      "onset": 0.196,
+      "peak": 0.19
+    },
+    {
+      "file": "mixkit-shimmer-866.mp3",
+      "role": "shimmer",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "866",
+      "duration": 1.5,
+      "onset": 0.0,
+      "peak": 0.0
+    },
+    {
+      "file": "mixkit-shimmer-3062.mp3",
+      "role": "shimmer",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "3062",
+      "duration": 2.5,
+      "onset": 0.0,
+      "peak": 0.17
+    },
+    {
+      "file": "mixkit-camera-1133.mp3",
+      "role": "camera",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1133",
+      "duration": 0.35,
+      "onset": 0.138,
+      "peak": 0.19
+    },
+    {
+      "file": "mixkit-camera-1430.mp3",
+      "role": "camera",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1430",
+      "duration": 0.63,
+      "onset": 0.1,
+      "peak": 0.06
+    },
+    {
+      "file": "mixkit-glitch-2595.mp3",
+      "role": "glitch",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2595",
+      "duration": 1.02,
+      "onset": 0.0,
+      "peak": 0.46
+    },
+    {
+      "file": "mixkit-glitch-1457.mp3",
+      "role": "glitch",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1457",
+      "duration": 1.4,
+      "onset": 0.0,
+      "peak": 0.04
+    },
+    {
+      "file": "mixkit-glitch-1033.mp3",
+      "role": "glitch",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "1033",
+      "duration": 1.08,
+      "onset": 0.0,
+      "peak": 0.07
+    },
+    {
+      "file": "mixkit-game-2047.mp3",
+      "role": "game",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2047",
+      "duration": 1.34,
+      "onset": 0.1,
+      "peak": 0.28
+    },
+    {
+      "file": "mixkit-game-2069.mp3",
+      "role": "game",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2069",
+      "duration": 1.03,
+      "onset": 0.0,
+      "peak": 0.15
+    },
+    {
+      "file": "mixkit-game-2060.mp3",
+      "role": "game",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2060",
+      "duration": 1.55,
+      "onset": 0.0,
+      "peak": 0.75
+    },
+    {
+      "file": "mixkit-notification-2870.mp3",
+      "role": "notification",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2870",
+      "duration": 1.96,
+      "onset": 0.0,
+      "peak": 0.02
+    },
+    {
+      "file": "mixkit-notification-2358.mp3",
+      "role": "notification",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2358",
+      "duration": 0.48,
+      "onset": 0.0,
+      "peak": 0.03
+    },
+    {
+      "file": "mixkit-notification-2354.mp3",
+      "role": "notification",
+      "title": "",
+      "source": "Mixkit",
+      "mixkit_id": "2354",
+      "duration": 1.06,
+      "onset": 0.053,
+      "peak": 0.03
+    }
+  ]
+}

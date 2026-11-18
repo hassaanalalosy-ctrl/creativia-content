@@ -70,8 +70,12 @@ Two or three lines in Arabic: the slot date, the topic, number of slides (or "ر
 ## Extra posts (breaking news, at most 3 per week)
 After the slot is handled, if a truly major creative story broke in the last 48 hours (major award results, a huge launch, a landmark opening) and fewer than 3 extra posts exist in the last 7 days of `log/schedule.json` (keys ending in `-extra`), make ONE extra post: usually a `single` or short story carousel, scheduled today at 15:00 (or tomorrow 15:00 if that time has passed). Log it with key `<date>-extra`. Skip if nothing is clearly big.
 
-## Trend focus (temporary): GTA 6, Nov 19 to 21, 2026
-GTA 6 launched on Nov 19, 2026. On the runs of Nov 19, 20 and 21, also make ONE extra GTA 6 post for the next day 15:00 (or today 15:00 if still 2+ hours away), on top of the normal slot, even beyond the 3-extras-per-week limit. Angles, never repeating one already in `log/posted.md`: launch-week reactions and review scores (verified), first sales or player records (only official/confirmed numbers), the art direction and world design of Leonida/Vice City, the logo and identity, fan trends and memes (as «خبر منتشر»), the marketing story. Use official Rockstar screenshots (e.g. gematsu.com uploads of Rockstar media) with the credit «صورة رسمية: Rockstar Games». Reels about GTA use screenshots in `image` scenes (Rockstar trailers are on YouTube only, so no video clips). After Nov 21, delete this section.
+## Trend focus (temporary): GTA 6, Nov 19 to 22, 2026
+GTA 6 launched on Nov 19, 2026 (the Nov 19 15:00 launch carousel is already scheduled). On the runs of Nov 19, 20 and 21, also make ONE extra GTA 6 post for the next day at 15:00, on top of the normal slot, even beyond the 3-extras-per-week limit:
+- Nov 20: a voiced story REEL (engine 2): how Rockstar built the hype (trailer records, long silence, delays, the first look on Netflix) or the art direction of Leonida/Vice City.
+- Nov 21: launch-week reactions: review scores (named outlets), what reviewers and players loved or criticised, first official sales/player numbers if published.
+- Nov 22: trends and memes from players (as «خبر منتشر» when unconfirmed), or the biggest discoveries players are sharing.
+Images and video (owner's decision): this is public news coverage, so beyond official Rockstar screenshots you may use reviewers' and players' screenshots and gameplay clips, credited to the reviewer/creator. Video clips need a direct .mp4 file; YouTube, TikTok and Instagram cannot be downloaded by the renderer, so when only those exist, use screenshots/thumbnails of the review in `image` scenes. Never repeat an angle already in `log/posted.md`. After Nov 22, delete this section.
 
 ## Weekly review
 The weekly analytics task writes `log/insights.md`. Read it before choosing topics and formats, and follow its "Do more / Do less" lines.

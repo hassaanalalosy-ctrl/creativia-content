@@ -6,8 +6,10 @@ Owner: Hassaan Al-Alusi (Iraqi art director). Audience: Arab creatives, designer
 
 ## What we post
 Anything creative, chosen for being **strong and trending right now**:
-contemporary art · Arab art · architecture · industrial and product design · advertising campaigns and the people behind them · **strange and brilliant ad campaigns from anywhere in the world (new or old)** · **marketing** (smart launches, guerrilla, brand stunts, rebrands and what we learn from them) · **fashion** (designers, collections, campaigns, iconic pieces) · illustration and painting · photography · typography and type design · brand identities.
+contemporary art · Arab art · architecture · industrial and product design · advertising campaigns and the people behind them · **strange and brilliant ad campaigns from anywhere in the world (new or old)** · **marketing** (smart launches, guerrilla, brand stunts, rebrands and what we learn from them) · **fashion** (designers, collections, campaigns, iconic pieces) · **video games** (game marketing and launches, trailers, art direction and world design, logos and identities, big industry moments) · **technology** (new devices, apps and AI that change how creatives work, product design and launches) · illustration and painting · photography · typography and type design · brand identities.
 Rotate categories: never the same category three posts in a row (check `log/posted.md`).
+
+**Trends first:** when something is a huge trend right now (a game launch like GTA 6, a viral campaign, a big product launch), cover it from a creative angle (marketing, design, art, story) within 24 hours, even if it sits outside the usual categories.
 
 ## Major creative events
 Important events are part of the schedule. Cover a major event in the days right after it happens (results, winners, best work), or a short preview the week before:

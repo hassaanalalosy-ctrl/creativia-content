@@ -205,7 +205,7 @@ built.forEach(({ s, b, t0, p }, k) => {
   if (len > 0.6) {
     const g = b.payoff ? 'payoff' : (s.drift || DRIFT[k % DRIFT.length]);
     const base = { x: p.x, y: p.y, r: -p.rot };
-    const T = { push: { z: 1.04 }, pull: { z: 0.98, from: { z: 1.05 } }, driftL: { x: base.x - 14, z: 1.03 }, driftR: { x: base.x + 14, z: 1.03 }, rise: { y: base.y - 12, z: 1.04 },
+    const T = { push: { z: 1.04 }, pull: { z: 0.98, from: { z: 1.05 } }, driftL: { x: base.x - 14, z: 1.03 }, driftR: { x: base.x + 14, z: 1.03 }, rise: { y: base.y - 8, z: 1.04 },
       tiltL: { r: base.r - 1.6, z: 1.04 }, tiltR: { r: base.r + 1.6, z: 1.04 }, payoff: { z: 1.09 } }[g];
     if (T.from) master.fromTo(cam, T.from, Object.assign({ duration: len, ease: 'sine.inOut' }, { z: T.z }), start);
     else master.to(cam, Object.assign({ duration: len, ease: g === 'payoff' ? 'power3.out' : 'sine.inOut' }, T), start);
@@ -218,8 +218,21 @@ master.set({}, {}, TOTAL);
 master.to(panels.map(p => p.el.querySelector('.rim')), { '--a': TOTAL * 50 + 'deg', duration: TOTAL, ease: 'none' }, 0);
 panels.forEach((p, i) => master.fromTo(p.el.querySelector('.sheen'), { xPercent: -170 }, { xPercent: 260, duration: 2.6, ease: 'power1.inOut', repeat: Math.floor(TOTAL / 2.6) }, 0.4 + i * 0.37));
 
+// safe band: below the HUD (top ~84) and above Instagram's bottom UI (~470).
+// every panel is scaled so that, even at its strongest hold zoom, it never crosses the HUD line.
+const BAND_TOP = 98, BAND_BOT = 470, CY = (BAND_TOP + BAND_BOT) / 2, FIT = BAND_BOT - BAND_TOP - 22;
+let fitted = false;
+function fitPanels() {
+  built.forEach(({ b, p }) => {
+    const zHold = b.payoff ? 1.09 : 1.05, H = p.el.offsetHeight, W = p.el.offsetWidth;
+    const sc = Math.min(1, FIT / (H * zHold), 336 / (W * zHold));
+    p.el.style.transform = 'translate(-50%,-50%) rotate(' + p.rot + 'deg) scale(' + sc.toFixed(3) + ')';
+  });
+  fitted = true;
+}
 function applyCam() {
-  world.style.transform = 'translate(' + VW / 2 + 'px,' + 266 + 'px) scale(' + cam.z + ') rotate(' + cam.r + 'deg) translate(' + (-cam.x) + 'px,' + (-cam.y) + 'px)';
+  if (!fitted) fitPanels();
+  world.style.transform = 'translate(' + VW / 2 + 'px,' + CY + 'px) scale(' + cam.z + ') rotate(' + cam.r + 'deg) translate(' + (-cam.x) + 'px,' + (-cam.y) + 'px)';
   world.style.filter = cam.blur > 0.05 ? 'blur(' + cam.blur.toFixed(2) + 'px)' : 'none';
   par.style.transform = 'translate(' + (-cam.x * 0.18) + 'px,' + (-cam.y * 0.18) + 'px) scale(' + (0.9 + cam.z * 0.1) + ')';
 }
@@ -257,7 +270,7 @@ body{margin:0;background:#000}
 .cr{font-size:11px;color:${C.muted}}
 .stack{display:flex;flex-direction:column;gap:12px;padding:12px 10px}
 .stack.center{align-items:stretch;text-align:right}
-.hook .stack{min-height:300px;justify-content:center;padding-bottom:84px;box-sizing:border-box}
+.hook .stack{min-height:270px;justify-content:center;padding-bottom:84px;box-sizing:border-box}
 .icowrap{width:52px;height:52px;border-radius:16px;background:${C.glass};border:1px solid ${C.rim};display:flex;align-items:center;justify-content:center}
 .icowrap.sm{width:42px;height:42px;border-radius:13px}
 .pill{align-self:flex-start;display:flex;align-items:center;gap:9px;padding:10px 20px;border-radius:999px;background:${C.glass};border:1.5px solid ${C.rim};font-size:21px;font-weight:800;box-shadow:0 0 24px ${C.glow}}

@@ -104,7 +104,7 @@ const B = {
     const c = panel(k);
     const bars = s.bars || [];
     const max = Math.max(1, ...bars.map(b => +b.value || 0));
-    c.innerHTML = '<div class="stat">' + (s.icon ? '<div class="icowrap sm">' + icon(s.icon, 26) + '</div>' : '') +
+    c.innerHTML = '<div class="stat' + (bars.length ? '' : ' solo') + '">' + (s.icon ? '<div class="icowrap sm">' + icon(s.icon, 26) + '</div>' : '') +
       '<div class="num" dir="ltr">' + esc(s.value) + '</div><div class="t">' + words(s.title || '') + '</div>' +
       (bars.length ? '<div class="bars">' + bars.map((b, i) => '<div class="bar' + (i === bars.length - 1 ? ' hi' : '') + '"><div class="bv" dir="ltr">' + esc(b.label2 || '') + '</div><div class="bf" style="height:' + Math.max(8, Math.round((+b.value / max) * 100)) + '%"></div><div class="bl">' + esc(b.label) + '</div></div>').join('') + '</div>' : '') +
       (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + '</div>';
@@ -248,6 +248,7 @@ body{margin:0;background:#000}
 .chip{position:absolute;top:22px;right:22px;display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,0.42);backdrop-filter:blur(10px);color:#fff;font-size:12px;font-weight:700;z-index:3}
 .txt{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:8px 10px 4px}
 .stat{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:8px 12px}
+.stat.solo{align-items:center;text-align:center;gap:14px}.stat.solo .icowrap{width:64px;height:64px;border-radius:20px}.stat.solo .num{font-size:88px;text-align:center}.stat.solo .t{text-align:center;font-size:24px}.stat.solo .b{text-align:center}
 .num{font-size:62px;font-weight:800;line-height:1;color:${C.accent};text-shadow:0 0 30px ${C.glow};text-align:right}
 .bars{display:flex;align-items:flex-end;gap:18px;height:120px;padding:0 4px;direction:ltr}
 .bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}

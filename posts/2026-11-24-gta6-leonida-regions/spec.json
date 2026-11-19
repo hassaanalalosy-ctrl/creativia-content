@@ -1,0 +1,107 @@
+{
+  "id": "2026-11-24-gta6-leonida-regions",
+  "topic": "GTA VI world design: the six regions of Leonida (Rockstar's fictional Florida): Vice City, Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia, Mount Kalaga National Park",
+  "category": "ألعاب (تصميم عوالم)",
+  "mode": "dark",
+  "sources": [
+    "https://gameinformer.com/2025/05/06/rockstar-shows-off-six-major-areas-of-vice-city-in-grand-theft-auto-vi",
+    "https://www.pcgamer.com/games/grand-theft-auto/gta6-map",
+    "https://www.gamesradar.com/games/grand-theft-auto/gta-6-locations"
+  ],
+  "slides": [
+    {
+      "type": "coverImage",
+      "badge": "تصميم عوالم",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/6aaf1231/vice_city_01.jpg.webp",
+      "title": "روكستار رسمت فلوريدا من جديد… بـ6 مناطق",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chips": [
+        {
+          "icon": "star",
+          "label": "ألعاب"
+        },
+        {
+          "icon": "brush",
+          "label": "تصميم عوالم"
+        }
+      ],
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/7ebe3312/vice_city_05.jpg.webp",
+      "title": "1 · فايس سيتي",
+      "body": "قلب ليونيدا، مستوحاة من ميامي: بريق وزحمة وطمع أمريكا بمدينة وحدة.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "building",
+        "label": "المدينة"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/d9c983ad/leonida_keys_01.jpg.webp",
+      "title": "2 · جزر ليونيدا كيز",
+      "body": "نسخة من جزر فلوريدا كيز: شواطئ وقوارب وسلاحف بحرية… ومياه خطرة.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "camera",
+        "label": "الجزر"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/fa498adc/grassrivers_01.jpg.webp",
+      "title": "3 · مستنقعات غراسريفرز",
+      "body": "مستنقعات مثل إيفرغليدز، بيها مفترسات أخطر من التماسيح واكتشافات غريبة.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "spark",
+        "label": "الطبيعة"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/dfcaa9b0/port_gellhorn_01.jpg.webp",
+      "title": "4 · بورت غيلهورن",
+      "body": "«الساحل المنسي»: موتيلات رخيصة، ألعاب مسكّرة ومولات فارغة.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "clock",
+        "label": "المنسي"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/8d26a03c/ambrosia_01.jpg.webp",
+      "title": "5 · أمبروزيا",
+      "body": "بلدة مصنع سكر وعصابة دراجات نارية، «قلب ليونيدا» بقيمها القديمة.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "box",
+        "label": "المصانع"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/ba43e4a2/mount_kalaga_national_park_01.jpg.webp",
+      "title": "6 · جبل كالاغا",
+      "body": "حديقة وطنية بشمال الولاية: غابات، صيد، وطرق وعرة للسيارات.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "trend",
+        "label": "البرية"
+      },
+      "kreti": false
+    },
+    {
+      "type": "end"
+    }
+  ],
+  "caption": "روكستار ما سوّت مدينة… سوّت ولاية كاملة ✦\n\nعالم GTA 6 اسمه «ليونيدا»، نسخة خيالية من فلوريدا، وروكستار قسّمته لـ6 مناطق، كل وحدة إلها شخصية ولون وناس: فايس سيتي المستوحاة من ميامي، جزر ليونيدا كيز، مستنقعات غراسريفرز، الساحل المنسي ببورت غيلهورن، بلدة السكر أمبروزيا، وحديقة جبل كالاغا الوطنية.\n\nالدرس لكل مصمم: العالم المقنع ما يجي من الحجم، يجي من التفاصيل. كل منطقة تحچي قصة: شنو يشتغلون أهلها، شنو يشربون، وشنو مسكّر بشوارعها.\n\nأي منطقة تروحلها أول: 1 فايس سيتي، 2 الجزر، 3 المستنقعات، 4 الساحل، 5 أمبروزيا، لو 6 الجبل؟ اكتب الرقم 👇\n\nالصور: Rockstar Games @rockstargames\n\n#كريتيفيا #ألعاب #تصميم #تصميم_عوالم #GTA6 #GTAVI #RockstarGames #gamedesign #worldbuilding"
+}

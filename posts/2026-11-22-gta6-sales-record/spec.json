@@ -10,31 +10,63 @@
     "https://win.gg/gta-6-smashes-streaming-records/"
   ],
   "slides": [
-    {"type": "coverImage", "badge": "خبر",
-     "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/a92efd34/vice_city_03.jpg.webp",
-     "title": "GTA 6 باعت 3.79 مليار دولار بيوم واحد",
-     "credit": "صورة رسمية: Rockstar Games",
-     "chips": [{"icon": "trend", "label": "أخبار الألعاب"}, {"icon": "star", "label": "رقم قياسي"}],
-     "kreti": false},
-    {"type": "inner",
-     "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/fc1a574c/vice_city_04.jpg.webp",
-     "title": "أكبر إطلاق ترفيهي بالتاريخ",
-     "body": "حسب Take-Two: أكثر من كل اللي جمعه Avengers: Endgame بكل عرضه، وتقريباً 4 أضعاف أول 3 أيام لـGTA 5.",
-     "credit": "صورة رسمية: Rockstar Games",
-     "chip": {"icon": "trend", "label": "المبيعات"}, "kreti": false},
-    {"type": "inner",
-     "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/d704af22/ambrosia_04.jpg.webp",
-     "title": "32.5 مليون نسخة قبل لا تنزل",
-     "body": "أعلى رقم مبيعات قبل الإصدار للعبة بالتاريخ، على كل الأجهزة.",
-     "credit": "صورة رسمية: Rockstar Games",
-     "chip": {"icon": "box", "label": "النسخ"}, "kreti": false},
-    {"type": "inner",
-     "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/0096d35e/port_gellhorn_02.jpg.webp",
-     "title": "8 مليون يتفرجون سوا",
-     "body": "ذروة المشاهدين بنفس اللحظة على كل منصات البث يوم الإطلاق، حسب Streams Charts.",
-     "credit": "صورة رسمية: Rockstar Games",
-     "chip": {"icon": "camera", "label": "البث"}, "kreti": false},
-    {"type": "end"}
+    {
+      "type": "coverImage",
+      "badge": "خبر",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/a92efd34/vice_city_03.jpg.webp",
+      "title": "GTA 6 باعت 3.79 مليار دولار بيوم واحد",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chips": [
+        {
+          "icon": "trend",
+          "label": "أخبار الألعاب"
+        },
+        {
+          "icon": "star",
+          "label": "رقم قياسي"
+        }
+      ],
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/fc1a574c/vice_city_04.jpg.webp",
+      "title": "أكبر إطلاق ترفيهي بالتاريخ",
+      "body": "حسب Take-Two: أكثر من أي فيلم أو لعبة، وحتى أكثر من كل اللي جمعه فيلم «أفنجرز: إندغيم» بالسينما.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "trend",
+        "label": "المبيعات"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/d704af22/ambrosia_04.jpg.webp",
+      "title": "32.5 مليون نسخة قبل لا تنزل",
+      "body": "أعلى رقم مبيعات قبل الإصدار للعبة بالتاريخ، على كل الأجهزة.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "box",
+        "label": "النسخ"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://static.gameinformer.com/sites/default/files/styles/no_compression/public/2025/05/06/0096d35e/port_gellhorn_02.jpg.webp",
+      "title": "8 مليون يتفرجون سوا",
+      "body": "ذروة المشاهدين بنفس اللحظة على كل منصات البث يوم الإطلاق، حسب Streams Charts.",
+      "credit": "صورة رسمية: Rockstar Games",
+      "chip": {
+        "icon": "camera",
+        "label": "البث"
+      },
+      "kreti": false
+    },
+    {
+      "type": "end"
+    }
   ],
   "caption": "GTA 6 جمعت 3.79 مليار دولار بأول يوم ✦ أكبر إطلاق ترفيهي بالتاريخ\n\nTake-Two أعلنت إن اللعبة باعت بيومها الأول أكثر من أي فيلم أو لعبة نزلت قبلها، حتى أكثر من كل اللي جمعه Avengers: Endgame بالسينما، وتقريباً 4 أضعاف المليار اللي جمعته GTA 5 بأول 3 أيام سنة 2013. وقبل لا تنزل باعت 32.5 مليون نسخة.\n\nوعلى البث المباشر وصل عدد المشاهدين بنفس اللحظة لحوالي 8 مليون، حسب Streams Charts.\n\nتوقعت هالرقم لو لا؟ 👍/👎\n\nالصور: Rockstar Games @rockstargames\nالأرقام: Take-Two Interactive · Forbes · Digital Trends\n\n#كريتيفيا #أخبار_الألعاب #ألعاب #ماركتنغ #GTA6 #GTAVI #RockstarGames #gaming"
 }

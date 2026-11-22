@@ -1,0 +1,51 @@
+[
+  {
+    "name": "sa-b-1",
+    "file": "sa-b-1.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/9/91/Thrust-GTASA-Cover.png/revision/latest?cb=20150523223408",
+    "source": "https://gta.fandom.com/wiki/File:Thrust-GTASA-Cover.png",
+    "bytes": 27570
+  },
+  {
+    "name": "sa-b-2",
+    "file": "sa-b-2.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/f/f1/RogueMagazine-GTASA-Cover.jpg/revision/latest?cb=20070521154951",
+    "source": "https://gta.fandom.com/wiki/File:RogueMagazine-GTASA-Cover.jpg",
+    "bytes": 18988
+  },
+  {
+    "name": "sa-b-3",
+    "file": "sa-b-3.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/3/39/ClassicRides-GTASA-Cover.jpg/revision/latest?cb=20070521083804",
+    "source": "https://gta.fandom.com/wiki/File:ClassicRides-GTASA-Cover.jpg",
+    "bytes": 24630
+  },
+  {
+    "name": "sa-b-4",
+    "file": "sa-b-4.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/f/fb/GTAVCS-Cover.jpg/revision/latest?cb=20230718045517",
+    "source": "https://gta.fandom.com/wiki/File:GTAVCS-Cover.jpg",
+    "bytes": 249952
+  },
+  {
+    "name": "v-b-1",
+    "file": "v-b-1.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/7/76/CoverArt-GTAV.png/revision/latest?cb=20250708181846",
+    "source": "https://gta.fandom.com/wiki/File:CoverArt-GTAV.png",
+    "bytes": 506900
+  },
+  {
+    "name": "v-b-2",
+    "file": "v-b-2.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/2/25/GTAVI-CoverArt.jpg/revision/latest?cb=20260618132434",
+    "source": "https://gta.fandom.com/wiki/File:GTAVI-CoverArt.jpg",
+    "bytes": 875494
+  },
+  {
+    "name": "v-b-3",
+    "file": "v-b-3.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/0/0c/MusicofGTAV-GTAV-CoverArt.jpg/revision/latest?cb=20180509200137",
+    "source": "https://gta.fandom.com/wiki/File:MusicofGTAV-GTAV-CoverArt.jpg",
+    "bytes": 237660
+  }
+]

@@ -28,8 +28,8 @@ const tl = gsap.timeline({ paused: true });
 // ---------- layers ----------
 const stage = document.getElementById('stage');
 const bg = el('div', 'layer bg'); stage.appendChild(bg);
-const glows = [[C.b1, 520, 60, 80], [C.b2, 600, 300, 520], [C.b3, 420, -40, 380], [C.b1, 380, 330, 120]].map(([c, s, x, y]) => { const g = el('div', 'glow', '', 'width:' + s + 'px;height:' + s + 'px;left:' + (x - s / 2) + 'px;top:' + (y - s / 2) + 'px;background:radial-gradient(circle,' + c + ' 0%,rgba(0,0,0,0) 65%)'); bg.appendChild(g); return g; });
-const beam = el('div', 'beam'); bg.appendChild(beam);
+const glows = [[C.b1, 620, 250, 40], [C.b2, 520, 40, 640]].map(([c, s, x, y]) => { const g = el('div', 'glow', '', 'width:' + s + 'px;height:' + s + 'px;left:' + (x - s / 2) + 'px;top:' + (y - s / 2) + 'px;background:radial-gradient(closest-side,' + c + ' 0%,rgba(0,0,0,0) 100%)'); bg.appendChild(g); return g; });
+bg.appendChild(el('div', 'vign'));
 const space = el('div', 'space'); stage.appendChild(space);          // 3D space; the camera is applied here
 const fsHost = el('div', 'layer fshost'); stage.appendChild(fsHost);  // full-bleed pictures (above the space)
 const bok = el('div', 'layer bokeh'); stage.appendChild(bok);         // blurred things passing in front
@@ -39,9 +39,9 @@ stage.appendChild(el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge |
 
 // ---------- zones (Instagram safe: nothing below ~470) ----------
 const Z = {
-  textTop:    { text: [92, 178], vis: [186, 470] },
-  textBottom: { text: [386, 472], vis: [94, 378] },
-  textOver:   { text: [360, 470], vis: [0, 640] },
+  textTop:    { text: [96, 200], vis: [210, 566], ta: 'end' },
+  textBottom: { text: [416, 508], vis: [106, 406], ta: 'start' },
+  textOver:   { text: [384, 504], vis: [0, 640], ta: 'start' },
   textOnly:   { text: [150, 440], vis: [0, 0] }
 };
 
@@ -51,10 +51,10 @@ function phrasesOf(s) {
   if (!ws || !ws.length) { if (!s.vtext) return []; const raw = s.vtext.split(/\s+/).filter(Boolean), tot = raw.reduce((a, w) => a + w.length + 1, 0); let acc = 0; ws = raw.map(w => { const a = acc; acc += w.length + 1; return { w, s: a / tot * s.vdur, e: acc / tot * s.vdur }; }); }
   const out = []; let cur = [];
   ws.forEach((w, i) => { cur.push(w); const len = cur.reduce((a, x) => a + x.w.length + 1, 0);
-    if (PUNCT.test(w.w) || cur.length >= (s.phraseWords || 6) || len > (s.phraseChars || 34)) { out.push(cur); cur = []; } });
+    const left = ws.length - i - 1; if ((PUNCT.test(w.w) && cur.length >= 2) || ((cur.length >= (s.phraseWords || 7) || len > (s.phraseChars || 38)) && left > 2)) { out.push(cur); cur = []; } });
   if (cur.length) out.push(cur);
   // merge a tiny tail into the previous phrase
-  if (out.length > 1 && out[out.length - 1].length === 1) { const t = out.pop(); out[out.length - 1].push(...t); }
+  if (out.length > 1 && out[out.length - 1].length <= 2) { const t = out.pop(); out[out.length - 1].push(...t); }
   return out;
 }
 const isKey = (w, s) => { const b = w.replace(PUNCT, ''); return /[0-9]/.test(b) || (s.hl || []).some(h => b === h || b.indexOf(h) === 0 || (h.length > 3 && b.indexOf(h) >= 0)); };
@@ -62,7 +62,7 @@ function kinetic(s, t0, tEnd, zone, align, after) {
   const base = t0 + (D.vlead || 0.35);
   const ph = phrasesOf(s).filter(p => after == null || base + p[0].s >= after); if (!ph.length) return;
   ph.forEach((p, j) => {
-    const d = el('div', 'kt ' + (align || 'right'), '', 'top:' + zone[0] + 'px;height:' + (zone[1] - zone[0]) + 'px');
+    const d = el('div', 'kt ' + (align || 'right') + ' va-' + (zone[2] || 'center'), '', 'top:' + zone[0] + 'px;height:' + (zone[1] - zone[0]) + 'px');
     d.innerHTML = '<div class="ktin">' + p.map(x => { const k = isKey(x.w, s), w = x.w.replace(PUNCT, ''), pu = (x.w.match(PUNCT) || [''])[0];
       return '<span class="kw' + (k ? ' key' : '') + '"' + (latin(w) ? ' dir="ltr"' : '') + '>' + esc(w) + (pu && pu !== '،' ? '<i>' + esc(pu) + '</i>' : '') + '</span>'; }).join(' ') + '</div>';
     textHost.appendChild(d);
@@ -90,7 +90,7 @@ function drawRing(node, at) { tl.fromTo(node, { strokeDashoffset: 100, opacity: 
 const V = {
   // a picture in a card shaped like the picture (no crop), tilted in 3D; optional chip, ring, credit
   image(s, shot, zone, t0, dur) {
-    const zh = zone[1] - zone[0] - (s.credit ? 18 : 0), [w, h] = fitBox(s.iw || 800, s.ih || 1000, s.maxW || 300, zh);
+    const zh = zone[1] - zone[0] - (s.credit ? 18 : 0), [w, h] = fitBox(s.iw || 800, s.ih || 1000, s.maxW || 316, zh);
     const R = s.ring, ringPx = R ? '<svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (R[0] - R[2]) * w + 'px;top:' + (R[1] * h - R[2] * w) + 'px;width:' + 2 * R[2] * w + 'px;height:' + 2 * R[2] * w + 'px"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (s.ringLabel ? '<div class="rlab" style="left:' + (R[0] - R[2] * 0.55) * w + 'px;top:' + (R[1] * h + R[2] * w * 1.02) + 'px">' + esc(s.ringLabel) + '</div>' : '') : '';
     const card = el('div', 'pcard', '<img src="' + s.image + '"><div class="psheen"></div>' + ringPx,
       'width:' + w + 'px;height:' + h + 'px;left:' + (VW - w) / 2 + 'px;top:' + (zone[0] + (zh - h) / 2) + 'px');
@@ -124,9 +124,38 @@ const V = {
     hb.forEach((b, i) => { tl.fromTo(b, { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)', immediateRender: true }, hat + i * 0.15); cue(hat + i * 0.15, 'pop', 0.35); });
     tl.fromTo(out, { y: 0 }, { y: -6, duration: dur / 2, ease: 'sine.inOut', yoyo: true, repeat: 1, stagger: 0.1, immediateRender: false }, t0 + 1);
   },
+  // a DECK: each picture comes to the front big, the earlier ones step back into depth (up-left), so the same corner
+  // of every picture stays visible; optional highlight on that corner
+  deck(s, shot, zone, t0, dur) {
+    const items = s.items || [], n = items.length, zh = zone[1] - zone[0], step = s.step || [-26, -30, -110];
+    const [w, h] = fitBox(800, Math.round(800 / (s.ratio || 0.8)), s.maxW || 250, zh - Math.abs(step[1]) * (n - 1) - 8);
+    const x0 = (VW - w) / 2 + (-step[0]) * (n - 1) * 0.5, y0 = zone[0] + zh - h - 6;
+    const cards = items.map((o, i) => { const c = el('div', 'gcard dk', '<img src="' + o.image + '">' + (s.highlight ? '<b class="hlb" style="left:' + s.highlight[0] * 100 + '%;top:' + s.highlight[1] * 100 + '%;width:' + s.highlight[2] * 100 + '%;height:' + s.highlight[3] * 100 + '%"></b>' : '') + '<div class="gl" dir="ltr">' + esc(o.label || '') + '</div>',
+      'left:' + x0 + 'px;top:' + y0 + 'px;width:' + w + 'px;height:' + h + 'px;z-index:' + (10 + i)); shot.appendChild(c); return c; });
+    const gap = Math.min(0.95, (dur - 1.6) / n);
+    cards.forEach((c, i) => {
+      const at = t0 + 0.15 + i * gap;
+      tl.fromTo(c, { x: 260, y: 40, z: 300, rotationY: -40, opacity: 0 }, { x: 0, y: 0, z: 0, rotationY: 0, opacity: 1, duration: 0.7, ease: 'expo.out', immediateRender: true }, at);
+      cue(at + 0.05, 'whoosh-soft', 0.35);
+      const hb = c.querySelector('.hlb'); if (hb) { tl.fromTo(hb, { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', immediateRender: true }, at + 0.5); cue(at + 0.52, 'pop', 0.35); }
+      // every later card pushes this one one step back
+      for (let j = i + 1; j < n; j++) tl.to(c, { x: step[0] * (j - i), y: step[1] * (j - i), z: step[2] * (j - i), rotationY: 10, filter: 'brightness(' + (1 - 0.12 * (j - i)) + ')', duration: 0.7, ease: 'expo.out' }, t0 + 0.15 + j * gap);
+    });
+  },
+  // time made visible: one row of cells per item (e.g. 26 weeks vs 1 week); cells fill in, the highlighted one glows
+  weeks(s, shot, zone, t0) {
+    const zh = zone[1] - zone[0], rows = s.rows || [], cols = s.cols || 7, cell = s.cell || 38, g = 6;
+    const box = el('div', 'wk'); shot.appendChild(box);
+    box.innerHTML = rows.map(r => '<div class="wr' + (r.hi ? ' hi' : '') + '"><div class="bh"><span class="bn">' + esc(r.big) + '</span><span class="bl">' + esc(r.label) + '</span></div><div class="cells" style="grid-template-columns:repeat(' + cols + ',' + cell + 'px)">' + Array.from({ length: r.cells }, () => '<i style="width:' + cell + 'px;height:' + cell + 'px"></i>').join('') + '</div></div>').join('');
+    tl.set(box, { top: zone[0] + zh / 2, yPercent: -50 }, 0);
+    box.querySelectorAll('.wr').forEach((r, i) => { const at = t0 + 0.3 + i * 1.6, cs = r.querySelectorAll('.cells i');
+      tl.fromTo(r.querySelector('.bh'), { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out', immediateRender: true }, at);
+      tl.fromTo(cs, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: 'back.out(2.4)', stagger: Math.min(0.05, 1.1 / cs.length), immediateRender: true }, at + 0.2);
+      if (cs.length > 3) for (let k = 0; k < cs.length; k += 7) cue(at + 0.2 + k * Math.min(0.05, 1.1 / cs.length), 'tick', 0.25); else cue(at + 0.25, 'pop', 0.5); });
+  },
   // calendar page flipping in
   date(s, shot, zone, t0) {
-    const zh = zone[1] - zone[0], h = Math.min(220, zh), w = Math.round(h * 0.78);
+    const zh = zone[1] - zone[0], h = Math.min(290, zh - 10), w = Math.round(h * 0.78);
     const c = el('div', 'cal', '<div class="calh">' + esc(s.month) + '</div><div class="cald" dir="ltr">' + esc(s.day) + '</div><div class="caly" dir="ltr">' + esc(s.year || '') + '</div>',
       'width:' + w + 'px;height:' + h + 'px;left:' + (VW - w) / 2 + 'px;top:' + (zone[0] + (zh - h) / 2) + 'px');
     shot.appendChild(c);
@@ -175,9 +204,9 @@ const V = {
   },
   // two pictures facing each other in 3D, an arrow between
   versus(s, shot, zone, t0, dur) {
-    const zh = zone[1] - zone[0] - 26, mk = (o, side) => { const [w, h] = fitBox(o.iw || 800, o.ih || 1000, 140, zh);
-      const c = el('div', 'pcard vcard', '<img src="' + o.image + '"><div class="psheen"></div>' + (o.tag ? '<div class="vtag' + (o.warn ? ' warn' : '') + '">' + esc(o.tag) + '</div>' : ''), 'width:' + w + 'px;height:' + h + 'px;top:' + (zone[0] + (zh - h) / 2) + 'px;' + (side === 'r' ? 'right:22px' : 'left:22px'));
-      shot.appendChild(c); const lab = el('div', 'vlab', esc(o.label || ''), 'top:' + (zone[0] + (zh + h) / 2 + 6) + 'px;' + (side === 'r' ? 'right:22px' : 'left:22px') + ';width:' + w + 'px'); shot.appendChild(lab); return [c, lab]; };
+    const zh = zone[1] - zone[0] - 26, mk = (o, side) => { const [w, h] = fitBox(o.iw || 800, o.ih || 1000, 166, zh);
+      const c = el('div', 'pcard vcard', '<img src="' + o.image + '"><div class="psheen"></div>' + (o.tag ? '<div class="vtag' + (o.warn ? ' warn' : '') + '">' + esc(o.tag) + '</div>' : ''), 'width:' + w + 'px;height:' + h + 'px;top:' + (zone[0] + (zh - h) / 2) + 'px;' + (side === 'r' ? 'right:10px' : 'left:10px'));
+      shot.appendChild(c); const lab = el('div', 'vlab', esc(o.label || ''), 'top:' + (zone[0] + (zh + h) / 2 + 6) + 'px;' + (side === 'r' ? 'right:10px' : 'left:10px') + ';width:' + w + 'px'); shot.appendChild(lab); return [c, lab]; };
     const [a, la] = mk(s.a, 'r'), [b, lb] = mk(s.b, 'l');
     const ar = el('div', 'varrow', esc(s.symbol || '←'), 'top:' + (zone[0] + zh / 2 - 21) + 'px'); shot.appendChild(ar);
     tl.fromTo(a, { x: 120, rotationY: -70, opacity: 0 }, { x: 0, rotationY: -16, opacity: 1, duration: 0.9, ease: 'expo.out', immediateRender: true }, t0 + 0.2); cue(t0 + 0.25, 'whoosh-soft', 0.35);
@@ -249,7 +278,7 @@ const TRANS = ['push', 'whip', 'flip', 'rise', 'push', 'whip', 'swing'];
 shots.forEach(({ s, t0, dur }, k) => {
   const L = Z[s.layout || (s.type === 'focus' ? 'textOver' : s.type === 'statement' ? 'textOnly' : s.type === 'end' ? 'textOnly' : 'textTop')];
   const tEnd = t0 + dur;
-  if (s.type === 'focus') { focus(s, k, t0, dur); if (!s.title || s.titleOut != null) kinetic(s, t0, tEnd, L.text, s.align, s.title ? t0 + s.titleOut + 0.2 : null); return; }
+  if (s.type === 'focus') { focus(s, k, t0, dur); if (!s.title || s.titleOut != null) kinetic(s, t0, tEnd, L.text.concat(L.ta), s.align, s.title ? t0 + s.titleOut + 0.2 : null); return; }
   const shot = el('div', 'shot'); space.appendChild(shot);
   if (s.type === 'statement') {
     const d = el('div', 'stmt', s.text.split(' ').map(w => '<span class="kw' + (isKey(w, s) ? ' key' : '') + '"' + (latin(w.replace(PUNCT, '')) ? ' dir="ltr"' : '') + '>' + esc(w) + '</span>').join(' ') + (s.sub ? '<div class="ssub">' + esc(s.sub) + '</div>' : ''));
@@ -260,7 +289,7 @@ shots.forEach(({ s, t0, dur }, k) => {
     const sb = d.querySelector('.ssub'); if (sb) tl.fromTo(sb, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, immediateRender: true }, t0 + 0.6 + ws.length * 0.22);
     tl.fromTo(d, { scale: 1 }, { scale: 1.08, duration: dur, ease: 'none', immediateRender: false }, t0);
   } else if (V[s.type]) { V[s.type](s, shot, L.vis, t0, dur); }
-  if (s.type !== 'statement' && s.type !== 'end') kinetic(s, t0, tEnd, L.text, s.align);
+  if (s.type !== 'statement' && s.type !== 'end') kinetic(s, t0, tEnd, L.text.concat(L.ta), s.align);
   // ---- transitions: in (from the previous shot) and out ----
   const prevFocus = k > 0 && shots[k - 1].s.type === 'focus', nextFocus = k < shots.length - 1 && shots[k + 1].s.type === 'focus';
   const tr = s.trans || TRANS[k % TRANS.length], ti = Math.max(0, t0 - 0.35), DIR = { whip: 1 };
@@ -278,13 +307,12 @@ shots.forEach(({ s, t0, dur }, k) => {
 });
 
 // ---------- background life ----------
-glows.forEach((g, i) => tl.fromTo(g, { x: 0, y: 0, scale: 1 }, { x: (i % 2 ? -90 : 90), y: (i < 2 ? 120 : -100), scale: 1.25, duration: TOTAL, ease: 'sine.inOut', immediateRender: false }, 0));
-tl.fromTo(beam, { xPercent: -60, opacity: 0.0 }, { xPercent: 60, opacity: 0.55, duration: TOTAL / 2, ease: 'sine.inOut', yoyo: true, repeat: 1, immediateRender: false }, 0);
+glows.forEach((g, i) => tl.fromTo(g, { x: 0, y: 0, scale: 1 }, { x: (i ? 60 : -110), y: (i ? -40 : 60), scale: 1.15, duration: TOTAL / 2, ease: 'sine.inOut', yoyo: true, repeat: 1, immediateRender: false }, 0));
 // bokeh: blurred discs that cross in front now and then (depth)
-for (let i = 0; i < Math.floor(TOTAL / 7); i++) {
+for (let i = 0; i < Math.min(3, Math.floor(TOTAL / 25)); i++) {
   const b = el('div', 'bk', '', 'width:' + (60 + (i * 37) % 70) + 'px;height:' + (60 + (i * 37) % 70) + 'px;top:' + (80 + (i * 131) % 420) + 'px'); bok.appendChild(b);
-  tl.fromTo(b, { x: (i % 2 ? -140 : 460), opacity: 0 }, { x: (i % 2 ? 460 : -140), opacity: 0.55, duration: 3.2, ease: 'none', immediateRender: false }, 2 + i * 7);
-  tl.to(b, { opacity: 0, duration: 0.6 }, 2 + i * 7 + 2.6);
+  tl.fromTo(b, { x: (i % 2 ? -140 : 460), opacity: 0 }, { x: (i % 2 ? 460 : -140), opacity: 0.3, duration: 3.2, ease: 'none', immediateRender: false }, 9 + i * 27);
+  tl.to(b, { opacity: 0, duration: 0.6 }, 9 + i * 27 + 2.6);
 }
 tl.set({}, {}, TOTAL);
 
@@ -292,7 +320,7 @@ window.TOTAL = TOTAL; window.CUES = CUES;
 window.drawFrame = function (time) {
   tl.seek(time, false);
   // camera: gentle continuous 3D drift + per-shot push (--cz)
-  const ry = Math.sin(time * 0.45) * 5, rx = Math.cos(time * 0.37) * 3;
+  const ry = Math.sin(time * 0.45) * 2.5, rx = Math.cos(time * 0.37) * 1.5;
   space.style.transform = 'translateZ(0px) rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
   applyFocus(time);
 };
@@ -302,8 +330,9 @@ module.exports.CSS = (C) => `
 body{margin:0;background:#000}
 #stage{position:relative;width:360px;height:640px;overflow:hidden;font-family:'Rubik',sans-serif;color:${C.text};direction:rtl;perspective:900px;perspective-origin:50% 45%}
 .layer{position:absolute;inset:0}
-.bg{background:radial-gradient(130% 90% at 70% 0%,${C.bg1},${C.bg2});overflow:hidden}
-.glow{position:absolute;filter:blur(10px)}
+.bg{background:linear-gradient(180deg,#0C2A1E 0%,#071711 45%,#030806 100%);overflow:hidden}
+.glow{position:absolute;filter:blur(30px);opacity:0.75}
+.vign{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 40%,rgba(0,0,0,0) 55%,rgba(0,0,0,0.55) 100%)}
 .beam{position:absolute;left:-50%;top:-20%;width:200%;height:140%;background:linear-gradient(115deg,rgba(0,0,0,0) 38%,rgba(155,255,194,0.10) 46%,rgba(46,232,107,0.16) 50%,rgba(0,0,0,0) 58%)}
 .space{position:absolute;inset:0;transform-style:preserve-3d}
 .shot{visibility:hidden;position:absolute;inset:0;transform-style:preserve-3d;transform-origin:50% 45%}
@@ -316,8 +345,10 @@ body{margin:0;background:#000}
 /* kinetic text */
 .kt{opacity:0;position:absolute;left:24px;right:24px;display:flex;align-items:center}
 .kt.right{justify-content:flex-start}.kt.center{justify-content:center;text-align:center}
-.ktin{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 7px;max-width:100%}
-.kt.center .ktin{justify-content:center}
+.ktin{display:block;max-width:100%;text-wrap:balance;line-height:1.3}
+.kt.va-start{align-items:flex-start}.kt.va-end{align-items:flex-end}.kt.va-center{align-items:center}
+.ktin .kw{margin-left:7px}
+.kt.center .ktin{text-align:center}
 .kw{display:inline-block;font-size:21px;font-weight:700;line-height:1.35;color:${C.text};text-shadow:0 2px 16px rgba(0,0,0,0.55)}
 .kw.key{font-size:31px;font-weight:800;color:${C.accent};text-shadow:0 0 22px ${C.glow},0 2px 14px rgba(0,0,0,0.5)}
 .kw i{font-style:normal}
@@ -351,9 +382,9 @@ body{margin:0;background:#000}
 .varrow{position:absolute;left:50%;margin-left:-21px;width:42px;height:42px;border-radius:50%;background:${C.accent};color:#0B1410;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px ${C.glow};z-index:3}
 .vtag{position:absolute;left:8px;right:8px;bottom:8px;text-align:center;padding:4px 6px;border-radius:9px;background:rgba(0,0,0,0.68);color:#fff;font-size:11px;font-weight:700}.vtag.warn{background:#FFD23F;color:#0B1410}
 /* statement + end */
-.stmt{position:absolute;left:26px;right:26px;top:50%;transform:translateY(-55%);text-align:center;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 10px;transform-style:preserve-3d}
+.stmt{position:absolute;left:30px;right:30px;top:46%;transform:translateY(-50%);text-align:center;text-wrap:balance;line-height:1.35;transform-style:preserve-3d}.stmt .kw{margin:0 5px}
 .stmt .kw{font-size:40px;font-weight:800}.stmt .kw.key{font-size:46px}
-.ssub{flex-basis:100%;margin-top:14px;font-size:16px;color:${C.muted}}
+.ssub{display:block;margin-top:14px;font-size:16px;color:${C.muted}}
 .endb{position:absolute;left:0;right:0;top:150px;display:flex;flex-direction:column;align-items:center;gap:12px;transform-style:preserve-3d}
 .endb .pill{padding:11px 26px;border-radius:999px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.25);font-size:21px;font-weight:800;box-shadow:0 0 24px ${C.glow}}
 .handle{font-size:15px;font-weight:700;color:${C.muted}}.hand{font-family:'Playpen Sans Arabic',sans-serif;font-size:15.5px;color:${C.ink}}
@@ -367,4 +398,10 @@ body{margin:0;background:#000}
 .fstitle{position:absolute;left:24px;right:24px;bottom:190px}.fstitle .kin{display:flex;flex-wrap:wrap;gap:2px 9px}.fstitle .kw{font-size:33px;font-weight:800}.fstitle .kw.key{font-size:36px}
 .fschip{right:24px;bottom:300px}
 .fscr{position:absolute;right:22px;top:92px;font-size:10px;color:rgba(255,255,255,0.7)}
+.dk{border-radius:14px;box-shadow:0 26px 50px rgba(0,0,0,0.6)}.dk .gl{font-size:13px;padding:22px 6px 8px}
+.wk{position:absolute;left:24px;right:24px;display:flex;flex-direction:column;gap:22px}
+.wr .cells{display:grid;gap:6px;direction:rtl}.wr .cells i{display:block;border-radius:9px;background:linear-gradient(160deg,rgba(155,255,194,0.75),rgba(46,232,107,0.35));border:1px solid rgba(155,255,194,0.6);box-shadow:0 0 10px rgba(46,232,107,0.25)}
+.wr.hi .cells i{background:${C.accent};border-color:${C.accent};box-shadow:0 0 18px ${C.accent}}
+.wr .bh{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.wr.hi .bn{color:${C.accent};text-shadow:0 0 22px ${C.glow}}
 `;

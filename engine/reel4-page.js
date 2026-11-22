@@ -29,7 +29,7 @@ const stage = document.getElementById('stage');
 const bgl = el('div', 'layer', '', 'background:radial-gradient(120% 90% at 70% 10%,' + C.bg1 + ',' + C.bg2 + ')'); stage.appendChild(bgl);
 const par = el('div', 'par'); bgl.appendChild(par);
 [[C.b1, 700, 200, 100], [C.b2, 640, -200, 700], [C.b3, 520, 600, 900], [C.b1, 600, 1300, 300], [C.b2, 640, 1900, 800], [C.b3, 560, 2500, 200], [C.b1, 620, 3100, 700]]
-  .forEach(([c, s, x, y]) => par.appendChild(el('div', 'blob', '', 'width:' + s + 'px;height:' + s + 'px;left:' + (x - s / 2) + 'px;top:' + (y - s / 2) + 'px;background:radial-gradient(circle,' + c + ' 0%,rgba(0,0,0,0) 66%)')));
+  .forEach(([c, s, x, y]) => par.appendChild(el('div', 'blob', '', 'width:' + s + 'px;height:' + s + 'px;left:' + (x - s / 2) + 'px;top:' + (y - s / 2) + 'px;background:radial-gradient(closest-side,' + c + ' 0%,rgba(0,0,0,0) 100%)')));
 const world = el('div', 'world'); stage.appendChild(world);
 const fsHost = el('div', 'layer fshost'); stage.appendChild(fsHost); const FOCI = [];
 const grid = el('div', 'gridw', '', 'background-image:linear-gradient(' + C.grid + ' 1px,transparent 1px),linear-gradient(90deg,' + C.grid + ' 1px,transparent 1px)'); world.appendChild(grid);

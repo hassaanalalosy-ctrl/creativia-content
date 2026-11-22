@@ -1,0 +1,106 @@
+{
+  "id": "2026-11-27-patagonia-dont-buy",
+  "topic": "Patagonia's 'Don't Buy This Jacket' full-page New York Times ad on Black Friday, 25 Nov 2011: the R2 jacket, 135 litres of water, nearly 20 lb of CO2, the Common Threads pledge — and 2012 sales up almost a third to $543M",
+  "category": "إعلان",
+  "format": "reel",
+  "engine": 4,
+  "mode": "light",
+  "badge": "إعلان · بلاك فرايدي",
+  "coverAt": 2.4,
+  "music": "assets/music/hitslab-upbeat-upbeat-music-300654.mp3",
+  "musicStart": 0,
+  "voice": true,
+  "sources": [
+    "https://www.patagonia.com/blog/wp-content/uploads/2016/07/nyt_11-25-11.pdf",
+    "https://www.patagonia.ca/story-18615.html",
+    "https://gearjunkie.com/apparel/patagonia-dont-buy-this-jacket-campaign/",
+    "https://thebrandhopper.com/campaigns/a-case-study-on-patagonias-dont-buy-this-jacket-campaign/",
+    "https://www.bloomberg.com/news/articles/2013-08-28/patagonias-buy-less-plea-spurs-more-buying"
+  ],
+  "scenes": [
+    {
+      "type": "hook",
+      "dur": 3.4,
+      "pose": "think",
+      "icon": "megaphone",
+      "pill": "Black Friday",
+      "title": "إعلان يكلّك: لا تشتري منّي!",
+      "sub": "أغرب إعلان بيوم التخفيضات",
+      "say": "تخيّل شركة تدفع فلوس إعلان… حتى تكلّك لا تشتري منها!"
+    },
+    {
+      "type": "image",
+      "dur": 3.4,
+      "image": "https://thebrandhopper.com/wp-content/uploads/2025/06/Dont-Buy-This-Jacket-NYT-Campaign-782x1024.jpeg",
+      "fit": "contain",
+      "chip": "25 نوفمبر 2011",
+      "chipIcon": "tv",
+      "title": "«لا تشتري هالجاكيت»",
+      "body": "صفحة كاملة بجريدة نيويورك تايمز",
+      "credit": "الإعلان: Patagonia · نيويورك تايمز 2011",
+      "say": "سنة ألفين وإحدعش، بيوم الجمعة السودة، باتاغونيا نشرت هالإعلان بجريدة نيويورك تايمز."
+    },
+    {
+      "type": "image",
+      "dur": 3.2,
+      "image": "https://gearjunkie.com/legacy/images/7189.jpg",
+      "fit": "contain",
+      "chip": "جاكيت R2",
+      "title": "من أكثر قطعهم مبيعاً",
+      "body": "وفوكه مكتوب: لا تشتريه",
+      "credit": "الإعلان: Patagonia · الصورة: GearJunkie",
+      "say": "بالصورة جاكيت من أكثر قطعهم مبيعاً، وفوكه مكتوب: لا تشتري هالجاكيت."
+    },
+    {
+      "type": "stat",
+      "dur": 3.2,
+      "icon": "spark",
+      "value": "135",
+      "title": "لتر ماي حتى ينصنع جاكيت واحد",
+      "body": "تكفي 45 شخص ليوم كامل",
+      "say": "وشرحوا ليش: الجاكيت الواحد احتاج مية وخمسة وثلاثين لتر ماي، تكفي خمسة وأربعين شخص ليوم."
+    },
+    {
+      "type": "stat",
+      "dur": 3.2,
+      "icon": "chart",
+      "value": "24x",
+      "title": "كاربون أكثر من وزن الجاكيت",
+      "body": "حوالي 20 باوند بطريقه للمخزن",
+      "say": "وبطريقه للمخزن طلّع كاربون أكثر من وزنه بأربعة وعشرين مرة."
+    },
+    {
+      "type": "image",
+      "dur": 3.4,
+      "image": "https://i4tsk12in2b2y7uts14c528g-wpengine.netdna-ssl.com/wp-content/uploads/sites/4/2015/12/Jacket-2.png",
+      "fit": "contain",
+      "chip": "Common Threads",
+      "title": "اشتري بس اللي تحتاجه",
+      "body": "قلّل، صلّح، انطيه لغيرك، دوّره",
+      "credit": "الحملة: Patagonia",
+      "say": "وطلبوا من الناس: اشتري بس اللي تحتاجه، وصلّح اللي ينكسر، وانطي اللي ما تحتاجه لغيرك."
+    },
+    {
+      "type": "stat",
+      "dur": 3.2,
+      "icon": "trophy",
+      "value": "543M",
+      "title": "مبيعاتهم سنة 2012 بالدولار",
+      "body": "زادت تقريباً الثلث",
+      "say": "والغريب؟ السنة اللي بعدها، مبيعات باتاغونيا زادت تقريباً الثلث."
+    },
+    {
+      "type": "statement",
+      "dur": 2.8,
+      "text": "الصراحة صارت أقوى إعلان",
+      "sub": "الناس تثق باللي يصدق وياها",
+      "say": "لأن الناس تثق بالبراند اللي يصدق وياها."
+    },
+    {
+      "type": "end",
+      "dur": 2.8,
+      "say": "تابعنا على كريتيفيا."
+    }
+  ],
+  "caption": "إعلان يكلّك: لا تشتري منّي! ✦\n\nبيوم الجمعة السودة (بلاك فرايدي)، 25 نوفمبر 2011، نشرت باتاغونيا إعلان صفحة كاملة بجريدة نيويورك تايمز عنوانه «Don't Buy This Jacket» — لا تشتري هالجاكيت. بالصورة جاكيت R2، من أكثر قطعهم مبيعاً.\n\nالإعلان شرح الكلفة الحقيقية: الجاكيت احتاج 135 لتر ماي (تكفي 45 شخص ليوم)، وطلّع بطريقه للمخزن حوالي 20 باوند كاربون، يعني 24 مرة وزنه. والطلب: اشتري بس اللي تحتاجه، صلّح، انطيه لغيرك، ودوّره (مبادرة Common Threads).\n\nالنتيجة؟ حسب بلومبرغ، مبيعات باتاغونيا سنة 2012 زادت تقريباً الثلث ووصلت 543 مليون دولار (ويا فتح محلات جديدة). الدرس: البراند اللي يصدق ويا جمهوره يكسب ثقته.\n\nلو انت براند، تتجرأ تسويها؟ 👍/👎\n\nالإعلان: @patagonia · نيويورك تايمز 2011\n\n#كريتيفيا #إعلان #ماركتنغ #بلاك_فرايدي #تسويق #Patagonia #BlackFriday #advertising"
+}

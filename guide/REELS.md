@@ -69,6 +69,12 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 
+## How a reel is made (owner, Nov 23 2026) — Claude is the art director
+1. Script first, then a STORYBOARD: for every line decide what we SEE (zoom into a detail, full-screen picture, cards, animated diagram, big type alone…). Templates serve the storyboard, never the reverse; build a new scene when the idea needs one.
+2. Render the storyboard key frames locally (FRAMES=…), then review them yourself as an art director: is each beat clear, big, alive? Empty space? Cropped pictures? Weak transitions? Write the notes, fix, re-check. Only then render the full video. The owner does not approve storyboards.
+3. Cards are NOT squares: a card takes the shape of its content. A picture keeps its own ratio (no cropping of posters/covers), no big empty areas inside a card.
+4. Fixed = brand only (colours, font, logo + badge HUD, Kreti, end card, Instagram safe zones, no overlaps). Everything else may change from reel to reel. Old rules in this file are defaults, not laws.
+
 ## Storytelling kit (owner, Nov 22 2026: "clearer, more creative, same theme, examples and pictures")
 Reference: a story reel where every line has a picture or a diagram that SHOWS what the voice says. Do the same:
 - **Subtitles:** on by default. `voice.js` asks ElevenLabs for word timestamps, the engine shows the line under the card in short chunks and lights each word as it is spoken (numbers/Latin and words in a scene's `hl` list in green). `"subtitles": false` turns them off.

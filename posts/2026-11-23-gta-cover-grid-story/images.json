@@ -1,8 +1,6 @@
 [
-  {"name": "vc", "search": "Vice City box art", "site": "gta.fandom.com", "n": 4},
-  {"name": "sa", "search": "San Andreas box art", "site": "gta.fandom.com", "n": 4},
-  {"name": "v", "search": "Grand Theft Auto V box art", "site": "gta.fandom.com", "n": 4},
-  {"name": "vi", "search": "Grand Theft Auto VI cover art", "site": "gta.fandom.com", "n": 5},
-  {"name": "af15", "search": "Amazing Fantasy Vol 1 15", "site": "marvel.fandom.com", "n": 3},
-  {"name": "comicpage", "search": "Amazing Spider-Man Vol 1 1 page", "site": "marvel.fandom.com", "n": 3}
+  {"name": "sa-a", "file": "File:GTA San Andreas Box Art.jpg", "site": "gta.fandom.com"},
+  {"name": "sa-b", "search": "GTA San Andreas cover", "site": "gta.fandom.com", "n": 4},
+  {"name": "v-a", "file": "File:Grand Theft Auto V.png", "site": "gta.fandom.com"},
+  {"name": "v-b", "search": "GTA V cover art", "site": "gta.fandom.com", "n": 3}
 ]

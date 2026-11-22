@@ -17,13 +17,44 @@
   ],
   "scenes": [
     {
-      "type": "hook",
-      "dur": 3.2,
-      "pose": "think",
-      "icon": "eye",
+      "type": "focus",
+      "dur": 7.8,
+      "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
+      "big": true,
+      "chip": "GTA 6",
+      "chipIcon": "eye",
       "title": "ليش الهليكوبتر دايماً بنفس الزاوية؟",
-      "sub": "قصة أشهر غلاف ألعاب",
-      "pill": "25 سنة",
+      "stops": [
+        [
+          0.16,
+          0.12,
+          2.6,
+          0
+        ],
+        [
+          0.16,
+          0.12,
+          2.8,
+          2.2
+        ],
+        [
+          0.5,
+          0.42,
+          1.0,
+          4.4
+        ]
+      ],
+      "rings": [
+        {
+          "at": 0.4,
+          "xy": [
+            0.16,
+            0.12,
+            0.12
+          ]
+        }
+      ],
+      "credit": "غلاف GTA 6: Rockstar Games",
       "say": "لاحظت هالهليكوبتر؟ من خمسة وعشرين سنة، كل غلاف GTA يحطها بنفس الزاوية. ليش؟"
     },
     {
@@ -31,28 +62,74 @@
       "dur": 3.5,
       "title": "نفس الزاوية… بكل جزء",
       "items": [
-        { "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg", "label": "III · 2001" },
-        { "image": "posts/2026-11-23-gta-cover-grid-story/img/vc.jpg", "label": "Vice City · 2002" },
-        { "image": "posts/2026-11-23-gta-cover-grid-story/img/iv.jpg", "label": "IV · 2008" },
-        { "image": "posts/2026-11-23-gta-cover-grid-story/img/v.jpg", "label": "V · 2013" },
-        { "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg", "label": "VI · 2026" }
+        {
+          "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
+          "label": "III · 2001"
+        },
+        {
+          "image": "posts/2026-11-23-gta-cover-grid-story/img/vc.jpg",
+          "label": "Vice City · 2002"
+        },
+        {
+          "image": "posts/2026-11-23-gta-cover-grid-story/img/iv.jpg",
+          "label": "IV · 2008"
+        },
+        {
+          "image": "posts/2026-11-23-gta-cover-grid-story/img/v.jpg",
+          "label": "V · 2013"
+        },
+        {
+          "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
+          "label": "VI · 2026"
+        }
       ],
-      "highlight": [0.02, 0.02, 0.44, 0.27],
+      "highlight": [
+        0.02,
+        0.02,
+        0.44,
+        0.27
+      ],
       "credit": "أغلفة: Rockstar Games",
       "say": "من الجزء الثالث لحد السادس، الهليكوبتر دايماً فوق، على اليسار."
     },
     {
-      "type": "image",
-      "dur": 3.5,
+      "type": "focus",
+      "dur": 10,
       "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
-      "fit": "poster",
-      "h": 270,
       "chip": "أوروبا · 2001",
       "chipIcon": "star",
       "title": "الغلاف الأصلي: 6 أشهر رسم",
-      "body": "ستيفن بلِس رسمه كولاج على طريقة بوسترات جيمس بوند",
-      "hl": ["ستيفن"],
+      "body": "كولاج على طريقة بوسترات جيمس بوند",
+      "stops": [
+        [
+          0.5,
+          0.32,
+          1.5,
+          0
+        ],
+        [
+          0.3,
+          0.42,
+          2.4,
+          2.2
+        ],
+        [
+          0.45,
+          0.72,
+          1.8,
+          4.8
+        ],
+        [
+          0.5,
+          0.5,
+          1.0,
+          7.2
+        ]
+      ],
       "credit": "غلاف أوروبا: Rockstar Games",
+      "hl": [
+        "ستيفن"
+      ],
       "say": "القصة تبدي بغلاف ما شافه الأمريكان. هذا غلاف أوروبا، رسمه ستيفن بلِس بستة أشهر، على طريقة بوسترات جيمس بوند."
     },
     {
@@ -71,11 +148,23 @@
       "icon": "clock",
       "title": "غلاف أهدأ لأمريكا… وبسرعة",
       "rows": [
-        { "big": "6 أشهر", "label": "الغلاف الأصلي", "value": 180 },
-        { "big": "أيام", "label": "الغلاف البديل", "value": 7, "hi": true }
+        {
+          "big": "6 أشهر",
+          "label": "الغلاف الأصلي",
+          "value": 180
+        },
+        {
+          "big": "أيام",
+          "label": "الغلاف البديل",
+          "value": 7,
+          "hi": true
+        }
       ],
       "body": "هو يكول أسبوع… وروكستار تكول ليلتين",
-      "hl": ["أسبوع", "ليلتين"],
+      "hl": [
+        "أسبوع",
+        "ليلتين"
+      ],
       "say": "روكستار طلبت غلاف أهدأ لأمريكا، بلا سلاح ولا انفجارات. وستيفن كان عنده أيام بس: هو يكول أسبوع، وروكستار تكول ليلتين."
     },
     {
@@ -86,11 +175,18 @@
       "result": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
       "rows": 3,
       "cols": 3,
-      "drop": [3, 6, 7],
+      "drop": [
+        3,
+        6,
+        7
+      ],
       "h": 290,
       "chip": "الحل",
       "chipIcon": "spark",
-      "hl": ["قصّ", "مربعات"],
+      "hl": [
+        "قصّ",
+        "مربعات"
+      ],
       "say": "فبدال ما يرسم من الصفر، قصّ رسمته القديمة، شال المشاهد العنيفة، ورتّب الباقي بمربعات."
     },
     {
@@ -98,8 +194,17 @@
       "dur": 4,
       "title": "نفس الرسمة… شكل جديد",
       "symbol": "←",
-      "a": { "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg", "label": "أوروبا", "tag": "ما نزل بأمريكا", "warn": true },
-      "b": { "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg", "label": "أمريكا", "tag": "صار الهوية" },
+      "a": {
+        "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
+        "label": "أوروبا",
+        "tag": "ما نزل بأمريكا",
+        "warn": true
+      },
+      "b": {
+        "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
+        "label": "أمريكا",
+        "tag": "صار الهوية"
+      },
       "credit": "أغلفة: Rockstar Games",
       "say": "والنتيجة؟ غلاف يشبه صفحة كوميكس: نفس الشخصيات، بس كل وحدة بمربعها."
     },
@@ -117,16 +222,36 @@
       "say": "والفكرة مو غريبة عليه: المربعات جاية من قصص مارفل ودي سي اللي كبر يقراها."
     },
     {
-      "type": "image",
-      "dur": 3.5,
+      "type": "focus",
+      "dur": 8.5,
       "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
-      "fit": "cover",
-      "h": 250,
-      "pos": "50% 0%",
-      "ring": [0.19, 0.11, 0.15],
-      "ringLabel": "من هنا بدت",
-      "ringAt": 0.9,
+      "enter": "iris",
       "title": "وهاي الهليكوبتر؟ مربع من غلاف مستعجل",
+      "stops": [
+        [
+          0.5,
+          0.5,
+          1.0,
+          0
+        ],
+        [
+          0.19,
+          0.1,
+          2.3,
+          1.5
+        ]
+      ],
+      "rings": [
+        {
+          "at": 3.4,
+          "xy": [
+            0.19,
+            0.1,
+            0.11
+          ],
+          "label": "من هنا بدت"
+        }
+      ],
       "credit": "غلاف أمريكا: Rockstar Games",
       "say": "وهاي الهليكوبتر بالزاوية؟ من هنا بدت. مربع واحد من غلاف مستعجل، صار عادة بكل جزء."
     },
@@ -137,7 +262,11 @@
       "fit": "cover",
       "h": 250,
       "pos": "50% 0%",
-      "ring": [0.16, 0.1, 0.13],
+      "ring": [
+        0.16,
+        0.1,
+        0.13
+      ],
       "ringAt": 1.2,
       "chip": "GTA 6 · 2026",
       "chipIcon": "trophy",

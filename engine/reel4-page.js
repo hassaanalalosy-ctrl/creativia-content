@@ -31,6 +31,7 @@ const par = el('div', 'par'); bgl.appendChild(par);
 [[C.b1, 700, 200, 100], [C.b2, 640, -200, 700], [C.b3, 520, 600, 900], [C.b1, 600, 1300, 300], [C.b2, 640, 1900, 800], [C.b3, 560, 2500, 200], [C.b1, 620, 3100, 700]]
   .forEach(([c, s, x, y]) => par.appendChild(el('div', 'blob', '', 'width:' + s + 'px;height:' + s + 'px;left:' + (x - s / 2) + 'px;top:' + (y - s / 2) + 'px;background:radial-gradient(circle,' + c + ' 0%,rgba(0,0,0,0) 66%)')));
 const world = el('div', 'world'); stage.appendChild(world);
+const fsHost = el('div', 'layer fshost'); stage.appendChild(fsHost); const FOCI = [];
 const grid = el('div', 'gridw', '', 'background-image:linear-gradient(' + C.grid + ' 1px,transparent 1px),linear-gradient(90deg,' + C.grid + ' 1px,transparent 1px)'); world.appendChild(grid);
 stage.appendChild(el('div', 'layer grain', '', 'background-image:url(' + D.grain + ')'));
 const hud = el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge || 'كريتيفيا') + '</span><span class="mk">' + D.mark + '</span>'); stage.appendChild(hud);
@@ -254,6 +255,40 @@ const B = {
       if (s.body) wordsIn(tl, c.querySelector('.b'), t0 + 0.8 + rows.length * 0.9, 0.05);
     } };
   },
+  // FULL-SCREEN environment: the picture leaves the card and fills the screen; a virtual camera
+  // pans/zooms across it (stops: [x, y, zoom, at] — x/y = point of the picture at the centre, 0..1).
+  // Enters by growing out of the card shape (or an iris), leaves by shrinking back into the card world.
+  focus(s, k) {
+    const c = panel(k, 'ghost');
+    const L = el('div', 'fs');
+    const rings = (s.rings || (s.ring ? [{ at: s.ringAt || 1, xy: s.ring, label: s.ringLabel }] : []));
+    L.innerHTML = '<div class="fsw"><img src="' + s.image + '">' + rings.map(r => '<svg class="ring fsr" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (r.xy[0] - r.xy[2]) * 100 + '%;top:0;width:' + r.xy[2] * 200 + '%;height:0" data-xy="' + r.xy.join(',') + '"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (r.label ? '<div class="rlab fsl" data-xy="' + r.xy.join(',') + '">' + esc(r.label) + '</div>' : '')).join('') + '</div>' +
+      '<div class="fsshade"></div>' + (s.title ? '<div class="fst' + (s.big ? ' big' : '') + '">' + (s.chip ? '<div class="tag fschip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + '<div class="t' + (s.big ? ' xl' : '') + '">' + words(s.title) + '</div>' + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + '</div>' : '') +
+      (s.credit ? '<div class="fscr">' + cred(s.credit) + '</div>' : '');
+    fsHost.appendChild(L);
+    const st = (s.stops || [[0.5, 0.5, 1, 0]]).map(a => ({ x: a[0], y: a[1], z: a[2], at: a[3] || 0 }));
+    const fz = { x: st[0].x, y: st[0].y, z: st[0].z, cl: k === 0 ? 1 : 0 };
+    FOCI.push({ L, fz, img: L.querySelector('img'), wrap: L.querySelector('.fsw') });
+    return { focus: true, build(tl, t0, dur) {
+      const first = k === 0, inMode = s.enter || (first ? 'none' : 'grow'), outMode = s.exit || 'shrink';
+      const tin = first ? 0 : t0 - 0.38, tout = t0 + dur - 0.42;
+      const F = FOCI.find(f => f.L === L); F.tin = tin; F.tout = tout + 0.62; F.inMode = inMode; F.outMode = outMode; F.mid = tout - 0.001;
+      if (inMode === 'none') fz.cl = 1;
+      else { tl.fromTo(fz, { cl: 0 }, { cl: 1, duration: 0.7, ease: 'expo.inOut', immediateRender: false }, tin); cue(tin + 0.1, 'whoosh', 0.5); }
+      // camera stops on the picture
+      st.slice(1).forEach((q, i) => { const prev = st[i]; tl.fromTo(fz, { x: prev.x, y: prev.y, z: prev.z }, { x: q.x, y: q.y, z: q.z, duration: Math.max(0.3, q.at - prev.at), ease: q.ease || 'power2.inOut', immediateRender: false }, t0 + prev.at); if (Math.abs(q.z - prev.z) > 0.6) cue(t0 + prev.at + 0.1, 'whoosh-soft', 0.35); });
+      if (st.length === 1) tl.fromTo(fz, { z: st[0].z }, { z: st[0].z * 1.06, duration: dur, ease: 'none', immediateRender: false }, t0);
+      L.querySelectorAll('.fsr ellipse').forEach((e, i) => { const at = t0 + rings[i].at; tl.fromTo(e, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, at); cue(at + 0.05, 'pop', 0.45); });
+      L.querySelectorAll('.fsl').forEach((e, i) => tl.fromTo(e, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.4)' }, t0 + rings.filter(r => r.label)[i].at + 0.35));
+      const tt = L.querySelector('.fst');
+      if (tt) { if (first) { const ws = tt.querySelectorAll('.t .w'); if (ws.length) tl.fromTo(ws[ws.length - 1], { color: C.text }, { color: C.accent, duration: 0.5 }, 0.6); }
+        else { tl.fromTo(tt, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' }, t0 + 0.15); wordsIn(tl, tt.querySelector('.t'), t0 + 0.2, 0.07); }
+        const ch = tt.querySelector('.fschip'); if (ch) drawIcons(tl, ch, t0 + 0.2);
+        if (s.body) wordsIn(tl, tt.querySelector('.b'), t0 + 0.9, 0.05); }
+      if (s.credit) tl.fromTo(L.querySelector('.fscr'), { opacity: 0 }, { opacity: 1, duration: 0.4 }, t0 + 0.8);
+      tl.fromTo(fz, { cl: 1 }, { cl: 0, duration: 0.6, ease: 'expo.inOut', immediateRender: false }, tout);
+    } };
+  },
   end(s, k) {
     const c = panel(k, 'endp');
     c.innerHTML = '<div class="stack center endst"><div class="kslot"></div><div class="pill big">تابع كريتيفيا</div><div class="handle" dir="ltr">@creativia.mag</div><div class="hand">' + esc(s.note || 'كل يوم شي مبدع، الساعة 9 بالليل') + '</div></div>';
@@ -368,9 +403,27 @@ function applyCam() {
 }
 window.TOTAL = TOTAL; window.CUES = CUES;
 const videos = built.filter(x => x.b.video).map(x => x.b.video);
+function applyFocus(time) {
+  for (const f of FOCI) {
+    const on = time >= f.tin && time <= f.tout; f.L.style.visibility = on ? 'visible' : 'hidden'; if (!on) continue;
+    f.L.dataset.mode = time < f.mid ? f.inMode : f.outMode;
+    const iw = f.img.naturalWidth || 900, ih = f.img.naturalHeight || 1200, s0 = Math.max(VW / iw, VH / ih), W = iw * s0, H = ih * s0, z = f.fz.z;
+    let tx = VW / 2 - f.fz.x * W * z, ty = VH / 2 - f.fz.y * H * z;
+    tx = Math.min(0, Math.max(VW - W * z, tx)); ty = Math.min(0, Math.max(VH - H * z, ty));
+    f.wrap.style.width = W + 'px'; f.wrap.style.height = H + 'px';
+    f.wrap.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')';
+    f.wrap.querySelectorAll('[data-xy]').forEach(n => { const [x, y, r] = n.dataset.xy.split(',').map(Number);
+      if (n.tagName === 'svg') { n.style.left = (x - r) * W + 'px'; n.style.top = (y * H - r * W) + 'px'; n.style.width = 2 * r * W + 'px'; n.style.height = 2 * r * W + 'px'; }
+      else { n.style.left = (x - r * 0.55) * W + 'px'; n.style.top = (y * H + r * W * 1.02) + 'px'; n.style.transform = 'scale(' + (1 / z) + ')'; n.style.transformOrigin = '0 0'; } });
+    const c = f.fz.cl, m = f.L.dataset.mode;
+    if (m === 'iris') f.L.style.clipPath = 'circle(' + (c * 76) + '% at 50% 46%)';
+    else if (m === 'none' && c >= 1) f.L.style.clipPath = 'none';
+    else { const a = 1 - c; f.L.style.clipPath = 'inset(' + (a * 110) + 'px ' + (a * 30) + 'px ' + (a * 200) + 'px ' + (a * 30) + 'px round ' + (a * 28) + 'px)'; }
+  }
+}
 window.drawFrame = function (time) {
   master.seek(time, false);
-  applyCam();
+  applyCam(); applyFocus(time);
   for (const v of videos) { const n = Math.min(+v.img.dataset.n - 1, Math.max(0, Math.floor((time - v.t0) * 30))); const src = v.img.dataset.dir + '/f' + String(n + 1).padStart(4, '0') + '.jpg'; if (v.img.getAttribute('src') !== src) v.img.setAttribute('src', src); }
 };
 `;
@@ -465,4 +518,15 @@ body{margin:0;background:#000}
 .sub{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:0 6px;font-size:17px;font-weight:800;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,0.7)}
 .sub .sw{opacity:0.38;color:${C.text}}.sub .sw.k{color:${C.accent}}
 .pbg{position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(18px) brightness(0.55)}.poster .kb img{filter:drop-shadow(0 8px 18px rgba(0,0,0,0.5))}
+.fshost{z-index:5;pointer-events:none}
+.fs{position:absolute;inset:0;overflow:hidden;background:#000;visibility:hidden}
+.fsw{position:absolute;left:0;top:0;transform-origin:0 0}.fsw img{width:100%;height:100%;display:block;object-fit:fill}
+.fsr{position:absolute;overflow:visible}.fsr ellipse{stroke-width:5}
+.fsl{position:absolute;font-size:14px;padding:5px 12px}
+.fsshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,15,10,0.55) 0%,rgba(5,15,10,0) 22%,rgba(5,15,10,0) 42%,rgba(5,15,10,0.7) 62%,rgba(5,15,10,0.92) 100%)}
+.fst{position:absolute;left:22px;right:22px;bottom:192px;display:flex;flex-direction:column;gap:8px;text-shadow:0 2px 14px rgba(0,0,0,0.6)}
+.fst .t{font-size:25px}.fst.big .t{font-size:34px}
+.fschip{background:rgba(0,0,0,0.45);color:#fff}
+.fscr{position:absolute;right:22px;top:92px;font-size:10px;color:rgba(255,255,255,0.7)}
+.panel.ghost{visibility:hidden}
 `;

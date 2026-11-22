@@ -76,7 +76,7 @@ function sfxPlan(cues) {
   const VLEAD = 0.35;
   const vjson = path.join(dir, 'voice', 'voice.json');
   const voice = spec.voice && fs.existsSync(vjson) ? JSON.parse(fs.readFileSync(vjson, 'utf8')).clips : [];
-  for (const c of voice) { const sc = spec.scenes[c.scene]; sc.dur = Math.max(sc.dur || 0, Math.round((c.dur + VLEAD + 0.55) * 100) / 100); }
+  for (const c of voice) { const sc = spec.scenes[c.scene]; sc.dur = Math.max(sc.dur || 0, Math.round((c.dur + VLEAD + 0.55) * 100) / 100); sc.vtext = c.text; sc.vdur = c.dur; sc.vwords = c.words || null; }
   // video scenes: frames at 30 fps
   const tmp = path.join(__dirname, '_tmp'); fs.mkdirSync(tmp, { recursive: true });
   const tmpv = path.join(tmp, 'v4-' + id); fs.mkdirSync(tmpv, { recursive: true });
@@ -99,7 +99,7 @@ function sfxPlan(cues) {
   const poses = {};
   for (const p of ['wave', 'point', 'jump', 'think']) poses[p] = kreti({ pose: p, size: 240, mode, cut: theme.cut, look: 'dream' });
   const grain = 'data:image/svg+xml;base64,' + Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0"/></filter><rect width="180" height="180" filter="url(#n)"/></svg>').toString('base64');
-  const data = { ...spec, theme, kreti: poses, mark: mark({ size: 24 }), grain };
+  const data = { ...spec, vlead: VLEAD, theme, kreti: poses, mark: mark({ size: 24 }), grain };
   const html = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8">${FONT_CSS}<style>${CSS(theme)}</style></head>
 <body><div id="stage"></div>${GSAP}<script>gsap.registerPlugin(MorphSVGPlugin);window.REEL=${JSON.stringify(data)};</script><script>${PAGE}</script></body></html>`;
   const f = path.join(tmp, 'reel4.html'); fs.writeFileSync(f, html);

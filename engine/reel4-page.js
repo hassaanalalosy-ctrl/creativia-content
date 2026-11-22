@@ -62,7 +62,7 @@ function counter(tl, node, value, at, dur) {
   node.textContent = m[1] + (0).toFixed(dec) + m[3];
   tl.to(o, { v: n, duration: dur || 1.3, ease: 'power3.out', onUpdate: () => { node.textContent = m[1] + o.v.toFixed(dec) + m[3]; } }, at);
 }
-const media = (src, fit) => '<div class="ph"><div class="kb"><img src="' + src + '" style="object-fit:' + (fit || 'cover') + '"></div></div>';
+const media = (src, fit, h) => '<div class="ph"' + (h ? ' style="height:' + h + 'px"' : '') + '><div class="kb"><img src="' + src + '" style="object-fit:' + (fit || 'cover') + '"></div></div>';
 
 // ---------- scene builders (content lives INSIDE the panel) ----------
 const B = {
@@ -81,14 +81,18 @@ const B = {
   },
   image(s, k) {
     const c = panel(k);
-    c.innerHTML = media(s.image, s.fit) + (s.chip ? '<div class="chip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + (s.num ? '<div class="nbadge" dir="ltr">' + esc(s.num) + '</div>' : '') +
+    c.innerHTML = media(s.image, s.fit, s.h) + (s.chip ? '<div class="chip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + (s.num ? '<div class="nbadge" dir="ltr">' + esc(s.num) + '</div>' : '') +
+      (s.ring ? '<svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (s.ring[0] - s.ring[2]) * 100 + '%;top:' + (s.ring[1] - s.ring[2] * 1.2) * 100 + '%;width:' + s.ring[2] * 200 + '%;height:' + s.ring[2] * 240 + '%"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (s.ringLabel ? '<div class="rlab" style="left:' + (s.ring[0] + s.ring[2] * 0.6) * 100 + '%;top:' + (s.ring[1] + s.ring[2] * 1.1) * 100 + '%">' + esc(s.ringLabel) + '</div>' : '') : '') +
       '<div class="txt"><div class="t">' + words(s.title || '') + '</div>' + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
+    const ph0 = c.querySelector('.ph'); c.querySelectorAll('.ring,.rlab').forEach(n => ph0.appendChild(n));
     return { build(tl, t0, dur) {
       tl.fromTo(c.querySelector('.kb'), { scale: 1.14, xPercent: 2 }, { scale: 1.02, xPercent: -2, duration: dur + 1, ease: 'none' }, t0 - 0.5);
       const e = wordsIn(tl, c.querySelector('.t'), t0 + 0.35, 0.08);
       if (s.body) wordsIn(tl, c.querySelector('.b'), e - 0.25, 0.05);
       const ch = c.querySelector('.chip'); if (ch) { tl.fromTo(ch, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out' }, t0 + 0.55); drawIcons(tl, ch, t0 + 0.6); cue(t0 + 0.58, 'pop', 0.4); }
       if (s.credit) tl.fromTo(c.querySelector('.cr'), { opacity: 0 }, { opacity: 1, duration: 0.5 }, t0 + 1.0);
+      const rg = c.querySelector('.ring ellipse'); if (rg) { const at = t0 + (s.ringAt || 1.0); tl.fromTo(rg, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut' }, at); cue(at + 0.05, 'whoosh-soft', 0.35); tl.to(c.querySelector('.ring'), { scale: 1.08, duration: 0.45, yoyo: true, repeat: 3, ease: 'sine.inOut' }, at + 0.7);
+        const rl = c.querySelector('.rlab'); if (rl) { tl.fromTo(rl, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.2)' }, at + 0.5); cue(at + 0.52, 'pop', 0.4); } }
       const nb = c.querySelector('.nbadge'); if (nb) { tl.fromTo(nb, { scale: 0.3, opacity: 0, rotate: -12 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.7, ease: 'back.out(1.7)' }, t0 + 0.3); counter(tl, nb, s.num, t0 + 0.35, 1.2); cue(t0 + 0.34, 'pop', 0.55); }
     } };
   },
@@ -148,6 +152,104 @@ const B = {
       tl.fromTo(ws, { opacity: 0, scale: 1.8, filter: 'blur(14px)', x: 30 }, { opacity: 1, scale: 1, filter: 'blur(0px)', x: 0, duration: 0.7, ease: 'expo.out', stagger: 0.16 }, t0 + 0.2);
       cue(t0 + 0.22 + (ws.length - 1) * 0.16, 'impact', 0.6);
       if (s.sub) wordsIn(tl, c.querySelector('.b'), t0 + 0.6 + ws.length * 0.16, 0.07);
+    } };
+  },
+  // two images side by side (e.g. Europe vs America), labels under each, a symbol between
+  versus(s, k) {
+    const c = panel(k);
+    const side = (o, i) => '<div class="vi"><div class="vimg">' + '<img src="' + o.image + '" style="object-fit:' + (o.fit || 'cover') + '">' + (o.tag ? '<div class="vtagx' + (o.warn ? ' warn' : '') + '">' + esc(o.tag) + '</div>' : '') + '</div><div class="vl">' + esc(o.label || '') + '</div>' + (o.sub ? '<div class="vs2" dir="ltr">' + esc(o.sub) + '</div>' : '') + '</div>';
+    c.innerHTML = '<div class="stack">' + (s.title ? '<div class="t">' + words(s.title) + '</div>' : '') + '<div class="vs">' + side(s.a, 0) + '<div class="vsym" dir="ltr">' + esc(s.symbol || '≠') + '</div>' + side(s.b, 1) + '</div>' + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
+    return { build(tl, t0) {
+      if (s.title) wordsIn(tl, c.querySelector('.t'), t0 + 0.1, 0.07);
+      const vi = c.querySelectorAll('.vi');
+      tl.fromTo(vi[0], { x: 70, opacity: 0, rotate: 6 }, { x: 0, opacity: 1, rotate: 0, duration: 0.7, ease: 'expo.out' }, t0 + 0.3); cue(t0 + 0.32, 'whoosh-soft', 0.35);
+      tl.fromTo(vi[1], { x: -70, opacity: 0, rotate: -6 }, { x: 0, opacity: 1, rotate: 0, duration: 0.7, ease: 'expo.out' }, t0 + 0.9); cue(t0 + 0.92, 'whoosh-soft', 0.35);
+      tl.fromTo(c.querySelector('.vsym'), { scale: 0, rotate: -90 }, { scale: 1, rotate: 0, duration: 0.6, ease: 'back.out(2.2)' }, t0 + 1.4); cue(t0 + 1.42, 'pop', 0.5);
+      c.querySelectorAll('.vimg img').forEach(im => tl.fromTo(im, { scale: 1.12 }, { scale: 1.0, duration: 3.5, ease: 'none' }, t0 + 0.3));
+      c.querySelectorAll('.vtagx').forEach((g, i) => { tl.fromTo(g, { opacity: 0, y: -8, scale: 0.6 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(2)' }, t0 + 1.8 + i * 0.3); cue(t0 + 1.82 + i * 0.3, 'tick', 0.35); });
+      if (s.body) wordsIn(tl, c.querySelector('.b'), t0 + 1.6, 0.05);
+      if (s.credit) tl.fromTo(c.querySelector('.cr'), { opacity: 0 }, { opacity: 1, duration: 0.5 }, t0 + 1.2);
+    } };
+  },
+  // an image is cut into a grid: cut lines draw, tiles split apart, "drop" tiles fade out, then the result image lands
+  slice(s, k) {
+    const c = panel(k);
+    const R = s.rows || 3, Q = s.cols || 3, W = 280, H = s.h || 300, gw = W / Q, gh = H / R, drop = s.drop || [];
+    let tiles = '';
+    for (let r = 0; r < R; r++) for (let q = 0; q < Q; q++) tiles += '<div class="tile' + (drop.includes(r * Q + q) ? ' drop' : '') + '" style="left:' + q * gw + 'px;top:' + r * gh + 'px;width:' + gw + 'px;height:' + gh + 'px"><img src="' + s.image + '" style="left:' + (-q * gw) + 'px;top:' + (-r * gh) + 'px;width:' + W + 'px;height:' + H + 'px"><i class="x">✕</i></div>';
+    let cuts = '';
+    for (let q = 1; q < Q; q++) cuts += '<line x1="' + q * gw + '" y1="0" x2="' + q * gw + '" y2="' + H + '"/>';
+    for (let r = 1; r < R; r++) cuts += '<line x1="0" y1="' + r * gh + '" x2="' + W + '" y2="' + r * gh + '"/>';
+    c.innerHTML = '<div class="stack">' + (s.title ? '<div class="t">' + words(s.title) + '</div>' : '') + '<div class="slc" style="width:' + W + 'px;height:' + H + 'px">' + tiles +
+      '<svg class="cuts" width="' + W + '" height="' + H + '">' + cuts + '</svg>' + (s.result ? '<div class="res"><img src="' + s.result + '" style="object-fit:' + (s.resultFit || 'cover') + '"></div>' : '') +
+      (s.chip ? '<div class="chip">' + icon(s.chipIcon || 'spark', 14) + esc(s.chip) + '</div>' : '') + '</div>' + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
+    return { build(tl, t0, dur) {
+      if (s.title) wordsIn(tl, c.querySelector('.t'), t0 + 0.1, 0.07);
+      const lines = c.querySelectorAll('.cuts line'), ts = [...c.querySelectorAll('.tile')], cx = W / 2, cy = H / 2;
+      lines.forEach((l, i) => { const len = Math.hypot(l.x2.baseVal.value - l.x1.baseVal.value, l.y2.baseVal.value - l.y1.baseVal.value); tl.fromTo(l, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.35, ease: 'power2.inOut' }, t0 + 0.5 + i * 0.22); cue(t0 + 0.52 + i * 0.22, 'click', 0.45); });
+      const split = t0 + 0.6 + lines.length * 0.22;
+      tl.to(c.querySelector('.cuts'), { opacity: 0, duration: 0.2 }, split);
+      ts.forEach((tile, i) => { const r = Math.floor(i / Q), q = i % Q, dx = (q * gw + gw / 2 - cx) * 0.09, dy = (r * gh + gh / 2 - cy) * 0.09;
+        tl.to(tile, { x: dx, y: dy, rotate: (i % 2 ? 2 : -2), duration: 0.6, ease: 'back.out(2)' }, split + i * 0.03); });
+      cue(split + 0.02, 'pop', 0.5);
+      const dr = c.querySelectorAll('.tile.drop');
+      dr.forEach((tile, i) => { tl.to(tile.querySelector('img'), { opacity: 0.18, filter: 'grayscale(1)', duration: 0.4 }, split + 0.7 + i * 0.15); tl.fromTo(tile.querySelector('.x'), { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(2.4)' }, split + 0.7 + i * 0.15); cue(split + 0.72 + i * 0.15, 'tick', 0.4); });
+      const rs = c.querySelector('.res');
+      if (rs) { const at = split + 1.0 + dr.length * 0.15 + (s.resultDelay || 0.6);
+        tl.to(ts, { scale: 0.85, opacity: 0, duration: 0.5, ease: 'power2.in', stagger: 0.02 }, at - 0.3);
+        tl.fromTo(rs, { opacity: 0, scale: 1.15, filter: 'blur(10px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, at); cue(at, 'shimmer', 0.4);
+        tl.fromTo(rs.querySelector('img'), { scale: 1.06 }, { scale: 1.0, duration: Math.max(1, dur - (at - t0)), ease: 'none' }, at); }
+      const ch = c.querySelector('.chip'); if (ch) { tl.fromTo(ch, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out' }, t0 + (s.chipAt || 0.4)); drawIcons(tl, ch, t0 + (s.chipAt || 0.4)); }
+      if (s.credit) tl.fromTo(c.querySelector('.cr'), { opacity: 0 }, { opacity: 1, duration: 0.5 }, t0 + 1.0);
+    } };
+  },
+  // a wall of covers with labels; an optional highlight box on the same corner of each (e.g. the helicopter)
+  gallery(s, k) {
+    const c = panel(k);
+    const items = (s.items || []).slice(0, 6), hl = s.highlight;
+    c.innerHTML = '<div class="stack">' + (s.title ? '<div class="t">' + words(s.title) + '</div>' : '') + '<div class="gal">' +
+      items.map(o => '<div class="gi"><div class="gimg"><img src="' + o.image + '">' + (hl ? '<b class="hlb" style="left:' + hl[0] * 100 + '%;top:' + hl[1] * 100 + '%;width:' + hl[2] * 100 + '%;height:' + hl[3] * 100 + '%"></b>' : '') + '</div><div class="gl" dir="ltr">' + esc(o.label || '') + '</div></div>').join('') + '</div>' +
+      (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
+    return { build(tl, t0) {
+      if (s.title) wordsIn(tl, c.querySelector('.t'), t0 + 0.1, 0.07);
+      const gi = c.querySelectorAll('.gi');
+      gi.forEach((g, i) => { tl.fromTo(g, { y: 40, opacity: 0, rotate: i % 2 ? 8 : -8, scale: 0.8 }, { y: 0, opacity: 1, rotate: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, t0 + 0.35 + i * 0.16); cue(t0 + 0.37 + i * 0.16, 'tick', 0.3); });
+      const hb = c.querySelectorAll('.hlb'), at = t0 + 0.6 + gi.length * 0.16 + (s.highlightDelay || 0.4);
+      hb.forEach((b, i) => { tl.fromTo(b, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2)' }, at + i * 0.18); cue(at + 0.02 + i * 0.18, 'pop', 0.38); });
+      if (hb.length) tl.to(hb, { boxShadow: '0 0 0 3px ' + C.accent + ', 0 0 22px ' + C.accent, duration: 0.5, yoyo: true, repeat: 3, ease: 'sine.inOut' }, at + hb.length * 0.18 + 0.2);
+      if (s.body) wordsIn(tl, c.querySelector('.b'), t0 + 1.2, 0.05);
+      if (s.credit) tl.fromTo(c.querySelector('.cr'), { opacity: 0 }, { opacity: 1, duration: 0.5 }, t0 + 1.0);
+    } };
+  },
+  // a calendar page: month bar, big counting day, year, caption
+  date(s, k) {
+    const c = panel(k);
+    c.innerHTML = '<div class="stack center dt"><div class="cal"><div class="calh">' + esc(s.month) + '</div><div class="cald" dir="ltr">' + esc(s.day) + '</div><div class="caly" dir="ltr">' + esc(s.year || '') + '</div></div>' +
+      (s.title ? '<div class="t">' + words(s.title) + '</div>' : '') + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + '</div>';
+    return { build(tl, t0) {
+      const cal = c.querySelector('.cal');
+      tl.fromTo(cal, { rotateX: -90, opacity: 0, transformOrigin: '50% 0%' }, { rotateX: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.4)' }, t0 + 0.2); cue(t0 + 0.25, 'impact', 0.45);
+      counter(tl, c.querySelector('.cald'), s.day, t0 + 0.3, 0.9);
+      tl.fromTo(c.querySelector('.caly'), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.5 }, t0 + 0.9);
+      if (s.title) wordsIn(tl, c.querySelector('.t'), t0 + 1.0, 0.08);
+      if (s.body) wordsIn(tl, c.querySelector('.b'), t0 + 1.5, 0.05);
+    } };
+  },
+  // horizontal time/size bars (e.g. 6 months vs a few days) with counters
+  hbars(s, k) {
+    const c = panel(k);
+    const rows = s.rows || [], max = Math.max(1, ...rows.map(r => +r.value || 0));
+    c.innerHTML = '<div class="stack">' + (s.icon ? '<div class="icowrap sm">' + icon(s.icon, 24) + '</div>' : '') + (s.title ? '<div class="t">' + words(s.title) + '</div>' : '') + '<div class="hb">' +
+      rows.map((r, i) => '<div class="hr' + (r.hi ? ' hi' : '') + '"><div class="hh"><span class="hn">' + esc(r.big || '') + '</span><span class="hlab">' + esc(r.label || '') + '</span></div><div class="ht"><div class="hf" style="width:' + Math.max(2.5, (+r.value / max) * 100) + '%"></div></div></div>').join('') + '</div>' +
+      (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + '</div>';
+    return { build(tl, t0) {
+      drawIcons(tl, c, t0 + 0.1);
+      if (s.title) wordsIn(tl, c.querySelector('.t'), t0 + 0.15, 0.07);
+      c.querySelectorAll('.hr').forEach((r, i) => { const at = t0 + 0.6 + i * 0.9;
+        tl.fromTo(r, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out' }, at);
+        tl.fromTo(r.querySelector('.hf'), { scaleX: 0 }, { scaleX: 1, duration: rows[i].hi ? 0.5 : 1.1, ease: rows[i].hi ? 'back.out(3)' : 'power2.out' }, at + 0.2);
+        cue(at + 0.22, rows[i].hi ? 'pop' : 'whoosh-soft', 0.4); });
+      if (s.body) wordsIn(tl, c.querySelector('.b'), t0 + 0.8 + rows.length * 0.9, 0.05);
     } };
   },
   end(s, k) {
@@ -212,6 +314,32 @@ built.forEach(({ s, b, t0, p }, k) => {
   }
   b.build(master, t0, s.dur);
 });
+
+// ---------- word-synced subtitles (from ElevenLabs timestamps; proportional timing as a fallback) ----------
+const SUBS = D.subtitles !== false && built.some(x => x.s.vtext);
+if (SUBS) {
+  const box = el('div', 'subs'); stage.appendChild(box);
+  const isKey = (w, s) => /[0-9A-Za-z]/.test(w) || (s.hl || []).some(h => w.replace(/[،.؟?!…:]/g, '').indexOf(h) === 0);
+  built.forEach(({ s, t0 }) => {
+    if (!s.vtext) return;
+    let ws = s.vwords;
+    if (!ws || !ws.length) { const raw = s.vtext.split(/\s+/).filter(Boolean), tot = raw.reduce((a, w) => a + w.length + 1, 0); let acc = 0; ws = raw.map(w => { const a = acc; acc += w.length + 1; return { w, s: a / tot * s.vdur, e: acc / tot * s.vdur }; }); }
+    const base = t0 + (D.vlead || 0.35);
+    const chunks = []; let cur = [];
+    ws.forEach((w, i) => { cur.push(w); const len = cur.reduce((a, x) => a + x.w.length + 1, 0); const nextLen = ws[i + 1] ? len + ws[i + 1].w.length : 0;
+      if (/[،.؟?!…:]$/.test(w.w) || cur.length >= 5 || nextLen > 27) { chunks.push(cur); cur = []; } });
+    if (cur.length) chunks.push(cur);
+    chunks.forEach((ch, j) => {
+      const a = base + ch[0].s - 0.08, b = j < chunks.length - 1 ? base + chunks[j + 1][0].s - 0.08 : base + ch[ch.length - 1].e + 0.35;
+      const d = el('div', 'sub', ch.map(x => '<span class="sw' + (isKey(x.w, s) ? ' k' : '') + '"' + (latin(x.w.replace(/[،.؟?!…]/g, '')) ? ' dir="ltr" style="unicode-bidi:isolate"' : '') + '>' + esc(x.w) + '</span>').join(' '));
+      box.appendChild(d);
+      master.set(d, { opacity: 0 }, 0);
+      master.fromTo(d, { opacity: 0, y: 10, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.18, ease: 'power2.out' }, a);
+      master.to(d, { opacity: 0, y: -6, duration: 0.12, ease: 'power1.in' }, Math.max(a + 0.2, b - 0.12));
+      d.querySelectorAll('.sw').forEach((sp, i) => master.fromTo(sp, { opacity: 0.38 }, { opacity: 1, duration: 0.1 }, base + ch[i].s));
+    });
+  });
+}
 master.set({}, {}, TOTAL);
 
 // shine on all panel rims across the whole film (constant, the world is alive)
@@ -220,7 +348,7 @@ panels.forEach((p, i) => master.fromTo(p.el.querySelector('.sheen'), { xPercent:
 
 // safe band: below the HUD (top ~84) and above Instagram's bottom UI (~470).
 // every panel is scaled so that, even at its strongest hold zoom, it never crosses the HUD line.
-const BAND_TOP = 98, BAND_BOT = 470, CY = (BAND_TOP + BAND_BOT) / 2, FIT = BAND_BOT - BAND_TOP - 22;
+const BAND_TOP = 98, BAND_BOT = (D.subtitles !== false && D.scenes.some(x => x.vtext)) ? 450 : 470, CY = (BAND_TOP + BAND_BOT) / 2, FIT = BAND_BOT - BAND_TOP - 22;
 let fitted = false;
 function fitPanels() {
   built.forEach(({ b, p }) => {
@@ -305,4 +433,33 @@ body{margin:0;background:#000}
 .kslot{height:128px;width:128px;position:relative}
 .handle{font-size:15px;font-weight:700;color:${C.muted}}
 .hand{font-family:'Playpen Sans Arabic',sans-serif;font-size:15.5px;color:${C.ink}}
+.vs{position:relative;display:flex;gap:30px;align-items:flex-start}
+.vi{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.vimg{position:relative;width:100%;height:178px;border-radius:14px;overflow:hidden;border:1px solid ${C.rim};box-shadow:0 10px 24px rgba(0,0,0,0.35)}.vimg img{width:100%;height:100%;display:block}
+.vl{font-size:15px;font-weight:800}.vs2{font-size:11px;color:${C.muted}}
+.vsym{position:absolute;left:50%;top:89px;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;background:${C.accent};color:#0B1410;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px ${C.glow};z-index:3}
+.vtagx{position:absolute;bottom:8px;right:8px;left:8px;text-align:center;padding:4px 6px;border-radius:9px;background:rgba(0,0,0,0.62);color:#fff;font-size:11px;font-weight:700}.vtagx.warn{background:#FFD23F;color:#0B1410}
+.slc{position:relative;align-self:center;border-radius:16px}
+.tile{position:absolute;overflow:hidden;border-radius:6px}.tile img{position:absolute;max-width:none;object-fit:cover}
+.tile .x{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:30px;font-weight:800;color:#FF6B6B;opacity:0}
+.cuts{position:absolute;left:0;top:0;z-index:2}.cuts line{stroke:${C.accent};stroke-width:2.5;stroke-linecap:round;filter:drop-shadow(0 0 4px ${C.accent})}
+.res{position:absolute;inset:0;border-radius:14px;overflow:hidden;opacity:0;border:1px solid ${C.rim};box-shadow:0 0 30px ${C.glow}}.res img{width:100%;height:100%;display:block}
+.slc .chip{top:-12px;right:10px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 9px}
+.gi{display:flex;flex-direction:column;align-items:center;gap:4px}
+.gimg{position:relative;width:100%;aspect-ratio:0.72;border-radius:10px;overflow:hidden;border:1px solid ${C.rim}}.gimg img{width:100%;height:100%;object-fit:cover;display:block}
+.hlb{position:absolute;border:2.5px solid ${C.accent};border-radius:8px;background:rgba(46,232,107,0.12);opacity:0}
+.gl{font-size:11px;font-weight:700;color:${C.muted}}
+.dt{align-items:center!important;text-align:center!important;gap:14px}.dt .t,.dt .b{text-align:center}
+.cal{width:150px;border-radius:22px;overflow:hidden;background:#F4FBF6;box-shadow:0 18px 40px rgba(0,0,0,0.4);text-align:center}
+.calh{background:${C.accent};color:#0B1410;font-weight:800;font-size:17px;padding:8px 0}
+.cald{font-size:78px;font-weight:800;line-height:1.05;color:#0B1410;padding-top:4px}.caly{font-size:15px;font-weight:700;color:#46594D;padding-bottom:10px}
+.hb{display:flex;flex-direction:column;gap:16px}
+.hh{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}.hn{font-size:30px;font-weight:800;color:${C.text}}.hr.hi .hn{color:${C.accent};text-shadow:0 0 20px ${C.glow}}.hlab{font-size:13px;color:${C.muted}}
+.ht{height:14px;border-radius:99px;background:rgba(255,255,255,0.08);overflow:hidden}.hf{height:100%;border-radius:99px;background:linear-gradient(270deg,${C.soft},rgba(46,232,107,0.35));transform-origin:100% 50%}.hr.hi .hf{background:${C.accent};box-shadow:0 0 14px ${C.accent}}
+.ring{position:absolute;z-index:3;overflow:visible}.ring ellipse{fill:none;stroke:#FFD23F;stroke-width:4;stroke-dasharray:100 110;stroke-dashoffset:100;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 6px rgba(255,210,63,0.8))}
+.rlab{position:absolute;z-index:3;padding:4px 10px;border-radius:999px;background:#FFD23F;color:#0B1410;font-size:12px;font-weight:800;white-space:nowrap}
+.subs{position:absolute;left:14px;right:14px;top:458px;height:40px;z-index:11;pointer-events:none}
+.sub{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:0 6px;font-size:17px;font-weight:800;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,0.7)}
+.sub .sw{opacity:0.38;color:${C.text}}.sub .sw.k{color:${C.accent}}
 `;

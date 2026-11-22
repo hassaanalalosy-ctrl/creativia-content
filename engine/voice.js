@@ -9,6 +9,19 @@ const ROOT = path.join(__dirname, '..');
 const DEFAULT_VOICE = '7N1xLmvR6jQolMXWRhvT'; // Arafat Almnshid (Iraqi) — the Creativia voice chosen by the owner
 const MODEL = 'eleven_v4';
 
+// character alignment -> [{w, s, e}] (seconds from clip start)
+function toWords(al) {
+  if (!al || !al.characters) return null;
+  const out = []; let cur = null;
+  al.characters.forEach((ch, i) => {
+    if (/\s/.test(ch)) { if (cur) { out.push(cur); cur = null; } return; }
+    if (!cur) cur = { w: '', s: al.character_start_times_seconds[i] };
+    cur.w += ch; cur.e = al.character_end_times_seconds[i];
+  });
+  if (cur) out.push(cur);
+  return out.map(x => ({ w: x.w, s: Math.round(x.s * 100) / 100, e: Math.round(x.e * 100) / 100 }));
+}
+
 (async () => {
   const id = process.argv[2];
   const dir = path.join(ROOT, 'posts', id);
@@ -29,16 +42,18 @@ const MODEL = 'eleven_v4';
     const prev = old.clips.find(c => c.scene === k);
     if (prev && prev.text === says[k] && prev.voiceId === voiceId && fs.existsSync(path.join(vdir, file))) { clips.push(prev); continue; }
     const body = { text: says[k], model_id: MODEL, previous_text: says.slice(0, k).filter(Boolean).slice(-1)[0] || undefined, next_text: says.slice(k + 1).filter(Boolean)[0] || undefined };
-    let res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': key, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    if (!res.ok) { // retry without context fields
-      delete body.previous_text; delete body.next_text;
-      res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, { method: 'POST', headers: { 'xi-api-key': key, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    }
+    // with-timestamps: same price, and gives per-character times so the reel can show word-synced subtitles
+    const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}/with-timestamps?output_format=mp3_44100_128`;
+    const call = () => fetch(url, { method: 'POST', headers: { 'xi-api-key': key, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    let res = await call();
+    if (!res.ok) { delete body.previous_text; delete body.next_text; res = await call(); }
     if (!res.ok) throw new Error(`ElevenLabs ${res.status}: ${(await res.text()).slice(0, 300)}`);
-    fs.writeFileSync(path.join(vdir, file), Buffer.from(await res.arrayBuffer()));
+    const j = await res.json();
+    fs.writeFileSync(path.join(vdir, file), Buffer.from(j.audio_base64, 'base64'));
     const dur = parseFloat(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path.join(vdir, file)]).toString());
+    const words = toWords(j.alignment || j.normalized_alignment);
     chars += says[k].length;
-    clips.push({ scene: k, file, text: says[k], voiceId, dur: Math.round(dur * 100) / 100 });
+    clips.push({ scene: k, file, text: says[k], voiceId, dur: Math.round(dur * 100) / 100, words });
   }
   fs.writeFileSync(path.join(vdir, 'voice.json'), JSON.stringify({ model: MODEL, voiceId, clips }, null, 2));
   console.log('voice done', id, clips.length, 'clips,', chars, 'new characters');

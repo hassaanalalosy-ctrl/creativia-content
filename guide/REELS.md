@@ -69,6 +69,19 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 
+## Storytelling kit (owner, Nov 22 2026: "clearer, more creative, same theme, examples and pictures")
+Reference: a story reel where every line has a picture or a diagram that SHOWS what the voice says. Do the same:
+- **Subtitles:** on by default. `voice.js` asks ElevenLabs for word timestamps, the engine shows the line under the card in short chunks and lights each word as it is spoken (numbers/Latin and words in a scene's `hl` list in green). `"subtitles": false` turns them off.
+- **Every claim gets a visual:** a real picture, a comparison, a number bar, a date. Avoid two text-only cards in a row.
+- New scene types (all inside the card):
+  - `versus`: two pictures side by side. `{"type":"versus","title":"...","symbol":"≠" or "→","a":{"image","label","sub","tag","warn":true},"b":{...},"credit"}`
+  - `slice`: cut a picture into a grid live, drop some tiles, then land the result picture. `{"type":"slice","image","result","rows":3,"cols":3,"drop":[3,6,7],"h":300,"chip","title","credit"}`
+  - `gallery`: up to 6 pictures in a 3x2 wall with labels, plus an optional highlight box on the same spot of each (`"highlight":[x,y,w,h]` as fractions). Great for "same thing across years".
+  - `date`: a calendar page. `{"type":"date","month":"سبتمبر","day":"11","year":"2001","title","body"}`
+  - `hbars`: horizontal bars with big labels (time or size compared). `{"type":"hbars","title","rows":[{"big":"6 أشهر","label":"...","value":180},{"big":"أيام","label":"...","value":7,"hi":true}],"body"}`
+  - `image` extras: `"h"` (photo height, default 236), `"ring":[cx,cy,r]` draws a yellow circle on the photo (fractions of the photo) with optional `"ringLabel"` and `"ringAt"`.
+- Pictures for a reel can be fetched into the post folder with the `fetch-images` workflow (`posts/<id>/images.json`: wiki page, fandom/wiki file search, or direct URL), then used as `posts/<id>/img/<file>`. Check every fetched picture with Read before using it.
+
 ## Motion rules (owner, Nov 2026)
 - Arabic text appears **word by word**, never letter by letter (letters are joined; splitting breaks their shapes).
 - **Every reveal moves right to left**: words, cards, transitions, camera pans.

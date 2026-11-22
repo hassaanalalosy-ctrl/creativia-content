@@ -62,7 +62,9 @@ function counter(tl, node, value, at, dur) {
   node.textContent = m[1] + (0).toFixed(dec) + m[3];
   tl.to(o, { v: n, duration: dur || 1.3, ease: 'power3.out', onUpdate: () => { node.textContent = m[1] + o.v.toFixed(dec) + m[3]; } }, at);
 }
-const media = (src, fit, h) => '<div class="ph"' + (h ? ' style="height:' + h + 'px"' : '') + '><div class="kb"><img src="' + src + '" style="object-fit:' + (fit || 'cover') + '"></div></div>';
+const media = (src, fit, h, pos) => fit === 'poster'
+  ? '<div class="ph poster"' + (h ? ' style="height:' + h + 'px"' : '') + '><img class="pbg" src="' + src + '"><div class="kb"><img src="' + src + '" style="object-fit:contain"></div></div>'
+  : '<div class="ph"' + (h ? ' style="height:' + h + 'px"' : '') + '><div class="kb"><img src="' + src + '" style="object-fit:' + (fit || 'cover') + (pos ? ';object-position:' + pos : '') + '"></div></div>';
 
 // ---------- scene builders (content lives INSIDE the panel) ----------
 const B = {
@@ -81,7 +83,7 @@ const B = {
   },
   image(s, k) {
     const c = panel(k);
-    c.innerHTML = media(s.image, s.fit, s.h) + (s.chip ? '<div class="chip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + (s.num ? '<div class="nbadge" dir="ltr">' + esc(s.num) + '</div>' : '') +
+    c.innerHTML = media(s.image, s.fit, s.h, s.pos) + (s.chip ? '<div class="chip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + (s.num ? '<div class="nbadge" dir="ltr">' + esc(s.num) + '</div>' : '') +
       (s.ring ? '<svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (s.ring[0] - s.ring[2]) * 100 + '%;top:' + (s.ring[1] - s.ring[2] * 1.2) * 100 + '%;width:' + s.ring[2] * 200 + '%;height:' + s.ring[2] * 240 + '%"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (s.ringLabel ? '<div class="rlab" style="left:' + (s.ring[0] + s.ring[2] * 0.6) * 100 + '%;top:' + (s.ring[1] + s.ring[2] * 1.1) * 100 + '%">' + esc(s.ringLabel) + '</div>' : '') : '') +
       '<div class="txt"><div class="t">' + words(s.title || '') + '</div>' + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
     const ph0 = c.querySelector('.ph'); c.querySelectorAll('.ring,.rlab').forEach(n => ph0.appendChild(n));
@@ -462,4 +464,5 @@ body{margin:0;background:#000}
 .subs{position:absolute;left:14px;right:14px;top:458px;height:40px;z-index:11;pointer-events:none}
 .sub{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:0 6px;font-size:17px;font-weight:800;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,0.7)}
 .sub .sw{opacity:0.38;color:${C.text}}.sub .sw.k{color:${C.accent}}
+.pbg{position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(18px) brightness(0.55)}.poster .kb img{filter:drop-shadow(0 8px 18px rgba(0,0,0,0.5))}
 `;

@@ -71,7 +71,11 @@ function sfxPlan(cues) {
   const spec = JSON.parse(fs.readFileSync(path.join(dir, 'reel.json'), 'utf8'));
   const mode = spec.mode || 'dark';
   const theme = THEME[mode];
-  for (const sc of spec.scenes) if (sc.image) sc.image = await toDataUri(sc.image);
+  for (const sc of spec.scenes) {
+    if (sc.image) sc.image = await toDataUri(sc.image);
+    if (sc.result) sc.result = await toDataUri(sc.result);
+    for (const o of [sc.a, sc.b, ...(sc.items || [])]) if (o && o.image) o.image = await toDataUri(o.image);
+  }
   // voice: scenes stretch to their line
   const VLEAD = 0.35;
   const vjson = path.join(dir, 'voice', 'voice.json');

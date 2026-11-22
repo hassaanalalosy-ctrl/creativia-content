@@ -94,7 +94,7 @@ const B = {
       if (s.body) wordsIn(tl, c.querySelector('.b'), e - 0.25, 0.05);
       const ch = c.querySelector('.chip'); if (ch) { tl.fromTo(ch, { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.5, ease: 'expo.out' }, t0 + 0.55); drawIcons(tl, ch, t0 + 0.6); cue(t0 + 0.58, 'pop', 0.4); }
       if (s.credit) tl.fromTo(c.querySelector('.cr'), { opacity: 0 }, { opacity: 1, duration: 0.5 }, t0 + 1.0);
-      const rg = c.querySelector('.ring ellipse'); if (rg) { const at = t0 + (s.ringAt || 1.0); tl.fromTo(rg, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.7, ease: 'power2.inOut' }, at); cue(at + 0.05, 'whoosh-soft', 0.35); tl.to(c.querySelector('.ring'), { scale: 1.08, duration: 0.45, yoyo: true, repeat: 3, ease: 'sine.inOut' }, at + 0.7);
+      const rg = c.querySelector('.ring ellipse'); if (rg) { const at = t0 + (s.ringAt || 1.0); tl.fromTo(rg, { strokeDashoffset: 100, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.7, ease: 'power2.inOut', immediateRender: false }, at); cue(at + 0.05, 'whoosh-soft', 0.35); tl.to(c.querySelector('.ring'), { scale: 1.08, duration: 0.45, yoyo: true, repeat: 3, ease: 'sine.inOut' }, at + 0.7);
         const rl = c.querySelector('.rlab'); if (rl) { tl.fromTo(rl, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.2)' }, at + 0.5); cue(at + 0.52, 'pop', 0.4); } }
       const nb = c.querySelector('.nbadge'); if (nb) { tl.fromTo(nb, { scale: 0.3, opacity: 0, rotate: -12 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.7, ease: 'back.out(1.7)' }, t0 + 0.3); counter(tl, nb, s.num, t0 + 0.35, 1.2); cue(t0 + 0.34, 'pop', 0.55); }
     } };
@@ -278,7 +278,7 @@ const B = {
       // camera stops on the picture
       st.slice(1).forEach((q, i) => { const prev = st[i]; tl.fromTo(fz, { x: prev.x, y: prev.y, z: prev.z, cy: prev.cy }, { x: q.x, y: q.y, z: q.z, cy: q.cy, duration: Math.max(0.3, q.at - prev.at), ease: q.ease || 'power2.inOut', immediateRender: false }, t0 + prev.at); if (Math.abs(q.z - prev.z) > 0.6) cue(t0 + prev.at + 0.1, 'whoosh-soft', 0.35); });
       if (st.length === 1) tl.fromTo(fz, { z: st[0].z }, { z: st[0].z * 1.06, duration: dur, ease: 'none', immediateRender: false }, t0);
-      L.querySelectorAll('.fsr ellipse').forEach((e, i) => { const at = t0 + rings[i].at; tl.fromTo(e, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, at); cue(at + 0.05, 'pop', 0.45); });
+      L.querySelectorAll('.fsr ellipse').forEach((e, i) => { const at = t0 + rings[i].at; tl.fromTo(e, { strokeDashoffset: 100, opacity: 0 }, { strokeDashoffset: 0, opacity: 1, duration: 0.6, ease: 'power2.inOut', immediateRender: false }, at); cue(at + 0.05, 'pop', 0.45); });
       L.querySelectorAll('.fsl').forEach((e, i) => tl.fromTo(e, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.4)' }, t0 + rings.filter(r => r.label)[i].at + 0.35));
       const tt = L.querySelector('.fst');
       if (tt) { if (first) { const ws = tt.querySelectorAll('.t .w'); if (ws.length) tl.fromTo(ws[ws.length - 1], { color: C.text }, { color: C.accent, duration: 0.5 }, 0.6); }
@@ -514,7 +514,7 @@ body{margin:0;background:#000}
 .hb{display:flex;flex-direction:column;gap:16px}
 .hh{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}.hn{font-size:30px;font-weight:800;color:${C.text}}.hr.hi .hn{color:${C.accent};text-shadow:0 0 20px ${C.glow}}.hlab{font-size:13px;color:${C.muted}}
 .ht{height:14px;border-radius:99px;background:rgba(255,255,255,0.08);overflow:hidden}.hf{height:100%;border-radius:99px;background:linear-gradient(270deg,${C.soft},rgba(46,232,107,0.35));transform-origin:100% 50%}.hr.hi .hf{background:${C.accent};box-shadow:0 0 14px ${C.accent}}
-.ring{position:absolute;z-index:3;overflow:visible}.ring ellipse{fill:none;stroke:#FFD23F;stroke-width:4;stroke-dasharray:100 110;stroke-dashoffset:100;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 6px rgba(255,210,63,0.8))}
+.ring{position:absolute;z-index:3;overflow:visible}.ring ellipse{opacity:0;fill:none;stroke:#FFD23F;stroke-width:4;stroke-dasharray:100 110;stroke-dashoffset:100;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 6px rgba(255,210,63,0.8))}
 .rlab{position:absolute;z-index:3;padding:4px 10px;border-radius:999px;background:#FFD23F;color:#0B1410;font-size:12px;font-weight:800;white-space:nowrap}
 .subs{position:absolute;left:14px;right:14px;top:458px;height:40px;z-index:11;pointer-events:none}
 .sub{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:0 6px;font-size:17px;font-weight:800;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,0.7)}

@@ -135,7 +135,7 @@ const V = {
     const gap = Math.min(0.95, (dur - 1.6) / n);
     cards.forEach((c, i) => {
       const at = t0 + 0.15 + i * gap;
-      tl.fromTo(c, { x: 260, y: 40, z: 300, rotationY: -40, opacity: 0 }, { x: 0, y: 0, z: 0, rotationY: 0, opacity: 1, duration: 0.7, ease: 'expo.out', immediateRender: true }, at);
+      tl.fromTo(c, { x: 260, y: 40, z: 300, rotationY: -40, opacity: 0, filter: 'brightness(1)' }, { x: 0, y: 0, z: 0, rotationY: 0, opacity: 1, filter: 'brightness(1)', duration: 0.7, ease: 'expo.out', immediateRender: true }, at);
       cue(at + 0.05, 'whoosh-soft', 0.35);
       const hb = c.querySelector('.hlb'); if (hb) { tl.fromTo(hb, { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', immediateRender: true }, at + 0.5); cue(at + 0.52, 'pop', 0.35); }
       // every later card pushes this one one step back
@@ -266,7 +266,8 @@ function applyFocus(time) {
     const c = f.fz.cl, m = time < f.mid ? f.inMode : 'shrink';
     if (m === 'iris') f.L.style.clipPath = 'circle(' + (c * 76) + '% at 50% 46%)';
     else if (m === 'none' && c >= 1) f.L.style.clipPath = 'none';
-    else { const a = 1 - c; f.L.style.clipPath = 'inset(' + (a * 150) + 'px ' + (a * 60) + 'px ' + (a * 240) + 'px ' + (a * 60) + 'px round ' + (a * 30) + 'px)'; }
+    else { const a = 1 - c; f.L.style.clipPath = 'inset(' + (a * 170) + 'px ' + (a * 80) + 'px ' + (a * 250) + 'px ' + (a * 80) + 'px round ' + (a * 30) + 'px)'; }
+    f.L.style.opacity = m === 'none' ? 1 : Math.min(1, c * 2.2).toFixed(3);
   }
 }
 
@@ -322,8 +323,10 @@ window.drawFrame = function (time) {
   const ax = 68 + Math.sin(time * 0.11) * 18, ay = 6 + Math.sin(time * 0.07) * 6, bx = 12 + Math.cos(time * 0.09) * 14, by = 96 - Math.sin(time * 0.1) * 8;
   bg.style.backgroundImage = 'radial-gradient(70% 45% at ' + ax + '% ' + ay + '%, ' + C.b1 + ', rgba(0,0,0,0) 100%), radial-gradient(60% 40% at ' + bx + '% ' + by + '%, ' + C.b2 + ', rgba(0,0,0,0) 100%), linear-gradient(180deg,#0C2A1E 0%,#071711 45%,#030806 100%)';
   // camera: gentle continuous 3D drift + per-shot push (--cz)
-  const ry = Math.sin(time * 0.45) * 2.5, rx = Math.cos(time * 0.37) * 1.5;
-  space.style.transform = 'translateZ(0px) rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
+  const ry = Math.sin(time * 0.45) * 3.5, rx = Math.cos(time * 0.37) * 2;
+  let cur = shots[0]; for (const sh of shots) if (time >= sh.t0 - 0.35) cur = sh;
+  const pr = Math.min(1, Math.max(0, (time - cur.t0) / cur.dur)), push = 1 + 0.07 * (pr * pr * (3 - 2 * pr));
+  space.style.transform = 'scale(' + push.toFixed(4) + ') rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
   applyFocus(time);
 };
 `;

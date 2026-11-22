@@ -331,7 +331,7 @@ body{margin:0;background:#000}
 #stage{position:relative;width:360px;height:640px;overflow:hidden;font-family:'Rubik',sans-serif;color:${C.text};direction:rtl;perspective:900px;perspective-origin:50% 45%}
 .layer{position:absolute;inset:0}
 .bg{background:linear-gradient(180deg,#0C2A1E 0%,#071711 45%,#030806 100%);overflow:hidden}
-.glow{position:absolute;filter:blur(30px);opacity:0.75}
+.glow{position:absolute;opacity:0.75}
 .vign{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 40%,rgba(0,0,0,0) 55%,rgba(0,0,0,0.55) 100%)}
 .beam{position:absolute;left:-50%;top:-20%;width:200%;height:140%;background:linear-gradient(115deg,rgba(0,0,0,0) 38%,rgba(155,255,194,0.10) 46%,rgba(46,232,107,0.16) 50%,rgba(0,0,0,0) 58%)}
 .space{position:absolute;inset:0;transform-style:preserve-3d}

@@ -1,135 +1,163 @@
 [
   {
-    "name": "eu-search-1",
-    "file": "eu-search-1.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/0/07/Gta3_aus_cover.jpg/revision/latest?cb=20100725000404",
-    "source": "https://gta.fandom.com/wiki/File:Gta3 aus cover.jpg",
-    "bytes": 72226
+    "name": "vc-1",
+    "file": "vc-1.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/3/36/GTA_Vice_City_Box_Art.jpg/revision/latest?cb=20260930174430",
+    "source": "https://gta.fandom.com/wiki/File:GTA Vice City Box Art.jpg",
+    "bytes": 303382
   },
   {
-    "name": "eu-search-2",
-    "file": "eu-search-2.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/5/5a/UK_GTA_III_Box_Art.jpg/revision/latest?cb=20100128074835",
-    "source": "https://gta.fandom.com/wiki/File:UK GTA III Box Art.jpg",
-    "bytes": 78130
+    "name": "vc-2",
+    "file": "vc-2.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/a/aa/GTA_VCS_Box_Art.jpg/revision/latest?cb=20090605083734",
+    "source": "https://gta.fandom.com/wiki/File:GTA VCS Box Art.jpg",
+    "bytes": 169152
   },
   {
-    "name": "eu-search-3",
-    "file": "eu-search-3.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/f/f6/GTA3_Box_Art.jpg/revision/latest?cb=20200723205441",
-    "source": "https://gta.fandom.com/wiki/File:GTA3 Box Art.jpg",
-    "bytes": 232038
+    "name": "vc-3",
+    "file": "vc-3.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/f/fb/GTAVCS-Cover.jpg/revision/latest?cb=20230718045517",
+    "source": "https://gta.fandom.com/wiki/File:GTAVCS-Cover.jpg",
+    "bytes": 249952
   },
   {
-    "name": "eu-search-4",
-    "file": "eu-search-4.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/b/bd/GrandTheftAutoIII-BoxArt-UnitedKingdom.jpg/revision/latest?cb=20200422214208",
-    "source": "https://gta.fandom.com/wiki/File:GrandTheftAutoIII-BoxArt-UnitedKingdom.jpg",
-    "bytes": 183122
-  },
-  {
-    "name": "eu-search-5",
-    "file": "eu-search-5.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/c/c3/BigAlsLiquor-GTA3-exterior.JPG/revision/latest?cb=20080702105621",
-    "source": "https://gta.fandom.com/wiki/File:BigAlsLiquor-GTA3-exterior.JPG",
-    "bytes": 38352
-  },
-  {
-    "name": "eu-search-6",
-    "file": "eu-search-6.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/0/0b/GrandTheftAuto-GTA3-SS6.jpg/revision/latest?cb=20180727193937",
-    "source": "https://gta.fandom.com/wiki/File:GrandTheftAuto-GTA3-SS6.jpg",
-    "bytes": 122648
-  },
-  {
-    "name": "eu-search2-1",
-    "file": "eu-search2-1.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/f/f6/GTA3_Box_Art.jpg/revision/latest?cb=20200723205441",
-    "source": "https://gta.fandom.com/wiki/File:GTA3 Box Art.jpg",
-    "bytes": 232038
-  },
-  {
-    "name": "eu-search2-2",
-    "file": "eu-search2-2.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/5/5a/UK_GTA_III_Box_Art.jpg/revision/latest?cb=20100128074835",
-    "source": "https://gta.fandom.com/wiki/File:UK GTA III Box Art.jpg",
-    "bytes": 78130
-  },
-  {
-    "name": "eu-search2-3",
-    "file": "eu-search2-3.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/b/bd/GrandTheftAutoIII-BoxArt-UnitedKingdom.jpg/revision/latest?cb=20200422214208",
-    "source": "https://gta.fandom.com/wiki/File:GrandTheftAutoIII-BoxArt-UnitedKingdom.jpg",
-    "bytes": 183122
-  },
-  {
-    "name": "eu-search2-4",
-    "file": "eu-search2-4.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/0/07/Gta3_aus_cover.jpg/revision/latest?cb=20100725000404",
-    "source": "https://gta.fandom.com/wiki/File:Gta3 aus cover.jpg",
-    "bytes": 72226
-  },
-  {
-    "name": "eu-search2-5",
-    "file": "eu-search2-5.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/b/b7/Gta_3_USA_art.jpg/revision/latest?cb=20190926145449",
-    "source": "https://gta.fandom.com/wiki/File:Gta 3 USA art.jpg",
-    "bytes": 50324
-  },
-  {
-    "name": "eu-search2-6",
-    "file": "eu-search2-6.jpg",
+    "name": "vc-4",
+    "file": "vc-4.jpg",
     "url": "https://static.wikia.nocookie.net/gtawiki/images/4/44/GTAIV-Boxart.jpg/revision/latest?cb=20260330025009",
     "source": "https://gta.fandom.com/wiki/File:GTAIV-Boxart.jpg",
     "bytes": 291320
   },
   {
-    "name": "bliss-1",
-    "file": "bliss-1.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/0/0d/Trixie-Artwork-VCS.jpg/revision/latest?cb=20150628201038",
-    "source": "https://gta.fandom.com/wiki/File:Trixie-Artwork-VCS.jpg",
-    "bytes": 46114
+    "name": "sa-1",
+    "file": "sa-1.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/a/aa/GTA_VCS_Box_Art.jpg/revision/latest?cb=20090605083734",
+    "source": "https://gta.fandom.com/wiki/File:GTA VCS Box Art.jpg",
+    "bytes": 169152
   },
   {
-    "name": "bliss-2",
-    "file": "bliss-2.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/1/17/LolaDelRio-Instagram-Influence.png/revision/latest?cb=20210826133118",
-    "source": "https://gta.fandom.com/wiki/File:LolaDelRio-Instagram-Influence.png",
-    "bytes": 173164
+    "name": "sa-2",
+    "file": "sa-2.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/3/36/GTA_Vice_City_Box_Art.jpg/revision/latest?cb=20260930174430",
+    "source": "https://gta.fandom.com/wiki/File:GTA Vice City Box Art.jpg",
+    "bytes": 303382
   },
   {
-    "name": "bliss-3",
-    "file": "bliss-3.jpg",
-    "url": "https://static.wikia.nocookie.net/gtawiki/images/1/13/Artwork-GTAIV-NikoBellic-Unused.png/revision/latest?cb=20231007092234",
-    "source": "https://gta.fandom.com/wiki/File:Artwork-GTAIV-NikoBellic-Unused.png",
-    "bytes": 135714
+    "name": "sa-3",
+    "file": "sa-3.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/4/40/GTA2_Box_Art.jpg/revision/latest?cb=20240225005506",
+    "source": "https://gta.fandom.com/wiki/File:GTA2 Box Art.jpg",
+    "bytes": 153620
   },
   {
-    "name": "gta3-wiki-files-1",
-    "file": "gta3-wiki-files-1.jpg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Music_from_Grand_Theft_Auto_III_Head_Radio.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
-    "source": "https://en.wikipedia.org/wiki/File:Music from Grand Theft Auto III Head Radio.jpg",
-    "bytes": 68318
+    "name": "sa-4",
+    "file": "sa-4.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/4/44/GTAIV-Boxart.jpg/revision/latest?cb=20260330025009",
+    "source": "https://gta.fandom.com/wiki/File:GTAIV-Boxart.jpg",
+    "bytes": 291320
   },
   {
-    "name": "gta3-wiki-files-2",
-    "file": "gta3-wiki-files-2.jpg",
-    "url": "https://upload.wikimedia.org/wikipedia/en/6/6c/Body_Harvest_screen.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
-    "source": "https://en.wikipedia.org/wiki/File:Body Harvest screen.jpg",
-    "bytes": 11414
+    "name": "v-1",
+    "file": "v-1.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/7/75/Boxart-GTAV-Unveiling.jpg/revision/latest?cb=20130401170749",
+    "source": "https://gta.fandom.com/wiki/File:Boxart-GTAV-Unveiling.jpg",
+    "bytes": 39896
   },
   {
-    "name": "gta3-wiki-files-3",
-    "file": "gta3-wiki-files-3.jpeg",
-    "url": "https://upload.wikimedia.org/wikipedia/en/0/08/Gta3-pc-stealing.jpeg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
-    "source": "https://en.wikipedia.org/wiki/File:Gta3-pc-stealing.jpeg",
-    "bytes": 21477
+    "name": "v-2",
+    "file": "v-2.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/9/9a/PremiumOnlineEdition-GTAV-XB1Boxart.png/revision/latest?cb=20180525221531",
+    "source": "https://gta.fandom.com/wiki/File:PremiumOnlineEdition-GTAV-XB1Boxart.png",
+    "bytes": 237430
   },
   {
-    "name": "gta3-wiki-files-4",
-    "file": "gta3-wiki-files-4.jpg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/ORGANIZED_RETAIL_THEFT_PREVENTION-_FOSTERING_A_COMPREHENSIVE_PUBLIC-_PRIVATE_RESPONSE_%28IA_gov.gpo.fdsys.CHRG-110hhrg38509%29.pdf?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
-    "source": "https://en.wikipedia.org/wiki/File:ORGANIZED RETAIL THEFT PREVENTION- FOSTERING A COMPREHENSIVE PUBLIC- PRIVATE RESPONSE (IA gov.gpo.fdsys.CHRG-110hhrg38509).pdf",
-    "bytes": 9430597
+    "name": "v-3",
+    "file": "v-3.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/4/45/PremiumOnlineEdition-GTAV-PS4Boxart.png/revision/latest?cb=20180525221530",
+    "source": "https://gta.fandom.com/wiki/File:PremiumOnlineEdition-GTAV-PS4Boxart.png",
+    "bytes": 243450
+  },
+  {
+    "name": "v-4",
+    "file": "v-4.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/7/7b/Boxart-GTAV-UnveilingBetterPic.jpg/revision/latest?cb=20130401195504",
+    "source": "https://gta.fandom.com/wiki/File:Boxart-GTAV-UnveilingBetterPic.jpg",
+    "bytes": 192924
+  },
+  {
+    "name": "vi-1",
+    "file": "vi-1.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/8/8a/CoverArt-GTAVI.png/revision/latest?cb=20261112171955",
+    "source": "https://gta.fandom.com/wiki/File:CoverArt-GTAVI.png",
+    "bytes": 1104536
+  },
+  {
+    "name": "vi-2",
+    "file": "vi-2.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/d/d1/GTAVI-The-Album.jpg/revision/latest?cb=20260917132223",
+    "source": "https://gta.fandom.com/wiki/File:GTAVI-The-Album.jpg",
+    "bytes": 96866
+  },
+  {
+    "name": "vi-3",
+    "file": "vi-3.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/d/db/CoverArt-TBoGT.JPG/revision/latest?cb=20250907163031",
+    "source": "https://gta.fandom.com/wiki/File:CoverArt-TBoGT.JPG",
+    "bytes": 67384
+  },
+  {
+    "name": "vi-4",
+    "file": "vi-4.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/0/0a/UnnamedCrownline275SSBoat-GTAVI-Artwork-BrianHeder.png/revision/latest?cb=20250824132920",
+    "source": "https://gta.fandom.com/wiki/File:UnnamedCrownline275SSBoat-GTAVI-Artwork-BrianHeder.png",
+    "bytes": 45674
+  },
+  {
+    "name": "vi-5",
+    "file": "vi-5.jpg",
+    "url": "https://static.wikia.nocookie.net/gtawiki/images/8/84/UnnamedSeaRay350SundancerBoat-GTAVI-Artwork-BrianHeder.png/revision/latest?cb=20250824132919",
+    "source": "https://gta.fandom.com/wiki/File:UnnamedSeaRay350SundancerBoat-GTAVI-Artwork-BrianHeder.png",
+    "bytes": 50456
+  },
+  {
+    "name": "af15-1",
+    "file": "af15-1.jpg",
+    "url": "https://static.wikia.nocookie.net/marveldatabase/images/1/1a/Amazing_Fantasy_Vol_1_15_Vintage.jpg/revision/latest?cb=20050930152752",
+    "source": "https://marvel.fandom.com/wiki/File:Amazing Fantasy Vol 1 15 Vintage.jpg",
+    "bytes": 93778
+  },
+  {
+    "name": "af15-2",
+    "file": "af15-2.jpg",
+    "url": "https://static.wikia.nocookie.net/marveldatabase/images/e/e6/Amazing_Fantasy_15_Spider-Man%21_Vol_1_1.jpg/revision/latest?cb=20160731005252",
+    "source": "https://marvel.fandom.com/wiki/File:Amazing Fantasy 15 Spider-Man! Vol 1 1.jpg",
+    "bytes": 52958
+  },
+  {
+    "name": "af15-3",
+    "file": "af15-3.jpg",
+    "url": "https://static.wikia.nocookie.net/marveldatabase/images/1/1b/Marvel_Milestone_Edition_Amazing_Fantasy_Vol_1_15.jpg/revision/latest?cb=20150531184219",
+    "source": "https://marvel.fandom.com/wiki/File:Marvel Milestone Edition Amazing Fantasy Vol 1 15.jpg",
+    "bytes": 121928
+  },
+  {
+    "name": "comicpage-1",
+    "file": "comicpage-1.jpg",
+    "url": "https://static.wikia.nocookie.net/marveldatabase/images/0/07/Amazing_Spider-Man_%28MX%29_Vol_1_1.jpg/revision/latest?cb=20211023190550",
+    "source": "https://marvel.fandom.com/wiki/File:Amazing Spider-Man (MX) Vol 1 1.jpg",
+    "bytes": 110906
+  },
+  {
+    "name": "comicpage-2",
+    "file": "comicpage-2.jpg",
+    "url": "https://static.wikia.nocookie.net/marveldatabase/images/9/93/Marvel%27s_Greatest_Comics_Amazing_Spider-Man_Vol_1_1.jpg/revision/latest?cb=20201008183403",
+    "source": "https://marvel.fandom.com/wiki/File:Marvel's Greatest Comics Amazing Spider-Man Vol 1 1.jpg",
+    "bytes": 74640
+  },
+  {
+    "name": "comicpage-3",
+    "file": "comicpage-3.jpg",
+    "url": "https://static.wikia.nocookie.net/marveldatabase/images/0/0b/Amazing_Spider-Man_Collected_Edition_Vol_1_1.jpg/revision/latest?cb=20220102210534",
+    "source": "https://marvel.fandom.com/wiki/File:Amazing Spider-Man Collected Edition Vol 1 1.jpg",
+    "bytes": 42444
   }
 ]

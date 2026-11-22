@@ -28,7 +28,7 @@ const tl = gsap.timeline({ paused: true });
 // ---------- layers ----------
 const stage = document.getElementById('stage');
 const bg = el('div', 'layer bg'); stage.appendChild(bg);
-const glows = [[C.b1, 620, 250, 40], [C.b2, 520, 40, 640]].map(([c, s, x, y]) => { const g = el('div', 'glow', '', 'width:' + s + 'px;height:' + s + 'px;left:' + (x - s / 2) + 'px;top:' + (y - s / 2) + 'px;background:radial-gradient(closest-side,' + c + ' 0%,rgba(0,0,0,0) 100%)'); bg.appendChild(g); return g; });
+const glows = [];   // background light is drawn by drawFrame as gradients on .bg itself (no big blurred layers: they tile into hard edges)
 bg.appendChild(el('div', 'vign'));
 const space = el('div', 'space'); stage.appendChild(space);          // 3D space; the camera is applied here
 const fsHost = el('div', 'layer fshost'); stage.appendChild(fsHost);  // full-bleed pictures (above the space)
@@ -307,7 +307,7 @@ shots.forEach(({ s, t0, dur }, k) => {
 });
 
 // ---------- background life ----------
-glows.forEach((g, i) => tl.fromTo(g, { x: 0, y: 0, scale: 1 }, { x: (i ? 60 : -110), y: (i ? -40 : 60), scale: 1.15, duration: TOTAL / 2, ease: 'sine.inOut', yoyo: true, repeat: 1, immediateRender: false }, 0));
+
 // bokeh: blurred discs that cross in front now and then (depth)
 for (let i = 0; i < Math.min(3, Math.floor(TOTAL / 25)); i++) {
   const b = el('div', 'bk', '', 'width:' + (60 + (i * 37) % 70) + 'px;height:' + (60 + (i * 37) % 70) + 'px;top:' + (80 + (i * 131) % 420) + 'px'); bok.appendChild(b);
@@ -319,6 +319,8 @@ tl.set({}, {}, TOTAL);
 window.TOTAL = TOTAL; window.CUES = CUES;
 window.drawFrame = function (time) {
   tl.seek(time, false);
+  const ax = 68 + Math.sin(time * 0.11) * 18, ay = 6 + Math.sin(time * 0.07) * 6, bx = 12 + Math.cos(time * 0.09) * 14, by = 96 - Math.sin(time * 0.1) * 8;
+  bg.style.backgroundImage = 'radial-gradient(70% 45% at ' + ax + '% ' + ay + '%, ' + C.b1 + ', rgba(0,0,0,0) 100%), radial-gradient(60% 40% at ' + bx + '% ' + by + '%, ' + C.b2 + ', rgba(0,0,0,0) 100%), linear-gradient(180deg,#0C2A1E 0%,#071711 45%,#030806 100%)';
   // camera: gentle continuous 3D drift + per-shot push (--cz)
   const ry = Math.sin(time * 0.45) * 2.5, rx = Math.cos(time * 0.37) * 1.5;
   space.style.transform = 'translateZ(0px) rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';

@@ -1,0 +1,42 @@
+name: preview
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        description: 'Post id'
+        required: true
+      frames:
+        description: 'Comma separated seconds, e.g. 0,5,12'
+        required: true
+permissions:
+  contents: write
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git fetch origin main && git reset --hard origin/main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: sudo apt-get install -y -qq fonts-noto-core ffmpeg >/dev/null || true
+      - name: Stills
+        env:
+          FRAMES: ${{ github.event.inputs.frames }}
+        run: |
+          eng=$(jq -r '.engine // 4' posts/${{ github.event.inputs.post }}/reel.json)
+          node engine/reel$eng.js ${{ github.event.inputs.post }}
+          mkdir -p posts/${{ github.event.inputs.post }}/preview
+          rm -f posts/${{ github.event.inputs.post }}/preview/*
+          cp engine/_tmp/v4-*.jpg posts/${{ github.event.inputs.post }}/preview/
+      - name: Commit
+        run: |
+          git config user.name "creativia-bot"
+          git config user.email "creativia-bot@users.noreply.github.com"
+          git add posts
+          git diff --cached --quiet && exit 0
+          git commit -m "Preview stills for ${{ github.event.inputs.post }}"
+          git pull --rebase origin main
+          git push

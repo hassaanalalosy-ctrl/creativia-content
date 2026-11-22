@@ -1,0 +1,13 @@
+[
+  {"name": "gta3-us", "wiki": "Grand_Theft_Auto_III"},
+  {"name": "vicecity", "wiki": "Grand_Theft_Auto:_Vice_City"},
+  {"name": "sanandreas", "wiki": "Grand_Theft_Auto:_San_Andreas"},
+  {"name": "gta4", "wiki": "Grand_Theft_Auto_IV"},
+  {"name": "gta5", "wiki": "Grand_Theft_Auto_V"},
+  {"name": "gta6", "wiki": "Grand_Theft_Auto_VI"},
+  {"name": "amazingfantasy", "wiki": "Amazing_Fantasy_15"},
+  {"name": "eu-search", "search": "Grand Theft Auto III European cover", "site": "gta.fandom.com", "n": 6},
+  {"name": "eu-search2", "search": "GTA III PAL box art", "site": "gta.fandom.com", "n": 6},
+  {"name": "bliss", "search": "Stephen Bliss", "site": "gta.fandom.com", "n": 3},
+  {"name": "gta3-wiki-files", "search": "Grand Theft Auto III cover", "site": "en.wikipedia.org", "n": 4}
+]

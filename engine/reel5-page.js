@@ -325,7 +325,7 @@ window.drawFrame = function (time) {
   // camera: gentle continuous 3D drift + per-shot push (--cz)
   const ry = Math.sin(time * 0.45) * 3.5, rx = Math.cos(time * 0.37) * 2;
   let cur = shots[0]; for (const sh of shots) if (time >= sh.t0 - 0.35) cur = sh;
-  const pr = Math.min(1, Math.max(0, (time - cur.t0) / cur.dur)), push = 1 + 0.07 * (pr * pr * (3 - 2 * pr));
+  const pr = Math.min(1, Math.max(0, (time - cur.t0 + 0.35) / cur.dur)), push = 1 + 0.06 * Math.sin(Math.PI * pr);   // breathes in and back out, so shots meet at scale 1 (no jump)
   space.style.transform = 'scale(' + push.toFixed(4) + ') rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
   applyFocus(time);
 };

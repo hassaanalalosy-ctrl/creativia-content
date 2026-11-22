@@ -69,6 +69,14 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 
+## Engine 5 — KINETIC SPACE (owner references, Nov 23 2026) — use `"engine": 5` for new reels
+No fixed card. Each scene = a visual + kinetic text that IS the voice (phrases build word by word in sync with the voice; small connector words, big green keywords from `hl`). Real 3D (perspective): pictures are cards shaped like the picture (never cropped), tilted and floating; galleries fly in from depth; blurred bokeh crosses in front; glows and a light beam drift behind.
+- Scene types: `focus` (full-bleed picture + virtual camera stops, rings, `title`/`titleOut` for the hook), `image` (picture card, `chip`, `ring`, `ringLabel`, `credit`), `gallery` (`items`, `rows` e.g. [3,2], `ratio`, `highlight`), `date`, `bars` (`rows` with `big`,`label`,`value`,`hi`), `slice` (`image` cut into tiles, `drop`, `result`), `versus` (`a`,`b`, `symbol`), `statement` (`text`,`sub`), `end`.
+- `layout`: `textTop` | `textBottom` (focus uses text over the picture, statement/end are text-only). Alternate them so the eye moves.
+- `trans` (how a scene enters): push, whip, flip, rise, swing (default rotates). After a full-bleed picture the next scene comes from depth automatically. `focus` enters with `grow` (default) or `iris`.
+- `hl`: the keywords of the line (big + green). 2-4 per line.
+- Preview while building: `FRAMES=0,3,8.4 node engine/reel5.js <id>` writes stills to engine/_tmp (CHROME_PATH may be needed locally).
+
 ## How a reel is made (owner, Nov 23 2026) — Claude is the art director
 1. Script first, then a STORYBOARD: for every line decide what we SEE (zoom into a detail, full-screen picture, cards, animated diagram, big type alone…). Templates serve the storyboard, never the reverse; build a new scene when the idea needs one.
 2. Render the storyboard key frames locally (FRAMES=…), then review them yourself as an art director: is each beat clear, big, alive? Empty space? Cropped pictures? Weak transitions? Write the notes, fix, re-check. Only then render the full video. The owner does not approve storyboards.

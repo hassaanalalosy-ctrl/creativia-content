@@ -3,7 +3,7 @@
   "topic": "Why the GTA covers are a grid (and why the helicopter is always top-left): Stephen Bliss's 6-month European GTA III cover, the post-9/11 rush redesign for America (a week by his account, two evenings by Rockstar's), cut into comic-book boxes; the grid became the series' identity up to GTA VI",
   "category": "تصميم وألعاب",
   "format": "reel",
-  "engine": 4,
+  "engine": 5,
   "mode": "dark",
   "badge": "تصميم · ألعاب",
   "music": "assets/music/zephiramusic-lofi-gaming-606302.mp3",
@@ -20,10 +20,17 @@
       "type": "focus",
       "dur": 7.8,
       "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
-      "big": true,
       "chip": "GTA 6",
       "chipIcon": "eye",
+      "chipOut": 2.3,
       "title": "ليش الهليكوبتر دايماً بنفس الزاوية؟",
+      "hl": [
+        "الزاوية؟",
+        "25",
+        "خمسة",
+        "GTA"
+      ],
+      "titleOut": 2.3,
       "stops": [
         [
           0.16,
@@ -56,13 +63,12 @@
         }
       ],
       "credit": "غلاف GTA 6: Rockstar Games",
-      "say": "لاحظت هالهليكوبتر؟ من خمسة وعشرين سنة، كل غلاف GTA يحطها بنفس الزاوية. ليش؟",
-      "titleOut": 2.3
+      "hl2": [],
+      "say": "لاحظت هالهليكوبتر؟ من خمسة وعشرين سنة، كل غلاف GTA يحطها بنفس الزاوية. ليش؟"
     },
     {
       "type": "gallery",
-      "dur": 3.5,
-      "title": "نفس الزاوية… بكل جزء",
+      "layout": "textTop",
       "items": [
         {
           "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
@@ -85,22 +91,31 @@
           "label": "VI · 2026"
         }
       ],
+      "rows": [
+        3,
+        2
+      ],
+      "ratio": 0.81,
       "highlight": [
         0.02,
         0.02,
         0.44,
         0.27
       ],
-      "say": "من الجزء الثالث لحد السادس، الهليكوبتر دايماً فوق، على اليسار."
+      "highlightAt": 2.2,
+      "hl": [
+        "الهليكوبتر",
+        "فوق",
+        "اليسار"
+      ],
+      "say": "من الجزء الثالث لحد السادس، الهليكوبتر دايماً فوق، على اليسار.",
+      "dur": 3.5
     },
     {
       "type": "focus",
-      "dur": 10,
       "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
       "chip": "أوروبا · 2001",
       "chipIcon": "star",
-      "title": "الغلاف الأصلي: 6 أشهر رسم",
-      "body": "كولاج على طريقة بوسترات جيمس بوند",
       "stops": [
         [
           0.5,
@@ -130,26 +145,33 @@
       ],
       "credit": "غلاف أوروبا: Rockstar Games",
       "hl": [
-        "ستيفن"
+        "ستيفن",
+        "بلِس",
+        "ستة",
+        "جيمس",
+        "بوند"
       ],
       "say": "القصة تبدي بغلاف ما شافه الأمريكان. هذا غلاف أوروبا، رسمه ستيفن بلِس بستة أشهر، على طريقة بوسترات جيمس بوند.",
-      "titleOut": 6.6
+      "dur": 10
     },
     {
       "type": "date",
-      "dur": 3.4,
+      "layout": "textBottom",
       "month": "سبتمبر",
       "day": "11",
       "year": "2001",
-      "title": "قبل الإصدار بأسابيع… صارت الأحداث",
-      "body": "ومكتب روكستار بنيويورك قريب من موقعها",
-      "say": "وقبل الإصدار بأسابيع، صارت أحداث الحادي عشر من سبتمبر، ومكتب روكستار بنيويورك كان قريب من موقعها."
+      "hl": [
+        "سبتمبر",
+        "نيويورك",
+        "الحادي"
+      ],
+      "say": "وقبل الإصدار بأسابيع، صارت أحداث الحادي عشر من سبتمبر، ومكتب روكستار بنيويورك كان قريب من موقعها.",
+      "dur": 3.4
     },
     {
-      "type": "hbars",
-      "dur": 4,
-      "icon": "clock",
-      "title": "غلاف أهدأ لأمريكا… وبسرعة",
+      "type": "bars",
+      "layout": "textTop",
+      "trans": "whip",
       "rows": [
         {
           "big": "6 أشهر",
@@ -163,17 +185,19 @@
           "hi": true
         }
       ],
-      "body": "هو يكول أسبوع… وروكستار تكول ليلتين",
       "hl": [
+        "أهدأ",
         "أسبوع",
-        "ليلتين"
+        "ليلتين",
+        "أيام"
       ],
-      "say": "روكستار طلبت غلاف أهدأ لأمريكا، بلا سلاح ولا انفجارات. وستيفن كان عنده أيام بس: هو يكول أسبوع، وروكستار تكول ليلتين."
+      "say": "روكستار طلبت غلاف أهدأ لأمريكا، بلا سلاح ولا انفجارات. وستيفن كان عنده أيام بس: هو يكول أسبوع، وروكستار تكول ليلتين.",
+      "dur": 4
     },
     {
       "type": "slice",
-      "dur": 5,
-      "title": "ما رسم من جديد… قصّ ورتّب",
+      "layout": "textTop",
+      "trans": "flip",
       "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
       "result": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
       "rows": 3,
@@ -183,19 +207,18 @@
         6,
         7
       ],
-      "h": 320,
-      "chip": "الحل",
-      "chipIcon": "spark",
       "hl": [
         "قصّ",
-        "مربعات"
+        "العنيفة",
+        "بمربعات"
       ],
-      "say": "فبدال ما يرسم من الصفر، قصّ رسمته القديمة، شال المشاهد العنيفة، ورتّب الباقي بمربعات."
+      "say": "فبدال ما يرسم من الصفر، قصّ رسمته القديمة، شال المشاهد العنيفة، ورتّب الباقي بمربعات.",
+      "dur": 5
     },
     {
       "type": "versus",
-      "dur": 4,
-      "title": "نفس الرسمة… شكل جديد",
+      "layout": "textBottom",
+      "trans": "rise",
       "symbol": "←",
       "a": {
         "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
@@ -208,28 +231,33 @@
         "label": "أمريكا",
         "tag": "صار الهوية"
       },
-      "credit": "أغلفة: Rockstar Games",
-      "say": "والنتيجة؟ غلاف يشبه صفحة كوميكس: نفس الشخصيات، بس كل وحدة بمربعها."
+      "hl": [
+        "كوميكس",
+        "بمربعها"
+      ],
+      "say": "والنتيجة؟ غلاف يشبه صفحة كوميكس: نفس الشخصيات، بس كل وحدة بمربعها.",
+      "dur": 4
     },
     {
       "type": "image",
-      "dur": 3.5,
+      "layout": "textBottom",
+      "trans": "swing",
       "image": "posts/2026-11-23-gta-cover-grid-story/img/comic.jpg",
-      "fit": "cover",
       "chip": "الإلهام",
-      "chipIcon": "spark",
-      "title": "المربعات جاية من الكوميكس",
-      "body": "قصص مارفل ودي سي اللي كبر عليها",
+      "chipIcon": "book",
       "credit": "Amazing Fantasy #15 (1962): Marvel",
+      "hl": [
+        "مارفل",
+        "سي",
+        "المربعات"
+      ],
       "say": "والفكرة مو غريبة عليه: المربعات جاية من قصص مارفل ودي سي اللي كبر يقراها.",
-      "overlay": true
+      "dur": 3.5
     },
     {
       "type": "focus",
-      "dur": 8.5,
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
       "enter": "iris",
-      "title": "وهاي الهليكوبتر؟ مربع من غلاف مستعجل",
+      "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
       "stops": [
         [
           0.5,
@@ -257,35 +285,47 @@
         }
       ],
       "credit": "غلاف أمريكا: Rockstar Games",
+      "hl": [
+        "الهليكوبتر",
+        "بدت",
+        "مستعجل",
+        "عادة"
+      ],
       "say": "وهاي الهليكوبتر بالزاوية؟ من هنا بدت. مربع واحد من غلاف مستعجل، صار عادة بكل جزء.",
-      "titleAt": 2.0
+      "dur": 8.5
     },
     {
       "type": "image",
-      "dur": 3.8,
+      "layout": "textBottom",
       "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
-      "fit": "cover",
-      "pos": "50% 0%",
       "ring": [
         0.16,
-        0.1,
+        0.12,
         0.13
       ],
       "ringAt": 1.2,
       "chip": "GTA 6 · 2026",
       "chipIcon": "trophy",
-      "title": "حتى GTA 6 بعدها على نفس الشبكة",
-      "body": "ستيفن ما رسمه، بس كال: فرحت إنهم بعدهم يستخدمونها",
       "credit": "غلاف GTA 6: Rockstar Games",
+      "hl": [
+        "الخامس",
+        "السادس",
+        "الشبكة"
+      ],
       "say": "ستيفن طلع من روكستار من سنين، وما رسم غلاف الخامس ولا السادس. بس الشبكة اللي سواها بأيام، بعدها على كل غلاف.",
-      "overlay": true
+      "dur": 3.8
     },
     {
       "type": "statement",
-      "dur": 3.4,
+      "trans": "push",
       "text": "غلاف مستعجل… صار هوية 25 سنة",
       "sub": "أحياناً الضغط يطلّع أحسن فكرة",
-      "say": "غلاف مستعجل، صار هوية خمسة وعشرين سنة. تتوقع الضغط يطلّع أحسن الأفكار؟"
+      "hl": [
+        "هوية",
+        "25"
+      ],
+      "say": "غلاف مستعجل، صار هوية خمسة وعشرين سنة. تتوقع الضغط يطلّع أحسن الأفكار؟",
+      "dur": 3.4
     },
     {
       "type": "end",

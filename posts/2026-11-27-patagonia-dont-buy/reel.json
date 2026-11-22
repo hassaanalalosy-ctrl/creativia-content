@@ -43,12 +43,12 @@
     {
       "type": "image",
       "dur": 3.2,
-      "image": "https://gearjunkie.com/legacy/images/7189.jpg",
-      "fit": "contain",
+      "image": "https://thebrandhopper.com/wp-content/uploads/2025/06/Dont-Buy-This-Jacket-NYT-Campaign-782x1024.jpeg",
+      "fit": "cover",
       "chip": "جاكيت R2",
       "title": "من أكثر قطعهم مبيعاً",
       "body": "وفوكه مكتوب: لا تشتريه",
-      "credit": "الإعلان: Patagonia · الصورة: GearJunkie",
+      "credit": "الإعلان: Patagonia · نيويورك تايمز 2011",
       "say": "بالصورة جاكيت من أكثر قطعهم مبيعاً، وفوكه مكتوب: لا تشتري هالجاكيت."
     },
     {
@@ -70,14 +70,17 @@
       "say": "وبطريقه للمخزن طلّع كاربون أكثر من وزنه بأربعة وعشرين مرة."
     },
     {
-      "type": "image",
-      "dur": 3.4,
-      "image": "https://i4tsk12in2b2y7uts14c528g-wpengine.netdna-ssl.com/wp-content/uploads/sites/4/2015/12/Jacket-2.png",
-      "fit": "contain",
-      "chip": "Common Threads",
+      "type": "list",
+      "dur": 3.6,
+      "tag": "Common Threads",
+      "tagIcon": "spark",
       "title": "اشتري بس اللي تحتاجه",
-      "body": "قلّل، صلّح، انطيه لغيرك، دوّره",
-      "credit": "الحملة: Patagonia",
+      "points": [
+        "قلّل",
+        "صلّح اللي ينكسر",
+        "انطيه لغيرك",
+        "دوّره"
+      ],
       "say": "وطلبوا من الناس: اشتري بس اللي تحتاجه، وصلّح اللي ينكسر، وانطي اللي ما تحتاجه لغيرك."
     },
     {

@@ -83,7 +83,7 @@ const B = {
     } };
   },
   image(s, k) {
-    const c = panel(k);
+    const c = panel(k, s.overlay ? 'ov' : '');
     c.innerHTML = media(s.image, s.fit, s.h, s.pos) + (s.chip ? '<div class="chip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + (s.num ? '<div class="nbadge" dir="ltr">' + esc(s.num) + '</div>' : '') +
       (s.ring ? '<svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (s.ring[0] - s.ring[2]) * 100 + '%;top:' + (s.ring[1] - s.ring[2] * 1.2) * 100 + '%;width:' + s.ring[2] * 200 + '%;height:' + s.ring[2] * 240 + '%"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (s.ringLabel ? '<div class="rlab" style="left:' + (s.ring[0] + s.ring[2] * 0.6) * 100 + '%;top:' + (s.ring[1] + s.ring[2] * 1.1) * 100 + '%">' + esc(s.ringLabel) + '</div>' : '') : '') +
       '<div class="txt"><div class="t">' + words(s.title || '') + '</div>' + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
@@ -208,10 +208,10 @@ const B = {
   },
   // a wall of covers with labels; an optional highlight box on the same corner of each (e.g. the helicopter)
   gallery(s, k) {
-    const c = panel(k);
+    const c = panel(k, 'wide');
     const items = (s.items || []).slice(0, 6), hl = s.highlight;
     c.innerHTML = '<div class="stack">' + (s.title ? '<div class="t">' + words(s.title) + '</div>' : '') + '<div class="gal">' +
-      items.map(o => '<div class="gi"><div class="gimg"><img src="' + o.image + '">' + (hl ? '<b class="hlb" style="left:' + hl[0] * 100 + '%;top:' + hl[1] * 100 + '%;width:' + hl[2] * 100 + '%;height:' + hl[3] * 100 + '%"></b>' : '') + '</div><div class="gl" dir="ltr">' + esc(o.label || '') + '</div></div>').join('') + '</div>' +
+      items.map(o => '<div class="gi"><div class="gimg"><img src="' + o.image + '">' + (hl ? '<b class="hlb" style="left:' + hl[0] * 100 + '%;top:' + hl[1] * 100 + '%;width:' + hl[2] * 100 + '%;height:' + hl[3] * 100 + '%"></b>' : '') + '<div class="gl" dir="ltr">' + esc(o.label || '') + '</div></div></div>').join('') + '</div>' +
       (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + (s.credit ? '<div class="cr">' + cred(s.credit) + '</div>' : '') + '</div>';
     return { build(tl, t0) {
       if (s.title) wordsIn(tl, c.querySelector('.t'), t0 + 0.1, 0.07);
@@ -262,12 +262,12 @@ const B = {
     const c = panel(k, 'ghost');
     const L = el('div', 'fs');
     const rings = (s.rings || (s.ring ? [{ at: s.ringAt || 1, xy: s.ring, label: s.ringLabel }] : []));
-    L.innerHTML = '<div class="fsw"><img src="' + s.image + '">' + rings.map(r => '<svg class="ring fsr" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (r.xy[0] - r.xy[2]) * 100 + '%;top:0;width:' + r.xy[2] * 200 + '%;height:0" data-xy="' + r.xy.join(',') + '"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (r.label ? '<div class="rlab fsl" data-xy="' + r.xy.join(',') + '">' + esc(r.label) + '</div>' : '')).join('') + '</div>' +
+    L.innerHTML = '<img class="fsbg" src="' + s.image + '"><div class="fsw"><img src="' + s.image + '">' + rings.map(r => '<svg class="ring fsr" viewBox="0 0 100 100" preserveAspectRatio="none" style="left:' + (r.xy[0] - r.xy[2]) * 100 + '%;top:0;width:' + r.xy[2] * 200 + '%;height:0" data-xy="' + r.xy.join(',') + '"><ellipse cx="50" cy="50" rx="46" ry="46" pathLength="100"/></svg>' + (r.label ? '<div class="rlab fsl" data-xy="' + r.xy.join(',') + '">' + esc(r.label) + '</div>' : '')).join('') + '</div>' +
       '<div class="fsshade"></div>' + (s.title ? '<div class="fst' + (s.big ? ' big' : '') + '">' + (s.chip ? '<div class="tag fschip">' + icon(s.chipIcon || 'eye', 14) + esc(s.chip) + '</div>' : '') + '<div class="t' + (s.big ? ' xl' : '') + '">' + words(s.title) + '</div>' + (s.body ? '<div class="b">' + words(s.body) + '</div>' : '') + '</div>' : '') +
       (s.credit ? '<div class="fscr">' + cred(s.credit) + '</div>' : '');
     fsHost.appendChild(L);
-    const st = (s.stops || [[0.5, 0.5, 1, 0]]).map(a => ({ x: a[0], y: a[1], z: a[2], at: a[3] || 0 }));
-    const fz = { x: st[0].x, y: st[0].y, z: st[0].z, cl: k === 0 ? 1 : 0 };
+    const st = (s.stops || [[0.5, 0.5, 1, 0]]).map(a => ({ x: a[0], y: a[1], z: a[2], at: a[3] || 0, cy: a[4] == null ? 320 : a[4] }));
+    const fz = { x: st[0].x, y: st[0].y, z: st[0].z, cy: st[0].cy, cl: k === 0 ? 1 : 0 };
     FOCI.push({ L, fz, img: L.querySelector('img'), wrap: L.querySelector('.fsw') });
     return { focus: true, build(tl, t0, dur) {
       const first = k === 0, inMode = s.enter || (first ? 'none' : 'grow'), outMode = s.exit || 'shrink';
@@ -276,13 +276,14 @@ const B = {
       if (inMode === 'none') fz.cl = 1;
       else { tl.fromTo(fz, { cl: 0 }, { cl: 1, duration: 0.7, ease: 'expo.inOut', immediateRender: false }, tin); cue(tin + 0.1, 'whoosh', 0.5); }
       // camera stops on the picture
-      st.slice(1).forEach((q, i) => { const prev = st[i]; tl.fromTo(fz, { x: prev.x, y: prev.y, z: prev.z }, { x: q.x, y: q.y, z: q.z, duration: Math.max(0.3, q.at - prev.at), ease: q.ease || 'power2.inOut', immediateRender: false }, t0 + prev.at); if (Math.abs(q.z - prev.z) > 0.6) cue(t0 + prev.at + 0.1, 'whoosh-soft', 0.35); });
+      st.slice(1).forEach((q, i) => { const prev = st[i]; tl.fromTo(fz, { x: prev.x, y: prev.y, z: prev.z, cy: prev.cy }, { x: q.x, y: q.y, z: q.z, cy: q.cy, duration: Math.max(0.3, q.at - prev.at), ease: q.ease || 'power2.inOut', immediateRender: false }, t0 + prev.at); if (Math.abs(q.z - prev.z) > 0.6) cue(t0 + prev.at + 0.1, 'whoosh-soft', 0.35); });
       if (st.length === 1) tl.fromTo(fz, { z: st[0].z }, { z: st[0].z * 1.06, duration: dur, ease: 'none', immediateRender: false }, t0);
       L.querySelectorAll('.fsr ellipse').forEach((e, i) => { const at = t0 + rings[i].at; tl.fromTo(e, { strokeDashoffset: 100 }, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, at); cue(at + 0.05, 'pop', 0.45); });
       L.querySelectorAll('.fsl').forEach((e, i) => tl.fromTo(e, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.4)' }, t0 + rings.filter(r => r.label)[i].at + 0.35));
       const tt = L.querySelector('.fst');
       if (tt) { if (first) { const ws = tt.querySelectorAll('.t .w'); if (ws.length) tl.fromTo(ws[ws.length - 1], { color: C.text }, { color: C.accent, duration: 0.5 }, 0.6); }
-        else { tl.fromTo(tt, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' }, t0 + 0.15); wordsIn(tl, tt.querySelector('.t'), t0 + 0.2, 0.07); }
+        else { const ta = t0 + (s.titleAt || 0.15); tl.fromTo(tt, { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out', immediateRender: false }, ta); wordsIn(tl, tt.querySelector('.t'), ta + 0.05, 0.07); }
+        if (s.titleOut != null) tl.fromTo(tt, { opacity: 1, y: 0 }, { opacity: 0, y: 16, duration: 0.45, ease: 'power2.in', immediateRender: false }, t0 + s.titleOut);
         const ch = tt.querySelector('.fschip'); if (ch) drawIcons(tl, ch, t0 + 0.2);
         if (s.body) wordsIn(tl, tt.querySelector('.b'), t0 + 0.9, 0.05); }
       if (s.credit) tl.fromTo(L.querySelector('.fscr'), { opacity: 0 }, { opacity: 1, duration: 0.4 }, t0 + 0.8);
@@ -390,7 +391,7 @@ let fitted = false;
 function fitPanels() {
   built.forEach(({ b, p }) => {
     const zHold = b.payoff ? 1.09 : 1.05, H = p.el.offsetHeight, W = p.el.offsetWidth;
-    const sc = Math.min(1, FIT / (H * zHold), 336 / (W * zHold));
+    const sc = Math.min(1, FIT / (H * zHold), 352 / (W * zHold));
     p.el.style.transform = 'translate(-50%,-50%) rotate(' + p.rot + 'deg) scale(' + sc.toFixed(3) + ')';
   });
   fitted = true;
@@ -408,8 +409,9 @@ function applyFocus(time) {
     const on = time >= f.tin && time <= f.tout; f.L.style.visibility = on ? 'visible' : 'hidden'; if (!on) continue;
     f.L.dataset.mode = time < f.mid ? f.inMode : f.outMode;
     const iw = f.img.naturalWidth || 900, ih = f.img.naturalHeight || 1200, s0 = Math.max(VW / iw, VH / ih), W = iw * s0, H = ih * s0, z = f.fz.z;
-    let tx = VW / 2 - f.fz.x * W * z, ty = VH / 2 - f.fz.y * H * z;
-    tx = Math.min(0, Math.max(VW - W * z, tx)); ty = Math.min(0, Math.max(VH - H * z, ty));
+    let tx = VW / 2 - f.fz.x * W * z, ty = f.fz.cy - f.fz.y * H * z;
+    if (W * z >= VW) tx = Math.min(0, Math.max(VW - W * z, tx)); else tx = (VW - W * z) / 2;
+    if (H * z >= VH) ty = Math.min(0, Math.max(VH - H * z, ty));
     f.wrap.style.width = W + 'px'; f.wrap.style.height = H + 'px';
     f.wrap.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')';
     f.wrap.querySelectorAll('[data-xy]').forEach(n => { const [x, y, r] = n.dataset.xy.split(',').map(Number);
@@ -529,4 +531,11 @@ body{margin:0;background:#000}
 .fschip{background:rgba(0,0,0,0.45);color:#fff}
 .fscr{position:absolute;right:22px;top:92px;font-size:10px;color:rgba(255,255,255,0.7)}
 .panel.ghost{visibility:hidden}
+.fsbg{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(26px) brightness(0.45) saturate(1.2)}
+.fsw{box-shadow:0 20px 60px rgba(0,0,0,0.55)}
+.panel.wide{width:336px}
+.wide .stack{padding:8px 4px;gap:8px}.wide .gal{gap:6px 6px}.gimg .gl{position:absolute;left:0;right:0;bottom:0;padding:14px 4px 4px;text-align:center;font-size:10px;font-weight:800;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.85))}
+.ov .ph{height:330px}
+.ov .txt{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;padding:56px 14px 12px;border-radius:0 0 20px 20px;background:linear-gradient(180deg,rgba(4,12,8,0) 0%,rgba(4,12,8,0.72) 45%,rgba(4,12,8,0.92) 100%);gap:6px}
+.ov .txt .t{font-size:21px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,0.6)}.ov .txt .b{color:rgba(255,255,255,0.8);font-size:13.5px;line-height:1.5}.ov .txt .cr{color:rgba(255,255,255,0.6)}
 `;

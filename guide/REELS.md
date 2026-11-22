@@ -81,6 +81,7 @@ Reference: a story reel where every line has a picture or a diagram that SHOWS w
   - `gallery`: up to 6 pictures in a 3x2 wall with labels, plus an optional highlight box on the same spot of each (`"highlight":[x,y,w,h]` as fractions). Great for "same thing across years".
   - `date`: a calendar page. `{"type":"date","month":"سبتمبر","day":"11","year":"2001","title","body"}`
   - `hbars`: horizontal bars with big labels (time or size compared). `{"type":"hbars","title","rows":[{"big":"6 أشهر","label":"...","value":180},{"big":"أيام","label":"...","value":7,"hi":true}],"body"}`
+  - Posters and covers are PORTRAIT (owner): use `image` with `"overlay": true` (tall photo, text on a dark gradient inside it), never a squat crop. In `focus`, end on the WHOLE poster: a last stop with zoom < 1 (about 0.55) and screen-y 268 (5th value), with `titleOut` so the title clears; `titleAt` delays the title.
   - `image` extras: `"h"` (photo height, default 236), `"ring":[cx,cy,r]` draws a yellow circle on the photo (fractions of the photo) with optional `"ringLabel"` and `"ringAt"`.
 - Pictures for a reel can be fetched into the post folder with the `fetch-images` workflow (`posts/<id>/images.json`: wiki page, fandom/wiki file search, or direct URL), then used as `posts/<id>/img/<file>`. Check every fetched picture with Read before using it.
 

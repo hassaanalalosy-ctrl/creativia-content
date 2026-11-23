@@ -12,7 +12,7 @@ const ringMark = (r) => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height=
   camTo(f, 0, { z: 2.8 }, 2.2, 'none');
   camTo(f, W(k, 6).s - 0.35, { x: 0.5, y: 0.5, z: 0.47, cx: 128, cy: 300, shade: 0.25 }, 1.3, 'expo.inOut'); cue(W(k, 6).s - 0.3, 'whoosh', 0.45);
   // frame 0 = thumbnail: the question is already there
-  const title = el('div', 'ph right', '<span class="wd"><span class="wi">ليش</span></span><span class="wd"><span class="wi">الهليكوبتر</span></span><span class="wd"><span class="wi">دايماً</span></span><span class="wd"><span class="wi">بنفس</span></span><span class="wd hero"><span class="wi">الزاوية؟</span><i class="kash"></i></span>', 'left:24px;top:372px;width:312px;font-size:34px', txt);
+  const title = el('div', 'ph right', '<span class="wd"><span class="wi">ليش</span></span><span class="wd"><span class="wi">الهليكوبتر</span></span><span class="wd"><span class="wi">دايماً</span></span><span class="wd"><span class="wi">بنفس</span></span><span class="wd hero"><span class="wi">الزاوية؟</span></span>', 'left:24px;top:372px;width:312px;font-size:34px', txt);
   out(title, W(k, 2).s - 0.15);
   const n25 = word('25', 0, 360, 92, W(k, 3).s - 0.1, { ltr: true, css: 'left:auto;right:28px' }); count(n25, 0, 25, W(k, 3).s - 0.05, 0.9);
   say(k, 5, 5, { x: 24, y: 448, w: 200, size: 24, align: 'right', out: W(k, 6).s - 0.3 }); out(n25, W(k, 6).s - 0.3);

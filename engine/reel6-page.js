@@ -109,7 +109,7 @@ function say(k, i0, i1, o) {
   return d;
 }
 // the KASHIDA: a green stroke drawn right→left under a hero word (brand signature)
-function kashida(wrap, t) { const k = el('i', 'kash', '', '', wrap); tl.fromTo(k, { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'expo.out', immediateRender: true }, t); }
+function kashida(wrap, t) { return; /* owner: no line under words — it covers Arabic letters and dots */ const k = el('i', 'kash', '', '', wrap); tl.fromTo(k, { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'expo.out', immediateRender: true }, t); }
 // older text steps back (smaller, dimmer, up) instead of vanishing — or leaves upward
 function recede(d, t) { tl.to(d, { scale: 0.6, y: -34, opacity: 0.35, filter: 'blur(1.5px)', transformOrigin: '100% 0%', duration: 0.5, ease: 'expo.out' }, t); }
 function out(d, t, mode) { if (mode === 'recede') return recede(d, t); tl.to(d, { y: -16, opacity: 0, filter: 'blur(8px)', duration: 0.25, ease: 'power2.in' }, t); }

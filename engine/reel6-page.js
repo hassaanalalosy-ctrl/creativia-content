@@ -105,6 +105,7 @@ function say(k, i0, i1, o) {
     else tl.fromTo(inner, { scale: 1.3, opacity: 0, filter: 'blur(10px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.42, ease: 'power3.out', immediateRender: true }, t);
     if (o.pill && o.pill[i]) { const b = el('i', 'pb', '', '', wrap); tl.fromTo(b, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power3.out', immediateRender: true }, t - 0.05); }
   });
+  if (o.bg && ws.length) tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: true }, ws[0].s - 0.14);   // the backing pill appears with the first word
   if (o.out != null) out(d, o.out, o.outMode);
   return d;
 }

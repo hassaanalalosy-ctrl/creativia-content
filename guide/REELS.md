@@ -69,6 +69,14 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 
+## Engine 6 — DIRECTED (current, Nov 23 2026). Use `"engine": 6` for story reels.
+Each reel has its own `posts/<id>/scenes.js` (beats written for that story) on the toolkit `engine/reel6-page.js`; `reel.json` keeps `scenes` (say + dur, for the voice) and an `images` map. Example: posts/2026-11-23-gta-cover-grid-story/scenes.js.
+Process (owner): script → storyboard per beat → build → render stills (`FRAMES=…` locally or the `preview` workflow) → review as art director + motion designer (use separate reviewer agents for big reels) → fix → full render → frame-jump check (no single-frame spikes except intentional match-cuts) → schedule.
+Brand system (from the brand review):
+- Constant: dark green→black ground; white text; mint #9BFFC2 for secondary info and drawn marks (rings, brackets, lines, notes); green #2EE86B ONLY for the one keyword per idea (≤10% of frame); Rubik; Playpen only for editor's notes; logo + badge fixed; Kreti end card. NO underlines under Arabic.
+- Variable per beat: layout, text anchor, camera, transitions, background (full-bleed photo / dark / paper palette break), one topic accent inside the content.
+- Rules: no two consecutive beats with the same composition; no static hold > 3 s (camera drift, drawing, counters); text appears with its spoken word and older text leaves; hero word ≥ 2.5× connector size; nothing under the badge (y ≥ 104); no text under the right buttons (x > 300 when y 330–600) or below y ≈ 506 — pictures may go there; dark scrim/pill behind text on busy art; transitions come from the content (match-cut, park-in-corner, iris, whip, flash, push-through), never a fade to an empty frame.
+
 ## Engine 5 — KINETIC SPACE (owner references, Nov 23 2026) — use `"engine": 5` for new reels
 No fixed card. Each scene = a visual + kinetic text that IS the voice (phrases build word by word in sync with the voice; small connector words, big green keywords from `hl`). Real 3D (perspective): pictures are cards shaped like the picture (never cropped), tilted and floating; galleries fly in from depth; blurred bokeh crosses in front; glows and a light beam drift behind.
 - Scene types: `focus` (full-bleed picture + virtual camera stops, rings, `title`/`titleOut` for the hook), `image` (picture card, `chip`, `ring`, `ringLabel`, `credit`), `gallery` (`items`, `rows` e.g. [3,2], `ratio`, `highlight`), `date`, `bars` (`rows` with `big`,`label`,`value`,`hi`), `slice` (`image` cut into tiles, `drop`, `result`), `versus` (`a`,`b`, `symbol`), `statement` (`text`,`sub`), `end`.

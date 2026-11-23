@@ -12,12 +12,12 @@ const ringMark = (r) => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height=
   camTo(f, 0, { z: 2.8 }, 2.2, 'none');
   camTo(f, W(k, 6).s - 0.35, { x: 0.5, y: 0.5, z: 0.47, cx: 128, cy: 300, shade: 0.25 }, 1.3, 'expo.inOut'); cue(W(k, 6).s - 0.3, 'whoosh', 0.45);
   // frame 0 = thumbnail: the question is already there
-  const title = el('div', 'ph right', '<span class="wd"><span class="wi">ليش</span></span><span class="wd"><span class="wi">الهليكوبتر</span></span><span class="wd"><span class="wi">دايماً</span></span><span class="wd"><span class="wi">بنفس</span></span><span class="wd hero"><span class="wi">الزاوية؟</span></span>', 'left:24px;top:372px;width:312px;font-size:34px', txt);
+  const title = el('div', 'ph right', '<span class="wd"><span class="wi">لاحظت</span></span><span class="wd hero" style="font-size:52px"><span class="wi">هالهليكوبتر؟</span></span>', 'left:24px;top:388px;width:312px;font-size:30px', txt);
   out(title, W(k, 2).s - 0.15);
-  const n25 = word('25', 0, 360, 92, W(k, 3).s - 0.1, { ltr: true, css: 'left:auto;right:28px' }); count(n25, 0, 25, W(k, 3).s - 0.05, 0.9);
-  say(k, 5, 5, { x: 24, y: 448, w: 200, size: 24, align: 'right', out: W(k, 6).s - 0.3 }); out(n25, W(k, 6).s - 0.3);
+  const n25 = word('25', 40, 372, 92, W(k, 3).s - 0.1, { ltr: true }); count(n25, 0, 25, W(k, 3).s - 0.05, 0.9);
+  say(k, 2, 5, { x: 160, y: 404, w: 140, size: 22, hero: {}, out: W(k, 6).s - 0.3 }); out(n25, W(k, 6).s - 0.3);
   say(k, 6, 11, { x: 252, y: 160, w: 96, size: 22, hero: { 11: 28 }, out: T1(k) - 0.3 });
-  word('ليش؟', 0, 436, 66, W(k, 12).s - 0.05, { css: 'left:auto;right:22px', out: T1(k) - 0.25 });
+  word('ليش؟', 40, 452, 72, W(k, 12).s - 0.05, { out: T1(k) - 0.25 });
   flash(T1(k) - 0.12);
 }
 
@@ -39,15 +39,15 @@ const ringMark = (r) => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height=
   path(sv, 'M' + (L[0] + 38) + ' ' + L[1] + ' a38 32 0 1 1 -76 0 a38 32 0 1 1 76 0', T0(k), 0.5, { width: 4, out: tFan });
   say(k, 0, 4, { y: 106, size: 23, hero: { 4: 34 }, out: tFan });
   // the fan: five covers on a diagonal, each helicopter bracketed, joined by a dotted line
-  const pos = [[226, 108], [176, 162], [126, 216], [76, 270], [26, 324]], pts = [];
+  const FW = 136, pos = [0, 1, 2, 3, 4].map(i => [30 + i * 36, 106 + i * 52]), pts = [];
   order.slice().reverse().forEach((n, j) => {
-    const i = order.length - 1 - j, [x, y] = pos[i], p = pic(n, x, y, 112, g); const t = tFan + i * 0.12;
+    const i = order.length - 1 - j, [x, y] = pos[i], p = pic(n, x, y, FW, g); const t = tFan + i * 0.12;
     enter(p, t, { x: 180, y: -40, rotationY: -50, opacity: 0 }, 0.7); sweep(p, t + 0.5);
-    const hx = x + HELI[n][0] * 112, hy = y + HELI[n][1] * p.H; pts[i] = [hx, hy];
+    const hx = x + HELI[n][0] * FW, hy = y + HELI[n][1] * p.H; pts[i] = [hx, hy];
     bracket(sv, hx - 18, hy - 12, 36, 24, t + 0.55, { width: 2.5 });
   });
   path(sv, 'M' + pts.map(q => q.join(' ')).join(' L'), tFan + 1.3, 0.8, { width: 2, color: '#2EE86B' });
-  say(k, 5, 9, { x: 196, w: 146, y: 352, size: 21, hero: { 9: 46 }, out: T1(k) - 0.2 });
+  say(k, 5, 9, { x: 214, w: 132, y: 112, size: 22, hero: { 9: 46 }, out: T1(k) - 0.2 });
   tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.1);
 }
 
@@ -113,34 +113,38 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   const tp = W(k, 9).s - 0.35;
   tl.to(P, { x: (262 + 37) - (60 + 120), y: (108 + 52) - (104 + P.H / 2), scale: 74 / 240, filter: 'grayscale(0) brightness(1)', duration: 0.8, ease: 'expo.inOut' }, tp); cue(tp, 'whoosh-soft', 0.4);
   const nt = note('الأصلي', 256, 218, tp + 0.6, g); tl.to([nt, P], { opacity: 0, duration: 0.3 }, W(k, 19).s - 0.3);
-  const tl6 = tp + 0.7, dl = 1.6;
-  path(sv, 'M336 292 H24', tl6, dl, { width: 4, ease: 'power2.inOut' }); cue(tl6, 'riser', 0.25);
-  for (let i = 0; i <= 26; i++) { const x = 336 - i * (312 / 26), big = i % 4 === 0 || i === 26, t = tl6 + dl * (i / 26);
-    const tk = el('i', '', '', 'position:absolute;left:' + (x - 1) + 'px;top:' + (big ? 280 : 285) + 'px;width:2px;height:' + (big ? 24 : 14) + 'px;background:#9BFFC2;border-radius:2px', g);
+  const tl6 = tp + 0.7, dl = 1.6, X0 = 290, X1 = 40, step = (X0 - X1) / 26;
+  path(sv, 'M' + X0 + ' 250 H' + X1, tl6, dl, { width: 5, ease: 'power2.inOut' }); cue(tl6, 'riser', 0.25);
+  for (let i = 0; i <= 26; i++) { const x = X0 - i * step, big = i % 4 === 0 || i === 26, t = tl6 + dl * (i / 26);
+    const tk = el('i', '', '', 'position:absolute;left:' + (x - 1) + 'px;top:' + (big ? 238 : 243) + 'px;width:2px;height:' + (big ? 24 : 14) + 'px;background:#9BFFC2;border-radius:2px', g);
     enter(tk, t, { scaleY: 0, opacity: 0 }, 0.3, 'back.out(2)'); if (i % 4 === 0) cue(t, 'tick', 0.18); }
-  const six = word('6 أشهر', 24, 206, 54, tl6 + 0.5, { hero: false, css: 'color:#EFF7F1' }); note('26 أسبوع', 24, 262, tl6 + dl, g);
-  say(k, 9, 13, { y: 330, size: 21, hero: { 12: 30 }, out: W(k, 14).s - 0.1 });
-  // the replacement: one week… then two nights
-  const bar = el('i', '', '', 'position:absolute;left:' + (336 - 12) + 'px;top:414px;width:12px;height:8px;border-radius:4px;background:#2EE86B;box-shadow:0 0 14px #2EE86B;transform-origin:100% 50%', g);
+  const six = word('6 أشهر', 40, 170, 54, tl6 + 0.5, { hero: false, css: 'color:#EFF7F1' }); note('26 أسبوع', 40, 268, tl6 + dl, g);
+  say(k, 9, 13, { y: 312, size: 21, hero: { 12: 30 }, out: W(k, 14).s - 0.1 });
+  // the replacement on the same scale: a week is one tick… two nights is a sliver. A magnifier shows it.
+  const bar = el('i', '', '', 'position:absolute;left:' + (X0 - step) + 'px;top:396px;width:' + step + 'px;height:8px;border-radius:4px;background:#2EE86B;box-shadow:0 0 14px #2EE86B;transform-origin:100% 50%', g);
+  el('i', '', '', 'position:absolute;left:' + (X0 - 1) + 'px;top:388px;width:2px;height:24px;background:#9BFFC2;border-radius:2px', g);
   enter(bar, W(k, 12).s, { scaleX: 0, opacity: 0 }, 0.4, 'expo.out'); cue(W(k, 12).s, 'pop', 0.5);
-  const wk = word('أسبوع', 0, 394, 26, W(k, 16).s - 0.05, { hero: false, css: 'left:auto;right:58px' });
-  say(k, 14, 15, { x: 24, w: 200, y: 330, size: 21, out: W(k, 17).s - 0.1 });
-  say(k, 17, 18, { x: 24, w: 200, y: 330, size: 21, out: T1(k) - 0.3 });
+  const mag = el('div', 'mag', '<div class="mz"><i class="mt"></i><i class="mb"></i></div>', 'position:absolute;left:170px;top:340px;width:120px;height:120px;border-radius:50%;border:2px solid #9BFFC2;box-shadow:0 0 18px rgba(155,255,194,0.45),inset 0 0 30px rgba(0,0,0,0.6);background:rgba(3,10,7,0.85);overflow:hidden', g);
+  const mb = mag.querySelector('.mb'), mz = mag.querySelector('.mz');
+  mz.style.cssText = 'position:absolute;inset:0'; mag.querySelector('.mt').style.cssText = 'position:absolute;left:94px;top:36px;width:3px;height:48px;background:#9BFFC2;border-radius:2px';
+  mb.style.cssText = 'position:absolute;left:' + (95 - step * 6) + 'px;top:50px;width:' + step * 6 + 'px;height:20px;border-radius:8px;background:#2EE86B;box-shadow:0 0 18px #2EE86B;transform-origin:100% 50%';
+  enter(mag, W(k, 16).s - 0.25, { scale: 0, opacity: 0 }, 0.5, 'back.out(1.8)'); cue(W(k, 16).s - 0.2, 'whoosh-soft', 0.4);
+  path(sv, 'M' + (X0 - step / 2) + ' 404 L 262 372', W(k, 16).s - 0.25, 0.3, { width: 1.5 });
+  const wk = word('أسبوع', 40, 372, 30, W(k, 16).s - 0.05, { hero: false, css: 'color:#EFF7F1' });
+  say(k, 14, 15, { x: 24, w: 140, y: 312, size: 21, out: W(k, 17).s - 0.1 });
+  say(k, 17, 18, { x: 24, w: 140, y: 312, size: 21, out: T1(k) - 0.3 });
   out(wk, W(k, 19).s - 0.1);
-  tl.to(bar, { scaleX: 3.3 / 12, duration: 0.5, ease: 'expo.inOut' }, W(k, 19).s - 0.15);
-  tl.to(CAM, { s: 1.9, ox: 330, oy: 418, x: -150, y: -60, duration: 1.0, ease: 'expo.inOut' }, W(k, 19).s - 0.1); cue(W(k, 19).s - 0.1, 'whoosh-soft', 0.4);
-  word('ليلتين', 24, 432, 66, W(k, 19).s - 0.05, { out: T1(k) - 0.25 });
-  tl.to(CAM, { s: 1, x: 0, y: 0, duration: 0.6, ease: 'expo.inOut' }, T1(k) - 0.35);
+  tl.to([bar, mb], { scaleX: 2 / 7, duration: 0.5, ease: 'expo.inOut' }, W(k, 19).s - 0.15); cue(W(k, 19).s - 0.1, 'click', 0.5);
+  word('ليلتين', 30, 432, 64, W(k, 19).s - 0.05, { out: T1(k) - 0.25 });
   tl.to(six, { opacity: 0, duration: 0.3 }, T1(k) - 0.4);
   tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.05);
-  tl.set(CAM, { ox: 180, oy: 300 }, T1(k) + 0.3);
 }
 
 // ================= 5 · CUT IT UP — the poster becomes tiles; the violent ones fall; the US grid forms =================
 {
   const k = 5, g = group(T0(k) - 0.3, T1(k) + 0.3), sv = svgLayer(g);
   textGroup(k);
-  const BX = 60, BY = 116, BW = 240, BH = 320, R = 3, Q = 3, gw = BW / Q, gh = BH / R, drop = [3, 6, 7];
+  const BX = 122, BY = 132, BW = 228, BH = 304, R = 3, Q = 3, gw = BW / Q, gh = BH / R, drop = [3, 6, 7];
   const cover = (n) => { const im = IMG[n], s = Math.max(BW / im.w, BH / im.h); return { w: im.w * s, h: im.h * s, ox: (im.w * s - BW) / 2, oy: (im.h * s - BH) / 2, src: im.src }; };
   const A = cover('eu'), B = cover('us');
   const box = el('div', '', '', 'position:absolute;left:' + BX + 'px;top:' + BY + 'px;width:' + BW + 'px;height:' + BH + 'px;transform-style:preserve-3d', g);
@@ -151,27 +155,27 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
     tiles.push(t);
   }
   enter(box, T0(k) - 0.3, { x: (262 + 37) - (BX + BW / 2), y: 160 - (BY + BH / 2), scale: 74 / BW, opacity: 1 }, 0.8, 'expo.inOut');
-  say(k, 0, 4, { y: 452, size: 22, out: W(k, 5).s - 0.15 });
+  say(k, 0, 4, { y: 470, size: 21, bg: true, out: W(k, 5).s - 0.15 });
   // cut lines
   const tc = W(k, 5).s;
   [[BX + gw, BY - 8, BX + gw, BY + BH + 8], [BX + 2 * gw, BY - 8, BX + 2 * gw, BY + BH + 8], [BX - 8, BY + gh, BX + BW + 8, BY + gh], [BX - 8, BY + 2 * gh, BX + BW + 8, BY + 2 * gh]]
     .forEach((c, i) => { path(sv, 'M' + c[2] + ' ' + c[3] + ' L' + c[0] + ' ' + c[1], tc + i * 0.14, 0.28, { width: 3, color: '#2EE86B', out: tc + 1.1 }); cue(tc + i * 0.14, 'click', 0.45); });
-  word('قصّ', 24, 440, 64, tc - 0.05, { out: W(k, 8).s - 0.1 });
-  say(k, 6, 7, { x: 120, w: 216, y: 460, size: 21, out: W(k, 8).s - 0.1 });
+  word('قصّ', 14, 150, 72, tc - 0.05, { out: W(k, 8).s - 0.1 });
+  say(k, 6, 7, { y: 470, size: 21, bg: true, out: W(k, 8).s - 0.1 });
   // tiles float apart in depth
   const ts = tc + 0.75;
   tiles.forEach((t, i) => { const r = Math.floor(i / Q), q = i % Q; tl.to(t, { x: (q - 1) * 12, y: (r - 1) * 12, z: 20 + (i % 3) * 30, rotationY: (q - 1) * 10, rotationX: (1 - r) * 8, duration: 0.7, ease: 'back.out(1.6)' }, ts + i * 0.03); });
   tl.to(box, { rotationY: -14, rotationX: 6, duration: 1.4, ease: 'sine.inOut' }, ts);
-  say(k, 8, 10, { y: 452, size: 22, hero: { 10: 32 }, out: W(k, 11).s - 0.15 });
-  drop.forEach((i, j) => { tl.to(tiles[i], { y: '+=420', rotation: j % 2 ? 28 : -24, opacity: 0, duration: 0.8, ease: 'power2.in' }, W(k, 10).s + j * 0.12); cue(W(k, 10).s + j * 0.12, 'whoosh-soft', 0.3); });
+  say(k, 8, 10, { y: 462, size: 21, hero: { 10: 30 }, bg: true, out: W(k, 11).s - 0.15 });
+  drop.forEach((i, j) => { tl.to(tiles[i], { z: 420, scale: 1.4, x: (j - 1) * 160, y: '+=120', rotation: j % 2 ? 20 : -16, opacity: 0, filter: 'blur(8px)', duration: 0.7, ease: 'power2.in' }, W(k, 10).s + j * 0.12); cue(W(k, 10).s + j * 0.12, 'whoosh-soft', 0.3); });
   // rebuild as the US grid: every tile flips to its US face, the fallen ones fly back
   const tr = W(k, 11).s;
   tiles.forEach((t, i) => { const at = tr + i * 0.07; tl.to(t.querySelector('.b'), { opacity: 1, duration: 0.25 }, at);
-    if (drop.includes(i)) tl.fromTo(t, { y: -380, rotation: 0, opacity: 0 }, { y: 0, x: 0, z: 0, rotationX: 0, rotationY: 0, opacity: 1, duration: 0.6, ease: 'expo.out', immediateRender: false }, at);
+    if (drop.includes(i)) tl.fromTo(t, { y: -380, x: 0, z: 0, scale: 1, rotation: 0, opacity: 0, filter: 'blur(0px)' }, { y: 0, x: 0, z: 0, scale: 1, rotationX: 0, rotationY: 0, opacity: 1, duration: 0.6, ease: 'expo.out', immediateRender: false }, at);
     else tl.to(t, { x: 0, y: 0, z: 0, rotationX: 0, rotationY: 0, duration: 0.6, ease: 'expo.out' }, at);
     cue(at, 'tick', 0.25); });
   tl.to(box, { rotationY: 0, rotationX: 0, duration: 0.8, ease: 'expo.out' }, tr + 0.3);
-  say(k, 11, 13, { y: 452, size: 22, hero: { 13: 32 }, out: T1(k) - 0.25 });
+  say(k, 11, 13, { y: 466, size: 21, hero: { 13: 30 }, bg: true, out: T1(k) - 0.25 });
   tl.to(box, { y: -500, opacity: 0, duration: 0.5, ease: 'power3.in' }, T1(k) - 0.35); cue(T1(k) - 0.35, 'whoosh', 0.4);
 }
 
@@ -186,9 +190,10 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   path(sv, 'M360 332 H0', T0(k) + 0.2, 0.6, { width: 3, color: '#2EE86B' });
   note('أوروبا', 270, 112, T0(k) + 0.5, g); note('أمريكا', 270, 342, T0(k) + 0.7, g);
   say(k, 0, 0, { y: 140, size: 30, out: W(k, 1).s - 0.1 });
-  say(k, 1, 4, { x: 24, y: 300, w: 312, size: 21, hero: { 4: 30 }, pill: { 4: 1 } });
+  say(k, 1, 4, { y: 440, size: 22, hero: { 4: 32 }, pill: { 4: 1 }, out: W(k, 5).s - 0.1 });
   bracket(sv, 12, 344, 336, 230, W(k, 5).s - 0.1, { width: 2.5, len: 18 });
-  say(k, 5, 10, { y: 452, size: 22, hero: { 10: 32 }, out: T1(k) - 0.3 });
+  say(k, 5, 10, { y: 440, size: 22, hero: { 10: 32 }, out: T1(k) - 0.3 });
+  tl.fromTo([top, bot], { rotationY: -7 }, { rotationY: 7, duration: SC[k].dur, ease: 'sine.inOut', immediateRender: false }, T0(k)); tl.fromTo(bot, { scale: 1 }, { scale: 1.08, duration: SC[k].dur, ease: 'none', immediateRender: false }, T0(k));
   tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.15);
 }
 
@@ -197,15 +202,15 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   const k = 7, g = group(T0(k) - 0.3, T1(k) + 0.2);
   textGroup(k);
   setBG(T0(k) - 0.35, 1, 0.45); flash(T0(k) - 0.35, '#FFF3D6');
-  const c = pic('comic', 22, 150, 196, g, { css: 'box-shadow:0 22px 40px rgba(60,30,10,0.35)' });
+  const c = pic('comic', 36, 126, 178, g, { css: 'box-shadow:0 22px 40px rgba(60,30,10,0.35)' });
   tl.fromTo(c, { x: -220, rotation: -18, opacity: 0 }, { x: 0, rotation: -6, opacity: 1, duration: 0.8, ease: 'back.out(1.2)', immediateRender: true }, T0(k) - 0.1); tl.fromTo(c, { rotation: -6, scale: 1 }, { rotation: -3, scale: 1.05, duration: SC[k].dur, ease: 'none', immediateRender: false }, T0(k) + 0.72);
   sweep(c, T0(k) + 0.9);
   say(k, 0, 3, { y: 106, size: 21, dark: true, out: W(k, 4).s - 0.1 });
-  say(k, 4, 7, { x: 228, w: 112, y: 168, size: 21, dark: true, hero: { 4: 28 } });
-  word('مارفل', 0, 318, 54, W(k, 8).s - 0.05, { dark: true, css: 'left:auto;right:20px' });
-  word('ودي سي', 0, 382, 40, W(k, 9).s - 0.05, { dark: true, hero: false, kash: false, css: 'left:auto;right:20px;color:#0B1410' });
-  say(k, 11, 13, { x: 226, w: 114, y: 440, size: 18, dark: true });
-  note('Amazing Fantasy #15 · 1962', 22, 452, T0(k) + 1, g, { css: 'color:#5B4A2E;font-size:12px;font-family:Rubik' });
+  say(k, 4, 7, { x: 226, w: 116, y: 150, size: 21, dark: true, hero: { 4: 28 } });
+  word('مارفل', 0, 396, 64, W(k, 8).s - 0.05, { dark: true, css: 'left:auto;right:24px' });
+  word('ودي سي', 0, 462, 38, W(k, 9).s - 0.05, { dark: true, hero: false, kash: false, css: 'left:auto;right:26px;color:#0B1410' });
+  say(k, 11, 13, { x: 226, w: 116, y: 300, size: 19, dark: true });
+  note('Amazing Fantasy #15 · 1962', 40, 400, T0(k) + 1, g, { css: 'color:#5B4A2E;font-size:12px;font-family:Rubik' });
   setBG(T1(k) - 0.3, 0, 0.4);
   tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.3);
 }
@@ -217,7 +222,7 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   const f = full('us', t0 - 0.35, W(k, 12).s - 0.05, { x: 0.5, y: 0.5, z: 0.5, cx: 180, cy: 290, shade: 0.3 }, [Object.assign(ringMark(r), { x: HELI.us[0], y: HELI.us[1] })]);
   iris(f, t0 - 0.35, 180, 290, 0.75);
   camTo(f, W(k, 1).s - 0.1, { x: HELI.us[0], y: HELI.us[1], z: 2.3, cx: 180, cy: 110, shade: 0.75 }, 1.4, 'expo.inOut'); cue(W(k, 1).s, 'whoosh-soft', 0.4);
-  scribble(f.marks[0].n.querySelector('svg'), r, r, r * 0.95, r * 0.72, W(k, 3).s - 0.1, { width: 2.2 });
+  scribble(f.marks[0].n.querySelector('svg'), r, r, r * 0.95, r * 0.72, W(k, 3).s - 0.1, { width: 2.2 }); tl.fromTo(f.marks[0].n.querySelector('svg'), { rotation: 0 }, { rotation: 200, duration: 6, ease: 'none', immediateRender: false }, W(k, 3).s);
   say(k, 0, 2, { y: 440, size: 22, out: W(k, 3).s - 0.1 });
   say(k, 3, 5, { y: 420, size: 24, hero: { 5: 50 }, out: W(k, 6).s - 0.1 });
   say(k, 6, 10, { y: 448, size: 22, hero: { 10: 32 }, out: W(k, 11).s - 0.1 });
@@ -227,22 +232,24 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   flash(T1(k) - 0.1);
 }
 
-// ================= 9 · THE GRID LIVES ON — GTA VI in 3D, the grid draws over it =================
+// ================= 9 · THE GRID LIVES ON — GTA VI in 3D; the earlier covers link their helicopters to it =================
 {
   const k = 9, g = group(T0(k) - 0.1, T1(k) + 0.3), sv = svgLayer(g);
   textGroup(k);
-  const c = pic('vi', 132, 116, 208, g); enter(c, T0(k), { z: -500, rotationY: -60, opacity: 0 }, 1.0); sweep(c, T0(k) + 1);
-  tl.fromTo(c, { rotationY: -16 }, { rotationY: 14, duration: SC[k].dur - 1, ease: 'sine.inOut', immediateRender: false }, T0(k) + 1);
-  const st = word('ستيفن بلِس', 24, 112, 26, T0(k) + 0.05, { hero: false, css: 'color:#EFF7F1' });
-  tl.to(st, { x: -260, opacity: 0, duration: 0.6, ease: 'power3.in' }, W(k, 1).s); cue(W(k, 1).s, 'whoosh-soft', 0.35);
-  say(k, 0, 5, { y: 410, size: 22, out: W(k, 6).s - 0.1 });
-  say(k, 6, 11, { y: 410, size: 22, hero: { 9: 30, 11: 30 }, out: W(k, 12).s - 0.1 });
+  const c = pic('vi', 130, 128, 170, g); enter(c, T0(k), { z: -500, rotationY: -60, opacity: 0 }, 1.0); sweep(c, T0(k) + 1); sweep(c, W(k, 13).s);
+  tl.fromTo(c, { rotationY: -12, scale: 1 }, { rotationY: 12, scale: 1.05, duration: SC[k].dur - 1, ease: 'sine.inOut', immediateRender: false }, T0(k) + 1);
+  const st = say(k, 0, 0, { y: 124, size: 26, bg: true, right: 210 }); note('رسّام الغلاف', 24, 166, T0(k) + 0.4);
+  tl.to(st, { x: -240, opacity: 0, duration: 0.6, ease: 'power3.in' }, W(k, 2).s);
+  say(k, 1, 5, { y: 370, size: 21, out: W(k, 6).s - 0.1 });
+  say(k, 6, 11, { y: 370, size: 21, hero: { 9: 28, 11: 28 }, out: W(k, 12).s - 0.1 });
   const tg = W(k, 13).s - 0.1;
-  [[202, 104, 202, 392], [270, 104, 270, 392], [24, 204, 336, 204], [24, 296, 336, 296]].forEach((q, i) => path(sv, 'M' + q[2] + ' ' + q[3] + ' L' + q[0] + ' ' + q[1], tg + i * 0.15, 0.6, { width: 1.6, color: '#2EE86B', out: T1(k) - 0.8 }));
+  [[187, 128, 187, 340], [243, 128, 243, 340], [130, 198, 300, 198], [130, 268, 300, 268]].forEach((q, i) => path(sv, 'M' + q[2] + ' ' + q[3] + ' L' + q[0] + ' ' + q[1], tg + i * 0.12, 0.5, { width: 1.8, color: '#2EE86B', out: T1(k) - 0.6 }));
   cue(tg, 'shimmer', 0.35);
-  say(k, 12, 16, { y: 420, size: 22, hero: { 13: 46 }, out: W(k, 17).s - 0.1 });
-  ['us', 'vc', 'iv', 'v'].forEach((n, i) => { const p = pic(n, 30, 112 + i * 70, 50, g); enter(p, W(k, 17).s + i * 0.12, { x: -80, opacity: 0 }, 0.5); });
-  say(k, 17, 20, { y: 440, size: 22, out: T1(k) - 0.3 });
+  say(k, 12, 16, { y: 370, size: 21, hero: { 13: 40 }, out: W(k, 17).s - 0.1 });
+  const vh = [130 + HELI.vi[0] * 170, 128 + HELI.vi[1] * c.H];
+  ['us', 'vc', 'iv', 'v'].forEach((n, i) => { const x = 236 - i * 64, p = pic(n, x, 434, 52, g); const t = W(k, 14).s + i * 0.12; enter(p, t, { y: 60, opacity: 0 }, 0.5);
+    path(sv, 'M' + (x + HELI[n][0] * 52) + ' ' + (434 + HELI[n][1] * p.H) + ' L' + vh[0] + ' ' + vh[1], t + 0.35, 0.5, { width: 1.5, dash: '3 5' }); });
+  say(k, 17, 20, { y: 370, size: 21, out: T1(k) - 0.3 });
   tl.to(g, { opacity: 0, z: 300, duration: 0.35, ease: 'power2.in' }, T1(k) - 0.3);
 }
 
@@ -251,7 +258,7 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   const k = 10, g = group(T0(k) - 0.2, T1(k) + 0.3);
   textGroup(k);
   ghost('25', 10, 150, 300, T0(k), T1(k) - 0.3, g);
-  ['us', 'vc', 'iv', 'v', 'vi', 'eu'].forEach((n, i) => { const a = i / 6 * Math.PI * 2, p = pic(n, 180 + Math.cos(a) * 150 - 26, 290 + Math.sin(a) * 200 - 32, 52, g, { css: 'opacity:0.22;filter:blur(1.5px)' });
+  ['us', 'vc', 'iv', 'v', 'vi', 'eu'].forEach((n, i) => { const a = i / 6 * Math.PI * 2, p = pic(n, 180 + Math.cos(a) * 150 - 26, 290 + Math.sin(a) * 200 - 32, 52, g, { css: 'opacity:0.06;filter:blur(1.5px)' });
     tl.fromTo(p, { rotation: 0 }, { rotation: 8, duration: SC[k].dur, ease: 'none', immediateRender: false }, T0(k)); });
   say(k, 0, 1, { y: 132, size: 26 });
   say(k, 2, 2, { y: 176, size: 22 });

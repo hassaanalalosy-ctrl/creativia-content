@@ -32,7 +32,7 @@ const fx = el('div', 'layer fx', '', '', stage);                          // fla
 const txt = el('div', 'layer txt', '', '', stage);                        // kinetic type (not moved by the camera)
 const dust = el('div', 'layer dust', '', '', stage);
 el('div', 'layer grain', '', 'background-image:url(' + D.grain + ')', stage);
-el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge || 'كريتيفيا') + '</span><span class="mk">' + D.mark + '</span>', '', stage);
+const hudEl = el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge || 'كريتيفيا') + '</span><span class="mk">' + D.mark + '</span>', '', stage); const badgeEl = hudEl.querySelector('.badge');
 
 // camera (applied to world): position offset, scale, 3D rotation; plus a slow automatic drift
 const CAM = { x: 0, y: 0, s: 1, rx: 0, ry: 0, rz: 0, ox: 180, oy: 300, blur: 0 };
@@ -162,7 +162,8 @@ window.drawFrame = function (time) {
   world.style.filter = CAM.blur > 0.1 ? 'blur(' + CAM.blur.toFixed(1) + 'px)' : 'none';
   const ax = 68 + Math.sin(time * 0.11) * 18, ay = 8 + Math.sin(time * 0.07) * 6, bx = 14 + Math.cos(time * 0.09) * 14, by = 94 - Math.sin(time * 0.1) * 8;
   bg.style.backgroundImage = 'radial-gradient(70% 45% at ' + ax + '% ' + ay + '%, ' + C.b1 + ', rgba(0,0,0,0) 100%), radial-gradient(60% 40% at ' + bx + '% ' + by + '%, ' + C.b2 + ', rgba(0,0,0,0) 100%), linear-gradient(180deg,#0C2A1E 0%,#071711 45%,#030806 100%)';
-  paper.style.opacity = BG.a;
+  paper.style.opacity = BG.a; badgeEl.style.color = BG.a > 0.5 ? '#0C2A1E' : '';
+  let cb = SC[0]; for (const b of SC) if (time >= b.t0 - 0.35) cb = b; const pr = Math.min(1, Math.max(0, (time - cb.t0 + 0.35) / cb.dur)); world.style.scale = (1 + 0.05 * Math.sin(Math.PI * pr)).toFixed(4);
   applyFulls(time);
 };
 `;
@@ -190,7 +191,7 @@ body{margin:0;background:#000}
 .full{position:absolute;inset:0;overflow:hidden;visibility:hidden;background:#000}
 .fbg{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(24px) brightness(0.4) saturate(1.2)}
 .fw{position:absolute;left:0;top:0;transform-origin:0 0;box-shadow:0 20px 60px rgba(0,0,0,0.55)}.fw img{width:100%;height:100%;display:block;object-fit:fill}
-.fshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,10,7,0.55) 0%,rgba(3,10,7,0) 22%,rgba(3,10,7,0) 50%,rgba(3,10,7,0.75) 70%,rgba(3,10,7,0.92) 100%)}
+.fshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,10,7,0.7) 0px,rgba(3,10,7,0) 110px,rgba(3,10,7,0) 340px,rgba(3,10,7,0.85) 470px,rgba(3,10,7,0.92) 640px)}
 .fmark{position:absolute}
 /* type */
 .ph{position:absolute;line-height:1.28;font-weight:700;text-wrap:balance;transform-origin:100% 0%}
@@ -213,7 +214,7 @@ body{margin:0;background:#000}
 .tile{position:absolute;overflow:hidden;background-repeat:no-repeat;border-radius:3px;box-shadow:0 10px 22px rgba(0,0,0,0.45);backface-visibility:hidden}
 .tile .b{position:absolute;inset:0;background-repeat:no-repeat;opacity:0}
 /* end */
-.endb{position:absolute;left:0;right:0;top:150px;display:flex;flex-direction:column;align-items:center;gap:12px}
-.endb .p{padding:11px 26px;border-radius:999px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.25);font-size:21px;font-weight:800}
-.endb .h2{font-size:15px;font-weight:700;color:#A3B8AB}.endb .n{font-family:'Playpen Sans Arabic',sans-serif;font-size:15.5px;color:#9BFFC2}
+.endb{position:absolute;left:0;right:0;top:170px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.endb .p{padding:11px 28px;font-size:22px !important;border-radius:999px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.25);font-size:21px;font-weight:800}
+.endb .h2{font-size:18px;font-weight:700;color:#A3B8AB}.endb .n{font-family:'Playpen Sans Arabic',sans-serif;font-size:15.5px;color:#9BFFC2}
 `;

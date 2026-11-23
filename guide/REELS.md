@@ -85,6 +85,8 @@ No fixed card. Each scene = a visual + kinetic text that IS the voice (phrases b
 - `hl`: the keywords of the line (big + green). 2-4 per line.
 - Preview while building: `FRAMES=0,3,8.4 node engine/reel5.js <id>` writes stills to engine/_tmp (CHROME_PATH may be needed locally).
 
+## Owner rule (Nov 23 2026): FINAL PROBLEM-ONLY REVIEW. After all the work is done and before scheduling, review the finished reel once more looking ONLY for problems: stutter/jumps (frame-diff check: no isolated jumps and no frozen frames — hard cuts feel like stutter to the owner, use quick cross-dissolves/whips instead), cut or cropped pictures, text collisions, leftovers between beats, safe zones, text order vs the voice. Fix everything found, re-render, check again.
+
 ## Owner rule (Nov 23 2026): never draw a line/underline under Arabic words — it covers letters and dots. Emphasis = size, weight, colour, or a pill behind the word.
 
 ## How a reel is made (owner, Nov 23 2026) — Claude is the art director

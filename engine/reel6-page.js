@@ -32,6 +32,7 @@ const fx = el('div', 'layer fx', '', '', stage);                          // fla
 const txt = el('div', 'layer txt', '', '', stage);                        // kinetic type (not moved by the camera)
 const dust = el('div', 'layer dust', '', '', stage);
 el('div', 'layer grain', '', 'background-image:url(' + D.grain + ')', stage);
+el('div', 'topscrim', '', '', stage);
 const hudEl = el('div', 'hud', '<span class="badge"><i></i>' + esc(D.badge || 'كريتيفيا') + '</span><span class="mk">' + D.mark + '</span>', '', stage); const badgeEl = hudEl.querySelector('.badge');
 
 // camera (applied to world): position offset, scale, 3D rotation; plus a slow automatic drift
@@ -73,8 +74,8 @@ function applyFulls(time) {
     const on = time >= f.tIn && time < f.tOut; f.L.style.visibility = on ? 'visible' : 'hidden'; if (!on) continue;
     const s0 = Math.max(VW / f.im.w, VH / f.im.h), Wd = f.im.w * s0, Ht = f.im.h * s0, z = f.P.z;
     let tx = f.P.cx - f.P.x * Wd * z, ty = f.P.cy - f.P.y * Ht * z;
-    if (Wd * z >= VW) tx = Math.min(0, Math.max(VW - Wd * z, tx));
-    if (Ht * z >= VH) ty = Math.min(0, Math.max(VH - Ht * z, ty));
+    if (!f.P.free && Wd * z >= VW) tx = Math.min(0, Math.max(VW - Wd * z, tx));
+    if (!f.P.free && Ht * z >= VH) ty = Math.min(0, Math.max(VH - Ht * z, ty));
     f.wrap.style.width = Wd + 'px'; f.wrap.style.height = Ht + 'px';
     f.wrap.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')';
     f.L.querySelector('.fshade').style.opacity = f.P.shade;
@@ -89,11 +90,11 @@ function iris(f, t, cx, cy, d) { tl.fromTo(f.L, { clipPath: 'circle(0% at ' + cx
 
 // ---------- kinetic type ----------
 let TX = txt;   // current beat's text group (set per beat with TX = textGroup(k)); everything in it hides when the beat ends
-const textGroup = (k, a, b) => (TX = group(T0(k) - (a == null ? 0.45 : a), T1(k) + (b == null ? 0.15 : b), txt));
+const textGroup = (k, a, b) => (TX = group(T0(k) - (a == null ? 0.45 : a), T1(k) + (b == null ? -0.02 : b), txt));
 // say(k, i0, i1, {x, y, w, align, size, hero:{idx:size}, entry:'mask'|'blur'|'slide', color, dark})  — words appear on their spoken word
 function say(k, i0, i1, o) {
   o = o || {}; const size = o.size || 22, ws = SC[k].ws.slice(i0, i1 + 1);
-  const d = el('div', 'ph ' + (o.align || 'right') + (o.dark ? ' dark' : '') + (o.bg ? ' bgp' : ''), '', (o.bg ? 'right:' + (o.right == null ? 24 : o.right) + 'px;left:auto;max-width:312px;' : 'left:' + (o.x == null ? 24 : o.x) + 'px;width:' + (o.w || 312) + 'px;') + 'top:' + o.y + 'px;font-size:' + size + 'px', o.parent || TX);
+  const d = el('div', 'ph ' + (o.align || 'right') + (o.dark ? ' dark' : '') + (o.bg ? ' bgp' : ''), '', (o.bg ? 'right:' + (o.right == null ? (o.y >= 320 ? 60 : 24) : o.right) + 'px;left:auto;max-width:' + (o.y >= 320 ? 276 : 312) + 'px;' : 'left:' + (o.x == null ? 24 : o.x) + 'px;width:' + (o.w || (o.y >= 320 ? 276 : 312)) + 'px;') + 'top:' + o.y + 'px;font-size:' + size + 'px', o.parent || TX);
   ws.forEach((w, j) => {
     const i = i0 + j, hs = o.hero && o.hero[i], raw = w.w, word = (o.keepPunct ? raw : raw.replace(/[،.:]+$/, ''));
     const wrap = el('span', 'wd' + (hs ? ' hero' : '') + (o.pill && o.pill[i] ? ' pill' : ''), '', hs ? 'font-size:' + hs + 'px' : '', d);
@@ -179,6 +180,7 @@ body{margin:0;background:#000}
 .grp{position:absolute;inset:0;visibility:hidden;transform-style:preserve-3d}
 .fullhost{z-index:3}.fx{z-index:6;pointer-events:none}.txt{z-index:8}.dust{z-index:5;pointer-events:none}
 .grain{opacity:0.06;background-size:180px;pointer-events:none;z-index:9}
+.topscrim{position:absolute;left:0;right:0;top:0;height:132px;z-index:11;pointer-events:none;background:linear-gradient(180deg,rgba(3,8,6,0.78) 0%,rgba(3,8,6,0.5) 55%,rgba(3,8,6,0) 100%)}
 .hud{position:absolute;top:62px;right:22px;left:22px;display:flex;justify-content:space-between;align-items:center;z-index:12}
 .badge{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:#A3B8AB;text-shadow:0 1px 8px rgba(0,0,0,0.6)}
 .badge i{width:7px;height:7px;border-radius:50%;background:#2EE86B;box-shadow:0 0 8px #2EE86B}
@@ -205,7 +207,7 @@ body{margin:0;background:#000}
 .wd.pill{padding:0 0.18em}.pb{position:absolute;inset:-0.02em -0.1em;border-radius:0.25em;background:#2EE86B;z-index:-1;transform-origin:100% 50%}.wd.pill .wi{color:#06140C;text-shadow:none;font-weight:800}
 .solo{position:absolute;line-height:1.05;font-weight:800;white-space:nowrap}
 .ghost{position:absolute;font-weight:800;line-height:1;color:rgba(155,255,194,0.07);white-space:nowrap;pointer-events:none}
-.note{position:absolute;font-family:'Playpen Sans Arabic',sans-serif;font-size:16px;color:#9BFFC2;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,0.6)}
+.note{position:absolute;font-family:'Playpen Sans Arabic',sans-serif;font-size:16px;line-height:1.4;color:#9BFFC2;white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,0.6)}
 .svgl{position:absolute;left:0;top:0;width:360px;height:640px;pointer-events:none;overflow:visible}.svgl svg{overflow:visible}
 .flash{position:absolute;inset:0;opacity:0;mix-blend-mode:screen}
 /* calendar */
@@ -218,4 +220,6 @@ body{margin:0;background:#000}
 .endb{position:absolute;left:0;right:0;top:170px;display:flex;flex-direction:column;align-items:center;gap:12px}
 .endb .p{padding:11px 28px;font-size:22px !important;border-radius:999px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.25);font-size:21px;font-weight:800}
 .endb .h2{font-size:18px;font-weight:700;color:#A3B8AB}.endb .n{font-family:'Playpen Sans Arabic',sans-serif;font-size:15.5px;color:#9BFFC2}
+.dk{background:rgba(3,10,7,0.78);padding:4px 12px 8px;border-radius:14px}
+.tagx{position:absolute;padding:3px 9px;border-radius:999px;background:rgba(3,10,7,0.8);color:#EFF7F1;font-size:12px;font-weight:700;white-space:nowrap}
 `;

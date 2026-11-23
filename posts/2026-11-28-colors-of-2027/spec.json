@@ -13,7 +13,7 @@
   "slides": [
     {"type": "cover", "badge": "قبل بانتون", "title": "ألوان 2027 وصلت… وأغلبها أخضر!", "note": "شوف هذا!", "pose": "point",
      "chips": [{"icon": "brush", "label": "ألوان"}, {"icon": "trend", "label": "ترند 2027"}]},
-    {"type": "text", "tag": "الصورة الكبيرة", "tagIcon": "spark", "title": "شنو اختارت الشركات لـ2027؟", "points": ["أكثر من 10 شركات صبغ وترند أعلنت لونها", "الأخضر والألوان الترابية هي الأكثر", "وبانتون تعلن لونها أول أسبوع من ديسمبر"]},
+    {"type": "text", "tag": "الصورة الكبيرة", "tagIcon": "spark", "title": "ألوان 2027: شنو اختارت الشركات؟", "points": ["أكثر من 10 شركات صبغ وترند أعلنت لونها", "الأخضر والألوان الترابية هي الأكثر", "وبانتون تعلن لونها أول أسبوع من ديسمبر"]},
     {"type": "inner", "image": "https://www.homenish.com/wp-content/uploads/2026/11/benjamin-moore-webster-green-hc-130.jpg", "title": "Webster Green", "body": "لون Benjamin Moore لسنة 2027: أخضر هادئ رقمه HC-130.", "credit": "اللون: Benjamin Moore · الصورة: Homenish", "chip": {"icon": "brush", "label": "Benjamin Moore"}, "kreti": false},
     {"type": "inner", "image": "https://www.homenish.com/wp-content/uploads/2026/11/sherwin-williams-celery-sw-6421.jpg", "title": "Celery", "body": "اختيار Sherwin-Williams: أخضر مصفّر ناعم مثل الكرفس، رقمه SW 6421.", "credit": "اللون: Sherwin-Williams · الصورة: Homenish", "chip": {"icon": "brush", "label": "Sherwin-Williams"}, "kreti": false},
     {"type": "inner", "image": "https://www.homenish.com/wp-content/uploads/2026/11/wgsn-and-coloro-luminous-blue.jpg", "title": "Luminous Blue", "body": "WGSN وColoro راحت عكس الكل: أزرق قوي بين اللازوردي والكوبالت.", "credit": "اللون: WGSN × Coloro · الصورة: Homenish", "chip": {"icon": "star", "label": "عكس التيار"}, "kreti": false},

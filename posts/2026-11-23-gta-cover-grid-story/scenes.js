@@ -32,7 +32,7 @@ const plate = (d) => { d.classList.add('dk'); return d; };
   order.forEach((n, i) => {
     const w = 290, im = IMG[n], h = Math.round(w * im.h / im.w), p = pic(n, L[0] - HELI[n][0] * w, L[1] - HELI[n][1] * h, w, g, { flat: true, css: 'opacity:0' });
     const t = T0(k) - 0.1 + i * gap;
-    tl.fromTo(p, { opacity: i ? 0 : 1, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out', immediateRender: false }, t - (i ? 0.12 : 0));
+    tl.fromTo(p, { opacity: 0, scale: i ? 1.04 : 1.12 }, { opacity: 1, scale: 1, duration: i ? 0.25 : 0.45, ease: 'power2.out', immediateRender: false }, t - (i ? 0.12 : 0.2));
     tl.to(p, { opacity: 0, duration: 0.25, ease: 'power2.in' }, (i < order.length - 1 ? t + gap : tFan + 0.25) - 0.05);
     if (i) cue(t, 'click', 0.45);
     const yr = word(years[i], 24, 132, 22, t, { ltr: true, hero: false, from: 1.2, css: 'color:#9BFFC2' }); tl.set(yr, { opacity: 0 }, i < order.length - 1 ? t + gap : tFan);

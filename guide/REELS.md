@@ -77,6 +77,8 @@ No fixed card. Each scene = a visual + kinetic text that IS the voice (phrases b
 - `hl`: the keywords of the line (big + green). 2-4 per line.
 - Preview while building: `FRAMES=0,3,8.4 node engine/reel5.js <id>` writes stills to engine/_tmp (CHROME_PATH may be needed locally).
 
+## Owner rule (Nov 23 2026): never draw a line/underline under Arabic words — it covers letters and dots. Emphasis = size, weight, colour, or a pill behind the word.
+
 ## How a reel is made (owner, Nov 23 2026) — Claude is the art director
 1. Script first, then a STORYBOARD: for every line decide what we SEE (zoom into a detail, full-screen picture, cards, animated diagram, big type alone…). Templates serve the storyboard, never the reverse; build a new scene when the idea needs one.
 2. Render the storyboard key frames locally (FRAMES=…), then review them yourself as an art director: is each beat clear, big, alive? Empty space? Cropped pictures? Weak transitions? Write the notes, fix, re-check. Only then render the full video. The owner does not approve storyboards.

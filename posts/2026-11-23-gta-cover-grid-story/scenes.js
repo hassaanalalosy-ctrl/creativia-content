@@ -20,6 +20,7 @@ const plate = (d) => { d.classList.add('dk'); return d; };
   say(k, 2, 5, { x: 150, y: 420, w: 150, size: 22, out: W(k, 6).s - 0.3 }); out(n25, W(k, 6).s - 0.3);
   say(k, 6, 11, { y: 424, size: 22, hero: { 11: 32 }, out: W(k, 12).s - 0.12 });
   word('ليش؟', 36, 420, 76, W(k, 12).s - 0.05, { out: T1(k) - 0.2 });
+  tl.to(f.L, { opacity: 0, duration: 0.35, ease: 'power2.in' }, T1(k) - 0.12);
   flash(T1(k) - 0.12);
 }
 

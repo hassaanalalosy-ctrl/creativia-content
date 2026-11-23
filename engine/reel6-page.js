@@ -93,7 +93,7 @@ const textGroup = (k, a, b) => (TX = group(T0(k) - (a == null ? 0.45 : a), T1(k)
 // say(k, i0, i1, {x, y, w, align, size, hero:{idx:size}, entry:'mask'|'blur'|'slide', color, dark})  — words appear on their spoken word
 function say(k, i0, i1, o) {
   o = o || {}; const size = o.size || 22, ws = SC[k].ws.slice(i0, i1 + 1);
-  const d = el('div', 'ph ' + (o.align || 'right') + (o.dark ? ' dark' : ''), '', 'left:' + (o.x == null ? 24 : o.x) + 'px;top:' + o.y + 'px;width:' + (o.w || 312) + 'px;font-size:' + size + 'px', o.parent || TX);
+  const d = el('div', 'ph ' + (o.align || 'right') + (o.dark ? ' dark' : '') + (o.bg ? ' bgp' : ''), '', (o.bg ? 'right:' + (o.right == null ? 24 : o.right) + 'px;left:auto;max-width:312px;' : 'left:' + (o.x == null ? 24 : o.x) + 'px;width:' + (o.w || 312) + 'px;') + 'top:' + o.y + 'px;font-size:' + size + 'px', o.parent || TX);
   ws.forEach((w, j) => {
     const i = i0 + j, hs = o.hero && o.hero[i], raw = w.w, word = (o.keepPunct ? raw : raw.replace(/[،.:]+$/, ''));
     const wrap = el('span', 'wd' + (hs ? ' hero' : '') + (o.pill && o.pill[i] ? ' pill' : ''), '', hs ? 'font-size:' + hs + 'px' : '', d);
@@ -194,7 +194,7 @@ body{margin:0;background:#000}
 .fmark{position:absolute}
 /* type */
 .ph{position:absolute;line-height:1.28;font-weight:700;text-wrap:balance;transform-origin:100% 0%}
-.ph.right{text-align:right}.ph.left{text-align:left}.ph.center{text-align:center}
+.ph.right{text-align:right}.ph.bgp{background:rgba(3,10,7,0.78);padding:6px 12px 8px;border-radius:14px;backdrop-filter:blur(6px)}.ph.left{text-align:left}.ph.center{text-align:center}
 .wd{position:relative;display:inline-block;margin:0 0 0 0.26em;vertical-align:baseline;overflow:visible}
 .wi{position:relative;display:inline-block;text-shadow:0 2px 14px rgba(0,0,0,0.6)}
 .wd.hero .wi,.solo.hero .wi{font-weight:800;color:#2EE86B;text-shadow:0 0 24px rgba(46,232,107,0.35),0 2px 14px rgba(0,0,0,0.5)}

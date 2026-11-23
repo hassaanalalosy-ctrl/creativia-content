@@ -55,7 +55,7 @@ const ringMark = (r) => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height=
 {
   const k = 2, t0 = T0(k);
   textGroup(k);
-  const f = full('eu', t0 - 0.35, T1(k) + 0.05, { x: 0.5, y: 0.3, z: 1.45, shade: 0.7 });
+  const f = full('eu', t0 - 0.35, T1(k) + 0.05, { x: 0.5, y: 0.4, z: 1.45, shade: 0.7 });
   iris(f, t0 - 0.35, 180, 320); whip(t0 - 0.35);
   camTo(f, W(k, 9).s - 0.3, { x: 0.28, y: 0.42, z: 2.3 }, 1.4, 'power3.inOut');
   camTo(f, W(k, 14).s - 0.3, { x: 0.45, y: 0.7, z: 1.75 }, 1.4, 'power3.inOut');
@@ -63,7 +63,7 @@ const ringMark = (r) => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height=
   clipOut(f, T1(k) - 0.55, [24, 108, 84, 118, 10], 0.55);
   const a = say(k, 0, 5, { y: 388, size: 23, hero: { 5: 40 } }); recede(a, W(k, 6).s - 0.1); out(a, W(k, 9).s);
   say(k, 6, 8, { y: 452, size: 23, hero: { 8: 36 }, out: W(k, 9).s - 0.05 });
-  const cr = say(k, 9, 11, { y: 108, size: 20, hero: { 10: 28, 11: 28 } }); note('رسّام الغلاف', 210, 150, W(k, 10).s + 0.4, null, { out: W(k, 14).s }); out(cr, W(k, 14).s);
+  const cr = say(k, 9, 11, { y: 112, size: 20, hero: { 10: 28, 11: 28 }, bg: true }); note('رسّام الغلاف', 210, 162, W(k, 10).s + 0.4, null, { out: W(k, 14).s }); out(cr, W(k, 14).s);
   const six = word('6 أشهر', 0, 286, 58, W(k, 12).s - 0.05, { css: 'left:auto;right:24px' }); out(six, W(k, 14).s);
   ghost('007', 20, 150, 190, W(k, 17).s, T1(k) - 0.4, TX);
   say(k, 14, 18, { y: 420, size: 23, hero: { 18: 38 }, out: T1(k) - 0.5 });
@@ -107,7 +107,7 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   const [gx, gy] = at(P, 0.25, 0.40), [ex, ey] = at(P, 0.42, 0.68);
   path(sv, 'M' + (gx - 34) + ' ' + (gy - 22) + ' L' + (gx + 34) + ' ' + (gy + 22) + ' M' + (gx + 34) + ' ' + (gy - 22) + ' L' + (gx - 34) + ' ' + (gy + 22), W(k, 6).s - 0.05, 0.35, { width: 5, out: W(k, 9).s - 0.4 }); cue(W(k, 6).s, 'tick', 0.45);
   path(sv, 'M' + (ex - 44) + ' ' + (ey - 26) + ' L' + (ex + 44) + ' ' + (ey + 26) + ' M' + (ex + 44) + ' ' + (ey - 26) + ' L' + (ex - 44) + ' ' + (ey + 26), W(k, 8).s - 0.05, 0.35, { width: 5, out: W(k, 9).s - 0.4 }); cue(W(k, 8).s, 'tick', 0.45);
-  tl.to(P, { filter: 'grayscale(0.8) brightness(0.8)', duration: 0.6 }, W(k, 6).s);
+  tl.fromTo(P, { filter: 'grayscale(0) brightness(1)' }, { filter: 'grayscale(0.8) brightness(0.8)', duration: 0.6, immediateRender: false }, W(k, 6).s);
   say(k, 5, 8, { y: 452, size: 23, hero: { 6: 32, 8: 32 }, out: W(k, 9).s - 0.15 });
   // the poster parks top-right; the six-month line draws across the screen with 26 week ticks
   const tp = W(k, 9).s - 0.35;
@@ -198,7 +198,7 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   textGroup(k);
   setBG(T0(k) - 0.35, 1, 0.45); flash(T0(k) - 0.35, '#FFF3D6');
   const c = pic('comic', 22, 150, 196, g, { css: 'box-shadow:0 22px 40px rgba(60,30,10,0.35)' });
-  enter(c, T0(k) - 0.1, { x: -220, rotation: -18, opacity: 0 }, 0.8, 'back.out(1.2)'); tl.to(c, { rotation: -6, duration: 0.01 }, T0(k) + 0.71); tl.fromTo(c, { rotation: -6, scale: 1 }, { rotation: -3, scale: 1.05, duration: SC[k].dur, ease: 'none', immediateRender: false }, T0(k) + 0.72);
+  tl.fromTo(c, { x: -220, rotation: -18, opacity: 0 }, { x: 0, rotation: -6, opacity: 1, duration: 0.8, ease: 'back.out(1.2)', immediateRender: true }, T0(k) - 0.1); tl.fromTo(c, { rotation: -6, scale: 1 }, { rotation: -3, scale: 1.05, duration: SC[k].dur, ease: 'none', immediateRender: false }, T0(k) + 0.72);
   sweep(c, T0(k) + 0.9);
   say(k, 0, 3, { y: 106, size: 21, dark: true, out: W(k, 4).s - 0.1 });
   say(k, 4, 7, { x: 228, w: 112, y: 168, size: 21, dark: true, hero: { 4: 28 } });
@@ -221,8 +221,9 @@ const parked = pic('eu', PARK[0], PARK[1], PARK[2], gPark);
   say(k, 0, 2, { y: 440, size: 22, out: W(k, 3).s - 0.1 });
   say(k, 3, 5, { y: 420, size: 24, hero: { 5: 50 }, out: W(k, 6).s - 0.1 });
   say(k, 6, 10, { y: 448, size: 22, hero: { 10: 32 }, out: W(k, 11).s - 0.1 });
-  ['vc', 'iv', 'v'].forEach((n, i) => { const t = W(k, 12).s - 0.05 + i * 0.5; const g2 = full(n, t, i < 2 ? t + 0.5 : T1(k) + 0.05, { x: HELI[n][0], y: HELI[n][1], z: 2.3, cx: 180, cy: 110, shade: 0.75 }); cue(t, 'click', 0.5); });
+  ['vc', 'iv', 'v'].forEach((n, i) => { const t = W(k, 12).s - 0.05 + i * 0.5; const g2 = full(n, t, i < 2 ? t + 0.5 : T1(k) + 0.3, { x: HELI[n][0], y: HELI[n][1], z: 2.3, cx: 180, cy: 110, shade: 0.75 }); cue(t, 'click', 0.5); });
   say(k, 11, 14, { y: 440, size: 22, hero: { 12: 34 }, out: T1(k) - 0.3 });
+  tl.to(fullHost, { opacity: 0, duration: 0.35, ease: 'power2.in' }, T1(k) - 0.1); tl.set(fullHost, { opacity: 1 }, T1(k) + 0.32);
   flash(T1(k) - 0.1);
 }
 

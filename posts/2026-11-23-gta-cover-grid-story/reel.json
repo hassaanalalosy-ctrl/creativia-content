@@ -3,7 +3,7 @@
   "topic": "Why the GTA covers are a grid (and why the helicopter is always top-left): Stephen Bliss's 6-month European GTA III cover, the post-9/11 rush redesign for America (a week by his account, two evenings by Rockstar's), cut into comic-book boxes; the grid became the series' identity up to GTA VI",
   "category": "تصميم وألعاب",
   "format": "reel",
-  "engine": 5,
+  "engine": 6,
   "mode": "dark",
   "badge": "تصميم · ألعاب",
   "music": "assets/music/zephiramusic-lofi-gaming-606302.mp3",
@@ -19,7 +19,6 @@
     {
       "type": "focus",
       "dur": 7.8,
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
       "chip": "GTA 6",
       "chipIcon": "eye",
       "chipOut": 2.3,
@@ -69,28 +68,6 @@
     {
       "type": "deck",
       "layout": "textTop",
-      "items": [
-        {
-          "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
-          "label": "III · 2001"
-        },
-        {
-          "image": "posts/2026-11-23-gta-cover-grid-story/img/vc.jpg",
-          "label": "Vice City · 2002"
-        },
-        {
-          "image": "posts/2026-11-23-gta-cover-grid-story/img/iv.jpg",
-          "label": "IV · 2008"
-        },
-        {
-          "image": "posts/2026-11-23-gta-cover-grid-story/img/v.jpg",
-          "label": "V · 2013"
-        },
-        {
-          "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
-          "label": "VI · 2026"
-        }
-      ],
       "ratio": 0.81,
       "highlight": [
         0.02,
@@ -109,7 +86,6 @@
     },
     {
       "type": "focus",
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
       "chip": "أوروبا · 2001",
       "chipIcon": "star",
       "stops": [
@@ -194,8 +170,6 @@
       "type": "slice",
       "layout": "textTop",
       "trans": "flip",
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
-      "result": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
       "rows": 3,
       "cols": 3,
       "drop": [
@@ -216,17 +190,6 @@
       "layout": "textBottom",
       "trans": "rise",
       "symbol": "←",
-      "a": {
-        "image": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
-        "label": "أوروبا",
-        "tag": "ما نزل بأمريكا",
-        "warn": true
-      },
-      "b": {
-        "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
-        "label": "أمريكا",
-        "tag": "صار الهوية"
-      },
       "hl": [
         "كوميكس",
         "بمربعها"
@@ -238,7 +201,6 @@
       "type": "image",
       "layout": "textBottom",
       "trans": "swing",
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/comic.jpg",
       "chip": "الإلهام",
       "chipIcon": "book",
       "credit": "Amazing Fantasy #15 (1962): Marvel",
@@ -253,7 +215,6 @@
     {
       "type": "focus",
       "enter": "iris",
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
       "stops": [
         [
           0.5,
@@ -293,7 +254,6 @@
     {
       "type": "image",
       "layout": "textBottom",
-      "image": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
       "ring": [
         0.16,
         0.12,
@@ -327,5 +287,15 @@
       "type": "end",
       "dur": 3
     }
-  ]
+  ],
+  "images": {
+    "vi": "posts/2026-11-23-gta-cover-grid-story/img/vi.jpg",
+    "us": "posts/2026-11-23-gta-cover-grid-story/img/us.jpg",
+    "vc": "posts/2026-11-23-gta-cover-grid-story/img/vc.jpg",
+    "iv": "posts/2026-11-23-gta-cover-grid-story/img/iv.jpg",
+    "v": "posts/2026-11-23-gta-cover-grid-story/img/v.jpg",
+    "eu": "posts/2026-11-23-gta-cover-grid-story/img/eu.jpg",
+    "comic": "posts/2026-11-23-gta-cover-grid-story/img/comic.jpg"
+  },
+  "scenesFile": "scenes.js"
 }

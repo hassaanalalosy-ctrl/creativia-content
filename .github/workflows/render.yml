@@ -47,7 +47,7 @@ jobs:
             d=$(dirname "$f"); id=$(basename "$d")
             [ -e "$d/reel-rendered.json" ] && continue
             eng=$(jq -r '.engine // 1' "$f")
-            if [ "$eng" = "5" ] || [ "$eng" = "4" ] || [ "$eng" = "3" ]; then
+            if [ "$eng" = "6" ] || [ "$eng" = "5" ] || [ "$eng" = "4" ] || [ "$eng" = "3" ]; then
               if [ "$(jq -r '.voice // false' "$f")" = "true" ]; then
                 node engine/voice.js "$id" || { echo "{\"error\": \"voice failed\"}" > "$d/render-error.json"; continue; }
               fi

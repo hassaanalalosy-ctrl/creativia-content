@@ -1,0 +1,33 @@
+{
+  "id": "2026-11-29-i-love-ny-glaser",
+  "topic": "The story of Milton Glaser's I ♥ NY logo: New York near bankruptcy in the 1970s, a state tourism campaign (Wells Rich Greene, 1977), a sketch on an envelope in a taxi (now at MoMA), done pro bono, about $30M a year in merchandise, copied everywhere",
+  "category": "هوية بصرية",
+  "format": "reel",
+  "engine": 4,
+  "mode": "dark",
+  "badge": "قصة شعار",
+  "coverAt": 2.4,
+  "music": "assets/music/gr0za-upbeat-upbeat-music-627570.mp3",
+  "musicStart": 0,
+  "voice": true,
+  "sources": [
+    "https://en.wikipedia.org/wiki/I_Love_New_York",
+    "https://www.moma.org/collection/works/128649",
+    "https://www.nationalgeographic.com/history/article/new-york-1977-blackout-i-love-ny-logo",
+    "https://www.untappedcities.com/cities-101-the-surprising-history-of-nycs-iconic-i-love-ny-logo/",
+    "https://www.wallpaper.com/design-interiors/corporate-design-branding/milton-glaser-i-love-new-york-logo"
+  ],
+  "scenes": [
+    {"type": "hook", "dur": 3.4, "pose": "point", "icon": "spark", "pill": "I ♥ NY", "title": "شعار ساعد ينقذ مدينة؟", "sub": "قصة بدأت بتكسي", "say": "تعرف إن شعار بثلاث حروف وقلب، ساعد ينقذ مدينة كاملة؟"},
+    {"type": "stat", "dur": 3.2, "icon": "chart", "value": "1975", "title": "نيويورك قريبة من الإفلاس", "body": "عجز بالمليارات، جرايم وإضرابات", "say": "بالسبعينات، نيويورك كانت قريبة من الإفلاس، والجرايم بكل مكان."},
+    {"type": "point", "dur": 3.2, "num": "1", "image": "https://storage.ghost.io/c/3e/3b/3e3b259f-e5a2-4287-97e8-4888d22daaef/content/images/wp-content/uploads/2017/06/history-of-nycs-iconic-logo_milton_glaser_nyc_untapped-cities.jpg", "credit": "ميلتون غليزر · Wikimedia Commons", "title": "الولاية تريد حملة سياحة", "body": "وطلبت شعار من المصمم ميلتون غليزر", "say": "الولاية سوّت حملة سياحة، وطلبت شعار من المصمم ميلتون غليزر."},
+    {"type": "image", "dur": 3.4, "image": "https://i.natgeofe.com/n/e38a9dd8-0e28-4e56-9e8a-bbcfdfa20592/ART414150.jpg", "fit": "contain", "chip": "1976", "chipIcon": "spark", "title": "انرسم بالتكسي على ظرف", "credit": "الرسمة: Milton Glaser · MoMA", "say": "وهو راكب بالتكسي، رسم الفكرة بقلم أحمر على ظرف ورق."},
+    {"type": "image", "dur": 3.2, "image": "https://cdn.mos.cms.futurecdn.net/nMVQA4g6CAfWAvTVGSqcg3.jpg", "fit": "contain", "title": "قلب بدل كلمة «love»", "body": "وخط American Typewriter", "credit": "الشعار: Milton Glaser · تصوير: Neil Godwin", "say": "حرف، وقلب أحمر، واسم المدينة. بس هيچ."},
+    {"type": "stat", "dur": 3.0, "icon": "star", "value": "0$", "title": "أخذ عليه ولا دولار", "body": "سواه ببلاش لمدينته", "say": "والأغرب؟ غليزر سواه ببلاش، ما أخذ عليه ولا فلس."},
+    {"type": "stat", "dur": 3.2, "icon": "trophy", "value": "30M", "title": "دولار بالسنة من بضاعته", "body": "تيشيرتات، أكواب وقبعات", "say": "وبعدين صارت بضاعة الشعار تجيب حوالي ثلاثين مليون دولار بالسنة."},
+    {"type": "image", "dur": 3.2, "image": "https://storage.ghost.io/c/3e/3b/3e3b259f-e5a2-4287-97e8-4888d22daaef/content/images/wp-content/uploads/2017/06/i-heart-ny-product-t-shirt-shot-glasses-hats-mugs-nyc.jpg", "chip": "بكل مكان", "title": "انقلّد بمدن العالم كلها", "credit": "الصورة: Untapped Cities", "say": "وانقلّد بمدن العالم كلها، وحتى بمدننا العربية."},
+    {"type": "statement", "dur": 2.8, "text": "فكرة بسيطة عاشت نص قرن", "sub": "البساطة تنحفظ", "say": "لأن الفكرة البسيطة الصادقة، تعيش نص قرن."},
+    {"type": "end", "dur": 2.8, "say": "تابعنا على كريتيفيا."}
+  ],
+  "caption": "شعار بدأ برسمة على ظرف بتكسي ✦\n\nبالسبعينات كانت نيويورك قريبة من الإفلاس، والجرايم والإضرابات بكل مكان. سنة 1977 سوّت ولاية نيويورك حملة سياحة ويا وكالة Wells Rich Greene، وطلبت شعار من المصمم ميلتون غليزر.\n\nغليزر رسم الفكرة وهو راكب بالتكسي على ظرف ورق: حرف I، وقلب أحمر بدل كلمة love، وNY بخط American Typewriter. الرسمة الأصلية اليوم بمجموعة متحف MoMA، وغليزر سوّى الشعار ببلاش.\n\nالنتيجة؟ بضاعة الشعار صارت تجيب حوالي 30 مليون دولار بالسنة، وانقلّد بكل مدن العالم. الدرس: الفكرة البسيطة تنحفظ وتعيش.\n\nتحب الشعارات البسيطة لو المعقدة؟ 1 لو 2؟\n\nالشعار: Milton Glaser · الرسمة الأصلية: @moma\n\n#كريتيفيا #هوية_بصرية #تصميم_شعارات #تصميم_جرافيك #ماركتنغ #MiltonGlaser #ILoveNY #logodesign"
+}

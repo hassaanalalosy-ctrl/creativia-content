@@ -9,6 +9,34 @@ import json, os, subprocess, sys, glob, shutil
 def run(*a):
     print('+', ' '.join(a)); return subprocess.run(a, check=True, capture_output=True, text=True).stdout
 
+
+def cobalt(url, dst):
+    """Fallback when YouTube blocks GitHub: ask public cobalt instances (open-source downloader servers) for the file."""
+    import urllib.request, re as _re
+    cands = []
+    for lst in ('https://instances.cobalt.best/api/instances.json', 'https://instances.cobalt.best/instances.json'):
+        try:
+            data = json.loads(urllib.request.urlopen(urllib.request.Request(lst, headers={'User-Agent': 'creativia/1.0'}), timeout=30).read())
+            for it in (data if isinstance(data, list) else data.get('instances', [])):
+                api = it.get('api') or it.get('url') or ''
+                svc = it.get('services') or {}
+                if api and (not svc or svc.get('youtube') in (True, None)) and it.get('online', True) is not False:
+                    cands.append(('https://' + api) if not api.startswith('http') else api)
+            if cands: break
+        except Exception as ex: print('instance list', lst, ex)
+    print('cobalt candidates', len(cands), cands[:12])
+    for api in cands[:25]:
+        try:
+            req = urllib.request.Request(api.rstrip('/') + '/', data=json.dumps({'url': url, 'videoQuality': '1080', 'youtubeVideoCodec': 'h264', 'downloadMode': 'auto'}).encode(),
+                                         headers={'Accept': 'application/json', 'Content-Type': 'application/json', 'User-Agent': 'creativia/1.0'})
+            r = json.loads(urllib.request.urlopen(req, timeout=40).read())
+            if r.get('status') in ('tunnel', 'redirect', 'stream') and r.get('url'):
+                urllib.request.urlretrieve(r['url'], dst)
+                if os.path.getsize(dst) > 200000: print('cobalt ok via', api); return True
+            else: print('cobalt', api, r.get('status'), str(r.get('error'))[:80])
+        except Exception as ex: print('cobalt', api, str(ex)[:80])
+    return False
+
 def main():
     pid = sys.argv[1]
     root = os.path.join(os.path.dirname(__file__), '..', 'posts', pid)
@@ -35,7 +63,7 @@ def main():
                         last = None; break
                     except subprocess.CalledProcessError as ex:
                         last = ex; print('client', client, 'failed:', (ex.stderr or '')[-200:])
-                if last: raise last
+                if last and not cobalt(url, os.path.join(tmp, name + '.mp4')): raise last
             src = sorted(glob.glob(os.path.join(tmp, name + '.*')))[0]
             s, en = float(e.get('start', 0)), e.get('end')
             dst = os.path.join(out, name + '.mp4')

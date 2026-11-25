@@ -79,7 +79,8 @@
    "src": "posts/2026-11-29-playstation-buttons/vid/ds5.mp4",
    "start": 0,
    "dur": 3,
-   "h": 256
+   "h": 256,
+   "rate": 0.6
   }
  },
  "scenesFile": "scenes.js"

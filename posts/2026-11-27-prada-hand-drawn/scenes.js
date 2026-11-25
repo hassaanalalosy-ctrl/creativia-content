@@ -10,8 +10,8 @@ const R16 = w => Math.round(w * 9 / 16);
 {
   const k = 0;
   textGroup(k, 0.0);
-  const f = full('fxa', 0, T1(k) + 0.3, { x: 0.42, y: 0.5, z: 1.0, shade: 0.55 });
-  play(f, 'fxa', 0, { rate: 0.6, until: T1(k) + 0.3, audio: 0.6 });
+  const f = full('fxa', 0, T1(k) + 0.3, { x: 0.6, y: 0.5, z: 1.0, shade: 0.55 });
+  play(f, 'fxa', 0, { until: T1(k) + 0.3, audio: 0.6 });
   camTo(f, 2.4, { z: 1.12, x: 0.56 }, SC[k].dur - 2.2, 'power1.inOut');
   tag('Prada · Drawing Prada', 24, 136, 0, null, { ltr: true });
   say(k, 0, 1, { y: 384, size: 22 });
@@ -43,7 +43,7 @@ const R16 = w => Math.round(w * 9 / 16);
   const k = 2;
   textGroup(k);
   const f = full('mkA', T0(k) - 0.1, T1(k) + 0.45, { x: 0.5, y: 0.42, z: 1.3, cy: 300, shade: 0.35 });
-  play(f, 'mkA', T0(k) - 0.1, { rate: 0.5, until: T1(k) + 0.45, audio: 0 });
+  play(f, 'mkA', T0(k) - 0.1, { until: T1(k) + 0.45, audio: 0 });
   fade(f.L, T0(k) - 0.1, 0.3);
   camTo(f, T0(k), { z: 1.42 }, SC[k].dur, 'none');
   say(k, 0, 1, { y: 136, size: 22, bg: true, out: W(k, 2).s - 0.12 });
@@ -77,7 +77,7 @@ const R16 = w => Math.round(w * 9 / 16);
   const k = 4, on = T0(k) - 0.25;
   textGroup(k);
   const f = full('prA', on, T1(k) + 0.6, { x: 0.5, y: 0.5, z: 1.0, shade: 0.55 });
-  play(f, 'prA', on, { rate: 1.25, until: T1(k) + 0.6, audio: 0.5 });   // mice on the words, Sadie's close-up on her name
+  play(f, 'prA', on, { until: T1(k) + 0.6, audio: 0.5 });   // mice on the words, Sadie's close-up on her name
   fade(f.L, on, 0.35);
   camTo(f, on, { z: 1.1 }, SC[k].dur, 'none');
   say(k, 0, 3, { y: 404, size: 22, hero: { 1: 32, 3: 32 }, out: W(k, 4).s - 0.12 });
@@ -178,12 +178,11 @@ const R16 = w => Math.round(w * 9 / 16);
   const k = 10;
   textGroup(k);
   const f = full('mkS', T0(k) - 0.25, T1(k) + 0.35, { x: 0.5, y: 0.35, z: 1.3, cy: 260, shade: 0.25 });
-  play(f, 'mkS', T0(k) - 0.25, { rate: 0.45, until: T1(k) + 0.35, audio: 0 });
+  play(f, 'mkS', T0(k) - 0.25, { until: T1(k) + 0.35, audio: 0 });
   fade(f.L, T0(k) - 0.25, 0.35);
   camTo(f, T0(k), { z: 1.4 }, SC[k].dur, 'none');
   say(k, 0, 4, { y: 404, size: 21, bg: true, hero: { 3: 28 }, out: W(k, 5).s - 0.12 });
   say(k, 5, 10, { y: 404, size: 21, bg: true, hero: { 6: 28, 7: 28 } });
-  const sv = svgLayer(TX); scribble(sv, 180, 262, 104, 80, W(k, 6).s, { width: 3 });
   fadeOut(f.L, T1(k) + 0.05, 0.35);
 }
 
@@ -191,8 +190,8 @@ const R16 = w => Math.round(w * 9 / 16);
 {
   const k = 11;
   textGroup(k);
-  const f = full('mk0', T0(k) - 0.2, T1(k) + 0.4, { x: 0.52, y: 0.5, z: 1.1, shade: 0.4 });
-  play(f, 'mk0', T0(k) - 0.2, { rate: 0.42, until: T1(k) + 0.4, audio: 0.2 });
+  const f = full('mk0', T0(k) - 0.2, T1(k) + 0.4, { x: 0.52, y: 0.5, z: 1.1, cy: 220, shade: 0.4 });
+  play(f, 'mk0', T0(k) - 0.2, { until: T1(k) + 0.4, audio: 0 });
   fade(f.L, T0(k) - 0.2, 0.4);
   camTo(f, T0(k), { z: 1.35, x: 0.56 }, SC[k].dur + 0.4, 'power1.inOut');
   say(k, 0, 5, { y: 400, size: 22, bg: true, out: W(k, 6).s - 0.12 });

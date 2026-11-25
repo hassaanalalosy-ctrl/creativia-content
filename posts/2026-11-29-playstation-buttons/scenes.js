@@ -46,6 +46,7 @@ const ring = r => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height="' + 2
   say(k, 6, 10, { y: 404, size: 22, bg: true, hero: { 7: 30 } });
   const sv = svgLayer(TX); bracket(sv, 92, 160, 176, 180, W(k, 8).s, { width: 2.6, len: 18 });
   clipOut(f, T1(k) - 0.3, [40, 150, 280, 280, 140], 0.5);
+  fadeOut(f.L, T1(k) - 0.05, 0.3);
 }
 
 // ================= 2 · TRIANGLE = your head, SQUARE = a sheet of paper =================
@@ -133,7 +134,7 @@ const ring = r => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height="' + 2
   const k = 7, g = group(T0(k) - 0.1, T1(k) + 0.1), sv = svgLayer(g);
   textGroup(k);
   const c = pic('ds5', 40, 140, 280, g, { css: 'background:#fff' });
-  play(c, 'ds5', T0(k) - 0.1, { rate: 0.6, until: T1(k), audio: 0 });
+  play(c, 'ds5', T0(k) - 0.1, { until: T1(k), audio: 0 });
   enter(c, T0(k) - 0.1, { z: -500, rotationX: 30, opacity: 0 }, 0.8);
   tag('2020 · PS5', 40, 140 + c.H + 8, T0(k) + 0.3, g, { ltr: true });
   say(k, 0, 3, { y: 352, size: 22, hero: { 0: 30, 1: 30 }, out: W(k, 4).s - 0.12 });

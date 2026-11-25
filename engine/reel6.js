@@ -95,11 +95,13 @@ function sfxPlan(cues) {
     for (const [k, v0] of Object.entries(spec.videos || {})) {
       const v = typeof v0 === 'string' ? { src: v0 } : v0, fdir = path.join(tmpd, k);
       fs.rmSync(fdir, { recursive: true, force: true }); fs.mkdirSync(fdir);
-      execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(v.start || 0), '-i', path.join(ROOT, v.src), '-t', String(v.dur || 10), '-an', '-vf', 'fps=30,scale=-2:' + (v.h || 1280), '-q:v', '3', path.join(fdir, 'f%04d.jpg')]);
+      // "rate" < 1 = slow motion: frames are motion-interpolated to 30 fps (no duplicated-frame stutter); play it at rate 1
+      const r = v.rate || 1, vf = (r !== 1 ? 'setpts=PTS/' + r + ',minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc:vsbmc=1,' : 'fps=30,') + 'scale=-2:' + (v.h || 1280);
+      execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(v.start || 0), '-t', String(v.dur || 10), '-i', path.join(ROOT, v.src), '-an', '-vf', vf, '-q:v', '3', path.join(fdir, 'f%04d.jpg')]);
       const n = fs.readdirSync(fdir).filter(f => f.endsWith('.jpg')).length; if (!n) throw new Error('No frames from video ' + k);
       const [w, h] = dims(path.join(fdir, 'f0001.jpg'));
       spec.img[k] = { src: 'file://' + path.join(fdir, 'f0001.jpg'), w, h };
-      spec.vid[k] = { dir: 'file://' + fdir, n }; vsrc[k] = { file: path.join(ROOT, v.src), start: v.start || 0 };
+      spec.vid[k] = { dir: 'file://' + fdir, n }; vsrc[k] = { file: path.join(ROOT, v.src), start: v.start || 0, rate: v.rate || 1 };
     } }
   delete spec.videos;
   spec.scenesCode = fs.readFileSync(path.join(dir, spec.scenesFile || 'scenes.js'), 'utf8');
@@ -187,9 +189,9 @@ function sfxPlan(cues) {
     const has = (() => { try { return execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', v.file]).toString().trim().length > 0; } catch (e) { return false; } })();
     if (!has) continue;
     const dur = Math.max(0.2, Math.min(a.until, total) - a.t0); if (dur < 0.3) continue;
-    args.push('-ss', String(v.start + a.from), '-t', String(dur), '-i', v.file);
+    args.push('-ss', String(v.start + a.from * v.rate), '-t', String(dur * v.rate), '-i', v.file);
     const ms = Math.round(a.t0 * 1000);
-    parts.push(`[${idx}:a]aresample=44100,volume=${a.vol},afade=t=in:d=0.25,afade=t=out:st=${Math.max(0, dur - 0.35).toFixed(2)}:d=0.35,adelay=${ms}|${ms}[c${idx}]`);
+    parts.push(`[${idx}:a]aresample=44100${v.rate !== 1 && v.rate >= 0.5 ? ',atempo=' + v.rate : ''},volume=${a.vol},afade=t=in:d=0.25,afade=t=out:st=${Math.max(0, dur - 0.35).toFixed(2)}:d=0.35,adelay=${ms}|${ms}[c${idx}]`);
     clipParts.push({ tag: `[c${idx}]`, a: a.t0, b: a.t0 + dur }); idx++;
   }
   if (music) {

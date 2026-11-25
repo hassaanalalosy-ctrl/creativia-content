@@ -152,6 +152,7 @@ function path(svg, d, t, dur, o) {
   if (o.dash) p.setAttribute('stroke-dasharray', o.dash); if (o.glow !== false) p.style.filter = 'drop-shadow(0 0 4px ' + (o.color || MINT) + ')';
   svg.appendChild(p); const len = p.getTotalLength();
   if (!o.dash) tl.fromTo(p, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: dur || 0.6, ease: o.ease || 'power2.inOut', immediateRender: true }, t);
+  if (!o.dash) tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.04, immediateRender: true }, t);   // no round-cap dots before the stroke starts
   else tl.fromTo(p, { opacity: 0 }, { opacity: 1, duration: dur || 0.4, immediateRender: true }, t);
   if (o.out != null) tl.to(p, { opacity: 0, duration: 0.3 }, o.out);
   return p;

@@ -1,0 +1,86 @@
+{
+ "id": "2026-11-29-playstation-buttons",
+ "topic": "Why X means 'no' in Japan: Teiyu Goto's PlayStation symbols (triangle = viewpoint, square = paper/menus, circle/X = yes/no, red/blue colours he insisted on); the West flipped X to confirm; 26 years later the PS5 made X confirm worldwide and Japanese players felt they 'lost a war'",
+ "category": "تصميم · ألعاب",
+ "format": "reel",
+ "engine": 6,
+ "mode": "dark",
+ "badge": "تصميم · ألعاب",
+ "music": "assets/music/sub_clair-upbeat-587078.mp3",
+ "musicStart": 0,
+ "voice": true,
+ "coverAt": 2.4,
+ "sources": [
+  "https://www.engadget.com/2010-08-25-ps1-designer-on-the-fight-for-controller-handles-what-the-butto.html",
+  "https://80.lv/articles/here-is-how-playstation-controller-buttons-came-to-be/",
+  "https://soranews24.com/2020/10/05/sony-switches-x-button-to-confirm-for-playstation-5-worldwide-gamers-in-japan-freak-out/",
+  "https://www.gamespot.com/articles/sony-makes-a-big-ps5-change-in-japan-swapping-the-circle-and-x-buttons-functions/1100-6482928",
+  "https://www.pushsquare.com/news/2020/10/sony_abandons_decades-old_japanese_controller_logic_for_ps5"
+ ],
+ "scenes": [
+  {
+   "say": "لاحظت زر الإكس بالبلايستيشن؟ باليابان، معناه: لا.",
+   "dur": 3
+  },
+  {
+   "say": "قبل ثلاثين سنة، المصمم تيو غوتو رسم أربع أشكال لأزرار البلايستيشن.",
+   "dur": 3
+  },
+  {
+   "say": "المثلث هو راسك ووين تباوع، والمربع ورقة، يعني القوائم.",
+   "dur": 3
+  },
+  {
+   "say": "والدائرة والإكس؟ نعم ولا، مثل ما يستعملوها اليابانيين بكل مكان.",
+   "dur": 3
+  },
+  {
+   "say": "حتى الألوان: الدائرة حمرة والإكس زرقة. الناس كالت غلط، وهو أصر.",
+   "dur": 3
+  },
+  {
+   "say": "بس من وصل الجهاز لأمريكا وأوروبا، الإكس صار يعني: موافق.",
+   "dur": 3
+  },
+  {
+   "say": "ستة وعشرين سنة، اليابان تضغط الدائرة حتى توافق، والعالم يضغط الإكس.",
+   "dur": 3
+  },
+  {
+   "say": "وبالبلايستيشن خمسة، سوني خلت الإكس هو الموافقة بكل العالم.",
+   "dur": 3
+  },
+  {
+   "say": "اليابانيين انصدموا. واحد كتب: حسيت خسرنا حرب.",
+   "dur": 3
+  },
+  {
+   "say": "نفس الشكل، بس معناه يتغير من بلد لبلد. صمم للناس اللي راح يستخدموه.",
+   "dur": 3
+  },
+  {
+   "say": "وانت، تضغط الإكس لو الدائرة حتى توافق؟",
+   "dur": 3
+  },
+  {
+   "type": "end",
+   "dur": 3
+  }
+ ],
+ "images": {
+  "pad": "posts/2026-11-29-playstation-buttons/img/dualshock-3.jpg",
+  "ps1": "posts/2026-11-29-playstation-buttons/img/ps1-1.jpg",
+  "pads": "posts/2026-11-29-playstation-buttons/img/ps1pad-3.jpg",
+  "gate": "posts/2026-11-29-playstation-buttons/img/maru-2.jpg",
+  "road": "posts/2026-11-29-playstation-buttons/img/maru-1.jpg"
+ },
+ "videos": {
+  "ds5": {
+   "src": "posts/2026-11-29-playstation-buttons/vid/ds5.mp4",
+   "start": 0,
+   "dur": 3,
+   "h": 256
+  }
+ },
+ "scenesFile": "scenes.js"
+}

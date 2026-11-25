@@ -12,7 +12,7 @@ Each run creates **at most one slot post (with its two stories) plus at most one
 - Slot days: every day.
 - Starting from tomorrow (Baghdad date), walk forward up to 7 days and take the first date that is not already a key in `log/schedule.json`.
 - If there is no such slot, stop: reply in one Arabic line "الجدول مكتمل لحد <last filled date>، ما أكو شي جديد اليوم" and end the run without changes.
-- If the slot's day-of-month is 1, 4, 7, 10, 13, 16, 19, 22, 25 or 28 it is a **reel day**: follow section 3R instead of 3, and in section 4 use the reel settings.
+- **Reel days (owner, 25 Nov 2026: 22 reels + 8 posts a month):** the slot is a POST day only if its day-of-month is 4, 8, 12, 16, 20, 24, 28, 30 or 31; **every other day is a reel day**: follow section 3R instead of 3, and in section 4 use the reel settings.
 
 ## 3. Make the post
 - Research and choose a topic exactly as the content guide says (web search + page fetches; verify facts in 2 sources).
@@ -22,12 +22,13 @@ Each run creates **at most one slot post (with its two stories) plus at most one
 - If render-error.json appears (usually a bad image URL): replace the failing image URL in the spec with another credited image of the same work, delete render-error.json, push again and wait again. Give up after 2 attempts: delete the post folder, push, and reply with the error.
 - Open every rendered slide image with the Read tool and check it: text not cut off, no overlapping elements, images loaded, numbers in English digits, credits present. If something is wrong, fix the spec and re-render (delete rendered.json, push).
 
-## 3R. Make a reel (reel days only)
-- Choose a topic as `guide/REELS.md` says, and write `posts/<id>/reel.json` with `"engine": 4`, music from the library, and `"voice": true` with a `say` line per scene (every reel).
-- Also write `posts/<id>/stories.json` (section 3S) in the same commit.
-- Commit "Reel spec: <slug>" and push. The GitHub Action renders `reel.mp4` (with music, sound effects and voice) and `reel-cover.jpg`, then the stories (about 4 to 8 minutes).
-- Poll every 30 seconds for up to 45 minutes (engine 3 renders slowly) until `posts/<id>/reel-rendered.json` or `posts/<id>/render-error.json` exists on origin/main, then `git reset --hard origin/main`.
-- Check it: extract 8 frames spread across the video with ffmpeg (`ffmpeg -ss <sec> -i reel.mp4 -frames:v 1 -vf scale=270:480 f.png`) and open them with the Read tool. Text must not overlap, be cut off, or sit in the bottom fifth. Check the audio exists (`ffprobe` shows an audio stream). Fix the spec and re-render if needed (delete reel-rendered.json, push).
+## 3R. Make a reel (reel days only) — exactly like the GTA cover reel
+Reference: `posts/2026-11-23-gta-cover-grid-story/` (reel.json + scenes.js). Follow `guide/REELS.md` "Engine 6 — DIRECTED", "How a reel is made" and both owner rules (final problem-only review, no underlines).
+- Topic as REELS.md says (3 candidates scored; a real story with a twist). Fetch real images with `posts/<id>/images.json` + the "fetch-images" workflow; pictures keep their own ratio, never cropped.
+- Write `posts/<id>/reel.json` with `"engine": 6`, an `images` map, `"scenesFile": "scenes.js"`, music from the library, `"voice": true` and a `say` line per scene; then write `posts/<id>/scenes.js` beat by beat from your storyboard (zooms into details, full-bleed environments, drawn marks, diagrams, transitions from the content). Also `posts/<id>/stories.json` (section 3S).
+- Before the full render: stills of every beat (`FRAMES=…` locally with local images, or the `preview` workflow). Review them as art director + motion designer; fix empty space, cropped pictures, text collisions, text under the badge or the right buttons, weak transitions.
+- Commit "Reel spec: <slug>" and push; the Action renders `reel.mp4`, `reel-cover.jpg` and the stories. Poll every 30 seconds for up to 45 minutes for `reel-rendered.json` / `render-error.json`, then `git reset --hard origin/main`.
+- FINAL PROBLEM-ONLY REVIEW (mandatory): frame-diff check (no isolated jumps except counters, no frozen frames — replace hard cuts with quick cross-dissolves/whips), 10+ frames opened with Read, audio stream present, text order matches the voice. Fix → re-render (delete reel-rendered.json) → check again. Schedule only when clean.
 
 ## 3S. Stories (every slot day)
 Write `posts/<id>/stories.json` together with the post spec:

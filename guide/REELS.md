@@ -1,10 +1,9 @@
 # Reels
 
-15 reels per month (owner decision, 16 Nov 2026); every other day is a carousel or single post (one feed post every day).
-**Reel days: every odd day of the month — the 1st, 3rd, 5th, … 29th (15 reels).** The 31st and every even day are normal posts.
-Transition, rest of November 2026: reels on the 19th, 22nd, 25th, 27th and 29th (17th, 18th, 20th and 21st are already scheduled as posts). Odd days apply fully from 1 December.
+**22 reels + 8 posts per month (owner decision, 25 Nov 2026), from 1 December 2026.** One feed item every day at 21:00.
+**Post days (carousel/single): the 4th, 8th, 12th, 16th, 20th, 24th, 28th and 30th, plus the 31st in 31-day months. Every other day is a reel day** (22 reels in a 30-day month; February: 21).
+**Every reel is made like the GTA cover reel (posts/2026-11-23-gta-cover-grid-story): engine 6 DIRECTED, its own `scenes.js`, storyboard + self art-direction, final problem-only review.** Engines 2/4/5 are retired for new reels; their sections below are reference only.
 **Every reel has a voiceover** by the Creativia voice "Arafat Almnshid" (Iraqi) — see "Voice reels" below. Music plays under the voice.
-
 ## Topics (owner, Nov 2026) — NO design tips
 Reels are **stories**, not tips. Every reel tells one gripping story, told by the voice, with real images (and short video clips when available):
 - **Legendary marketing campaigns** and why they worked (a famous stunt, a launch that broke the internet, a guerrilla idea, a brand comeback).
@@ -16,8 +15,8 @@ Structure: a hook that creates curiosity in the first 2 seconds (a question or a
 Facts, numbers, dates and names verified in 2 sources; no invented results. Use the real campaign/logo images with credits (brand, agency, photographer). Do not repeat a topic already in `log/posted.md`.
 Good scene types for stories: `hook`, `image` (most scenes), `video`, `point` with `image`, `statement` for the key moment or the lesson, `list` for "3 reasons it worked", `end`.
 
-## Spec (posts/<id>/reel.json) — engine 4 (CAMERA WORLD: glass panels in one world, the camera flies between them), the ONLY engine for new reels
-Always set `"engine": 4` (same scene format as engine 2; reference: posts/2026-11-20-gta6-hype-reel/reel.json). 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
+## Spec (posts/<id>/reel.json) — engine 4 (LEGACY reference; new reels use engine 6, see "Engine 6 — DIRECTED")
+Old engine-4 format (same scene format as engine 2; reference: posts/2026-11-20-gta6-hype-reel/reel.json). 30 to 75 seconds (stories can be long), 6 to 14 scenes. Titles under ~35 characters, bodies under ~90.
 ```json
 {
   "id": "YYYY-MM-DD-short-slug",
@@ -69,7 +68,7 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
 
-## Engine 6 — DIRECTED (current, Nov 23 2026). Use `"engine": 6` for story reels.
+## Engine 6 — DIRECTED (current, Nov 23 2026). Use `"engine": 6` for EVERY new reel.
 Each reel has its own `posts/<id>/scenes.js` (beats written for that story) on the toolkit `engine/reel6-page.js`; `reel.json` keeps `scenes` (say + dur, for the voice) and an `images` map. Example: posts/2026-11-23-gta-cover-grid-story/scenes.js.
 Process (owner): script → storyboard per beat → build → render stills (`FRAMES=…` locally or the `preview` workflow) → review as art director + motion designer (use separate reviewer agents for big reels) → fix → full render → frame-jump check (no single-frame spikes except intentional match-cuts) → schedule.
 Brand system (from the brand review):
@@ -77,7 +76,7 @@ Brand system (from the brand review):
 - Variable per beat: layout, text anchor, camera, transitions, background (full-bleed photo / dark / paper palette break), one topic accent inside the content.
 - Rules: no two consecutive beats with the same composition; no static hold > 3 s (camera drift, drawing, counters); text appears with its spoken word and older text leaves; hero word ≥ 2.5× connector size; nothing under the badge (y ≥ 104); no text under the right buttons (x > 300 when y 330–600) or below y ≈ 506 — pictures may go there; dark scrim/pill behind text on busy art; transitions come from the content (match-cut, park-in-corner, iris, whip, flash, push-through), never a fade to an empty frame.
 
-## Engine 5 — KINETIC SPACE (owner references, Nov 23 2026) — use `"engine": 5` for new reels
+## Engine 5 — KINETIC SPACE (LEGACY reference — do not use for new reels)
 No fixed card. Each scene = a visual + kinetic text that IS the voice (phrases build word by word in sync with the voice; small connector words, big green keywords from `hl`). Real 3D (perspective): pictures are cards shaped like the picture (never cropped), tilted and floating; galleries fly in from depth; blurred bokeh crosses in front; glows and a light beam drift behind.
 - Scene types: `focus` (full-bleed picture + virtual camera stops, rings, `title`/`titleOut` for the hook), `image` (picture card, `chip`, `ring`, `ringLabel`, `credit`), `gallery` (`items`, `rows` e.g. [3,2], `ratio`, `highlight`), `date`, `bars` (`rows` with `big`,`label`,`value`,`hi`), `slice` (`image` cut into tiles, `drop`, `result`), `versus` (`a`,`b`, `symbol`), `statement` (`text`,`sub`), `end`.
 - `layout`: `textTop` | `textBottom` (focus uses text over the picture, statement/end are text-only). Alternate them so the eye moves.

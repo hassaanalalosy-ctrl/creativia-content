@@ -1,0 +1,6 @@
+[
+ {"name": "pr1", "url": "https://www.youtube.com/watch?v=jTiRRC-I1So", "end": 120},
+ {"name": "pr2", "url": "https://www.youtube.com/watch?v=X3IGnVd0hss", "end": 120},
+ {"name": "pr3", "url": "https://www.youtube.com/watch?v=Mj_5Zcn11Mw", "end": 120},
+ {"name": "dior", "url": "https://www.youtube.com/watch?v=G3kIas8ooUQ", "end": 420, "h": 540, "crf": 27}
+]

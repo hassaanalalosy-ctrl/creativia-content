@@ -1,0 +1,30 @@
+name: fetch-videos
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        description: 'Post id (reads posts/<id>/videos.json)'
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: render
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git fetch origin main && git reset --hard origin/main
+      - name: Install ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
+      - run: pip install -q -U yt-dlp && python3 scripts/fetch_videos.py "${{ github.event.inputs.post }}"
+      - name: Commit
+        run: |
+          git config user.name "creativia-bot"
+          git config user.email "creativia-bot@users.noreply.github.com"
+          git add posts
+          git diff --cached --quiet && exit 0
+          git commit -m "Fetch videos for ${{ github.event.inputs.post }}"
+          git pull --rebase origin main
+          git push

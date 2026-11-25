@@ -3,7 +3,7 @@ name: Render slides
 on:
   push:
     branches: [main]
-    paths: ['posts/**/spec.json', 'posts/**/reel.json', 'posts/**/stories.json']
+    paths: ['posts/**/spec.json', 'posts/**/reel.json', 'posts/**/stories.json', 'posts/**/scenes.js']
   workflow_dispatch:
     inputs:
       post:

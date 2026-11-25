@@ -91,7 +91,10 @@ function iris(f, t, cx, cy, d) { tl.fromTo(f.L, { clipPath: 'circle(0% at ' + cx
 // ---------- video: play(target, name, t0, {rate, from, loop, hold}) — target = a full() object or a pic() element ----------
 // The clip's frames replace every <img> of the target; before t0 it shows the first frame, after the end the last (or loops).
 const VID = D.vid || {}, PLAYS = [];
-function play(target, name, t0, o) { o = o || {}; const node = target.L || target; PLAYS.push({ imgs: [...node.querySelectorAll('img')], v: VID[name], t0, rate: o.rate || 1, from: o.from || 0, loop: !!o.loop, cur: -1 }); return target; }
+const VAUD = [];   // clip sound (owner: keep some of the original sound under the voice): {name, t0, from, until, vol}
+function play(target, name, t0, o) { o = o || {}; const node = target.L || target; PLAYS.push({ imgs: [...node.querySelectorAll('img')], v: VID[name], t0, rate: o.rate || 1, from: o.from || 0, loop: !!o.loop, cur: -1 });
+  if (o.until != null && o.audio !== 0) { const a0 = Math.max(0, t0, o.on == null ? t0 : o.on); VAUD.push({ name, t0: a0, from: (o.from || 0) + (a0 - t0) * (o.rate || 1), until: o.until, vol: o.audio == null ? 0.5 : o.audio }); }
+  return target; }
 function applyPlays(time) {
   for (const p of PLAYS) {
     let i = Math.round(((time - p.t0) * p.rate + p.from) * 30); const n = p.v.n;
@@ -168,7 +171,7 @@ for (let i = 0; i < 18; i++) { const s = 2 + (i * 7) % 5, b = el('i', 'mote', ''
 /*SCENES*/
 
 tl.set({}, {}, TOTAL);
-window.TOTAL = TOTAL; window.CUES = CUES;
+window.TOTAL = TOTAL; window.CUES = CUES; window.VAUD = VAUD;
 window.drawFrame = function (time) {
   tl.seek(time, false);
   const dx = Math.sin(time * 0.31) * 6, dy = Math.cos(time * 0.27) * 5, dry = Math.sin(time * 0.4) * 2.2, drx = Math.cos(time * 0.33) * 1.4;

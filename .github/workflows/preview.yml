@@ -22,7 +22,14 @@ jobs:
           cache: npm
       - run: npm ci
       - run: sudo apt-get install -y -qq fonts-noto-core ffmpeg >/dev/null || true
+      - name: Voice (cached clips cost nothing)
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          f=posts/${{ github.event.inputs.post }}/reel.json
+          if [ "$(jq -r '.voice // false' $f)" = "true" ]; then node engine/voice.js ${{ github.event.inputs.post }}; fi
       - name: Stills
+        if: github.event.inputs.frames != 'none'
         env:
           FRAMES: ${{ github.event.inputs.frames }}
         run: |
@@ -35,6 +42,7 @@ jobs:
         run: |
           git config user.name "creativia-bot"
           git config user.email "creativia-bot@users.noreply.github.com"
+          rm -rf engine/_tmp
           git add posts
           git diff --cached --quiet && exit 0
           git commit -m "Preview stills for ${{ github.event.inputs.post }}"

@@ -90,7 +90,7 @@ function sfxPlan(cues) {
   delete spec.images;
   // video clips (owner, 25 Nov 2026: real footage in motion, especially as the hook): "videos": {name: {src, start, dur}}
   // frames are extracted at 30 fps into _tmp and swapped per frame by play() in the page; spec.img[name] = first frame
-  spec.vid = {};
+  spec.vid = {}; const vsrc = {};
   { const tmpd = path.join(__dirname, '_tmp', 'vid-' + id); fs.mkdirSync(tmpd, { recursive: true });
     for (const [k, v0] of Object.entries(spec.videos || {})) {
       const v = typeof v0 === 'string' ? { src: v0 } : v0, fdir = path.join(tmpd, k);
@@ -99,7 +99,7 @@ function sfxPlan(cues) {
       const n = fs.readdirSync(fdir).filter(f => f.endsWith('.jpg')).length; if (!n) throw new Error('No frames from video ' + k);
       const [w, h] = dims(path.join(fdir, 'f0001.jpg'));
       spec.img[k] = { src: 'file://' + path.join(fdir, 'f0001.jpg'), w, h };
-      spec.vid[k] = { dir: 'file://' + fdir, n };
+      spec.vid[k] = { dir: 'file://' + fdir, n }; vsrc[k] = { file: path.join(ROOT, v.src), start: v.start || 0 };
     } }
   delete spec.videos;
   spec.scenesCode = fs.readFileSync(path.join(dir, spec.scenesFile || 'scenes.js'), 'utf8');
@@ -170,7 +170,7 @@ function sfxPlan(cues) {
   await page.evaluate(x => window.drawFrame(x), spec.coverAt || 0);   // frame 0 is the hook
   await settle();
   await el.screenshot({ path: path.join(dir, 'reel-cover.jpg'), type: 'jpeg', quality: 92 });
-  const cuesRaw = await page.evaluate('window.CUES');
+  const cuesRaw = await page.evaluate('window.CUES'); const vaud = await page.evaluate('window.VAUD || []');
   await browser.close();
 
   // ---- audio: music bed (ducked under voice, ~0.14 there), voice, effects 3-6 dB over the bed ----
@@ -180,11 +180,27 @@ function sfxPlan(cues) {
   const args = ['-y', '-loglevel', 'error', '-i', silent];
   const parts = [], fx = [], vo = [];
   let idx = 1, mus = null;
+  // original clip sound: plays in the bed (ducked under the voice); our music dips to 35% while a clip speaks
+  const clipParts = [];
+  for (const a of vaud) {
+    const v = vsrc[a.name]; if (!v) continue;
+    const has = (() => { try { return execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', v.file]).toString().trim().length > 0; } catch (e) { return false; } })();
+    if (!has) continue;
+    const dur = Math.max(0.2, Math.min(a.until, total) - a.t0); if (dur < 0.3) continue;
+    args.push('-ss', String(v.start + a.from), '-t', String(dur), '-i', v.file);
+    const ms = Math.round(a.t0 * 1000);
+    parts.push(`[${idx}:a]aresample=44100,volume=${a.vol},afade=t=in:d=0.25,afade=t=out:st=${Math.max(0, dur - 0.35).toFixed(2)}:d=0.35,adelay=${ms}|${ms}[c${idx}]`);
+    clipParts.push({ tag: `[c${idx}]`, a: a.t0, b: a.t0 + dur }); idx++;
+  }
   if (music) {
     args.push('-ss', String(spec.musicStart || 0), '-i', music);
-    parts.push(`[${idx}:a]atrim=0:${total},asetpts=PTS-STARTPTS,volume=${spec.musicVolume || (voice.length ? 0.32 : 0.55)},afade=t=in:d=0.4,afade=t=out:st=${(total - 1.6).toFixed(2)}:d=1.6[m]`);
-    mus = '[m]'; idx++;
-  }
+    const dip = clipParts.length ? ',volume=\'' + clipParts.map(c => `if(between(t,${c.a.toFixed(2)},${c.b.toFixed(2)}),0.35,1)`).reduce((x, y) => `min(${x},${y})`) + '\':eval=frame' : '';
+    parts.push(`[${idx}:a]atrim=0:${total},asetpts=PTS-STARTPTS,volume=${spec.musicVolume || (voice.length ? 0.32 : 0.55)}${dip},afade=t=in:d=0.4,afade=t=out:st=${(total - 1.6).toFixed(2)}:d=1.6[m0]`);
+    idx++;
+    if (clipParts.length) { parts.push(`[m0]${clipParts.map(c => c.tag).join('')}amix=inputs=${clipParts.length + 1}:normalize=0,apad,atrim=0:${total}[m]`); }
+    else parts.push('[m0]anull[m]');
+    mus = '[m]';
+  } else if (clipParts.length) { parts.push(`${clipParts.map(c => c.tag).join('')}amix=inputs=${clipParts.length}:normalize=0,apad,atrim=0:${total}[m]`); mus = '[m]'; }
   for (const c of voice) {
     args.push('-i', path.join(dir, 'voice', c.file));
     const ms = Math.round((starts[c.scene] + VLEAD) * 1000);

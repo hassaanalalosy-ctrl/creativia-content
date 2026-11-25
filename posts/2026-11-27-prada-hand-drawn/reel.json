@@ -1,0 +1,152 @@
+{
+ "id": "2026-11-27-prada-hand-drawn",
+ "topic": "Prada's Holiday 2026 'Drawing Prada' was hand-drawn by Disney veteran John Pomeroy and shown with its making-of; a week later Dior's hand-drawn 'Night in Color' (Sylvain Chomet) was accused of AI over an extra finger — in the AI era you must show the hand",
+ "category": "إعلان",
+ "format": "reel",
+ "engine": 6,
+ "mode": "dark",
+ "badge": "إعلان · كريسماس",
+ "music": "assets/music/kulakovka-lofi-upbeat-611601.mp3",
+ "musicStart": 0,
+ "voice": true,
+ "coverAt": 1.6,
+ "sources": [
+  "https://www.adsoftheworld.com/campaigns/drawing-prada",
+  "https://www.finestresullarte.info/en/news/the-new-prada-holiday-2026-campaign-is-a-hand-drawn-animated-fairy-tale",
+  "https://hypebeast.com/2026/10/prada-holiday-2026-campaign-disney-animator-john-pomeroy-info",
+  "https://t2online.in/goodlife/fashion-beauty/dior-s-rihanna-led-christmas-animation-faces-ai-backlash--while-prada-s-hand-drawn-festive-campaign-wins-praise/2009088",
+  "https://www.avclub.com/christian-diors-night-in-color-animated-short-alleged-ai-use",
+  "https://www.creativebloq.com/news/diors-christmas-ad-is-the-opposite-to-pradas-classy-animation"
+ ],
+ "scenes": [
+  {
+   "say": "هذا الإعلان مرسوم بالقلم، حركة حركة.",
+   "dur": 3
+  },
+  {
+   "say": "وإعلان ثاني بنفس الموسم، انتهم بالذكاء الاصطناعي، بسبب إصبع زايد.",
+   "dur": 3
+  },
+  {
+   "say": "نبدي ببرادا. جابت جون بوميروي، رسام بدا شغله بديزني سنة ثلاثة وسبعين.",
+   "dur": 3
+  },
+  {
+   "say": "رسم بوكاهونتاس وفانتازيا ألفين، ورجع جمع رسامين قدامى من ديزني.",
+   "dur": 3
+  },
+  {
+   "say": "رسموا فيران تبوك حذاء سادي سينك، نجمة سترينجر ثينغز.",
+   "dur": 3
+  },
+  {
+   "say": "والتصوير الحقيقي انضوى حتى يطابق الرسم: نفس الضوء، ونفس الزاوية.",
+   "dur": 3
+  },
+  {
+   "say": "وكل حركة انرسمت بالقلم، رسمة ورا رسمة.",
+   "dur": 3
+  },
+  {
+   "say": "بعدها بأسبوع، نزلت ديور فيلم كريسماس مرسوم هم.",
+   "dur": 3
+  },
+  {
+   "say": "بس الناس لكطت يد بيها إصبع زايد، وصاحت: ذكاء اصطناعي!",
+   "dur": 3
+  },
+  {
+   "say": "المخرج سيلفان شوميه نفى، والمنتج كال: عشرين فنان، سبعة أشهر شغل.",
+   "dur": 3
+  },
+  {
+   "say": "وشوميه كال: اليد السريعة بالرسم، تنرسم بأصابع زيادة حتى تبين الحركة.",
+   "dur": 3
+  },
+  {
+   "say": "اليوم، ما يكفي تسوي الشغل بإيدك. لازم تبين إيدك.",
+   "dur": 3
+  },
+  {
+   "say": "وانت، تصدق ديور لو لا؟",
+   "dur": 3
+  },
+  {
+   "type": "end",
+   "dur": 3
+  }
+ ],
+ "videos": {
+  "fxa": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/fx.mp4",
+   "start": 3.0,
+   "dur": 8
+  },
+  "dr1": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
+   "start": 116,
+   "dur": 6
+  },
+  "mkA": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
+   "start": 10.4,
+   "dur": 6
+  },
+  "mkB": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
+   "start": 156,
+   "dur": 7
+  },
+  "prA": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/pr.mp4",
+   "start": 31.4,
+   "dur": 9
+  },
+  "mkC": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
+   "start": 271,
+   "dur": 6
+  },
+  "fxB": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/fx.mp4",
+   "start": 3.0,
+   "dur": 5
+  },
+  "mkD": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
+   "start": 175,
+   "dur": 8
+  },
+  "dr2": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
+   "start": 5,
+   "dur": 7
+  },
+  "dr3": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
+   "start": 150,
+   "dur": 6
+  },
+  "dr4": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
+   "start": 133,
+   "dur": 6
+  },
+  "mkS": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
+   "start": 182,
+   "dur": 9
+  },
+  "mk0": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
+   "start": 0,
+   "dur": 1.45
+  },
+  "prS": {
+   "src": "posts/2026-11-27-prada-hand-drawn/vid/pr.mp4",
+   "start": 38.7,
+   "dur": 0.5
+  }
+ },
+ "scenesFile": "scenes.js"
+}

@@ -9,7 +9,7 @@
  "music": "assets/music/kulakovka-lofi-upbeat-611601.mp3",
  "musicStart": 0,
  "voice": true,
- "coverAt": 1.6,
+ "coverAt": 2.35,
  "sources": [
   "https://www.adsoftheworld.com/campaigns/drawing-prada",
   "https://www.finestresullarte.info/en/news/the-new-prada-holiday-2026-campaign-is-a-hand-drawn-animated-fairy-tale",
@@ -79,7 +79,7 @@
  "videos": {
   "fxa": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/fx.mp4",
-   "start": 1.6,
+   "start": 1.3,
    "dur": 8,
    "h": 1080
   },
@@ -92,19 +92,19 @@
   "mkA": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 10.4,
-   "dur": 6,
+   "dur": 3.4,
    "h": 720
   },
   "mkB": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
-   "start": 156,
+   "start": 160.4,
    "dur": 7,
    "h": 720
   },
   "prA": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/pr.mp4",
-   "start": 31.4,
-   "dur": 9,
+   "start": 33.6,
+   "dur": 6,
    "h": 1080
   },
   "mkC": {
@@ -127,7 +127,7 @@
   },
   "dr2": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
-   "start": 5,
+   "start": 8.5,
    "dur": 7,
    "h": 480
   },
@@ -145,8 +145,8 @@
   },
   "mkS": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
-   "start": 182,
-   "dur": 9,
+   "start": 24.6,
+   "dur": 3.2,
    "h": 720
   },
   "mk0": {

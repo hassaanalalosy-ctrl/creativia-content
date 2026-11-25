@@ -81,6 +81,7 @@ Set `"voice": true` on every reel and give every scene a `"say"` line. The voice
 - Whole script under 900 characters (about 45 to 75 seconds). Say it naturally; do not read the on-screen text word for word.
 - Scene durations stretch automatically to fit each line; the music ducks under the voice.
 - The generator caches clips; changing a "say" line regenerates only that clip.
+- **Owner rule (Nov 26 2026): every scene has TWO lines.** `"say"` = the on-screen words (plain, no tashkeel, Iraqi spelling like كال، لكطت). `"voice"` = what Arafat reads: the SAME words in the same order (same word count, the engine maps them 1:1), **fully vowelled (بالحركات)** and with standard letters for dialect sounds so the voice pronounces them right: قال not كال، لِقطَت not لكطت، يِگول → يِقول. Never send unvowelled dialect text to the voice.
 
 ## Engine 6 — DIRECTED (current, Nov 23 2026). Use `"engine": 6` for EVERY new reel.
 Each reel has its own `posts/<id>/scenes.js` (beats written for that story) on the toolkit `engine/reel6-page.js`; `reel.json` keeps `scenes` (say + dur, for the voice) and an `images` map. Example: posts/2026-11-23-gta-cover-grid-story/scenes.js.

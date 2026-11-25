@@ -80,72 +80,86 @@
   "fxa": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/fx.mp4",
    "start": 3.0,
-   "dur": 8
+   "dur": 8,
+   "h": 1080
   },
   "dr1": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
    "start": 116,
-   "dur": 6
+   "dur": 6,
+   "h": 480
   },
   "mkA": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 10.4,
-   "dur": 6
+   "dur": 6,
+   "h": 720
   },
   "mkB": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 156,
-   "dur": 7
+   "dur": 7,
+   "h": 720
   },
   "prA": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/pr.mp4",
    "start": 31.4,
-   "dur": 9
+   "dur": 9,
+   "h": 1080
   },
   "mkC": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 271,
-   "dur": 6
+   "dur": 6,
+   "h": 720
   },
   "fxB": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/fx.mp4",
    "start": 3.0,
-   "dur": 5
+   "dur": 5,
+   "h": 1080
   },
   "mkD": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 175,
-   "dur": 8
+   "dur": 8,
+   "h": 720
   },
   "dr2": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
    "start": 5,
-   "dur": 7
+   "dur": 7,
+   "h": 480
   },
   "dr3": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
    "start": 150,
-   "dur": 6
+   "dur": 6,
+   "h": 480
   },
   "dr4": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/dior.mp4",
    "start": 133,
-   "dur": 6
+   "dur": 6,
+   "h": 480
   },
   "mkS": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 182,
-   "dur": 9
+   "dur": 9,
+   "h": 720
   },
   "mk0": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/mk.mp4",
    "start": 0,
-   "dur": 1.45
+   "dur": 1.45,
+   "h": 720
   },
   "prS": {
    "src": "posts/2026-11-27-prada-hand-drawn/vid/pr.mp4",
    "start": 38.7,
-   "dur": 0.5
+   "dur": 0.5,
+   "h": 1080
   }
  },
  "scenesFile": "scenes.js"

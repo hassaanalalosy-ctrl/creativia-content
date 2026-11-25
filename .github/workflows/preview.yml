@@ -21,7 +21,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: sudo apt-get install -y -qq fonts-noto-core ffmpeg >/dev/null || true
+      - run: (command -v ffmpeg && command -v jq) || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg jq >/dev/null); sudo apt-get install -y -qq fonts-noto-core >/dev/null || true
       - name: Voice (cached clips cost nothing)
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}

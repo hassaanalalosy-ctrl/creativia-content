@@ -151,7 +151,7 @@ const ring = r => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height="' + 2
   // a post card (Twitter-style layout, no invented handle): who, where/when, the words, the source — everything inside the card
   const q = el('div', 'card holder tw', '<div class="twh"><i class="av"></i><div><b>لاعب ياباني</b><span>تويتر · أكتوبر 2020</span></div></div><div class="twf">المصدر: SoraNews24</div>', 'left:30px;top:214px;width:300px;height:196px', g);
   enter(q, W(k, 2).s - 0.25, { y: 30, scale: 0.92, opacity: 0 }, 0.5);
-  say(k, 4, 6, { x: 18, w: 264, y: 74, size: 30, hero: { 5: 42, 6: 42 }, parent: q });
+  say(k, 4, 6, { x: 18, w: 264, y: 80, size: 28, hero: { 5: 34, 6: 34 }, parent: q });
   tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.15);
 }
 

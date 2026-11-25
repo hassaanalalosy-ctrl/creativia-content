@@ -146,3 +146,8 @@ Reference: a story reel where every line has a picture or a diagram that SHOWS w
 - One payoff per film: the `statement` scene gets the riser into impact and a small camera punch-in. Use it once, near the end.
 - Sound: few and exact. The engine places a whoosh on cuts, a pop when a number/badge/chip lands, ticks on list rows, a riser+impact on the payoff, a shimmer on the end card, and rotates takes. Music sits low under the voice.
 - Video clips: `video` scenes (2 to 6 s each). Reels may run up to 90 s when they walk through several clips.
+
+## Video clips (owner, 25 Nov 2026): real footage in motion, especially as the HOOK
+- Engine 6: `"videos": {"name": {"src": "posts/<id>/vid/x.mp4", "start": 3.2, "dur": 6}}` in reel.json; in scenes.js `play(full(name,…), name, t0, {rate, from, loop})` or `play(pic(name,…), …)`. The clip's first frame is also `IMG[name]`.
+- Getting clips: `posts/<id>/videos.json` + the `fetch-videos` workflow (yt-dlp; YouTube needs the `YT_COOKIES` secret), or the owner's Telegram video inbox: links/videos sent to the Creativia bot land in `assets/inbox/` (see `assets/inbox/index.json`, tag = the text sent with the link); use them as `{"name": "x", "url": "inbox:<file>", "start", "end"}` in videos.json. Check the inbox before every reel.
+- Credit the footage owner on screen and in the caption.

@@ -18,7 +18,10 @@ jobs:
       - run: git fetch origin main && git reset --hard origin/main
       - name: Install ffmpeg
         run: command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
-      - run: pip install -q -U 'yt-dlp[default]' && (curl -fsSL https://deno.land/install.sh | sh -s -- -y >/dev/null 2>&1; true) && export PATH=$HOME/.deno/bin:$PATH && python3 scripts/fetch_videos.py "${{ github.event.inputs.post }}"
+      - env: { YT_COOKIES: "${{ secrets.YT_COOKIES }}" }
+        run: |
+          if [ -n "$YT_COOKIES" ]; then printf '%s\n' "$YT_COOKIES" > /tmp/cookies.txt; fi
+          pip install -q -U 'yt-dlp[default]' && (curl -fsSL https://deno.land/install.sh | sh -s -- -y >/dev/null 2>&1; true) && export PATH=$HOME/.deno/bin:$PATH && python3 scripts/fetch_videos.py "${{ github.event.inputs.post }}"
       - name: Commit
         run: |
           git config user.name "creativia-bot"

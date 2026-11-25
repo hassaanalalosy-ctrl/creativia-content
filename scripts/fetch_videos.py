@@ -20,13 +20,16 @@ def main():
         name, url = e['name'], e['url']
         try:
             for f in glob.glob(os.path.join(tmp, name + '.*')): os.remove(f)
-            if url.lower().split('?')[0].endswith('.mp4'):
+            if url.startswith('inbox:'):
+                shutil.copy(os.path.join(os.path.dirname(__file__), '..', 'assets', 'inbox', url[6:]), os.path.join(tmp, name + '.mp4'))
+            elif url.lower().split('?')[0].endswith('.mp4'):
                 run('curl', '-sSL', '-A', 'Mozilla/5.0', '-o', os.path.join(tmp, name + '.mp4'), url)
             else:
                 last = None
                 for client in (None, 'tv_simply', 'tv', 'mweb', 'web_safari', 'android_vr'):
                     try:
                         extra = ['--extractor-args', 'youtube:player_client=' + client] if client else []
+                        if os.path.exists('/tmp/cookies.txt'): extra += ['--cookies', '/tmp/cookies.txt']
                         run('yt-dlp', '--no-playlist', *extra, '-f', 'bv*[height<=1080][ext=mp4]+ba/bv*[height<=1080]+ba/b', '--merge-output-format', 'mp4',
                             '-o', os.path.join(tmp, name + '.%(ext)s'), url)
                         last = None; break

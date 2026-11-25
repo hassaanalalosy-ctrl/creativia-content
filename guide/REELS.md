@@ -4,6 +4,20 @@
 **Post days (carousel/single): the 4th, 8th, 12th, 16th, 20th, 24th, 28th and 30th, plus the 31st in 31-day months. Every other day is a reel day** (22 reels in a 30-day month; February: 21).
 **Every reel is made like the GTA cover reel (posts/2026-11-23-gta-cover-grid-story): engine 6 DIRECTED, its own `scenes.js`, storyboard + self art-direction, final problem-only review.** Engines 2/4/5 are retired for new reels; their sections below are reference only.
 **Every reel has a voiceover** by the Creativia voice "Arafat Almnshid" (Iraqi) — see "Voice reels" below. Music plays under the voice.
+## WHAT WORKS — data, 25 Nov 2026 (owner: "the topics must be great and exciting"). Read this before choosing ANY reel topic.
+Instagram reels 1–25 Nov (reach · avg watch · view rate):
+- **GTA covers / why the helicopter is always top-left (23 Nov): 16,976 reach · 45 s · 78% · 706 likes · 116 saves · 75 shares · 26 comments** — 15× every other reel.
+- GTA 6 hype marketing (20 Nov): 1,090 · 17 s · 52%. Arabic vs Latin type size (13 Nov): 1,011 · 8 s · 52%.
+- Classic ad case studies were weak: Heinz "Draw Ketchup" 208, Moldy Whopper 192, KFC "FCK" 107 (view rate 41–53%).
+Why the GTA cover reel won, and the recipe to copy:
+1. **A world people already love and argue about** (games, films, football, phones, cartoons, big brands from daily life) — not an advertising-industry case study. Fans share to fans.
+2. **A hidden detail they have seen a thousand times but never noticed** → hook "لاحظت…؟ / ليش دايماً…؟". The question must make the viewer look at the screen for the answer.
+3. **A real story with a twist and a villain/pressure** (9/11, a deadline, a lawsuit, a leak, a mistake) that explains the detail — the answer arrives only at the end.
+4. **Timing: ride what is trending now** (GTA 6 week). A big release/event in a fandom = make reels about its hidden design stories.
+5. Engine 6 directed visuals: zooms into the real detail, full-bleed pictures.
+Topic scoring now adds **fandom** (1–5: how many Arabs care and argue about this world?) — a reel topic needs 4+ on fandom AND surprise. Famous-but-old Cannes case studies (Heinz, KFC, Whopper type) only if the hook is a hidden detail in something people use every day.
+Idea bank in this spirit: hidden details in logos people see daily (game consoles, car brands, apps), why game/film posters look the way they do, design secrets in GTA 6 / FIFA / PlayStation / Marvel / Pixar, why a famous character or icon was redesigned, leaked or banned designs, "the mistake that became the identity".
+
 ## Topics (owner, Nov 2026) — NO design tips
 Reels are **stories**, not tips. Every reel tells one gripping story, told by the voice, with real images (and short video clips when available):
 - **Legendary marketing campaigns** and why they worked (a famous stunt, a launch that broke the internet, a guerrilla idea, a brand comeback).

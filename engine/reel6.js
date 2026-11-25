@@ -88,6 +88,20 @@ function sfxPlan(cues) {
   spec.img = {};
   for (const [k, v] of Object.entries(spec.images || {})) { const [src, w, h] = await loadImg(v); spec.img[k] = { src, w, h }; }
   delete spec.images;
+  // video clips (owner, 25 Nov 2026: real footage in motion, especially as the hook): "videos": {name: {src, start, dur}}
+  // frames are extracted at 30 fps into _tmp and swapped per frame by play() in the page; spec.img[name] = first frame
+  spec.vid = {};
+  { const tmpd = path.join(__dirname, '_tmp', 'vid-' + id); fs.mkdirSync(tmpd, { recursive: true });
+    for (const [k, v0] of Object.entries(spec.videos || {})) {
+      const v = typeof v0 === 'string' ? { src: v0 } : v0, fdir = path.join(tmpd, k);
+      fs.rmSync(fdir, { recursive: true, force: true }); fs.mkdirSync(fdir);
+      execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-ss', String(v.start || 0), '-i', path.join(ROOT, v.src), '-t', String(v.dur || 10), '-an', '-vf', 'fps=30,scale=-2:' + (v.h || 1280), '-q:v', '3', path.join(fdir, 'f%04d.jpg')]);
+      const n = fs.readdirSync(fdir).filter(f => f.endsWith('.jpg')).length; if (!n) throw new Error('No frames from video ' + k);
+      const [w, h] = dims(path.join(fdir, 'f0001.jpg'));
+      spec.img[k] = { src: 'file://' + path.join(fdir, 'f0001.jpg'), w, h };
+      spec.vid[k] = { dir: 'file://' + fdir, n };
+    } }
+  delete spec.videos;
   spec.scenesCode = fs.readFileSync(path.join(dir, spec.scenesFile || 'scenes.js'), 'utf8');
   for (const sc of spec.scenes) {
     if (sc.image) [sc.image, sc.iw, sc.ih] = await loadImg(sc.image);

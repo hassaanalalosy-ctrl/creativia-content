@@ -88,6 +88,19 @@ function clipIn(f, t, rect, d) { tl.fromTo(f.L, { clipPath: rectClip(rect), opac
 function clipOut(f, t, rect, d) { tl.fromTo(f.L, { clipPath: rectClip(null) }, { clipPath: rectClip(rect), duration: d || 0.6, ease: 'expo.inOut', immediateRender: false }, t); }
 function iris(f, t, cx, cy, d) { tl.fromTo(f.L, { clipPath: 'circle(0% at ' + cx + 'px ' + cy + 'px)' }, { clipPath: 'circle(80% at ' + cx + 'px ' + cy + 'px)', duration: d || 0.7, ease: 'expo.inOut', immediateRender: true }, t); }
 
+// ---------- video: play(target, name, t0, {rate, from, loop, hold}) — target = a full() object or a pic() element ----------
+// The clip's frames replace every <img> of the target; before t0 it shows the first frame, after the end the last (or loops).
+const VID = D.vid || {}, PLAYS = [];
+function play(target, name, t0, o) { o = o || {}; const node = target.L || target; PLAYS.push({ imgs: [...node.querySelectorAll('img')], v: VID[name], t0, rate: o.rate || 1, from: o.from || 0, loop: !!o.loop, cur: -1 }); return target; }
+function applyPlays(time) {
+  for (const p of PLAYS) {
+    let i = Math.round(((time - p.t0) * p.rate + p.from) * 30); const n = p.v.n;
+    i = p.loop ? ((i % n) + n) % n : Math.max(0, Math.min(n - 1, i));
+    if (i === p.cur) continue; p.cur = i; const src = p.v.dir + '/f' + String(i + 1).padStart(4, '0') + '.jpg';
+    for (const im of p.imgs) im.src = src;
+  }
+}
+
 // ---------- kinetic type ----------
 let TX = txt;   // current beat's text group (set per beat with TX = textGroup(k)); everything in it hides when the beat ends
 const textGroup = (k, a, b) => (TX = group(T0(k) - (a == null ? 0.45 : a), T1(k) + (b == null ? -0.02 : b), txt));
@@ -166,7 +179,7 @@ window.drawFrame = function (time) {
   bg.style.backgroundImage = 'radial-gradient(70% 45% at ' + ax + '% ' + ay + '%, ' + C.b1 + ', rgba(0,0,0,0) 100%), radial-gradient(60% 40% at ' + bx + '% ' + by + '%, ' + C.b2 + ', rgba(0,0,0,0) 100%), linear-gradient(180deg,#0C2A1E 0%,#071711 45%,#030806 100%)';
   paper.style.opacity = BG.a; badgeEl.style.color = BG.a > 0.5 ? '#0C2A1E' : '';
   let cb = SC[0]; for (const b of SC) if (time >= b.t0 - 0.35) cb = b; const pr = Math.min(1, Math.max(0, (time - cb.t0 + 0.35) / cb.dur)); world.style.scale = (1 + 0.05 * Math.sin(Math.PI * pr)).toFixed(4);
-  applyFulls(time);
+  applyFulls(time); applyPlays(time);
 };
 `;
 

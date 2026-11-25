@@ -23,8 +23,16 @@ def main():
             if url.lower().split('?')[0].endswith('.mp4'):
                 run('curl', '-sSL', '-A', 'Mozilla/5.0', '-o', os.path.join(tmp, name + '.mp4'), url)
             else:
-                run('yt-dlp', '--no-playlist', '-f', 'bv*[height<=1080][ext=mp4]+ba/bv*[height<=1080]+ba/b', '--merge-output-format', 'mp4',
-                    '-o', os.path.join(tmp, name + '.%(ext)s'), url)
+                last = None
+                for client in (None, 'tv_simply', 'tv', 'mweb', 'web_safari', 'android_vr'):
+                    try:
+                        extra = ['--extractor-args', 'youtube:player_client=' + client] if client else []
+                        run('yt-dlp', '--no-playlist', *extra, '-f', 'bv*[height<=1080][ext=mp4]+ba/bv*[height<=1080]+ba/b', '--merge-output-format', 'mp4',
+                            '-o', os.path.join(tmp, name + '.%(ext)s'), url)
+                        last = None; break
+                    except subprocess.CalledProcessError as ex:
+                        last = ex; print('client', client, 'failed:', (ex.stderr or '')[-200:])
+                if last: raise last
             src = sorted(glob.glob(os.path.join(tmp, name + '.*')))[0]
             s, en = float(e.get('start', 0)), e.get('end')
             dst = os.path.join(out, name + '.mp4')

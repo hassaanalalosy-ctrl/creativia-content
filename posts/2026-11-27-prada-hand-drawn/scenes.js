@@ -10,9 +10,9 @@ const R16 = w => Math.round(w * 9 / 16);
 {
   const k = 0;
   textGroup(k, 0.0);
-  const f = full('fxa', 0, T1(k) + 0.3, { x: 0.5, y: 0.5, z: 1.0, shade: 0.55 });
+  const f = full('fxa', 0, T1(k) + 0.3, { x: 0.42, y: 0.5, z: 1.0, shade: 0.55 });
   play(f, 'fxa', 0, { until: T1(k) + 0.3, audio: 0.6 });
-  camTo(f, 0, { z: 1.14, x: 0.54 }, SC[k].dur + 0.3, 'none');
+  camTo(f, 0.9, { z: 1.12, x: 0.56 }, SC[k].dur, 'power1.inOut');
   tag('Prada · Drawing Prada', 24, 136, 0, null, { ltr: true });
   say(k, 0, 1, { y: 384, size: 22 });
   say(k, 2, 3, { y: 414, size: 22, hero: { 2: 46, 3: 46 } });

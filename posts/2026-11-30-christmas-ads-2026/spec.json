@@ -16,14 +16,86 @@
     "https://www.fastcompany.com/91632291/prada-ad-luxury-brands-all-in-on-handmade-ads"
   ],
   "slides": [
-    {"type": "cover", "badge": "موسم الكريسماس", "title": "إعلانات كريسماس 2026: رجعة الشغل اليدوي", "note": "شوف هذا!", "pose": "jump",
-     "chips": [{"icon": "megaphone", "label": "إعلان"}, {"icon": "trend", "label": "ترند الموسم"}]},
-    {"type": "inner", "image": "https://i.ytimg.com/vi/jTiRRC-I1So/maxresdefault.jpg", "title": "برادا رسمتها باليد", "body": "حيوانات مرسومة باليد تدخل مشاهد حقيقية: وشق ثلجي يراقب شنطة صغيرة، وفئران جنب حذاء منقّط.", "credit": "Prada · تحريك: John Pomeroy · تصوير: Glen Luchford", "chip": {"icon": "brush", "label": "رسم يدوي"}, "kreti": false},
-    {"type": "inner", "image": "https://i.ytimg.com/vi/SSz419dRawM/maxresdefault.jpg", "title": "والاس وغروميت لباربور", "body": "رابع فيلم كريسماس من Aardman لباربور: غروميت يزيّن البيت بالترتان، وآلة والاس تخرب وترميه بالثلج.", "credit": "Barbour × Aardman · إخراج: Steve Harding-Hill", "chip": {"icon": "box", "label": "صلصال"}, "kreti": false},
-    {"type": "inner", "image": "https://i.ytimg.com/vi/iWFlFNm2IPk/maxresdefault.jpg", "title": "الماپتس رجعوا لوولمارت", "body": "وولمارت أعادت أغنية Scrooge من فيلم The Muppet Christmas Carol، ووالتون غوغينز بدور سكروج.", "credit": "Walmart · Publicis (Fallon, Leo New York) · Disney / The Muppets Studio", "chip": {"icon": "star", "label": "دمى"}, "kreti": false},
-    {"type": "inner", "image": "https://i.ytimg.com/vi/8V3eMYkV1Hw/maxresdefault.jpg", "title": "إعلان طوله 6 دقايق!", "body": "Waitrose رجّعت كيرا نايتلي وجو ويلكنسون بجزء ثاني، وسوّقته مثل فيلم: تريلرات وبوسترات.", "credit": "Waitrose · Wonderhood Studios · إخراج: Molly Manners", "chip": {"icon": "clock", "label": "6 دقايق"}, "kreti": false},
-    {"type": "text", "tag": "الدرس", "tagIcon": "pen", "title": "شنو نتعلم من كريسماس 2026؟", "points": ["الرسم والدمى والصلصال باليد رجعوا ترند", "الشخصيات اللي يحبها الناس ترجع كل سنة", "الإعلان الطويل ينجح إذا سوّقته مثل فيلم"], "note": "احفظها!"},
-    {"type": "end"}
+    {
+      "type": "cover",
+      "badge": "موسم الكريسماس",
+      "title": "إعلانات كريسماس 2026: رجعة الشغل اليدوي",
+      "note": "شوف هذا!",
+      "pose": "jump",
+      "chips": [
+        {
+          "icon": "megaphone",
+          "label": "إعلان"
+        },
+        {
+          "icon": "trend",
+          "label": "ترند الموسم"
+        }
+      ]
+    },
+    {
+      "type": "inner",
+      "image": "https://i.ytimg.com/vi/jTiRRC-I1So/maxresdefault.jpg",
+      "title": "برادا رسمتها باليد",
+      "body": "حيوانات مرسومة باليد تدخل مشاهد حقيقية: وشق ثلجي يراقب شنطة صغيرة، وفئران جنب حذاء منقّط.",
+      "credit": "Prada · تحريك: John Pomeroy",
+      "chip": {
+        "icon": "brush",
+        "label": "رسم يدوي"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://i.ytimg.com/vi/SSz419dRawM/maxresdefault.jpg",
+      "title": "والاس وغروميت لباربور",
+      "body": "رابع فيلم كريسماس من Aardman لباربور: غروميت يزيّن البيت بالترتان، وآلة والاس تخرب وترميه بالثلج.",
+      "credit": "Barbour × Aardman",
+      "chip": {
+        "icon": "box",
+        "label": "صلصال"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://i.ytimg.com/vi/iWFlFNm2IPk/maxresdefault.jpg",
+      "title": "الماپتس رجعوا لوولمارت",
+      "body": "وولمارت أعادت أغنية Scrooge من فيلم The Muppet Christmas Carol، ووالتون غوغينز بدور سكروج.",
+      "credit": "Walmart × The Muppets Studio",
+      "chip": {
+        "icon": "star",
+        "label": "دمى"
+      },
+      "kreti": false
+    },
+    {
+      "type": "inner",
+      "image": "https://i.ytimg.com/vi/8V3eMYkV1Hw/maxresdefault.jpg",
+      "title": "إعلان طوله 6 دقايق!",
+      "body": "Waitrose رجّعت كيرا نايتلي وجو ويلكنسون بجزء ثاني، وسوّقته مثل فيلم: تريلرات وبوسترات.",
+      "credit": "Waitrose · Wonderhood Studios",
+      "chip": {
+        "icon": "clock",
+        "label": "6 دقايق"
+      },
+      "kreti": false
+    },
+    {
+      "type": "text",
+      "tag": "الدرس",
+      "tagIcon": "pen",
+      "title": "شنو نتعلم من كريسماس 2026؟",
+      "points": [
+        "الرسم والدمى والصلصال باليد رجعوا ترند",
+        "الشخصيات اللي يحبها الناس ترجع كل سنة",
+        "الإعلان الطويل ينجح إذا سوّقته مثل فيلم"
+      ],
+      "note": "احفظها!"
+    },
+    {
+      "type": "end"
+    }
   ],
   "caption": "إعلانات كريسماس 2026 وصلت… والترند هو الشغل اليدوي ✦\n\nكل سنة تتسابق البراندات بإعلانات الكريسماس. هالسنة لاحظنا شي واضح: الرسم والتحريك باليد رجعوا. برادا سوّت حملة «Drawing Prada» بحيوانات مرسومة باليد داخل مشاهد حقيقية، وباربور رجعت لاستوديو Aardman برابع فيلم ويا والاس وغروميت.\n\nوولمارت رجّعت الماپتس وأعادت أغنية Scrooge من The Muppet Christmas Carol ويا والتون غوغينز. وWaitrose سوّت جزء ثاني من «The Perfect Gift» طوله 6 دقايق، وسوّقته مثل فيلم سينما بتريلرات وبوسترات.\n\nالدرس: لما الكل يشتغل بسرعة، الشغل اللي بيه إيد إنسان يلفت النظر.\n\nأي واحد أحلى: 1 برادا لو 2 والاس وغروميت؟\n\nبرادا: @prada · تحريك: John Pomeroy · تصوير: Glen Luchford\nباربور: @barbour × @aardman · إخراج: Steve Harding-Hill\nوولمارت: @walmart × @themuppets · Fallon, Leo New York\nويتروز: @waitrose · Wonderhood Studios · إخراج: Molly Manners\n\n#كريتيفيا #إعلان #إعلانات #ماركتنغ #تحريك #ChristmasAds #advertising #animation"
 }

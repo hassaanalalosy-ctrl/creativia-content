@@ -166,9 +166,9 @@ const R16 = w => Math.round(w * 9 / 16);
   camTo(f, T0(k), { z: 1.2, x: 0.5 }, SC[k].dur, 'none');
   say(k, 0, 3, { y: 136, size: 21, bg: true, hero: { 1: 28, 2: 28 }, out: W(k, 4).s - 0.32 });
   say(k, 4, 5, { y: 136, size: 21, bg: true });
-  const a = word('0', 40, 290, 110, W(k, 6).s - 0.1, { ltr: true }); count(a, 0, 20, W(k, 6).s, 0.7);
+  const a = word('0', 40, 290, 110, W(k, 6).s - 0.1, { ltr: true, from: 1.15 }); count(a, 0, 20, W(k, 6).s, 0.7);
   note('فنان', 50, 424, W(k, 7).s);
-  const b = word('0', 214, 290, 110, W(k, 8).s - 0.1, { ltr: true }); count(b, 0, 7, W(k, 8).s, 0.5);
+  const b = word('0', 214, 290, 110, W(k, 8).s - 0.1, { ltr: true, from: 1.15 }); count(b, 0, 7, W(k, 8).s, 0.5);
   note('أشهر شغل', 200, 424, W(k, 9).s);
   fadeOut(f.L, T1(k) - 0.05, 0.3); whip(T1(k) - 0.1);
 }

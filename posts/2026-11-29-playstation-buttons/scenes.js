@@ -105,7 +105,7 @@ const ring = r => ({ x: 0, y: 0, html: '<svg width="' + 2 * r + '" height="' + 2
   const big = shape(sv, 'x', 180, 322, 62, T0(k) + 0.1, { width: 14, d: 0.5 }); cue(T0(k) + 0.1, 'impact', 0.4);
   const lab = word('لا', 0, 410, 48, T0(k) + 0.4, { hero: false, css: 'left:0;right:0;text-align:center;color:#FF5A5F' });
   tl.to(lab, { rotationX: 90, opacity: 0, duration: 0.2, ease: 'power2.in' }, W(k, 9).s - 0.25);
-  const ok = word('موافق', 0, 410, 48, W(k, 9).s - 0.05, { css: 'left:0;right:0;text-align:center' }); cue(W(k, 9).s, 'shimmer', 0.35);
+  const ok = word('موافق', 0, 410, 48, W(k, 9).s - 0.05, { css: 'left:0;right:0;text-align:center', from: 1.12 }); cue(W(k, 9).s, 'shimmer', 0.35);
   say(k, 6, 8, { y: 478, size: 20 });
   tl.fromTo(big, { rotation: 0, transformOrigin: '180px 322px' }, { rotation: 90, duration: 0.5, ease: 'back.out(1.6)', immediateRender: false }, W(k, 9).s - 0.1);
   tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.15);

@@ -33,7 +33,8 @@ function toWords(al) {
   fs.mkdirSync(vdir, { recursive: true });
   const old = fs.existsSync(path.join(vdir, 'voice.json')) ? JSON.parse(fs.readFileSync(path.join(vdir, 'voice.json'), 'utf8')) : { clips: [] };
   const voiceId = spec.voiceId || DEFAULT_VOICE;
-  const says = spec.scenes.map(s => s.say || '');
+  // "voice" = what Arafat reads (fully vowelled, standard spelling for dialect sounds, e.g. قال not كال); "say" = the on-screen words
+  const says = spec.scenes.map(s => s.voice || s.say || '');
   const clips = [];
   let chars = 0;
   for (let k = 0; k < says.length; k++) {

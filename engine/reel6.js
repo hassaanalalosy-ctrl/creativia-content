@@ -115,6 +115,8 @@ function sfxPlan(cues) {
   const vjson = path.join(dir, 'voice', 'voice.json');
   const voice = spec.voice && fs.existsSync(vjson) ? JSON.parse(fs.readFileSync(vjson, 'utf8')).clips : [];
   for (const c of voice) { const sc = spec.scenes[c.scene]; sc.dur = Math.max(sc.dur || 0, Math.round((c.dur + VLEAD + 0.55) * 100) / 100); sc.vtext = c.text; sc.vdur = c.dur; sc.vwords = c.words || null; }
+  // on screen we show the plain "say" spelling (no tashkeel), word for word against the vowelled voice timings
+  for (const sc of spec.scenes) if (sc.vwords && sc.say) { const t = sc.say.trim().split(/\s+/); if (t.length === sc.vwords.length) sc.vwords = sc.vwords.map((w, i) => ({ ...w, w: t[i] })); else console.warn('say/voice word count differs in a scene:', sc.say); }
   // video scenes: frames at 30 fps
   const tmp = path.join(__dirname, '_tmp'); fs.mkdirSync(tmp, { recursive: true });
   const tmpv = path.join(tmp, 'v4-' + id); fs.mkdirSync(tmpv, { recursive: true });

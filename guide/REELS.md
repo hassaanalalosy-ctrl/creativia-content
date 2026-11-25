@@ -100,6 +100,9 @@ No fixed card. Each scene = a visual + kinetic text that IS the voice (phrases b
 
 ## Owner rule (Nov 23 2026): FINAL PROBLEM-ONLY REVIEW. After all the work is done and before scheduling, review the finished reel once more looking ONLY for problems: stutter/jumps (frame-diff check: no isolated jumps and no frozen frames — hard cuts feel like stutter to the owner, use quick cross-dissolves/whips instead), cut or cropped pictures, text collisions, leftovers between beats, safe zones, text order vs the voice. Fix everything found, re-render, check again.
 
+## Owner rule (Nov 26 2026): TEXT NEVER TOUCHES ANYTHING. No text over other text, cards, marks or tags, and no text glued to another element (keep ≥ 10 px). A dark plate behind text hugs its words exactly (engine 6 fits plates automatically after the fonts load); never a box stretched to one side. A card that holds text (e.g. a post/tweet card) is a `.card.holder` and the text is placed INSIDE it with `say(..., {parent: card})`; a quote card shows who, where/when and the source inside the card (no invented handles).
+**Mandatory lint before every full render:** `CHROME_PATH=… LINT=1 node engine/reel6.js <id>` scans the reel at 5 fps and lists every text overlap/touch with its time; fix until it prints `LINT done 0 issues` (a single sample during a deliberate transition is the only exception).
+
 ## Owner rule (Nov 23 2026): never draw a line/underline under Arabic words — it covers letters and dots. Emphasis = size, weight, colour, or a pill behind the word.
 
 ## How a reel is made (owner, Nov 23 2026) — Claude is the art director

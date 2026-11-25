@@ -105,6 +105,7 @@ function applyPlays(time) {
 }
 
 // ---------- kinetic type ----------
+const PLATES = [];   // dark plates behind text: fitted to their words after the fonts load (fitPlates)
 let TX = txt;   // current beat's text group (set per beat with TX = textGroup(k)); everything in it hides when the beat ends
 const textGroup = (k, a, b) => (TX = group(T0(k) - (a == null ? 0.45 : a), T1(k) + (b == null ? -0.02 : b), txt));
 // say(k, i0, i1, {x, y, w, align, size, hero:{idx:size}, entry:'mask'|'blur'|'slide', color, dark})  — words appear on their spoken word
@@ -122,6 +123,7 @@ function say(k, i0, i1, o) {
     else tl.fromTo(inner, { scale: 1.3, opacity: 0, filter: 'blur(10px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.42, ease: 'power3.out', immediateRender: true }, t);
     if (o.pill && o.pill[i]) { const b = el('i', 'pb', '', '', wrap); tl.fromTo(b, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power3.out', immediateRender: true }, t - 0.05); }
   });
+  if (o.bg) PLATES.push(d);
   if (o.bg && ws.length) tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: 0.2, immediateRender: true }, ws[0].s - 0.14);   // the backing pill appears with the first word
   if (o.out != null) out(d, o.out, o.outMode);
   return d;
@@ -130,7 +132,7 @@ function say(k, i0, i1, o) {
 function kashida(wrap, t) { return; /* owner: no line under words — it covers Arabic letters and dots */ const k = el('i', 'kash', '', '', wrap); tl.fromTo(k, { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'expo.out', immediateRender: true }, t); }
 // older text steps back (smaller, dimmer, up) instead of vanishing — or leaves upward
 function recede(d, t) { tl.to(d, { scale: 0.6, y: -34, opacity: 0.35, filter: 'blur(1.5px)', transformOrigin: '100% 0%', duration: 0.5, ease: 'expo.out' }, t); }
-function out(d, t, mode) { if (mode === 'recede') return recede(d, t); tl.to(d, { y: -16, opacity: 0, filter: 'blur(8px)', duration: 0.25, ease: 'power2.in' }, t); }
+function out(d, t, mode) { if (mode === 'recede') return recede(d, t); tl.to(d, { y: -16, opacity: 0, filter: 'blur(8px)', duration: 0.22, ease: 'power2.in' }, t); }
 // a standalone word/number
 function word(text, x, y, size, t, o) {
   o = o || {}; const d = el('div', 'solo' + (o.hero !== false ? ' hero' : '') + (o.dark ? ' dark' : ''), '<span class="wi"' + (o.ltr ? ' dir="ltr"' : '') + '>' + esc(text) + '</span>', 'left:' + x + 'px;top:' + y + 'px;font-size:' + size + 'px;' + (o.w ? 'width:' + o.w + 'px;' : '') + (o.css || ''), o.parent || TX);
@@ -173,6 +175,33 @@ for (let i = 0; i < 18; i++) { const s = 2 + (i * 7) % 5, b = el('i', 'mote', ''
 
 tl.set({}, {}, TOTAL);
 window.TOTAL = TOTAL; window.CUES = CUES; window.VAUD = VAUD;
+// a plate hugs its words exactly (owner: text sits inside the rectangle, never a box stretched to one side)
+window.fitPlates = function () {
+  for (const d of PLATES) {
+    const ws = [...d.querySelectorAll('.wd')]; if (!ws.length) continue;
+    let L = 1e9, R = -1e9; for (const w of ws) { const r = w.getBoundingClientRect(); L = Math.min(L, r.left); R = Math.max(R, r.right); }
+    d.style.maxWidth = 'none'; d.style.width = Math.ceil(R - L + 1) + 'px';
+  }
+};
+// LINT: text must not touch or overlap other elements (owner: no text glued to another element). Returns problems at this time.
+window.lint = function (time) {
+  const vis = n => { for (let e = n; e && e !== stage; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.visibility === 'hidden' || cs.display === 'none' || +cs.opacity < 0.35) return false; } return true; };
+  const R = n => n.getBoundingClientRect(), on = r => r.width > 2 && r.height > 2 && r.bottom > 0 && r.top < 640;
+  const texts = [], things = [];
+  stage.querySelectorAll('.ph').forEach(d => { const ws = [...d.querySelectorAll('.wd')].filter(w => vis(w.querySelector('.wi') || w)); if (!ws.length) return; let a = { left: 1e9, top: 1e9, right: -1e9, bottom: -1e9 }; ws.forEach(w => { const r = R(w); a = { left: Math.min(a.left, r.left), top: Math.min(a.top, r.top), right: Math.max(a.right, r.right), bottom: Math.max(a.bottom, r.bottom) }; }); texts.push({ n: d, r: a, t: d.textContent.trim().slice(0, 24) }); });
+  stage.querySelectorAll('.solo,.note,.tagx').forEach(d => { if (/inset\(0px 0px 0px 100%\)|inset\(0 0 0 100%\)/.test(getComputedStyle(d).clipPath)) return; if (vis(d) && on(R(d))) texts.push({ n: d, r: R(d), t: d.textContent.trim().slice(0, 24) }); });
+  stage.querySelectorAll('.pic,.card,.cal,.tile').forEach(d => { if (vis(d) && on(R(d))) things.push({ n: d, r: R(d), t: d.className }); });
+  stage.querySelectorAll('.svgl path').forEach(d => { if (vis(d) && +getComputedStyle(d).opacity > 0.35) { const r = R(d); if (on(r)) things.push({ n: d, r, t: 'mark' }); } });
+  const gap = (a, b) => Math.max(a.left - b.right, b.left - a.right, a.top - b.bottom, b.top - a.bottom);
+  const out = [];
+  for (let i = 0; i < texts.length; i++) {
+    const A = texts[i];
+    if (A.r.top < 104 && !A.n.closest('.hud')) out.push(['under badge', A.t]);
+    for (let j = i + 1; j < texts.length; j++) { const B = texts[j]; if (A.n.contains(B.n) || B.n.contains(A.n)) continue; const g = gap(A.r, B.r); if (g < 8) out.push([g < 0 ? 'text on text' : 'text glued to text', A.t, B.t, Math.round(g)]); }
+    for (const T of things) { if (T.n.contains(A.n) || (T.n.closest && T.n.closest('.holder') && T.n.closest('.holder').contains(A.n))) continue; const g = gap(A.r, T.r); if (g < 10) out.push([g < 0 ? 'text on element' : 'text glued to element', A.t, T.t, Math.round(g)]); }
+  }
+  return out;
+};
 window.drawFrame = function (time) {
   tl.seek(time, false);
   const dx = Math.sin(time * 0.31) * 6, dy = Math.cos(time * 0.27) * 5, dry = Math.sin(time * 0.4) * 2.2, drx = Math.cos(time * 0.33) * 1.4;
@@ -238,5 +267,6 @@ body{margin:0;background:#000}
 .endb .p{padding:11px 28px;font-size:22px !important;border-radius:999px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.25);font-size:21px;font-weight:800}
 .endb .h2{font-size:18px;font-weight:700;color:#A3B8AB}.endb .n{font-family:'Playpen Sans Arabic',sans-serif;font-size:15.5px;color:#9BFFC2}
 .dk{background:rgba(3,10,7,0.78);padding:4px 12px 8px;border-radius:14px}
+.card{position:absolute;transform-style:preserve-3d}.tw{background:rgba(6,16,11,0.92);border:1.5px solid rgba(155,255,194,0.3);border-radius:18px;box-shadow:0 24px 50px rgba(0,0,0,0.5)}.twh{position:absolute;top:14px;right:16px;left:16px;display:flex;gap:10px;align-items:center}.twh .av{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 50% 38%,#9BFFC2 0 7px,transparent 8px),radial-gradient(ellipse at 50% 100%,#9BFFC2 0 13px,transparent 14px),#1B3327;flex:none}.twh b{display:block;font-size:15px;color:#EFF7F1}.twh span{display:block;font-size:12px;color:#A3B8AB}.twf{position:absolute;bottom:12px;right:16px;font-size:12px;color:#A3B8AB}
 .tagx{position:absolute;padding:3px 9px;border-radius:999px;background:rgba(3,10,7,0.8);color:#EFF7F1;font-size:12px;font-weight:700;white-space:nowrap}
 `;

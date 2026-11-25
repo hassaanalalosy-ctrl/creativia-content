@@ -148,9 +148,17 @@ function sfxPlan(cues) {
   await page.setViewport({ width: 360, height: 640, deviceScaleFactor: 3 });
   await page.goto('file://' + f, { waitUntil: 'networkidle0' });
   await page.evaluateHandle('document.fonts.ready');
+  await page.evaluate('window.fitPlates && window.fitPlates()');
   const total = await page.evaluate('window.TOTAL');
   const el = await page.$('#stage');
   const settle = () => page.evaluate(() => Promise.all([...document.images].map(im => im.complete ? 0 : im.decode().catch(() => 0))));
+  if (process.env.LINT) {   // LINT=1: scan the whole reel at 5 fps for text touching or covering other elements
+    const step = 0.2, seen = {};
+    for (let t = 0; t < total; t += step) { await page.evaluate(x => window.drawFrame(x), t); const p = await page.evaluate(x => window.lint(x), t);
+      for (const q of p) { const key = q.slice(0, 3).join('|'); if (!seen[key]) seen[key] = []; seen[key].push(+t.toFixed(1)); } }
+    for (const [k, ts] of Object.entries(seen)) console.log('LINT', ts[0] + '-' + ts[ts.length - 1] + 's', '(' + ts.length + ')', k);
+    console.log('LINT done', Object.keys(seen).length, 'issues'); await browser.close(); return;
+  }
   if (process.env.FRAMES) {
     for (const s of process.env.FRAMES.split(',').map(Number)) { await page.evaluate(x => window.drawFrame(x), s); await settle(); await el.screenshot({ path: path.join(tmp, `v4-${s}.jpg`), type: 'jpeg', quality: 85 }); }
     console.log('total', total, 'cues', JSON.stringify(await page.evaluate('window.CUES')));

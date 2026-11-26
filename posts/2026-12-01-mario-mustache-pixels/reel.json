@@ -1,0 +1,99 @@
+{
+ "id": "2026-12-01-mario-mustache-pixels",
+ "topic": "Why Mario has a mustache and a cap: Miyamoto's 1981 Donkey Kong sprite (no room for a mouth -> mustache, hair hard to animate -> cap, contrasting overalls -> visible arms); named Jumpman, a carpenter; renamed after NoA's landlord Mario Segale who demanded late rent; plumber in Mario Bros. 1983",
+ "category": "تصميم · ألعاب",
+ "format": "reel",
+ "engine": 6,
+ "mode": "dark",
+ "badge": "تصميم · ألعاب",
+ "music": "assets/music/zephiramusic-lofi-gaming-606302.mp3",
+ "musicStart": 0,
+ "voice": true,
+ "coverAt": 1.6,
+ "sources": [
+  "https://lithub.com/the-origins-of-one-of-the-most-beloved-video-games-of-all-time/",
+  "https://www.uniladtech.com/gaming/mario-luigi-nintendo-moustache-reason-697329-20241011",
+  "https://whatculture.com/gaming/the-real-reason-mario-has-a-moustache",
+  "https://www.npr.org/sections/alltechconsidered/2015/06/19/415456813/the-legendary-mr-miyamoto-father-of-mario-and-donkey-kong",
+  "https://www.npr.org/2018/11/02/663372770/mario-segale-inspiration-for-nintendos-hero-plumber-has-died",
+  "https://kotaku.com/marios-real-life-namesake-mario-segale-dies-at-84-1830154543"
+ ],
+ "scenes": [
+  {
+   "say": "ليش ماريو عنده شارب وكاب؟ الجواب مو ستايل.",
+   "dur": 3,
+   "voice": "ليش ماريو عِندَه شارِب وكاب؟ الجَواب مو ستايل."
+  },
+  {
+   "say": "قبل خمسة وأربعين سنة، المصمم شيغيرو مياموتو رسم بطل لعبة دونكي كونغ.",
+   "dur": 3,
+   "voice": "قَبُل خَمسة وأربَعين سَنة، المُصَمِّم شيغيرو مياموتو رِسَم بَطَل لُعبة دونكي كونغ."
+  },
+  {
+   "say": "بس الشاشة وقتها صغيرة، والبطل كله كم مربع ملون.",
+   "dur": 3,
+   "voice": "بَس الشّاشة وَقِتها صغيرة، والبَطَل كُلّه كَم مُرَبَّع مْلَوَّن."
+  },
+  {
+   "say": "ما كان يكدر يرسم فم واضح، فرسمله شارب.",
+   "dur": 3,
+   "voice": "ما كان يِقدَر يِرسِم فَم واضِح، فرِسَمْلَه شارِب."
+  },
+  {
+   "say": "والشعر صعب يتحرك، فلبسه كاب.",
+   "dur": 3,
+   "voice": "والشَّعَر صَعُب يِتحَرَّك، فلَبَّسَه كاب."
+  },
+  {
+   "say": "والبدلة؟ حتى تبين إيديه وهو يركض ويقفز.",
+   "dur": 3,
+   "voice": "والبَدلة؟ حَتّى تبَيِّن إيدَيه وهو يِركُض ويِقفِز."
+  },
+  {
+   "say": "وكان اسمه جمب مان، وشغلته نجار مو سباك.",
+   "dur": 3,
+   "voice": "وكان اسمَه جَمب مان، وشُغلَته نَجّار مو سَبّاك."
+  },
+  {
+   "say": "بأمريكا، صاحب المخزن اللي مأجره لنينتندو دخل عليهم يطالب بالإيجار.",
+   "dur": 3,
+   "voice": "بأمريكا، صاحِب المَخزَن اللي مأجِّرَه لنينتندو دِخَل عَلَيهُم يطالِب بالإيجار."
+  },
+  {
+   "say": "اسمه ماريو سيغالي. ومن هنا، البطل صار اسمه ماريو.",
+   "dur": 3,
+   "voice": "اسمَه ماريو سيغالي. ومِن هنا، البَطَل صار اسمَه ماريو."
+  },
+  {
+   "say": "وبعد سنتين، بلعبة ماريو براذرز، صار سباك.",
+   "dur": 3,
+   "voice": "وبَعَد سَنتَين، بلُعبة ماريو براذَرز، صار سَبّاك."
+  },
+  {
+   "say": "يعني الحدود ما خربت التصميم، هي اللي صنعت شكله.",
+   "dur": 3,
+   "voice": "يَعني الحُدود ما خَرَّبَت التَّصميم، هي اللي صِنعَت شَكلَه."
+  },
+  {
+   "say": "ماريو بلا شارب: يمشي لو لا؟",
+   "dur": 3,
+   "voice": "ماريو بلا شارِب: يِمشي لو لا؟"
+  },
+  {
+   "type": "end",
+   "dur": 3
+  }
+ ],
+ "images": {
+  "idle": "posts/2026-12-01-mario-mustache-pixels/img/idle-x40.png",
+  "idlebg": "posts/2026-12-01-mario-mustache-pixels/img/idle-bg.png",
+  "jump": "posts/2026-12-01-mario-mustache-pixels/img/jump-x40.png",
+  "cab": "posts/2026-12-01-mario-mustache-pixels/img/dkarc-3.jpg",
+  "miya": "posts/2026-12-01-mario-mustache-pixels/img/miyac-1.jpg",
+  "marquee": "posts/2026-12-01-mario-mustache-pixels/img/marquee.jpg",
+  "seg": "posts/2026-12-01-mario-mustache-pixels/img/segale.jpg",
+  "ody": "posts/2026-12-01-mario-mustache-pixels/img/odyssey.jpg"
+ },
+ "scenesFile": "scenes.js",
+ "caption": "ليش ماريو عنده شارب وكاب؟ الجواب مو ستايل ✦\n\nسنة 1981 رسم شيغيرو مياموتو بطل لعبة الأركيد Donkey Kong. الشاشة وقتها ما تسمح بتفاصيل، والبطل كله كم مربع ملوّن. ما كان يكدر يرسم فم واضح، فرسمله شارب. الشعر صعب يتحرك، فلبّسه كاب. والبدلة بلون مختلف حتى تبيّن إيديه وهو يركض ويقفز.\n\nوحتى اسمه: كان «Jumpman» وشغلته نجار. بأمريكا، Mario Segale صاحب المخزن اللي مأجّره لنينتندو، دخل عليهم يطالب بالإيجار المتأخر (حسب رواية رئيس Nintendo of America مينورو أراكاوا)، فسمّوا البطل على اسمه. وبعد سنتين، بلعبة Mario Bros. (1983)، صار سبّاك.\n\nالدرس: الحدود ما خرّبت التصميم، هي اللي صنعت شكله.\n\nماريو بلا شارب: يمشي 👍 لو لا 👎؟\n\nالشخصية واللعبة: @nintendo · تصميم: Shigeru Miyamoto\nالصور: Nintendo (Super Mario Wiki) · Wikimedia Commons\nالمصادر: NPR · Kotaku · Literary Hub (Keza MacDonald، «Super Nintendo»)\n\n#كريتيفيا #تصميم #ألعاب #تصميم_شخصيات #ماريو #SuperMario #Nintendo #PixelArt #GameDesign"
+}

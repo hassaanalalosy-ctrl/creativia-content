@@ -3,7 +3,7 @@
 const fade = (node, t, d) => tl.fromTo(node, { opacity: 0 }, { opacity: 1, duration: d || 0.3, ease: 'power2.out', immediateRender: true }, t);
 const fadeOut = (node, t, d) => tl.to(node, { opacity: 0, duration: d || 0.3, ease: 'power2.in' }, t);
 const tag = (text, x, y, t, parent, o) => { o = o || {}; const n = el('div', 'tagx', esc(text), 'left:' + x + 'px;top:' + y + 'px;' + (o.css || ''), parent || TX); if (o.ltr) n.setAttribute('dir', 'ltr'); fade(n, t, 0.25); if (o.out != null) fadeOut(n, o.out, 0.2); return n; };
-const px = node => { (node.L || node).querySelectorAll('img').forEach(im => { if (!im.classList.contains('fbg')) im.style.imageRendering = 'pixelated'; }); return node; };
+const px = node => { const n = node.L || node; n.querySelectorAll('img').forEach(im => { if (!im.classList.contains('fbg')) im.style.imageRendering = 'pixelated'; }); n.querySelectorAll('.sweep').forEach(x => x.remove()); return node; };
 const ringMark = (x, y, w, h) => ({ x, y, html: '<svg width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '" style="overflow:visible"></svg>' });
 const ringIn = (f, i, rx, ry, t, o) => { const s = f.marks[i].n.querySelector('svg'), w = +s.getAttribute('width'), h = +s.getAttribute('height'); return scribble(s, w / 2, h / 2, rx, ry, t, Object.assign({ width: 3 }, o || {})); };
 // points of the padded sprite picture idle-bg (18 x 32 sprite pixels)
@@ -30,12 +30,12 @@ const MU = [0.333, 0.422], CAP = [0.5, 0.281], MID = [0.5, 0.5];
   camTo(f, W(k, 7).s - 0.3, { x: 0.54, y: 0.36, z: 2.3, cy: 250 }, 1.4, 'expo.inOut'); cue(W(k, 7).s - 0.25, 'whoosh-soft', 0.35);
   say(k, 0, 3, { y: 136, size: 24, bg: true, hero: { 1: 32, 2: 32 }, out: W(k, 4).s - 0.32 });
   word('1981', 0, 404, 64, W(k, 1).s, { ltr: true, css: 'left:0;right:0;text-align:center', out: W(k, 4).s - 0.3 });
-  const m = pic('miya', 110, 200, 140, TX);
+  const m = pic('miya', 110, 226, 140, TX);
   enter(m, W(k, 5).s - 0.2, { x: 60, rotationY: -25, opacity: 0 }, 0.6);
   leave(m, W(k, 7).s - 0.35, { x: -60, opacity: 0 }, 0.3);
-  tag('Shigeru Miyamoto', 122, 400, W(k, 5).s, TX, { ltr: true, out: W(k, 7).s - 0.35 });
+  tag('Shigeru Miyamoto', 122, 428, W(k, 5).s, TX, { ltr: true, out: W(k, 7).s - 0.35 });
   say(k, 4, 6, { y: 136, size: 22, bg: true, hero: { 5: 28, 6: 28 }, out: W(k, 7).s - 0.32 });
-  say(k, 7, 11, { y: 410, size: 24, bg: true, hero: { 10: 32, 11: 32 } });
+  say(k, 7, 11, { y: 410, size: 22, bg: true, hero: { 10: 28, 11: 28 } });
   fadeOut(f.L, T1(k) - 0.05, 0.3); flash(T1(k) - 0.1);
 }
 
@@ -98,7 +98,7 @@ const MU = [0.333, 0.422], CAP = [0.5, 0.281], MID = [0.5, 0.5];
 {
   const k = 6;
   textGroup(k);
-  const f = full('marquee', T0(k) - 0.2, T1(k) + 0.3, { x: 0.45, y: 0.5, z: 1.0, cx: 180, cy: 320, shade: 0.45 });
+  const f = full('marquee', T0(k) - 0.2, T1(k) + 0.3, { x: 0.62, y: 0.5, z: 1.0, cx: 180, cy: 320, shade: 0.45 });
   fade(f.L, T0(k) - 0.2, 0.35);
   camTo(f, T0(k) + 0.1, { x: 0.89, y: 0.55, z: 1.4, cy: 250 }, W(k, 4).s - T0(k), 'power2.inOut'); cue(T0(k) + 0.15, 'whoosh-soft', 0.35);
   say(k, 0, 3, { y: 136, size: 24, bg: true, hero: { 2: 34, 3: 34 }, out: W(k, 4).s - 0.32 });
@@ -108,31 +108,31 @@ const MU = [0.333, 0.422], CAP = [0.5, 0.281], MID = [0.5, 0.5];
 }
 
 // ================= 7 · THE LANDLORD WALKS IN — late rent =================
-{
-  const k = 7, g = group(T0(k) - 0.1, T1(k) + 0.1), sv = svgLayer(g);
+// one group for beats 7-8: the same photo stays and moves to the centre when his name is said
+const SEG = (() => {
+  const k = 7, g = group(T0(k) - 0.1, T1(8) + 0.1), sv = svgLayer(g);
   textGroup(k);
-  const p = pic('seg', 36, 150, 150, g);
-  enter(p, W(k, 1).s - 0.2, { x: -50, rotationY: 25, opacity: 0 }, 0.6);
-  bracket(sv, 32, 146, 158, 161, W(k, 2).s, { len: 16, width: 2.4 });
-  say(k, 0, 5, { x: 204, w: 128, y: 150, size: 20 });
+  const p = pic('seg', 30, 150, 170, g);
+  enter(p, T0(k) - 0.1, { x: -50, rotationY: 25, opacity: 0 }, 0.6); cue(T0(k), 'whoosh-soft', 0.3);
+  bracket(sv, 26, 146, 178, 181, W(k, 2).s, { len: 16, width: 2.4, out: T1(k) - 0.35 });
+  say(k, 0, 5, { x: 216, w: 118, y: 150, size: 20 });
   tl.fromTo(p, { x: -8 }, { x: 0, duration: 0.5, ease: 'elastic.out(1,0.3)', immediateRender: false }, W(k, 6).s); cue(W(k, 6).s, 'impact', 0.4);
-  say(k, 6, 9, { y: 360, size: 26, hero: { 9: 40 } });
-  tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.15);
-}
+  say(k, 6, 9, { y: 380, size: 26, hero: { 9: 40 } });
+  tl.to(p, { x: 65, duration: 0.7, ease: 'expo.inOut' }, T1(k) - 0.2);
+  tl.to(g, { opacity: 0, duration: 0.3 }, T1(8) - 0.15);
+  return g;
+})();
 
 // ================= 8 · HIS NAME: MARIO SEGALE → Jumpman becomes Mario =================
 {
-  const k = 8, g = group(T0(k) - 0.1, T1(k) + 0.1);
+  const k = 8;
   textGroup(k);
-  const p = pic('seg', 105, 140, 150, g);
-  enter(p, T0(k) - 0.1, { scale: 0.85, opacity: 0 }, 0.5);
-  tag('Mario Segale', 130, 306, W(k, 1).s, g, { ltr: true });
-  say(k, 0, 2, { y: 344, size: 26, hero: { 1: 36, 2: 36 }, out: W(k, 3).s - 0.32 });
-  say(k, 3, 8, { y: 344, size: 22, hero: { 8: 32 } });
-  const jm = word('Jumpman', 0, 410, 40, W(k, 3).s, { hero: false, ltr: true, css: 'left:0;right:0;text-align:center;color:#9BFFC2' });
+  tag('Mario Segale', 133, 334, W(k, 1).s, SEG, { ltr: true });
+  say(k, 0, 2, { y: 376, size: 26, hero: { 1: 36, 2: 36 }, out: W(k, 3).s - 0.32 });
+  say(k, 3, 8, { y: 372, size: 20, hero: { 8: 28 } });
+  const jm = word('Jumpman', 0, 454, 38, W(k, 3).s, { hero: false, ltr: true, css: 'left:0;right:0;text-align:center;color:#9BFFC2' });
   tl.to(jm, { rotationX: 90, opacity: 0, duration: 0.2, ease: 'power2.in' }, W(k, 8).s - 0.3);
-  word('Mario', 0, 410, 44, W(k, 8).s - 0.05, { ltr: true, css: 'left:0;right:0;text-align:center', from: 1.15 }); cue(W(k, 8).s, 'shimmer', 0.35);
-  tl.to(g, { opacity: 0, duration: 0.3 }, T1(k) - 0.15);
+  word('Mario', 0, 454, 42, W(k, 8).s - 0.05, { ltr: true, css: 'left:0;right:0;text-align:center', from: 1.15 }); cue(W(k, 8).s, 'shimmer', 0.35);
 }
 
 // ================= 9 · TWO YEARS LATER — Mario Bros. (1983), a plumber =================
@@ -176,8 +176,8 @@ const MU = [0.333, 0.422], CAP = [0.5, 0.281], MID = [0.5, 0.5];
   ringIn(f, 0, 54, 30, W(k, 2).s - 0.1, { dash: '6 6' });
   say(k, 0, 2, { y: 136, size: 26, bg: true, hero: { 2: 38 } });
   const yes = word('يمشي', 0, 404, 38, W(k, 3).s - 0.05, { css: 'left:auto;right:64px' }); yes.classList.add('dk');
-  word('لو', 150, 412, 26, W(k, 4).s - 0.05, { hero: false });
-  const no = word('لا', 60, 404, 38, W(k, 5).s - 0.05, { hero: false, css: 'color:#FF5A5F' }); no.classList.add('dk');
+  word('لو', 128, 412, 26, W(k, 4).s - 0.05, { hero: false });
+  const no = word('لا', 50, 404, 38, W(k, 5).s - 0.05, { hero: false, css: 'color:#FF5A5F' }); no.classList.add('dk');
   fadeOut(f.L, T1(k) - 0.05, 0.3);
 }
 

@@ -1,0 +1,191 @@
+[
+  {
+    "name": "dkarc-1",
+    "file": "dkarc-1.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Donkey_Kong_arcade_at_the_QuakeCon_2005.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Donkey Kong arcade at the QuakeCon 2005.png",
+    "bytes": 584206
+  },
+  {
+    "name": "dkarc-2",
+    "file": "dkarc-2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Donkey_Kong_arcade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Donkey Kong arcade.jpg",
+    "bytes": 130302
+  },
+  {
+    "name": "dkarc-3",
+    "file": "dkarc-3.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Donkey_Kong_arcade_-_zapwizard_34102189.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Donkey Kong arcade - zapwizard 34102189.jpg",
+    "bytes": 191805
+  },
+  {
+    "name": "dkarc-4",
+    "file": "dkarc-4.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Computer_Entertainer_7-8.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Computer Entertainer 7-8.pdf",
+    "bytes": 20415741
+  },
+  {
+    "name": "dkspr-1",
+    "file": "dkspr-1.png",
+    "url": "https://mario.wiki.gallery/images/7/79/DK_Arcade_Mario_Idle_Sprite.png",
+    "source": "https://www.mariowiki.com/wiki/File:DK Arcade Mario Idle Sprite.png",
+    "bytes": 154
+  },
+  {
+    "name": "dkspr-2",
+    "file": "dkspr-2.png",
+    "url": "https://mario.wiki.gallery/images/8/80/DK_Arcade_Mario_Jumping_Sprite.png",
+    "source": "https://www.mariowiki.com/wiki/File:DK Arcade Mario Jumping Sprite.png",
+    "bytes": 168
+  },
+  {
+    "name": "dkspr-3",
+    "file": "dkspr-3.gif",
+    "url": "https://mario.wiki.gallery/images/9/94/DK_Arcade_Mario_Hammering_Sprite.gif",
+    "source": "https://www.mariowiki.com/wiki/File:DK Arcade Mario Hammering Sprite.gif",
+    "bytes": 1338
+  },
+  {
+    "name": "dkspr-4",
+    "file": "dkspr-4.png",
+    "url": "https://mario.wiki.gallery/images/a/aa/MKAGP_Donkey_Kong_Icon.png",
+    "source": "https://www.mariowiki.com/wiki/File:MKAGP Donkey Kong Icon.png",
+    "bytes": 3184
+  },
+  {
+    "name": "dkspr-5",
+    "file": "dkspr-5.png",
+    "url": "https://mario.wiki.gallery/images/b/bd/DK_Arcade_Mario_Climbing.png",
+    "source": "https://www.mariowiki.com/wiki/File:DK Arcade Mario Climbing.png",
+    "bytes": 145
+  },
+  {
+    "name": "smbspr-1",
+    "file": "smbspr-1.png",
+    "url": "https://mario.wiki.gallery/images/d/dd/NSMB_Asset_Sprite_Mega_Luigi.png",
+    "source": "https://www.mariowiki.com/wiki/File:NSMB Asset Sprite Mega Luigi.png",
+    "bytes": 4415
+  },
+  {
+    "name": "smbspr-2",
+    "file": "smbspr-2.png",
+    "url": "https://mario.wiki.gallery/images/f/f3/Super_Mario_Maker_-_Sprite_Mario_Art_-_Super_Mario_Bros..png",
+    "source": "https://www.mariowiki.com/wiki/File:Super Mario Maker - Sprite Mario Art - Super Mario Bros..png",
+    "bytes": 43427
+  },
+  {
+    "name": "smbspr-3",
+    "file": "smbspr-3.png",
+    "url": "https://mario.wiki.gallery/images/3/3b/Super_Mario_Maker_-_Sprite_Mario_Art_-_Super_Mario_Bros._3.png",
+    "source": "https://www.mariowiki.com/wiki/File:Super Mario Maker - Sprite Mario Art - Super Mario Bros. 3.png",
+    "bytes": 58452
+  },
+  {
+    "name": "smbspr-4",
+    "file": "smbspr-4.png",
+    "url": "https://mario.wiki.gallery/images/c/c9/Super_Mario_Maker_-_Sprite_Mario_Art_-_New_Super_Mario_Bros._U.png",
+    "source": "https://www.mariowiki.com/wiki/File:Super Mario Maker - Sprite Mario Art - New Super Mario Bros. U.png",
+    "bytes": 1000756
+  },
+  {
+    "name": "jumpman-1",
+    "file": "jumpman-1.jpg",
+    "url": "https://mario.wiki.gallery/images/b/b1/DonkeyKong_marquee.jpg",
+    "source": "https://www.mariowiki.com/wiki/File:DonkeyKong marquee.jpg",
+    "bytes": 1437506
+  },
+  {
+    "name": "jumpman-2",
+    "file": "jumpman-2.jpg",
+    "url": "https://mario.wiki.gallery/images/1/1e/DK_Cabinet_Instruction_Card.jpg",
+    "source": "https://www.mariowiki.com/wiki/File:DK Cabinet Instruction Card.jpg",
+    "bytes": 86325
+  },
+  {
+    "name": "modern-1",
+    "file": "modern-1.jpg",
+    "url": "https://mario.wiki.gallery/images/9/9b/Super_Mario_Odyssey_Atlas.jpg",
+    "source": "https://www.mariowiki.com/wiki/File:Super Mario Odyssey Atlas.jpg",
+    "bytes": 191804
+  },
+  {
+    "name": "modern-2",
+    "file": "modern-2.jpg",
+    "url": "https://mario.wiki.gallery/images/6/69/Super-Mario-Odyssey-Map.jpg",
+    "source": "https://www.mariowiki.com/wiki/File:Super-Mario-Odyssey-Map.jpg",
+    "bytes": 178383
+  },
+  {
+    "name": "modern-3",
+    "file": "modern-3.jpg",
+    "url": "https://mario.wiki.gallery/images/7/73/Super_Mario_Odyssey_October_Phonepaper.jpg",
+    "source": "https://www.mariowiki.com/wiki/File:Super Mario Odyssey October Phonepaper.jpg",
+    "bytes": 433366
+  },
+  {
+    "name": "modern-4",
+    "file": "modern-4.jpg",
+    "url": "https://mario.wiki.gallery/images/b/b1/Super_Mario_Odyssey_October_Wallpaper.jpg",
+    "source": "https://www.mariowiki.com/wiki/File:Super Mario Odyssey October Wallpaper.jpg",
+    "bytes": 489533
+  },
+  {
+    "name": "miya",
+    "file": "miya.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Shigeru_Miyamoto_20230526.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "source": "https://en.wikipedia.org/wiki/Shigeru_Miyamoto",
+    "bytes": 630347
+  },
+  {
+    "name": "miyac-1",
+    "file": "miyac-1.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Shigeru_Miyamoto_20150610_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Shigeru Miyamoto 20150610 (cropped).jpg",
+    "bytes": 782499
+  },
+  {
+    "name": "miyac-2",
+    "file": "miyac-2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Shigeru_Miyamoto_20150610.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Shigeru Miyamoto 20150610.jpg",
+    "bytes": 749560
+  },
+  {
+    "name": "miyac-3",
+    "file": "miyac-3.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Shigeru_Miyamoto_20150610_%28cropped_2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Shigeru Miyamoto 20150610 (cropped 2).jpg",
+    "bytes": 376255
+  },
+  {
+    "name": "segale",
+    "file": "segale.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Mario_Segale_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
+    "source": "https://en.wikipedia.org/wiki/Mario_Segale",
+    "bytes": 21982
+  },
+  {
+    "name": "tukwila-1",
+    "file": "tukwila-1.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Finding_of_no_significant_impact-_Desimone-Brisco_School_levee_rehabilitation%2C_Tukwila%2C_Washington_-_USACE-p16021coll7-10147.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:Finding of no significant impact- Desimone-Brisco School levee rehabilitation, Tukwila, Washington - USACE-p16021coll7-10147.pdf",
+    "bytes": 16960291
+  },
+  {
+    "name": "tukwila-2",
+    "file": "tukwila-2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/2010_Tiered-full_monitoring_at_the_Port_Gardner_non-dispersive_unconfined_open-water_dredged_material_disposal_site-_Data_report%2C_final_-_USACE-p266001coll1-9901.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:2010 Tiered-full monitoring at the Port Gardner non-dispersive unconfined open-water dredged material disposal site- Data report, final - USACE-p266001coll1-9901.pdf",
+    "bytes": 3697325
+  },
+  {
+    "name": "tukwila-3",
+    "file": "tukwila-3.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/2005_Full_monitoring_at_the_Anderson_%2C_Ketron_Islands_PSDDA_disposal_site-_Draft_data_report_-_USACE-p266001coll1-9297.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:2005 Full monitoring at the Anderson , Ketron Islands PSDDA disposal site- Draft data report - USACE-p266001coll1-9297.pdf",
+    "bytes": 53995725
+  }
+]

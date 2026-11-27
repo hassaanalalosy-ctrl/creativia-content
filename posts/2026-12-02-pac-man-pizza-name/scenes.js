@@ -79,6 +79,7 @@ const GAP = [0.665, 0.37];   // the missing slice on the pizza photo
   ringIn(fb, 0, 272, 282, W(5, 0).s - 0.1, { width: 7, out: W(5, 4).s - 0.2 });
   camTo(fb, W(5, 4).s - 0.25, { x: GAP[0], y: GAP[1], z: 0.95, cy: 300 }, 1.0, 'expo.inOut'); cue(W(5, 4).s - 0.2, 'whoosh-soft', 0.35);
   ringIn(fb, 1, 82, 80, W(5, 5).s, { width: 4 });
+  camTo(fb, W(5, 4).s + 0.8, { z: 1.08, cy: 306 }, T1(5) - W(5, 4).s - 0.7, 'none');
   fadeOut(fb.L, T1(5) - 0.05, 0.3);
 }
 {
@@ -224,7 +225,8 @@ const LOGO = (() => {
   const yes = word('إي', 0, 404, 40, W(k, 2).s - 0.05, { css: 'left:auto;right:70px' }); yes.classList.add('dk');
   word('لو', 150, 412, 26, W(k, 3).s - 0.05, { hero: false });
   const no = word('لا', 60, 404, 40, W(k, 4).s - 0.05, { hero: false, css: 'color:' + RED }); no.classList.add('dk');
-  fadeOut(f.L, T1(k) - 0.05, 0.3);
+  tl.to(TX, { opacity: 0, filter: 'blur(6px)', duration: 0.35, ease: 'power2.in' }, T1(k) - 0.4);
+  fadeOut(f.L, T1(k) - 0.35, 0.45);
 }
 
 // ================= 15 · END CARD =================

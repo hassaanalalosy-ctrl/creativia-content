@@ -1,0 +1,113 @@
+{
+ "id": "2026-12-02-pac-man-pizza-name",
+ "topic": "Pac-Man's design and name: Toru Iwatani (Namco, 1980) wanted a cute game about eating to bring women to violent arcades; the pizza-with-a-missing-slice story (half true: also the rounded kanji for mouth, kuchi); the name from 'paku paku'; released as Puck-Man in Japan, renamed Pac-Man for the US for fear vandals would turn the P into an F; 350,000 cabinets in 18 months",
+ "category": "تصميم · ألعاب",
+ "format": "reel",
+ "engine": 6,
+ "mode": "dark",
+ "badge": "تصميم · ألعاب",
+ "music": "assets/music/ikoliks_aj-upbeat-upbeat-music-628248.mp3",
+ "musicStart": 0,
+ "voice": true,
+ "coverAt": 1.6,
+ "sources": [
+  "https://www.smithsonianmag.com/innovation/why-players-around-world-gobbled-up-pac-man-180974902",
+  "https://mentalfloss.com/article/90920/10-fast-facts-about-pac-man",
+  "https://www.todayifoundout.com/?p=24227"
+ ],
+ "scenes": [
+  {
+   "say": "باك مان كان اسمه شي ثاني، وانغير بسبب حرف واحد.",
+   "dur": 3,
+   "voice": "باك مان كان اسمَه شي ثاني، وانغَيَّر بسَبَب حَرف واحِد."
+  },
+  {
+   "say": "سنة الف وتسعمية وثمانين، الياباني تورو إيواتاني صمم لعبة لشركة نامكو.",
+   "dur": 3,
+   "voice": "سَنة ألف وتِسعمية وثمانين، الياباني تورو إيواتاني صَمَّم لُعبة لشَرِكة نامكو."
+  },
+  {
+   "say": "وقتها ألعاب الأركيد كلها حروب وفضائيين، وما تجذب البنات.",
+   "dur": 3,
+   "voice": "وَقِتها ألعاب الأركيد كُلها حُروب وفَضائيين، وما تِجذِب البَنات."
+  },
+  {
+   "say": "فقرر يسوي لعبة لطيفة عن شي الكل يحبه: الأكل.",
+   "dur": 3,
+   "voice": "فقَرَّر يسَوّي لُعبة لَطيفة عَن شي الكُل يحِبّه: الأكِل."
+  },
+  {
+   "say": "وهو ياكل بيتزا، شال منها قطعة، وشاف الشكل.",
+   "dur": 3,
+   "voice": "وهو ياكُل بيتزا، شال مِنها قِطعة، وشاف الشَّكِل."
+  },
+  {
+   "say": "دائرة ناقصة منها قطعة، كأنها فم مفتوح.",
+   "dur": 3,
+   "voice": "دائِرة ناقصة مِنها قِطعة، كأنها فَم مَفتوح."
+  },
+  {
+   "say": "بس هو نفسه كال: نص القصة صحيح، الفم بالياباني حرف مربع، وهو دوره.",
+   "dur": 3,
+   "voice": "بَس هو نَفسَه قال: نُص القِصّة صَحيح، الفَم بالياباني حَرف مرَبَّع، وهو دَوَّرَه."
+  },
+  {
+   "say": "واسمه جا من صوت الأكل بالياباني: باكو باكو.",
+   "dur": 3,
+   "voice": "واسمَه إجا مِن صوت الأكِل بالياباني: باكو باكو."
+  },
+  {
+   "say": "فطلعت اللعبة باليابان باسم بوك مان.",
+   "dur": 3,
+   "voice": "فطِلعَت اللُّعبة باليابان باسم بوك مان."
+  },
+  {
+   "say": "بس لما راحت لأمريكا، خافوا من شي واحد.",
+   "dur": 3,
+   "voice": "بَس لَمّا راحَت لأمريكا، خافوا مِن شي واحِد."
+  },
+  {
+   "say": "المخربين يعدلون حرف بي ويخلوه إف، ويطلع اسم مسيء.",
+   "dur": 3,
+   "voice": "المُخَرِّبين يعَدّلون حَرف بي ويخَلّوه إف، ويِطلَع اسم مُسيء."
+  },
+  {
+   "say": "فغيروا الاسم لباك مان.",
+   "dur": 3,
+   "voice": "فغَيّروا الاسم لباك مان."
+  },
+  {
+   "say": "وبسنة ونص بس، انباعت ثلاثمية وخمسين ألف ماكينة.",
+   "dur": 3,
+   "voice": "وبسَنة ونُص بَس، انباعَت ثلاثمية وخَمسين ألِف ماكينة."
+  },
+  {
+   "say": "يعني أيقونة الألعاب هاي بدأت من بيتزا ناقصة قطعة.",
+   "dur": 3,
+   "voice": "يَعني أيقونة الألعاب هاي بِدأت مِن بيتزا ناقصة قِطعة."
+  },
+  {
+   "say": "كنت تعرفها؟ إي لو لا؟",
+   "dur": 3,
+   "voice": "كُنِت تِعرِفها؟ إي لو لا؟"
+  },
+  {
+   "type": "end",
+   "dur": 3
+  }
+ ],
+ "images": {
+  "pza": "posts/2026-12-02-pac-man-pizza-name/img/pizza-a.jpg",
+  "pzb": "posts/2026-12-02-pac-man-pizza-name/img/pizza-b.jpg",
+  "iwa": "posts/2026-12-02-pac-man-pizza-name/img/iwatani.jpg",
+  "inv": "posts/2026-12-02-pac-man-pizza-name/img/invaders.png",
+  "ghosts": "posts/2026-12-02-pac-man-pizza-name/img/ghosts.jpg",
+  "lpuck": "posts/2026-12-02-pac-man-pizza-name/img/logo-puck.png",
+  "lpac": "posts/2026-12-02-pac-man-pizza-name/img/logo-pac.png",
+  "pacart": "posts/2026-12-02-pac-man-pizza-name/img/pac-art.png",
+  "puckart": "posts/2026-12-02-pac-man-pizza-name/img/puck-art.png",
+  "sketch": "posts/2026-12-02-pac-man-pizza-name/img/sketch.jpg"
+ },
+ "scenesFile": "scenes.js",
+ "caption": "باك مان كان اسمه شي ثاني، وانغيّر بسبب حرف واحد ✦\n\nسنة 1980 صمّم الياباني تورو إيواتاني لعبة لشركة Namco. ألعاب الأركيد وقتها كلها حروب وفضائيين، وهو ردّ لعبة لطيفة تجذب البنات والأزواج، عن شي الكل يحبه: الأكل. القصة المشهورة تكول إنه شاف بيتزا ناقصة منها قطعة، وهو نفسه كال إنها نص الحقيقة: الفم بالياباني «كوتشي» حرف مربع، وهو دوّره.\n\nالاسم جا من «باكو باكو»، صوت الأكل بالياباني، فطلعت اللعبة باسم Puck-Man. بس لما وصلت أمريكا عن طريق Bally Midway، خافوا المخربين يعدلون حرف P ويخلوه F، فصار اسمها Pac-Man. وبسنة ونص انباعت 350,000 ماكينة.\n\nالدرس: أبسط شكل ممكن يصير أيقونة، والاسم يحتاج تفكير بكل سوق.\n\nكنت تعرف القصة؟ 👍 لو 👎؟\n\nاللعبة والشخصية: Bandai Namco (Namco) · تصميم: Toru Iwatani\nالصور: Bandai Namco (Pac-Man Wiki) · Wikimedia Commons (تصوير Iwatani: GDC 2011)\nالمصادر: Smithsonian Magazine · Mental Floss · Today I Found Out\n\n#كريتيفيا #تصميم #ألعاب #تصميم_شخصيات #باك_مان #PacMan #RetroGaming #GameDesign #Namco"
+}

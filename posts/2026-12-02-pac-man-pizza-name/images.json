@@ -1,13 +1,10 @@
 [
- {"name": "pm", "wiki": "Pac-Man"},
- {"name": "pmart", "search": "Pac-Man artwork", "site": "pacman.fandom.com", "n": 5},
- {"name": "puck", "search": "Puck Man flyer", "site": "pacman.fandom.com", "n": 4},
- {"name": "puckc", "search": "Puck Man", "site": "commons.wikimedia.org", "n": 5},
- {"name": "cab", "search": "Pac-Man arcade cabinet", "site": "commons.wikimedia.org", "n": 5},
- {"name": "iwa", "wiki": "Toru_Iwatani"},
- {"name": "iwac", "search": "Toru Iwatani", "site": "commons.wikimedia.org", "n": 4},
- {"name": "pizza", "search": "pizza slice missing whole", "site": "commons.wikimedia.org", "n": 4},
- {"name": "sinv", "search": "Space Invaders arcade cabinet", "site": "commons.wikimedia.org", "n": 3},
- {"name": "ghost", "search": "Blinky Pinky Inky Clyde ghosts", "site": "pacman.fandom.com", "n": 4},
- {"name": "maze", "search": "Pac-Man maze screenshot", "site": "pacman.fandom.com", "n": 4}
+ {"name": "enpm", "search": "Pac-Man", "site": "en.wikipedia.org", "n": 8},
+ {"name": "fpuck", "search": "Puckman", "site": "pacman.fandom.com", "n": 6},
+ {"name": "fspr", "search": "Pac-Man arcade sprite", "site": "pacman.fandom.com", "n": 6},
+ {"name": "fmaze", "search": "Pac-Man arcade maze 1980", "site": "pacman.fandom.com", "n": 4},
+ {"name": "pizza", "wiki": "Pizza"},
+ {"name": "pizzac", "search": "pizza top view whole", "site": "commons.wikimedia.org", "n": 4},
+ {"name": "sinv", "search": "Space Invaders", "site": "en.wikipedia.org", "n": 4},
+ {"name": "sinvc", "search": "Space Invaders cabinet", "site": "commons.wikimedia.org", "n": 3}
 ]

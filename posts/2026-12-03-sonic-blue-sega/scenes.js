@@ -116,9 +116,9 @@ const CARDS = [];
 {
   const f = full('mad', T0(8) - 0.2, T1(9) + 0.3, { x: 0.86, y: 0.14, z: 2.2, cx: 190, cy: 260, free: true, shade: 0.3 }, [ringMark(0.86, 0.13, 200, 200)]);
   fade(f.L, T0(8) - 0.2, 0.35);
-  ringIn(f, 0, 44, 44, W(8, 5).s - 0.1, { width: 2, out: W(8, 8).s - 0.35 });
-  camTo(f, W(8, 8).s - 0.3, { x: 0.68, y: 0.45, z: 0.95, cx: 180, cy: 300, free: false }, 1.0, 'expo.inOut'); cue(W(8, 8).s - 0.25, 'whoosh-soft', 0.35);
-  camTo(f, W(8, 8).s + 0.8, { z: 1.0 }, T1(8) - W(8, 8).s, 'none');
+  ringIn(f, 0, 44, 44, W(8, 5).s - 0.1, { width: 2, out: W(8, 6).s - 0.45 });
+  camTo(f, W(8, 6).s - 0.35, { x: 0.68, y: 0.45, z: 0.95, cx: 180, cy: 300, free: false }, 1.0, 'expo.inOut'); cue(W(8, 6).s - 0.3, 'whoosh-soft', 0.35);
+  camTo(f, W(8, 6).s + 0.7, { z: 1.0 }, T1(8) - W(8, 6).s - 0.7, 'none');
   // 9: the art shrinks into a card and gets crossed out
   clipOut(f, T0(9) + 0.05, [60, 220, 240, 150, 14], 0.6);
   camTo(f, T0(9) + 0.05, { x: 0.5, y: 0.5, z: 0.62, cy: 295, free: true }, 0.6, 'expo.inOut');

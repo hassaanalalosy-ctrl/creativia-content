@@ -118,16 +118,15 @@ const CARDS = [];
   fade(f.L, T0(8) - 0.2, 0.35);
   ringIn(f, 0, 44, 44, W(8, 5).s - 0.1, { width: 2, out: W(8, 6).s - 0.45 });
   camTo(f, W(8, 6).s - 0.35, { x: 0.68, y: 0.45, z: 0.95, cx: 180, cy: 300, free: false }, 1.0, 'expo.inOut'); cue(W(8, 6).s - 0.3, 'whoosh-soft', 0.35);
-  camTo(f, W(8, 6).s + 0.7, { z: 1.0 }, T1(8) - W(8, 6).s - 0.7, 'none');
+  camTo(f, W(8, 6).s + 0.7, { z: 1.0 }, T1(8) - W(8, 6).s, 'none');
   // 9: the art shrinks into a card and gets crossed out
   clipOut(f, T0(9) + 0.05, [60, 220, 240, 150, 14], 0.6);
-  camTo(f, T0(9) + 0.05, { x: 0.5, y: 0.5, z: 0.62, cy: 295, free: true }, 0.6, 'expo.inOut');
   const sv = svgLayer(group(T0(9), T1(9) + 0.1, fx));
   path(sv, 'M70 230 L290 360', W(9, 3).s - 0.1, 0.3, { color: RED, width: 6 }); cue(W(9, 3).s - 0.05, 'impact', 0.35);
   path(sv, 'M290 230 L70 360', W(9, 3).s + 0.15, 0.3, { color: RED, width: 6 });
   fadeOut(f.L, T1(9) - 0.1, 0.3);
 }
-{ const k = 8; textGroup(k); sayN(k, 0, 2, { y: 420, size: 24, bg: true, out: W(k, 3).s - 0.3 }); sayN(k, 3, 5, { y: 420, size: 26, bg: true, hero: { 5: 34 }, out: W(k, 6).s - 0.3 }); sayN(k, 6, 7, { y: 136, size: 24, bg: true, hero: { 7: 30 }, out: W(k, 8).s - 0.3 }); sayN(k, 8, 10, { y: 136, size: 24, bg: true, hero: { 10: 30 } }); }
+{ const k = 8; textGroup(k); sayN(k, 0, 2, { y: 420, size: 24, bg: true, out: W(k, 3).s - 0.3 }); sayN(k, 3, 5, { y: 420, size: 26, bg: true, hero: { 5: 34 }, out: W(k, 6).s - 0.3 }); sayN(k, 6, 7, { y: 136, size: 24, bg: true, hero: { 7: 30 }, out: W(k, 8).s - 0.3 }); sayN(k, 8, 10, { y: 136, size: 24, bg: true, hero: { 10: 30 }, out: T1(k) - 0.3 }); }
 {
   const k = 9; textGroup(k);
   say(k, 0, 4, { y: 128, size: 24, hero: { 1: 30, 3: 30 } });

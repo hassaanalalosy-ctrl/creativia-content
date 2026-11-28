@@ -1,0 +1,113 @@
+{
+ "id": "2026-12-03-sonic-blue-sega",
+ "topic": "Why Sonic is blue: Sega wanted a mascot to rival Mario; an internal contest (rabbit, dog, armadillo, man in pajamas); Naoto Ohshima polled people in Central Park; the pajama man became Eggman; a hedgehog because it rolls into a ball to attack; codename Mr. Needlemouse; early Sonic had fangs, a rock band and girlfriend Madonna, removed by Sega of America; shoes from Michael Jackson's Bad boots + Santa colours; blue = Sega's cobalt logo; 1991 release helped Sega overtake Nintendo in the US",
+ "category": "تصميم · ألعاب",
+ "format": "reel",
+ "engine": 6,
+ "mode": "dark",
+ "badge": "تصميم · ألعاب",
+ "music": "assets/music/hitslab-upbeat-upbeat-music-300654.mp3",
+ "musicStart": 0,
+ "voice": true,
+ "coverAt": 1.6,
+ "sources": [
+  "https://en.wikipedia.org/wiki/Sonic_the_Hedgehog_(character)",
+  "https://www.gamesradar.com/the-making-of-sonic-the-hedgehog",
+  "https://mentalfloss.com/article/62380/14-facts-about-sonic-hedgehog",
+  "https://kotaku.com/sonics-shoes-inspired-by-michael-jackson-5420201"
+ ],
+ "scenes": [
+  {
+   "say": "ليش سونيك أزرق؟ الجواب بشعار شركته.",
+   "dur": 3,
+   "voice": "ليش سونيك أزرَق؟ الجَواب بشِعار شَرِكتَه."
+  },
+  {
+   "say": "آخر الثمانينات، ماريو كان ملك الألعاب، وسيغا تريد بطل ينافسه.",
+   "dur": 3,
+   "voice": "آخِر الثَّمانينات، ماريو كان مَلِك الألعاب، وسيغا تريد بَطَل يِنافسَه."
+  },
+  {
+   "say": "فسوت مسابقة جوة الشركة: أرنب، وكلب، وأرماديلو، ورجال بالبيجامة.",
+   "dur": 3,
+   "voice": "فسَوَّت مُسابَقة جُوّة الشَّرِكة: أرنَب، وكَلِب، وأرماديلو، ورِجّال بالبيجامة."
+  },
+  {
+   "say": "المصمم ناوتو أوشيما أخذ الرسوم لنيويورك، وسأل الناس بسنترال بارك.",
+   "dur": 3,
+   "voice": "المُصَمِّم ناوتو أوشيما أخَذ الرُّسوم لنيويورك، وسِأل النّاس بسَنتِرال بارك."
+  },
+  {
+   "say": "فاز القنفذ، والثاني كان الرجال أبو البيجامة.",
+   "dur": 3,
+   "voice": "فاز القُنفُذ، والثّاني كان الرِّجّال أبو البيجامة."
+  },
+  {
+   "say": "وهذا الرجال صار بعدين الشرير دكتور إيغمان.",
+   "dur": 3,
+   "voice": "وهاذا الرِّجّال صار بَعدين الشِّرّير دكتور إيغمان."
+  },
+  {
+   "say": "وليش قنفذ؟ لأنه يتكور كرة، ويهجم بجسمه.",
+   "dur": 3,
+   "voice": "وليش قُنفُذ؟ لأنَّه يِتكَوَّر كُرة، ويِهجِم بجِسمَه."
+  },
+  {
+   "say": "وأول اسم إله كان: مستر نيدل ماوس.",
+   "dur": 3,
+   "voice": "وأوَّل اسم إلَه كان: مِستَر نيدِل ماوس."
+  },
+  {
+   "say": "بس سونيك الأول كان عنده أنياب، وفرقة روك، وحبيبة اسمها مادونا.",
+   "dur": 3,
+   "voice": "بَس سونيك الأوَّل كان عِندَه أنياب، وفِرقة روك، وحَبيبة اسِمها مادونا."
+  },
+  {
+   "say": "فرع سيغا بأمريكا شالهم كلهم، وفريق سونيك باليابان زعلوا.",
+   "dur": 3,
+   "voice": "فَرع سيغا بأمريكا شالهُم كُلهُم، وفَريق سونيك باليابان زِعلوا."
+  },
+  {
+   "say": "وحذاءه الأحمر؟ من بوط مايكل جاكسون بألبوم باد، وبلون بابا نويل.",
+   "dur": 3,
+   "voice": "وحِذاءَه الأحمَر؟ مِن بوط مايكل جاكسون بألبوم باد، وبلون بابا نويل."
+  },
+  {
+   "say": "أما الأزرق؟ نفس لون شعار سيغا بالضبط.",
+   "dur": 3,
+   "voice": "أمّا الأزرَق؟ نَفس لون شِعار سيغا بالضَّبُط."
+  },
+  {
+   "say": "نزلت اللعبة سنة واحد وتسعين، وسيغا سبقت نينتندو بأمريكا.",
+   "dur": 3,
+   "voice": "نِزلَت اللُّعبة سَنة واحِد وتِسعين، وسيغا سِبقَت نينتِندو بأمريكا."
+  },
+  {
+   "say": "يعني كل تفصيلة بسونيك إلها سبب، حتى لونه.",
+   "dur": 3,
+   "voice": "يَعني كُل تَفصيلة بسونيك إلها سَبَب، حَتّى لونَه."
+  },
+  {
+   "say": "كنت تعرف ليش أزرق؟ إي لو لا؟",
+   "dur": 3,
+   "voice": "كُنِت تِعرُف ليش أزرَق؟ إي لو لا؟"
+  },
+  {
+   "type": "end",
+   "dur": 3
+  }
+ ],
+ "images": {
+  "box": "posts/2026-12-03-sonic-blue-sega/img/box-md.jpg",
+  "boxus": "posts/2026-12-03-sonic-blue-sega/img/box-us.jpg",
+  "logo": "posts/2026-12-03-sonic-blue-sega/img/sega-logo.png",
+  "egg": "posts/2026-12-03-sonic-blue-sega/img/eggman.png",
+  "hog": "posts/2026-12-03-sonic-blue-sega/img/hedgehog.jpg",
+  "mad": "posts/2026-12-03-sonic-blue-sega/img/madonna.jpg",
+  "mario": "posts/2026-12-03-sonic-blue-sega/img/mario.jpg",
+  "spin": "posts/2026-12-03-sonic-blue-sega/img/spin.png",
+  "title": "posts/2026-12-03-sonic-blue-sega/img/title.png"
+ },
+ "scenesFile": "scenes.js",
+ "caption": "ليش سونيك أزرق؟ الجواب بشعار شركته ✦\n\nآخر الثمانينات كان ماريو ملك الألعاب، وSega تريد بطل ينافسه. سوّت مسابقة داخلية: أرنب، كلب، أرماديلو، ورجّال بالبيجامة. المصمم Naoto Ohshima أخذ الرسوم لنيويورك وسأل الناس بسنترال بارك، ففاز القنفذ، والرجّال أبو البيجامة صار بعدين دكتور إيغمان.\n\nاختاروا القنفذ لأنه يتكوّر كرة ويهجم بجسمه، وكان اسمه بالبداية «Mr. Needlemouse». النسخة الأولى كان عنده أنياب، وفرقة روك، وحبيبة اسمها مادونا، وفرع Sega بأمريكا شالهم كلهم وفريق سونيك زعل. حذاءه الأحمر من بوط مايكل جاكسون بغلاف ألبوم Bad وبلون بابا نويل، أما الأزرق فهو نفس لون شعار Sega.\n\nنزلت اللعبة سنة 1991، وسونيك ساعد Sega تسبق Nintendo بالسوق الأمريكي.\n\nالدرس: كل تفصيلة بالشخصية إلها سبب، حتى اللون يكدر يحمل هوية الشركة.\n\nكنت تعرف ليش أزرق؟ 👍 لو 👎؟\n\nالشخصية واللعبة: SEGA (Sonic Team) · تصميم: Naoto Ohshima · برمجة: Yuji Naka\nالصور: SEGA (غلاف Mega Drive 1991، رسوم Sonic Team) عبر Sonic Wiki · Nintendo (ماريو) · صورة القنفذ: Wikimedia Commons\nالمصادر: Wikipedia · GamesRadar · Mental Floss · Kotaku\n\n#كريتيفيا #تصميم #ألعاب #تصميم_شخصيات #سونيك #هوية_بصرية #SonicTheHedgehog #SEGA #GameDesign"
+}

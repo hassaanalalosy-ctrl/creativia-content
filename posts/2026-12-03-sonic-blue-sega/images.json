@@ -1,0 +1,13 @@
+[
+ {"name": "segalogo", "wiki": "Sega"},
+ {"name": "wsonic", "wiki": "Sonic_the_Hedgehog_(character)"},
+ {"name": "wsonic1", "wiki": "Sonic_the_Hedgehog_(1991_video_game)"},
+ {"name": "weggman", "wiki": "Doctor_Eggman"},
+ {"name": "fsonic", "search": "Sonic the Hedgehog 1991 artwork", "site": "sonic.fandom.com", "n": 6},
+ {"name": "fconcept", "search": "Sonic concept art Madonna", "site": "sonic.fandom.com", "n": 6},
+ {"name": "fegg", "search": "Dr. Eggman Sonic 1 artwork", "site": "sonic.fandom.com", "n": 4},
+ {"name": "hog", "search": "hedgehog rolled ball", "site": "commons.wikimedia.org", "n": 3},
+ {"name": "cpark", "search": "Central Park New York aerial", "site": "commons.wikimedia.org", "n": 3},
+ {"name": "segac", "search": "Sega logo", "site": "commons.wikimedia.org", "n": 4},
+ {"name": "mario", "search": "Super Mario Bros artwork 1985", "site": "mario.fandom.com", "n": 3}
+]
